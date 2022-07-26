@@ -1,17 +1,21 @@
 <template>
-  <primary-btn>
-    Найти
-  </primary-btn>
+<div>
+  ЭТО ОСНОВНАЯ СТРАНИЦА
+</div>
+
+<Buttons></Buttons>
+
 </template>
 
 <script>
-  // import PrimaryBtnVue from '@/components/UI/PrimaryBtn.vue';
-  
-  export default {
-    // components: {
-    //   PrimaryBtnVue,
-    // }
+import Buttons from '@/components/Buttons.vue'
+
+
+export default {
+  components: {
+    Buttons,
   }
+}
 </script>
 
 <style scoped>
