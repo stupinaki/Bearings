@@ -1,28 +1,25 @@
 <template>
-<div>
-  ЭТО ОСНОВНАЯ СТРАНИЦА
-</div>
+  <div>ЭТО ОСНОВНАЯ СТРАНИЦА</div>
 
-<Buttons></Buttons>
-
+  <ButtonsExample />
 </template>
 
 <script>
-import Buttons from '@/components/Buttons.vue';
+import ButtonsExample from "./components/ButtonsExample.vue";
 
 export default {
   components: {
-    Buttons,
-  }
-}
+    ButtonsExample,
+  },
+};
 </script>
 
 <style>
-  :root {
-    --primary-color: #4A53F5;
-    --primary-hover-color: #3840e6;
-    --pseudo-hover-color: #EDEEFF;
-    --secondary-color: #F3F5FF;
-    --secondary-hover-color: #d8ddf9;
-  }
+:root {
+  --primary-color: #4a53f5;
+  --primary-hover-color: #3840e6;
+  --pseudo-hover-color: #edeeff;
+  --secondary-color: #f3f5ff;
+  --secondary-hover-color: #d8ddf9;
+}
 </style>
