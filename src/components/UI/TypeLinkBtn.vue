@@ -7,7 +7,7 @@
 <script>
 
   export default {
-    name: 'typeLinkBtn'
+    name: 'TypeLinkBtn'
   }
 </script>
 
@@ -20,11 +20,11 @@
         line-height: 17px;
         text-decoration-line: underline;
         /* цвет может быть #4A53F5, #EC5B55, */
-        color: #4A53F5;
+        color: var(--primary-color);
         border: none;
         background-color: transparent;
     }
     .typeLinkBtn:hover{
-        color: #070fac;
+        color: var(--primary-hover-color);
     }
 </style>

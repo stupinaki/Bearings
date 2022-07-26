@@ -9,7 +9,7 @@
 <script>
 
   export default {
-    name: 'secondaryBtn'
+    name: 'SecondaryBtn'
   }
 </script>
 
@@ -25,7 +25,7 @@
         min-width: 56px;
         min-height: 56px;
 
-        background: #F3F5FF;
+        background: var(--secondary-color);
         border-radius: 8px;
         border: none;
 
@@ -34,6 +34,6 @@
         flex-grow: 0; */
     }
     .secondaryBtn:hover{
-        background: #d8ddf9;
+        background: var(--secondary-hover-color);
     }
 </style>

@@ -7,7 +7,7 @@
 <script>
 
   export default {
-    name: 'primaryBtn'
+    name: 'PrimaryBtn',
   }
 </script>
 
@@ -21,13 +21,13 @@
         /* gap: 10px; */
         min-width: 220px;
         min-height: 56px;
-        background: #4A53F5;
+        background: var(--primary-color);
         border-radius: 8px;
         border: none;
         color: white;
     }
     .primaryBtn:hover{
-        background: #3840e6;
+        background: var(--primary-hover-color);
     }
     /* .primaryBtnText{
         width: 184px;

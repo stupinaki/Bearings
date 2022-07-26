@@ -4,9 +4,8 @@ import componentsUI from '@/components/UI/index.js'
 
 const app = createApp(App);
 
-console.log(componentsUI)
-componentsUI.forEach(component => {
-    app.component(component.name, component)
+componentsUI.forEach(componentUI => {
+    app.component(componentUI.name, componentUI)
 })
 
 app.mount('#app');

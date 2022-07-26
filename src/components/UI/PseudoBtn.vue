@@ -7,7 +7,7 @@
 <script>
 
   export default {
-    name: 'pseudoBtn'
+    name: 'PseudoBtn'
   }
 </script>
 
@@ -24,9 +24,8 @@
         background: transparent;
         min-width: 220px;
         min-height: 56px;
-
     }
     .pseudoBtn:hover{
-        background: #EDEEFF;
+        background: var(--pseudo-hover-color);
     }
 </style>
