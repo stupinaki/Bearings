@@ -1,16 +1,24 @@
 <template>
-  <div>ЭТО ОСНОВНАЯ СТРАНИЦА</div>
-
-  <ButtonsExample />
+  <v-app>
+    <v-main>
+      <ButtonsExample />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 import ButtonsExample from "./components/ButtonsExample.vue";
 
 export default {
+  name: "App",
+
   components: {
     ButtonsExample,
   },
+
+  data: () => ({
+    //
+  }),
 };
 </script>
 
