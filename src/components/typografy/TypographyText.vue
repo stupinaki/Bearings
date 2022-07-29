@@ -7,10 +7,10 @@ import styled from "./typography.css";
 
 export default {
   name: "TypographyText",
-  data(){
+  data() {
     return {
       styled,
-    }
+    };
   },
   props: {
     size: {
