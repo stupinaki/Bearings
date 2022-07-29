@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <GroceryCard />
       <div v-for="card in getInTouchCardsValue" :key="card.id">
         <GetInTouchCard v-bind="card" />
       </div>
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import GroceryCard from "./components/groceryCard/GroceryCard.vue";
 import GetInTouchCard from "./components/getInTouchCard/GetInTouchCard.vue";
 import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
@@ -24,6 +26,7 @@ export default {
   components: {
     GetInTouchCard,
     CompanyCards,
+    GroceryCard,
   },
 };
 </script>
