@@ -1,32 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <!--      <ButtonsExample />-->
-      <!--      <CompanyCards></CompanyCards>-->
-      <div v-for="card in getInTouchCardsValue" :key="card.id">
-        <GetInTouchCard v-bind="card" />
-      </div>
+      <GroceryCard />
     </v-main>
   </v-app>
 </template>
 
 <script>
-// import ButtonsExample from "./components/ButtonsExample.vue";
-// import CompanyCards from "./components/CompanyCards.vue";
-import GetInTouchCard from "./components/getInTouchCard/GetInTouchCard.vue";
-import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
+import GroceryCard from "./components/groceryCard/GroceryCard.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      getInTouchCardsValue,
-    };
-  },
   components: {
-    // ButtonsExample,
-    // CompanyCards,
-    GetInTouchCard,
+    GroceryCard,
   },
 };
 </script>
