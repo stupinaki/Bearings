@@ -37,7 +37,6 @@ export default {
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
       classes.push(styled[`btn-${type}`]);
-
       if (disabled) {
         classes.push(styled.btnDisabled);
       }

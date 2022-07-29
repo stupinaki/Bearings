@@ -1,0 +1,77 @@
+/*размеры шрифта*/
+.size-xxs {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+.size-xs {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+.size-s{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+}
+.size-xxm {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+.size-xm{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+.size-m{
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+}
+.size-l {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 39px;
+}
+.size-xl{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
+}
+.size-xxl {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 100%;
+}
+.size-xxxl {
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 77px;
+}
+
+/*стиль шрифта*/
+.font-inter{
+    font-family: 'Inter', serif;
+    font-style: normal;
+}
+
+/*цвет шрифта*/
+.color-darkgray{
+    color: #3A3D4B;
+}
+.color-darkblue{
+    color: #4A53F5;
+}
+.color-white {
+    color: #FFFFFF;
+}
+.color-gray{
+    color: #898989;
+}
+.color-lightgray{
+    color: #B7B7B7;
+}
+.color-coral{
+    color: #EC5B55;
+}
