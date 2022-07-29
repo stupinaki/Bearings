@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <v-main>
-      <!--      <ButtonsExample />-->
-      <!--      <CompanyCards></CompanyCards>-->
       <div v-for="card in getInTouchCardsValue" :key="card.id">
         <GetInTouchCard v-bind="card" />
       </div>
@@ -11,8 +9,6 @@
 </template>
 
 <script>
-// import ButtonsExample from "./components/ButtonsExample.vue";
-// import CompanyCards from "./components/CompanyCards.vue";
 import GetInTouchCard from "./components/getInTouchCard/GetInTouchCard.vue";
 import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
 
@@ -24,8 +20,6 @@ export default {
     };
   },
   components: {
-    // ButtonsExample,
-    // CompanyCards,
     GetInTouchCard,
   },
 };

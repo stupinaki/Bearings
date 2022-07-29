@@ -1,12 +1,17 @@
 <template>
-  <span class="typography"></span>
+  <span :class="styled.typography"></span>
 </template>
 
 <script>
-// import styled from "./typography.css";
+import styled from "./typography.css";
 
 export default {
   name: "TypographyText",
+  data(){
+    return {
+      styled,
+    }
+  },
   props: {
     size: {
       type: String,
