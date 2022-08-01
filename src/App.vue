@@ -1,18 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <NavigationMenu />
+      <HeaderBlock />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import NavigationMenu from "./components/navigation/NavigationMenu.vue";
+import HeaderBlock from "./components/header/HeaderBlock.vue";
 
 export default {
   name: "App",
   components: {
-    NavigationMenu,
+    HeaderBlock,
   },
 };
 </script>

@@ -1,27 +1,27 @@
 <template>
   <div :class="styled.wrapper">
     <ButtonUI
-      :class="styled.item"
+      size="m" type="pseudo"
     >
       Найти подшипники
     </ButtonUI>
     <ButtonUI
-        :class="styled.item"
+        size="m" type="pseudo"
     >
       Вопросы и ответы
     </ButtonUI>
     <ButtonUI
-        :class="styled.item"
+        size="m" type="pseudo"
     >
       Компании
     </ButtonUI>
     <ButtonUI
-        :class="styled.item"
+        size="m" type="pseudo"
     >
       Контакты
     </ButtonUI>
     <ButtonUI
-        :class="styled.item"
+        size="m" type="secondary"
     >
       Стать партнером
     </ButtonUI>

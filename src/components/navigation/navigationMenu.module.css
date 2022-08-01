@@ -1,8 +1,3 @@
 .wrapper {
-    /*display: grid;*/
-    /*grid-template-columns: 20% 20% 20% 20% 20%;*/
     display: flex;
-}
-.item {
-    color: #3A3D4B;
 }

@@ -1,0 +1,32 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.logoMap{
+    display: flex;
+}
+.map{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mapImg {
+    max-width: 12px;
+    margin-right: 4px;
+}
+.city {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #4A53F5;
+}
+.pic {
+    padding-right: 24px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 58px;
+    color: #3A3D4B;
+}

@@ -38,12 +38,14 @@
 }
 .btn-secondary {
     background: var(--secondary-color);
+    color: #4A53F5;
 }
 .btn-secondary:hover{
     background: var(--secondary-hover-color);
 }
 .btn-pseudo {
     background: transparent;
+    color: #3A3D4B;
 }
 .btn-pseudo:hover {
     background: var(--pseudo-hover-color);
