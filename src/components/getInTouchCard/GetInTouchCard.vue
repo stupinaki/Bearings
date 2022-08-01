@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.getInTouchCard">
     <div :class="styled.contactUs">
-      <div :class="styled.title">
+      <div :class="[styled.title, styled.row]">
         {{ contactUsTitle }}
       </div>
       <div>
@@ -16,7 +16,7 @@
 
     <div :class="styled.aboutCompany">
       <div>
-        <div :class="styled.name">
+        <div :class="[styled.name, styled.row]">
           {{ aboutCompanyName }}
         </div>
         <div :class="styled.address">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div :class="styled.btns">
-        <ButtonUI :class="styled.order" size="s" type="typeLink">
+        <ButtonUI :class="styled.row" size="s" type="typeLink">
           Оптовый заказ
         </ButtonUI>
         <ButtonUI :class="styled.btn" size="s" type="typeLink">
