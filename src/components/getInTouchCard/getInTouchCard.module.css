@@ -1,0 +1,54 @@
+.getInTouchCard{
+    padding: 20px;
+    background: var(--white-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.contactUs{
+    margin-bottom: 32px;
+}
+.row {
+    padding-bottom: 12px;
+}
+.title,
+.address{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #898989;
+}
+.phone,
+.email{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--secondary-gray-color);
+    text-decoration: none;
+    display: inline-block;
+}
+.phone{
+    padding-right: 32px;
+}
+.aboutCompany{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.name{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--secondary-gray-color);
+}
+.btn{
+    color: #B7B7B7;
+}
+.btns{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}

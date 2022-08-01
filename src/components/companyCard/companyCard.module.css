@@ -1,0 +1,47 @@
+.companyCard {
+    background: var(--white-color);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--secondary-gray-color);
+}
+.subTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 32px;
+    color: var(--secondary-gray-color);
+    flex: 1 1 auto;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.address {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #898989;
+    padding-right: 8px;
+}
+.offers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4a53f5;
+    padding-right: 16px;
+}
