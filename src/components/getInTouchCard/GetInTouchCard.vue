@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.getInTouchCard">
     <div :class="styled.contactUs">
-      <div :class="styled.title">
+      <div :class="[styled.title, styled.row]">
         {{ contactUsTitle }}
       </div>
       <div>
@@ -16,7 +16,7 @@
 
     <div :class="styled.aboutCompany">
       <div>
-        <div :class="styled.name">
+        <div :class="[styled.name, styled.row]">
           {{ aboutCompanyName }}
         </div>
         <div :class="styled.address">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div :class="styled.btns">
-        <ButtonUI :class="styled.order" size="s" type="typeLink">
+        <ButtonUI :class="styled.row" size="s" type="typeLink">
           Оптовый заказ
         </ButtonUI>
         <ButtonUI :class="styled.btn" size="s" type="typeLink">
@@ -78,68 +78,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/*.get-in-touch-card{*/
-/*  padding: 20px;*/
-/*  background: #F4F6F8;*/
-/*  border-radius: 8px;*/
-/*  max-width: 484px;*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  flex-direction: column;*/
-/*}*/
-/*.contact-us{*/
-/*  margin-bottom: 32px;*/
-/*}*/
-/*.contact-us__title,*/
-/*.about-company__name,*/
-/*.about-company__opt-order {*/
-/*  padding-bottom: 12px;*/
-/*}*/
-/*.contact-us__title,*/
-/*.about-company__address{*/
-/*  font-family: 'Inter';*/
-/*  font-style: normal;*/
-/*  font-weight: 400;*/
-/*  font-size: 14px;*/
-/*  line-height: 17px;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  color: #898989;*/
-/*}*/
-/*.contacts__phone,*/
-/*.contacts__email{*/
-/*  font-family: 'Inter';*/
-/*  font-style: normal;*/
-/*  font-weight: 400;*/
-/*  font-size: 18px;*/
-/*  line-height: 22px;*/
-/*  color: #3A3D4B;*/
-/*  text-decoration: none;*/
-/*  display: inline-block;*/
-/*}*/
-/*.contacts__phone{*/
-/*  padding-right: 32px;*/
-/*}*/
-/*.about-company{*/
-/*  display: grid;*/
-/*  grid-template-columns: 70% 30%;*/
-/*}*/
-/*.about-company__name{*/
-/*  font-family: 'Inter';*/
-/*  font-style: normal;*/
-/*  font-weight: 400;*/
-/*  font-size: 14px;*/
-/*  line-height: 17px;*/
-/*  color: #3A3D4B;*/
-/*}*/
-/*.about-company__btn{*/
-/*  color: #B7B7B7;*/
-/*}*/
-/*.about-company__btns{*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: end;*/
-/*}*/
-</style>
