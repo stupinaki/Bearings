@@ -1,18 +1,19 @@
 <template>
   <v-app>
     <v-main>
-      <FooterBlock />
+      <ChipLabel/>
+      <ChipLabel value="VIP размещение"/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import FooterBlock from "./components/footer/FooterBlock.vue";
+import ChipLabel from "./components/chip/ChipLabel.vue";
 
 export default {
   name: "App",
   components: {
-    FooterBlock,
+    ChipLabel,
   },
 };
 </script>

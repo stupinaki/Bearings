@@ -1,0 +1,14 @@
+.chip {
+    border: none;
+    border-radius: 60px;
+    color: #F0F0F0;
+    padding: 8px;
+    display: inline-block;
+    background-color: #4a53f5 ;
+}
+.green {
+    background: #52AE52;
+}
+.orange {
+    background: #E99D45;
+}
