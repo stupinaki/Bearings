@@ -1,18 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <BenefitsCards />
+      <NavigationMenu />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
+import NavigationMenu from "./components/navigation/NavigationMenu.vue";
 
 export default {
   name: "App",
   components: {
-    BenefitsCards,
+    NavigationMenu,
   },
 };
 </script>
