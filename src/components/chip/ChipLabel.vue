@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.chip">
-    {{value}}
+    {{ value }}
   </div>
 </template>
 
@@ -9,20 +9,18 @@ import styled from "./chipLabel.module.css";
 
 export default {
   name: "ChipLabel",
-  data(){
+  data() {
     return {
       styled,
-    }
+    };
   },
   props: {
     value: {
       type: String,
-      default: "Самое дешевое предложение",
-    }
+      default: "",
+    },
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

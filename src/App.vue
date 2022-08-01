@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <ChipLabel/>
+      <ChipLabel value="Самое дешевое предложение"/>
       <ChipLabel value="VIP размещение"/>
     </v-main>
   </v-app>
