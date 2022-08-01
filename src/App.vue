@@ -1,18 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <GroceryCard />
+      <FooterBlock />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import GroceryCard from "./components/groceryCard/GroceryCard.vue";
+import FooterBlock from "./components/footer/FooterBlock.vue";
 
 export default {
   name: "App",
   components: {
-    GroceryCard,
+    FooterBlock,
   },
 };
 </script>
