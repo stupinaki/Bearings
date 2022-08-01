@@ -1,6 +1,9 @@
 <template>
   <div :class="styled.wrapper">
-    <div v-for="benefit in benefitsValue" :key="benefit.id">
+    <div
+        v-for="benefit in benefitsValue"
+        :key="benefit.id"
+    >
       <BenefitsCard
           :title="benefit.title"
           :subTitle="benefit.subTitle"

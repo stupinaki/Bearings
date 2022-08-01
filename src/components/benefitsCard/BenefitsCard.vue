@@ -1,7 +1,10 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.img">
-      <img :src="way" :alt="imgName" />
+      <img
+          :src="way"
+          :alt="imgName"
+      />
     </div>
     <div :class="styled.title">
       {{ title }}
