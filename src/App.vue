@@ -1,19 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <ChipLabel value="Самое дешевое предложение"/>
-      <ChipLabel value="VIP размещение"/>
+      <BenefitsCards />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import ChipLabel from "./components/chip/ChipLabel.vue";
+import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
 
 export default {
   name: "App",
   components: {
-    ChipLabel,
+    BenefitsCards,
   },
 };
 </script>
