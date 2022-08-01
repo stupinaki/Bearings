@@ -2,11 +2,7 @@
   <div :class="styled.wrapper">
     <div :class="styled.container">
       <div :class="styled.column">
-        <img
-            :class="styled.columnLogo"
-            src="../../../public/imgs/footer/PIC.svg"
-            alt="pic logo"
-        />
+        <div :class="styled.columnLogo"> PIC </div>
       </div>
       <div :class="styled.column">
         <a :class="styled.columnItem">
@@ -35,7 +31,7 @@
           skovalev74@yandex.ru
         </a>
         <div :class="styled.columnItem">
-          <a :class="styled.linksItem" href="#">
+          <a :class="styled.linksItem">
             <img src="../../../public/imgs/footer/vk.svg" alt="vk" />
           </a>
           <a :class="styled.linksItem">
