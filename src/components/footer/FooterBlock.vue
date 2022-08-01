@@ -2,7 +2,7 @@
   <div :class="styled.wrapper">
     <div :class="styled.container">
       <div :class="styled.column">
-        <div :class="styled.columnLogo"> PIC </div>
+        <div :class="styled.columnLogo">PIC</div>
       </div>
       <div :class="styled.column">
         <a :class="styled.columnItem">
@@ -35,10 +35,16 @@
             <img src="../../../public/imgs/footer/vk.svg" alt="vk" />
           </a>
           <a :class="styled.linksItem">
-            <img src="../../../public/imgs/footer/facebook.svg" alt="facebook" />
+            <img
+              src="../../../public/imgs/footer/facebook.svg"
+              alt="facebook"
+            />
           </a>
           <a :class="styled.linksItem">
-            <img src="../../../public/imgs/footer/instagram.svg" alt="instagram" />
+            <img
+              src="../../../public/imgs/footer/instagram.svg"
+              alt="instagram"
+            />
           </a>
           <a :class="styled.linksItem">
             <img src="../../../public/imgs/footer/twitter.svg" alt="twitter" />
@@ -53,7 +59,7 @@
       <a :class="styled.bottomItem"> Обратная связь </a>
     </div>
   </div>
- </template>
+</template>
 
 <script>
 import styled from "./footerBlock.module.css";
