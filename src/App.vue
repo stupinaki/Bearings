@@ -1,6 +1,9 @@
 <template>
   <v-app>
     <v-main>
+      <GroceryCard />
+      <CompanyCards />
+      <FooterBlock />
       <ChipLabel value="Самое дешевое предложение"/>
       <ChipLabel value="VIP размещение"/>
     </v-main>
@@ -8,22 +11,26 @@
 </template>
 
 <script>
+import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
+import CompanyCards from "./components/companyCards/CompanyCards.vue";
+import GroceryCard from "./components/groceryCard/GroceryCard.vue";
+import globalStyled from "./styles/globalStyle.module.css";
 import ChipLabel from "./components/chip/ChipLabel.vue";
+import FooterBlock from "./components/footer/FooterBlock.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      globalStyled,
+      getInTouchCardsValue,
+    };
+  },
   components: {
+    CompanyCards,
+    GroceryCard,
+    FooterBlock,
     ChipLabel,
   },
 };
 </script>
-
-<style>
-:root {
-  --primary-color: #4a53f5;
-  --primary-hover-color: #3840e6;
-  --pseudo-hover-color: #edeeff;
-  --secondary-color: #f3f5ff;
-  --secondary-hover-color: #d8ddf9;
-}
-</style>
