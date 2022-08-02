@@ -2,7 +2,6 @@ import Search from "../src/assets/search.svg";
 import Chat from "../src/assets/chat.svg";
 import Cart from "../src/assets/cart.svg";
 
-
 export const benefitsValue = [
   {
     id: 11771,
