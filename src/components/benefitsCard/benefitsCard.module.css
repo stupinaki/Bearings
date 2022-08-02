@@ -1,0 +1,21 @@
+.wrapper {
+    background: var(--third-background);
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
+    margin: 8px;
+    height: 100%;
+}
+.img {
+    margin-bottom: 16px;
+}
+.title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 16px;
+    color: var(--primary-text-color);
+}
+.subTitle {
+    color: var(--primary-text-color);
+}
