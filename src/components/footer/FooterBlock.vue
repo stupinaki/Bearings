@@ -35,10 +35,10 @@
             <img :src="Vk" alt="vk" />
           </a>
           <a :class="styled.linksItem" href="#">
-            <img :src="Facebook" alt="facebook"/>
+            <img :src="Facebook" alt="facebook" />
           </a>
           <a :class="styled.linksItem" href="#">
-            <img :src="Instagram" alt="instagram"/>
+            <img :src="Instagram" alt="instagram" />
           </a>
           <a :class="styled.linksItem" href="#">
             <img :src="Twitter" alt="twitter" />
@@ -61,7 +61,6 @@ import Twitter from "../../assets/twitter.svg";
 import Instagram from "../../assets/instagram.svg";
 import Facebook from "../../assets/facebook.svg";
 import Vk from "../../assets/vk.svg";
-
 
 export default {
   name: "FooterBlock",

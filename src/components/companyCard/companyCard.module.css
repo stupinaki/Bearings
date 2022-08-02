@@ -1,5 +1,5 @@
 .companyCard {
-    background: var(--white-color);
+    background: var(--third-background);
     border-radius: 8px;
     padding: 24px;
     margin: 12px;
@@ -11,14 +11,14 @@
     font-weight: 400;
     font-size: 24px;
     margin-bottom: 20px;
-    color: var(--secondary-gray-color);
+    color: var(--primary-text-color);
 }
 .subTitle {
     font-weight: 400;
     font-size: 16px;
     line-height: 16px;
     margin-bottom: 32px;
-    color: var(--secondary-gray-color);
+    color: var(--primary-text-color);
     flex: 1 1 auto;
 }
 .wrapper {
