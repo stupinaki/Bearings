@@ -8,21 +8,17 @@
 
 <script>
 import GroceryCard from "./components/groceryCard/GroceryCard.vue";
+import globalStyled from "./styles/globalStyle.module.css";
 
 export default {
   name: "App",
+  data() {
+    return {
+      globalStyled,
+    };
+  },
   components: {
     GroceryCard,
   },
 };
 </script>
-
-<style>
-:root {
-  --primary-color: #4a53f5;
-  --primary-hover-color: #3840e6;
-  --pseudo-hover-color: #edeeff;
-  --secondary-color: #f3f5ff;
-  --secondary-hover-color: #d8ddf9;
-}
-</style>
