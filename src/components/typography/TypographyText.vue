@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import styled from "./typography.css";
+import styled from "./typography.module.css";
 
 export default {
   name: "TypographyText",
@@ -15,7 +15,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: "xxm",
+      default: "subTitle1",
       validator(size) {
         return [
           "subTitle2",
