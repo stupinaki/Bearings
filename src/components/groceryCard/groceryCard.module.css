@@ -36,7 +36,7 @@
 .detailsSubTitle {
     font-size: 14px;
     line-height: 16px;
-    color: var(--details-text-color);
+    color: var(--primary-text-color);
 }
 .text {
     display: flex;
