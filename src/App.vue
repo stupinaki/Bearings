@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <HeaderBlock/>
+      <HeaderBlock />
       <GroceryCard />
-      <CompanyCards/>
-      <FooterBlock/>
+      <CompanyCards />
+      <FooterBlock />
       <ChipLabel value="Самое дешевое предложение" />
       <ChipLabel value="VIP размещение" />
     </v-main>

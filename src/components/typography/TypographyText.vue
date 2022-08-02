@@ -24,7 +24,7 @@ export default {
           "title1",
           "header3",
           "header2",
-          "header1"
+          "header1",
         ].includes(size);
       },
     },
@@ -39,13 +39,9 @@ export default {
       type: String,
       default: "darkgrey",
       validator(type) {
-        return [
-          "darkgray",
-          "darkblue",
-          "white",
-          "gray",
-          "coral",
-        ].includes(type);
+        return ["darkgray", "darkblue", "white", "gray", "coral"].includes(
+          type
+        );
       },
     },
   },

@@ -26,7 +26,7 @@ export default {
     title: String,
     subTitle: String,
     imgName: String,
-    way: String
+    way: String,
   },
 };
 </script>

@@ -4,7 +4,7 @@ export const benefitsValue = [
     title: "Бесплатно для покупателей",
     subTitle: "Мы бесплатно помогаем найти подшипники по выгодной цене.",
     imgName: "search",
-    way: "../..//imgs/benefitsCard/search.svg",
+    way: "../../imgs/benefitsCard/search.svg",
   },
   {
     id: 11552,
