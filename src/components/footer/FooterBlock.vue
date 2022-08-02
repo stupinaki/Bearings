@@ -2,7 +2,9 @@
   <div :class="styled.wrapper">
     <div :class="styled.container">
       <div :class="styled.column">
-        <div :class="styled.columnLogo">PIC</div>
+        <div
+          :class="styled.columnLogo"
+          >PIC</div>
       </div>
       <div :class="styled.column">
         <a :class="styled.columnItem" href="#">

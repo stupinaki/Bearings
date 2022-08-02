@@ -1,0 +1,23 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.logoMap{
+    display: flex;
+}
+.map{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.city {
+    margin-left: 4px;
+    color: var(--primary-btn-color);
+}
+.pic {
+    padding-right: 24px;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 58px;
+    color: var(--primary-text-color);
+}

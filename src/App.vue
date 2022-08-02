@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <BenefitsCards/>
+      <HeaderBlock/>
       <GroceryCard />
       <CompanyCards/>
       <FooterBlock/>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
+import HeaderBlock from "./components/header/HeaderBlock.vue";
 import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import GroceryCard from "./components/groceryCard/GroceryCard.vue";
@@ -29,7 +29,7 @@ export default {
     };
   },
   components: {
-    BenefitsCards,
+    HeaderBlock,
     CompanyCards,
     GroceryCard,
     FooterBlock,
