@@ -9,15 +9,17 @@
 </template>
 
 <script>
-import GroceryCard from "./components/groceryCard/GroceryCard.vue";
 import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
+import GroceryCard from "./components/groceryCard/GroceryCard.vue";
+import globalStyled from "./styles/globalStyle.module.css";
 import FooterBlock from "./components/footer/FooterBlock.vue";
 
 export default {
   name: "App",
   data() {
     return {
+      globalStyled,
       getInTouchCardsValue,
     };
   },
@@ -28,14 +30,4 @@ export default {
   },
 };
 </script>
-<style>
-:root {
-  --primary-color: #4a53f5;
-  --primary-hover-color: #3840e6;
-  --pseudo-hover-color: #edeeff;
-  --secondary-color: #f3f5ff;
-  --secondary-hover-color: #d8ddf9;
-  --secondary-gray-color: #3a3d4b;
-  --white-color: #f4f6f8;
-}
-</style>
+

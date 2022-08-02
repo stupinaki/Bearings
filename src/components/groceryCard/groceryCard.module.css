@@ -1,8 +1,8 @@
 .grocery {
     display: grid;
     grid-template-columns: 60% 40%;
-    background: #FFFFFF;
-    border: 1px solid #F0F0F0;
+    background: var(--primary-background);
+    border: 1px solid var(--primary-border);
     border-radius: 8px;
     padding: 20px;
 }
@@ -18,38 +18,28 @@
 .row {
     display: grid;
     grid-template-columns: 50% 50%;
+    gap: 8px;
 }
 .descriptionTitle {
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    color: #898989;
+    color: var(--secondary-text-color);
 }
 .descriptionSubTitle {
     font-size: 18px;
     line-height: 22px;
-    display: flex;
-    align-items: center;
-    color: #3A3D4B;
+    color: var(--primary-text-color);
 }
 .detailsTitle {
     font-size: 14px;
-    line-height: 17px;
-    display: flex;
-    align-items: center;
-    color: #898989;
+    line-height: 16px;
+    color: var(--secondary-text-color);
 }
 .detailsSubTitle {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 16px;
+    color: var(--details-text-color);
+}
+.text {
     display: flex;
     align-items: center;
-    color: #000000;
-}
-.descriptionTitle,
-.descriptionSubTitle,
-.detailsTitle,
-.detailsSubTitle {
-    padding: 2px;
+    padding: 4px;
 }

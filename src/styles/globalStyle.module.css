@@ -1,0 +1,17 @@
+:root {
+    --primary-btn-color: #4a53f5;
+    --primary-btn-hover-color: #3840e6;
+    --pseudo-btn-hover-color: #edeeff;
+    --secondary-btn-color: #f3f5ff;
+    --secondary-btn-hover-color: #d8ddf9;
+
+    --primary-background: #FFFFFF;
+    --primary-border: #F0F0F0;
+
+    --primary-text-color: #3A3D4B;
+    --secondary-text-color: #898989;
+    --details-text-color:  #000000;
+
+    font-size: 16px;
+    line-height: 20px;
+}
