@@ -18,16 +18,13 @@ export default {
       default: "xxm",
       validator(size) {
         return [
-          "xxs",
-          "xs",
-          "s",
-          "xxm",
-          "xm",
-          "m",
-          "xxxl",
-          "xxl",
-          "xl",
-          "l",
+          "subTitle2",
+          "subTitle1",
+          "title2",
+          "title1",
+          "header3",
+          "header2",
+          "header1"
         ].includes(size);
       },
     },
@@ -47,7 +44,6 @@ export default {
           "darkblue",
           "white",
           "gray",
-          "lightgray",
           "coral",
         ].includes(type);
       },
@@ -57,7 +53,7 @@ export default {
     className() {
       const { size, font, color } = this.$props;
       const classes = ["typography"];
-      classes.push(`size-${size}`);
+      classes.push(size);
       classes.push(`font-${font}`);
       classes.push(`color-${color}`);
 
