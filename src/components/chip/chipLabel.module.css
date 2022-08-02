@@ -1,14 +1,12 @@
-.chip {
+.primary {
     border: none;
     border-radius: 60px;
-    color: #F0F0F0;
+    color: var(--primary-background);
     padding: 8px;
     display: inline-block;
-    background-color: #4a53f5 ;
+    background: var(--primary-chip-background);
+
 }
-.green {
-    background: #52AE52;
-}
-.orange {
-    background: #E99D45;
+.secondary {
+    background: var( --secondary-chip-background);
 }
