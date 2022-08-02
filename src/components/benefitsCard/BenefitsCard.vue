@@ -25,8 +25,8 @@ export default {
   props: {
     title: String,
     subTitle: String,
-    way: String,
     imgName: String,
+    way: String
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="styled.chip">
+  <div :class="styled.primary">
     {{ value }}
   </div>
 </template>
@@ -17,10 +17,10 @@ export default {
   props: {
     value: {
       type: String,
-      default: "",
+      color: {
+        type: String,
+      },
     },
   },
 };
 </script>
-
-<style scoped></style>

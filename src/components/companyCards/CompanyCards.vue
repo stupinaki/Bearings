@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.cards">
-    <div :class="styled.card" v-for="card in cardsValue" :key="card.id">
+    <div v-for="card in cardsValue" :class="styled.card" :key="card.id">
       <CompanyCard v-bind="card" />
     </div>
   </div>
@@ -24,5 +24,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

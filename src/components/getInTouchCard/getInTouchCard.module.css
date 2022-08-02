@@ -1,8 +1,7 @@
 .getInTouchCard{
     padding: 20px;
-    background: #F4F6F8;
+    background: var(--third-background);
     border-radius: 8px;
-    max-width: 484px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -11,28 +10,24 @@
 .contactUs{
     margin-bottom: 32px;
 }
-.title,
-.name,
-.order {
+.row {
     padding-bottom: 12px;
 }
 .title,
 .address{
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 16px;
     display: flex;
     align-items: center;
-    color: #898989;
+    color: var(--secondary-text-color);
 }
 .phone,
 .email{
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    color: #3A3D4B;
+    color: var(--primary-text-color);
     text-decoration: none;
     display: inline-block;
 }
@@ -45,11 +40,10 @@
 }
 
 .name{
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 17px;
-    color: #3A3D4B;
+    line-height: 16px;
+    color: var(--primary-text-color);
 }
 .btn{
     color: #B7B7B7;
