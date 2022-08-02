@@ -1,21 +1,24 @@
 .wrapper {
-    background: var(--third-background);
-    border-radius: 8px;
-    border: none;
-    padding: 16px;
-    margin: 8px;
-    height: 100%;
+  height: 100%;
+  padding: 16px;
+  margin: 8px;
+  background: var(--third-background);
+  border: none;
+  border-radius: 8px;
 }
+
 .img {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
+
 .title {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 16px;
-    color: var(--primary-text-color);
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--primary-text-color);
 }
-.subTitle {
-    color: var(--primary-text-color);
+
+.sub-title {
+  color: var(--primary-text-color);
 }

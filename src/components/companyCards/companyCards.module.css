@@ -1,8 +1,9 @@
-.cards{
-    display: grid;
-    grid-template-columns: 50% 50%;
+.cards {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
-.card{
-    display: flex;
-    align-items: stretch;
+
+.card {
+  display: flex;
+  align-items: stretch;
 }

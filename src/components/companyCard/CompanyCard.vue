@@ -15,7 +15,7 @@
           {{ offersText }}
         </div>
         <div>
-          <img :src="Arrow" alt="arrow" />
+          <Arrow />
         </div>
       </div>
     </div>
@@ -28,13 +28,9 @@ import Arrow from "../../assets/arrow_downward.svg";
 
 export default {
   name: "CompanyCard",
-  data() {
-    return {
-      styled,
-      Arrow,
-    };
+  components: {
+    Arrow
   },
-  components: {},
   props: {
     title: {
       type: String,
@@ -52,6 +48,12 @@ export default {
       type: String,
       require: true,
     },
+  },
+  data() {
+    return {
+      styled,
+      Arrow,
+    };
   },
 };
 </script>

@@ -5,10 +5,16 @@
         {{ contactUsTitle }}
       </div>
       <div>
-        <a :href="`tel:${correctPhoneNumber}`" :class="styled.phone">
+        <a
+          :href="`tel:${correctPhoneNumber}`"
+          :class="styled.phone"
+        >
           {{ contactsPhone }}
         </a>
-        <a :href="`mailto:${contactsEmail}`" :class="styled.email">
+        <a
+          :href="`mailto:${contactsEmail}`"
+          :class="styled.email"
+        >
           {{ contactsEmail }}
         </a>
       </div>
@@ -24,10 +30,18 @@
         </div>
       </div>
       <div :class="styled.btns">
-        <ButtonUI :class="styled.row" size="s" type="typeLink">
+        <ButtonUI
+          :class="styled.row"
+          size="s"
+          type="typeLink"
+        >
           Оптовый заказ
         </ButtonUI>
-        <ButtonUI :class="styled.btn" size="s" type="typeLink">
+        <ButtonUI
+          :class="styled.btn"
+          size="s"
+          type="typeLink"
+        >
           О компании
         </ButtonUI>
       </div>
@@ -41,11 +55,6 @@ import styled from "./getInTouchCard.module.css";
 
 export default {
   name: "GetInTouchCard",
-  data() {
-    return {
-      styled,
-    };
-  },
   components: {
     ButtonUI,
   },
@@ -70,6 +79,11 @@ export default {
       type: String,
       require: true,
     },
+  },
+  data() {
+    return {
+      styled,
+    };
   },
   computed: {
     correctPhoneNumber() {

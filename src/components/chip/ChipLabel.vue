@@ -9,11 +9,6 @@ import styled from "./chipLabel.module.css";
 
 export default {
   name: "ChipLabel",
-  data() {
-    return {
-      styled,
-    };
-  },
   props: {
     value: {
       type: String,
@@ -21,6 +16,11 @@ export default {
         type: String,
       },
     },
+  },
+  data() {
+    return {
+      styled,
+    };
   },
 };
 </script>

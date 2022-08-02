@@ -1,6 +1,10 @@
 <template>
   <div :class="styled.cards">
-    <div v-for="card in cardsValue" :class="styled.card" :key="card.id">
+    <div
+      v-for="card in cardsValue"
+      :key="card.id"
+      :class="styled.card"
+    >
       <CompanyCard v-bind="card" />
     </div>
   </div>
@@ -13,14 +17,14 @@ import styled from "./companyCards.module.css";
 
 export default {
   name: "CompanyCards",
+  components: {
+    CompanyCard,
+  },
   data() {
     return {
       cardsValue,
       styled,
     };
-  },
-  components: {
-    CompanyCard,
   },
 };
 </script>

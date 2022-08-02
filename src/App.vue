@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <HeaderBlock/>
+      <HeaderBlock />
       <GroceryCard />
-      <CompanyCards/>
-      <FooterBlock/>
+      <CompanyCards />
+      <FooterBlock />
       <ChipLabel value="Самое дешевое предложение" />
       <ChipLabel value="VIP размещение" />
     </v-main>
@@ -22,18 +22,18 @@ import ChipLabel from "./components/chip/ChipLabel.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      globalStyled,
-      getInTouchCardsValue,
-    };
-  },
   components: {
     HeaderBlock,
     CompanyCards,
     GroceryCard,
     FooterBlock,
     ChipLabel,
+  },
+  data() {
+    return {
+      globalStyled,
+      getInTouchCardsValue,
+    };
   },
 };
 </script>

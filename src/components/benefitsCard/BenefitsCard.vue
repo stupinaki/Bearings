@@ -1,7 +1,10 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.img">
-      <img :src="way" :alt="imgName" />
+      <img
+        :src="way"
+        :alt="imgName"
+      >
     </div>
     <div :class="styled.title">
       {{ title }}
@@ -17,16 +20,16 @@ import styled from "./benefitsCard.module.css";
 
 export default {
   name: "BenefitsCard",
-  data() {
-    return {
-      styled,
-    };
-  },
   props: {
     title: String,
     subTitle: String,
     imgName: String,
-    way: String
+    way: String,
+  },
+  data() {
+    return {
+      styled,
+    };
   },
 };
 </script>

@@ -1,46 +1,53 @@
 .grocery {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    background: var(--primary-background);
-    border: 1px solid var(--primary-border);
-    border-radius: 8px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 20px;
+  background: var(--primary-background);
+  border: 1px solid var(--primary-border);
+  border-radius: 8px;
 }
-.description {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    margin-bottom: 40px;
-}
-.details {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-.row {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 8px;
-}
-.descriptionTitle {
-    color: var(--secondary-text-color);
-}
-.descriptionSubTitle {
-    font-size: 18px;
-    line-height: 22px;
-    color: var(--primary-text-color);
-}
-.detailsTitle {
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--secondary-text-color);
 
+.description {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  margin-bottom: 40px;
 }
-.detailsSubTitle {
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--primary-text-color);
+
+.details {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
+
+.row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 8px;
+}
+
+.description-title {
+  color: var(--secondary-text-color);
+}
+
+.description-sub-title {
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--primary-text-color);
+}
+
+.details-title {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--secondary-text-color);
+}
+
+.details-sub-title {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--primary-text-color);
+}
+
 .text {
-    display: flex;
-    align-items: center;
-    padding: 4px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
 }

@@ -1,55 +1,63 @@
-.getInTouchCard{
-    padding: 20px;
-    background: var(--third-background);
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    min-height: 100%;
-}
-.contactUs{
-    margin-bottom: 32px;
-}
-.row {
-    padding-bottom: 12px;
-}
-.title,
-.address{
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-    color: var(--secondary-text-color);
-}
-.phone,
-.email{
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    color: var(--primary-text-color);
-    text-decoration: none;
-    display: inline-block;
-}
-.phone{
-    padding-right: 32px;
-}
-.aboutCompany{
-    display: grid;
-    grid-template-columns: 70% 30%;
+.get-in-touch-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding: 20px;
+  background: var(--third-background);
+  border-radius: 8px;
 }
 
-.name{
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--primary-text-color);
+.contact-us {
+  margin-bottom: 32px;
 }
-.btn{
-    color: var(--secondary-text-color);
+
+.row {
+  padding-bottom: 12px;
 }
-.btns{
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+
+.title,
+.address {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--secondary-text-color);
+}
+
+.phone,
+.email {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--primary-text-color);
+  text-decoration: none;
+}
+
+.phone {
+  padding-right: 32px;
+}
+
+.about-company {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--primary-text-color);
+}
+
+.btn {
+  color: var(--secondary-text-color);
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }

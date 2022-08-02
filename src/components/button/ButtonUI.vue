@@ -1,5 +1,8 @@
 <template>
-  <button :class="className" :disabled="disabled">
+  <button
+    :class="className"
+    :disabled="disabled"
+  >
     <slot />
   </button>
 </template>
@@ -9,11 +12,6 @@ import styled from "./button.module.css";
 
 export default {
   name: "ButtonUI",
-  data() {
-    return {
-      styled,
-    };
-  },
   props: {
     size: {
       type: String,
@@ -30,6 +28,11 @@ export default {
       },
     },
     disabled: Boolean,
+  },
+  data() {
+    return {
+      styled,
+    };
   },
   computed: {
     className() {
