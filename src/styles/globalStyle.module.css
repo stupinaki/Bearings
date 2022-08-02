@@ -5,9 +5,9 @@
     --secondary-btn-color: #f3f5ff;
     --secondary-btn-hover-color: #d8ddf9;
 
-    --primary-border: #F0F0F0;
     --primary-background: #FFFFFF;
     --secondary-background: #2d2d2d;
+    --primary-border: #F0F0F0;
     --third-background: #F4F6F8;
 
     --primary-text-color: #3A3D4B;
@@ -15,4 +15,8 @@
 
     font-size: 16px;
     line-height: 20px;
+    font-weight: 400;
+}
+a {
+    cursor: pointer;
 }
