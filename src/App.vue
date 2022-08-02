@@ -2,9 +2,6 @@
   <v-app>
     <v-main>
       <GroceryCard />
-      <div v-for="card in getInTouchCardsValue" :key="card.id">
-        <GetInTouchCard v-bind="card" />
-      </div>
       <CompanyCards />
       <FooterBlock />
     </v-main>
@@ -13,7 +10,6 @@
 
 <script>
 import GroceryCard from "./components/groceryCard/GroceryCard.vue";
-import GetInTouchCard from "./components/getInTouchCard/GetInTouchCard.vue";
 import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import FooterBlock from "./components/footer/FooterBlock.vue";
@@ -26,14 +22,12 @@ export default {
     };
   },
   components: {
-    GetInTouchCard,
     CompanyCards,
     GroceryCard,
     FooterBlock,
   },
 };
 </script>
-
 <style>
 :root {
   --primary-color: #4a53f5;
