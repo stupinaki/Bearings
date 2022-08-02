@@ -20,7 +20,7 @@
     line-height: 16px;
     display: flex;
     align-items: center;
-    color: #898989;
+    color: var(--secondary-text-color);
 }
 .phone,
 .email{
