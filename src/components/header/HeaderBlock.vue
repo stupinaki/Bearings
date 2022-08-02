@@ -1,18 +1,10 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.logoMap">
-      <div :class="styled.pic">
-        PIC
-      </div>
+      <div :class="styled.pic">PIC</div>
       <div :class="styled.map">
-        <img
-            :class="styled.mapImg"
-            src="../../../public/imgs/header/place.svg"
-            alt="map"
-        >
-        <div :class="styled.city">
-          Саратов
-        </div>
+        <img :src="Place" alt="map" />
+        <div :class="styled.city">Саратов</div>
       </div>
     </div>
     <NavigationMenu />
@@ -22,16 +14,18 @@
 <script>
 import styled from "./headerBlock.module.css";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
+import Place from "../../assets/place.svg";
 
 export default {
   name: "HeaderBlock",
   data() {
     return {
       styled,
-    }
+      Place,
+    };
   },
   components: {
     NavigationMenu,
-  }
-}
+  },
+};
 </script>

@@ -37,16 +37,10 @@
             <img :src="Vk" alt="vk" />
           </a>
           <a :class="styled.linksItem" href="#">
-            <img
-              :src="Facebook"
-              alt="facebook"
-            />
+            <img :src="Facebook" alt="facebook" />
           </a>
           <a :class="styled.linksItem" href="#">
-            <img
-              :src="Instagram"
-              alt="instagram"
-            />
+            <img :src="Instagram" alt="instagram" />
           </a>
           <a :class="styled.linksItem" href="#">
             <img :src="Twitter" alt="twitter" />
