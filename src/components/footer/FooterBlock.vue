@@ -7,106 +7,91 @@
         </div>
       </div>
       <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
+        <router-link to="/home" :class="styled.columnItem">
           <b>Покупателям</b>
-        </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Найти подшибники </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Оптовый заказ </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Помощь </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Вопросы и ответы </a>
+        </router-link>
+
+        <router-link to="/home" :class="styled.columnItem">
+          Найти подшибники
+        </router-link >
+
+        <router-link to="/home" :class="styled.columnItem">
+          Оптовый заказ
+        </router-link >
+
+        <router-link to="/home" :class="styled.columnItem">
+          Помощь
+        </router-link >
+
+        <router-link to="/home" :class="styled.columnItem">
+          Вопросы и ответы
+        </router-link >
+
       </div>
+
       <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
-          <b>Продавцам</b>
-        </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Сотрудничество </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Вопросы и ответы </a>
+        <router-link to="/home" :class="styled.columnItem">
+          <b>Покупателям</b>
+        </router-link>
+
+        <router-link to="/home" :class="styled.columnItem">
+          Продавцам
+        </router-link>
+
+        <router-link to="/home" :class="styled.columnItem">
+          Вопросы и ответы
+        </router-link>
+
       </div>
+
       <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
+        <router-link to="/home" :class="styled.columnItem">
           <b>Контакты</b>
-        </a>
-        <a
-          href="tel:79272772330"
-          :class="styled.columnItem"
-        >
+        </router-link >
+
+        <router-link to="tel:79272772330" :class="styled.columnItem">
           +7 927-277-23-30
-        </a>
-        <a
-          href="mailto:skovalev74@yandex.ru"
-          :class="styled.columnItem"
-        >
+        </router-link >
+
+        <router-link to="mailto:skovalev74@yandex.ru" :class="styled.columnItem">
           skovalev74@yandex.ru
-        </a>
+        </router-link >
+
+
         <div :class="styled.columnItem">
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
+          <router-link to="/home" :class="styled.columnItem">
             <Vk />
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
+          </router-link>
+
+          <router-link to="/home" :class="styled.columnItem">
             <Facebook />
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
+          </router-link>
+
+          <router-link to="/home" :class="styled.columnItem">
             <Instagram />
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
+          </router-link>
+
+          <router-link to="/home" :class="styled.columnItem">
             <Twitter />
-          </a>
+          </router-link>
+
         </div>
       </div>
     </div>
 
     <div>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Политика конфиденциальности </a>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Договор оферты </a>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Обратная связь </a>
+      <router-link to="/home" :class="styled.bottomItem">
+        Политика конфиденциальности
+      </router-link>
+
+      <router-link to="/home" :class="styled.bottomItem">
+        Договор оферты
+      </router-link>
+
+      <router-link to="/home" :class="styled.bottomItem">
+        Обратная связь
+      </router-link>
+
     </div>
   </div>
 </template>

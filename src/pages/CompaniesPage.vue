@@ -1,18 +1,16 @@
 <template>
   <div :class="styled.container">
-
     <div :class="styled.header">
       Компании
     </div>
 
-    <CompanyCards/>
+    <CompanyCards />
 
     <div :class="styled.btn">
       <ButtonUI type="secondary">
         Показать еще
       </ButtonUI>
     </div>
-
   </div>
 </template>
 

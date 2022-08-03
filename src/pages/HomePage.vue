@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.container">
-    <BenefitsCards/>
+    <BenefitsCards />
   </div>
 </template>
 
@@ -10,13 +10,13 @@ import styled from "./homePage.module.css"
 
 export default {
   name: "HomePage",
+  components: {
+    BenefitsCards,
+  },
   data(){
     return {
       styled,
     }
-  },
-  components: {
-    BenefitsCards,
   }
 }
 </script>
