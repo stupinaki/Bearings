@@ -1,6 +1,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
+  margin: 0 72px;
 }
 
 .logo-map {
@@ -24,4 +25,10 @@
   font-weight: 800;
   line-height: 58px;
   color: var(--primary-text-color);
+}
+
+@media screen and (max-width: 1050px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
 }

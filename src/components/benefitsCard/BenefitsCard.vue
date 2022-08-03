@@ -1,10 +1,7 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.img">
-      <img
-        :src="way"
-        :alt="imgName"
-      >
+      <slot />
     </div>
     <div :class="styled.title">
       {{ title }}
@@ -21,10 +18,26 @@ import styled from "./benefitsCard.module.css";
 export default {
   name: "BenefitsCard",
   props: {
-    title: String,
-    subTitle: String,
-    imgName: String,
-    way: String,
+    title: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    subTitle: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    imgName: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    way: {
+      type: String,
+      require: true,
+      default: "-"
+    },
   },
   data() {
     return {

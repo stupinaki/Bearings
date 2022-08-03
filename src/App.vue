@@ -1,42 +1,39 @@
 <template>
   <v-app>
     <v-main>
-      <HeaderBlock />
-      <BenefitsCards />
-      <GroceryCard />
-      <CompanyCards />
-      <FooterBlock />
-      <ChipLabel value="Самое дешевое предложение" />
-      <ChipLabel value="VIP размещение" />
+      <CompaniesPage />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HeaderBlock from "./components/header/HeaderBlock.vue";
-import { getInTouchCardsValue } from "../data/getInTouchCardsValue";
-import CompanyCards from "./components/companyCards/CompanyCards.vue";
-import GroceryCard from "./components/groceryCard/GroceryCard.vue";
-import globalStyled from "./styles/globalStyle.module.css";
-import FooterBlock from "./components/footer/FooterBlock.vue";
-import ChipLabel from "./components/chip/ChipLabel.vue";
-import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
+import CompaniesPage from "./pages/CompaniesPage.vue";
+import styles from "../src/styles/globalStyle.module.css";
+
+const routes = {
+  '/companies': CompaniesPage
+}
 
 export default {
   name: "App",
   components: {
-    HeaderBlock,
-    BenefitsCards,
-    CompanyCards,
-    GroceryCard,
-    FooterBlock,
-    ChipLabel,
+    CompaniesPage,
   },
   data() {
     return {
-      globalStyled,
-      getInTouchCardsValue,
-    };
+      styles,
+      currentPath: window.location.hash
+    }
   },
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/'] || "NotFound";
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+      this.currentPath = window.location.hash
+    })
+  }
 };
 </script>
