@@ -1,19 +1,21 @@
 <template>
-  <HeaderBlock />
-  <BenefitsCards />
-  <FooterBlock />
+  <div :class="styled.container">
+    <BenefitsCards/>
+  </div>
 </template>
 
 <script>
-import HeaderBlock from "../components/header/HeaderBlock.vue";
-import FooterBlock from "../components/footer/FooterBlock.vue";
 import BenefitsCards from "../components/benefitsCards/BenefitsCards.vue";
+import styled from "./homePage.module.css"
 
 export default {
   name: "HomePage",
+  data(){
+    return {
+      styled,
+    }
+  },
   components: {
-    HeaderBlock,
-    FooterBlock,
     BenefitsCards,
   }
 }

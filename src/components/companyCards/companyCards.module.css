@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 48% 48%;
   gap: 32px;
-  margin: 0 72px;
 }
 
 .card {

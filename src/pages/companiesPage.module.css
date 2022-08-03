@@ -1,12 +1,9 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+.container {
+  margin: 0 72px;
 }
 
 .header {
-  margin: 56px 72px;
+  margin: 56px 0;
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;

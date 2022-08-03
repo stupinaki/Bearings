@@ -1,39 +1,30 @@
 <template>
   <v-app>
     <v-main>
-      <CompaniesPage />
+      <div :class="styles.app">
+        <HeaderBlock/>
+        <router-view></router-view>
+        <FooterBlock/>
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import CompaniesPage from "./pages/CompaniesPage.vue";
 import styles from "../src/styles/globalStyle.module.css";
-
-const routes = {
-  '/companies': CompaniesPage
-}
+import HeaderBlock from "@/components/header/HeaderBlock.vue";
+import FooterBlock from "@/components/footer/FooterBlock.vue";
 
 export default {
   name: "App",
-  components: {
-    CompaniesPage,
-  },
   data() {
     return {
       styles,
-      currentPath: window.location.hash
     }
   },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || '/'] || "NotFound";
-    }
-  },
-  mounted() {
-    window.addEventListener('hashchange', () => {
-      this.currentPath = window.location.hash
-    })
+  components: {
+    HeaderBlock,
+    FooterBlock,
   }
-};
+}
 </script>
