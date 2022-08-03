@@ -74,49 +74,49 @@
           <b>Контакты</b>
         </router-link>
 
-        <router-link
-          to="tel:79272772330"
+        <a
+          href="tel:79272772330"
           :class="styled.columnItem"
         >
           +7 927-277-23-30
-        </router-link>
+        </a>
 
-        <router-link
-          to="mailto:skovalev74@yandex.ru"
+        <a
+          href="mailto:skovalev74@yandex.ru"
           :class="styled.columnItem"
         >
           skovalev74@yandex.ru
-        </router-link>
+        </a>
 
 
         <div :class="styled.columnItem">
-          <router-link
-            to="/home"
+          <a
+            href="#"
             :class="styled.columnItem"
           >
             <Vk />
-          </router-link>
+          </a>
 
-          <router-link
-            to="/home"
+          <a
+            href="#"
             :class="styled.columnItem"
           >
             <Facebook />
-          </router-link>
+          </a>
 
-          <router-link
-            to="/home"
+          <a
+            href="#"
             :class="styled.columnItem"
           >
             <Instagram />
-          </router-link>
+          </a>
 
-          <router-link
-            to="/home"
+          <a
+            href="#"
             :class="styled.columnItem"
           >
             <Twitter />
-          </router-link>
+          </a>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.container">
-    <GroceryCard/>
+    <GroceryCard />
   </div>
 </template>
 
@@ -10,13 +10,13 @@ import GroceryCard from "../components/groceryCard/GroceryCard.vue";
 
 export default {
   name: "GroceryPage",
+  components: {
+    GroceryCard,
+  },
   data() {
     return {
       styled,
     }
-  },
-  components: {
-    GroceryCard,
   }
 }
 </script>
