@@ -1,10 +1,7 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.img">
-      <img
-        :src="way"
-        :alt="imgName"
-      >
+      <slot/>
     </div>
     <div :class="styled.title">
       {{ title }}
@@ -23,8 +20,6 @@ export default {
   props: {
     title: String,
     subTitle: String,
-    imgName: String,
-    way: String,
   },
   data() {
     return {
