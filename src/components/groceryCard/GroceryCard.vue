@@ -3,19 +3,25 @@
     <div>
       <div :class="styled.description">
         <div>
-          <div :class="[styled.descriptionTitle, styled.text]">Маркировка</div>
+          <div :class="[styled.descriptionTitle, styled.text]">
+            Маркировка
+          </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
             {{ mark }}
           </div>
         </div>
         <div>
-          <div :class="[styled.descriptionTitle, styled.text]">Цена</div>
+          <div :class="[styled.descriptionTitle, styled.text]">
+            Цена
+          </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
             {{ priceForOne }} ₽/шт
           </div>
         </div>
         <div>
-          <div :class="[styled.descriptionTitle, styled.text]">Наличие</div>
+          <div :class="[styled.descriptionTitle, styled.text]">
+            Наличие
+          </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
             {{ availability }} шт
           </div>
@@ -33,19 +39,25 @@
             </div>
           </div>
           <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">Тип</div>
+            <div :class="[styled.detailsTitle, styled.text]">
+              Тип
+            </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
               {{ type }}
             </div>
           </div>
           <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">Параметр</div>
+            <div :class="[styled.detailsTitle, styled.text]">
+              Параметр
+            </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
               {{ parameter }}
             </div>
           </div>
           <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">Производитель</div>
+            <div :class="[styled.detailsTitle, styled.text]">
+              Производитель
+            </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
               {{ manufacturer }}
             </div>
@@ -70,13 +82,17 @@
             </div>
           </div>
           <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">Ширина (мм)</div>
+            <div :class="[styled.detailsTitle, styled.text]">
+              Ширина (мм)
+            </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
               {{ width }}
             </div>
           </div>
           <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">Масса (кг)</div>
+            <div :class="[styled.detailsTitle, styled.text]">
+              Масса (кг)
+            </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
               {{ weight }}
             </div>
@@ -85,7 +101,10 @@
       </div>
     </div>
 
-    <div v-for="card in getInTouchCardsValue" :key="card.id">
+    <div
+      v-for="card in getInTouchCardsValue"
+      :key="card.id"
+    >
       <GetInTouchCard v-bind="card" />
     </div>
   </div>
@@ -98,12 +117,6 @@ import { getInTouchCardsValue } from "../../../data/getInTouchCardsValue";
 
 export default {
   name: "GroceryCard",
-  data() {
-    return {
-      styled,
-      getInTouchCardsValue,
-    };
-  },
   components: {
     GetInTouchCard,
   },
@@ -152,6 +165,12 @@ export default {
       type: String,
       default: "-",
     },
+  },
+  data() {
+    return {
+      styled,
+      getInTouchCardsValue,
+    };
   },
 };
 </script>

@@ -1,11 +1,14 @@
 <template>
   <div :class="styled.wrapper">
-    <div v-for="benefit in benefitsValue" :key="benefit.id">
+    <div
+      v-for="benefit in benefitsValue"
+      :key="benefit.id"
+    >
       <BenefitsCard
         :title="benefit.title"
-        :subTitle="benefit.subTitle"
+        :sub-title="benefit.subTitle"
         :way="benefit.way"
-        :imgName="benefit.imgName"
+        :img-name="benefit.imgName"
       />
     </div>
   </div>
@@ -18,14 +21,14 @@ import styled from "./benefitsCards.module.css";
 
 export default {
   name: "BenefitsCards",
+  components: {
+    BenefitsCard,
+  },
   data() {
     return {
       benefitsValue,
       styled,
     };
-  },
-  components: {
-    BenefitsCard,
   },
 };
 </script>

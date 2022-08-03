@@ -1,26 +1,25 @@
 :root {
-    --primary-btn-color: #4a53f5;
-    --primary-btn-hover-color: #3840e6;
-    --pseudo-btn-hover-color: #edeeff;
-    --secondary-btn-color: #f3f5ff;
-    --secondary-btn-hover-color: #d8ddf9;
+  --primary-btn-color: #4a53f5;
+  --primary-btn-hover-color: #3840e6;
+  --pseudo-btn-hover-color: #edeeff;
+  --secondary-btn-color: #f3f5ff;
+  --secondary-btn-hover-color: #d8ddf9;
+  --primary-background: #fff;
+  --secondary-background: #2d2d2d;
+  --third-background: #f4f6f8;
+  --primary-border: #f0f0f0;
+  --primary-text-color: #3a3d4b;
+  --secondary-text-color: #898989;
+  --primary-chip-background: #52ae52;
+  --secondary-chip-background: #e99d45;
+  --secondary-gray-color: #000;
+  --primary-color: #000;
 
-    --primary-background: #FFFFFF;
-    --secondary-background: #2d2d2d;
-    --third-background: #F4F6F8;
-    --primary-border: #F0F0F0;
-    --third-background: #F4F6F8;
-
-    --primary-text-color: #3A3D4B;
-    --secondary-text-color: #898989;
-
-    --primary-chip-background: #52AE52;
-    --secondary-chip-background: #E99D45;
-
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }
+
 a {
-    cursor: pointer;
+  cursor: pointer;
 }
