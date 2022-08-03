@@ -9,7 +9,8 @@
         :sub-title="benefit.subTitle"
         :way="benefit.way"
         :img-name="benefit.imgName"
-      />
+      >
+      </BenefitsCard>
     </div>
   </div>
 </template>

@@ -5,10 +5,7 @@
         PIC
       </div>
       <div :class="styled.map">
-        <img
-          :src="Place"
-          alt="map"
-        >
+        <Place />
         <div :class="styled.city">
           Саратов
         </div>
@@ -27,11 +24,11 @@ export default {
   name: "HeaderBlock",
   components: {
     NavigationMenu,
+    Place,
   },
   data() {
     return {
       styled,
-      Place,
     };
   },
 };

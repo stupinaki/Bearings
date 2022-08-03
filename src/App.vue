@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <HeaderBlock />
+      <BenefitsCards />
       <GroceryCard />
       <CompanyCards />
       <FooterBlock />
@@ -19,11 +20,13 @@ import GroceryCard from "./components/groceryCard/GroceryCard.vue";
 import globalStyled from "./styles/globalStyle.module.css";
 import FooterBlock from "./components/footer/FooterBlock.vue";
 import ChipLabel from "./components/chip/ChipLabel.vue";
+import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
 
 export default {
   name: "App",
   components: {
     HeaderBlock,
+    BenefitsCards,
     CompanyCards,
     GroceryCard,
     FooterBlock,

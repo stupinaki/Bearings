@@ -70,37 +70,25 @@
             :class="styled.linksItem"
             href="#"
           >
-            <img
-              :src="Vk"
-              alt="vk"
-            >
+            <Vk />
           </a>
           <a
             :class="styled.linksItem"
             href="#"
           >
-            <img
-              :src="Facebook"
-              alt="facebook"
-            >
+            <Facebook />
           </a>
           <a
             :class="styled.linksItem"
             href="#"
           >
-            <img
-              :src="Instagram"
-              alt="instagram"
-            >
+            <Instagram />
           </a>
           <a
             :class="styled.linksItem"
             href="#"
           >
-            <img
-              :src="Twitter"
-              alt="twitter"
-            >
+            <Twitter />
           </a>
         </div>
       </div>
@@ -132,13 +120,15 @@ import Vk from "../../assets/vk.svg";
 
 export default {
   name: "FooterBlock",
+  components: {
+    Twitter,
+    Instagram,
+    Facebook,
+    Vk,
+  },
   data() {
     return {
       styled,
-      Twitter,
-      Instagram,
-      Facebook,
-      Vk,
     };
   },
 };
