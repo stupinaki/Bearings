@@ -15,7 +15,9 @@
           {{ offersText }}
         </div>
         <div>
-          <Arrow />
+          <router-link to="/home">
+            <Arrow />
+          </router-link>
         </div>
       </div>
     </div>
