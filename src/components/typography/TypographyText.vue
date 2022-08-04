@@ -48,10 +48,10 @@ export default {
   computed: {
     className() {
       const { size, font, color } = this.$props;
-      const classes = ["typography"];
+      const classes = [styled.typography];
       classes.push(size);
-      classes.push(`font-${font}`);
-      classes.push(`color-${color}`);
+      classes.push(styled[`font-${font}`]);
+      classes.push(styled[`color-${color}`]);
 
       return classes.filter((v) => v).join(" ");
     },
