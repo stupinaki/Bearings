@@ -1,96 +1,149 @@
 <template>
-  <div :class="styled.wrapper">
-    <div :class="styled.container">
-      <div :class="styled.column">
-        <div :class="styled.columnLogo">
-          PIC
+  <div :class="styled.footer">
+    <div :class="styled.wrapper">
+      <div :class="styled.container">
+        <div :class="styled.column">
+          <div :class="styled.columnLogo">
+            PIC
+          </div>
         </div>
-      </div>
-      <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
-          <b>Покупателям</b>
-        </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Найти подшибники </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Оптовый заказ </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Помощь </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Вопросы и ответы </a>
-      </div>
-      <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
-          <b>Продавцам</b>
-        </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Сотрудничество </a>
-        <a
-          :class="styled.columnItem"
-          href="#"
-        > Вопросы и ответы </a>
-      </div>
-      <div :class="styled.column">
-        <a
-          :class="styled.columnItem"
-          href="#"
-        >
-          <b>Контакты</b>
-        </a>
-        <a
-          href="tel:79272772330"
-          :class="styled.columnItem"
-        >
-          +7 927-277-23-30
-        </a>
-        <a
-          href="mailto:skovalev74@yandex.ru"
-          :class="styled.columnItem"
-        >
-          skovalev74@yandex.ru
-        </a>
-        <div :class="styled.columnItems">
-          <a
-            v-for="img in footerImgValue"
-            :key="img.id"
+        <div :class="styled.column">
+          <router-link
+            :to="{ name: 'empty' }"
             :class="styled.columnItem"
-            href="#"
           >
-            <component :is="imageMap[img.imgName]" />
+            <b>Покупателям</b>
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Найти подшибники
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Оптовый заказ
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Помощь
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Вопросы и ответы
+          </router-link>
+        </div>
+
+        <div :class="styled.column">
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            <b>Покупателям</b>
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Продавцам
+          </router-link>
+
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            Вопросы и ответы
+          </router-link>
+        </div>
+
+        <div :class="styled.column">
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.columnItem"
+          >
+            <b>Контакты</b>
+          </router-link>
+
+          <a
+            href="tel:79272772330"
+            :class="styled.columnItem"
+          >
+            +7 927-277-23-30
           </a>
+
+          <a
+            href="mailto:skovalev74@yandex.ru"
+            :class="styled.columnItem"
+          >
+            skovalev74@yandex.ru
+          </a>
+
+
+          <div :class="styled.columnItem">
+            <a
+              href="#"
+              :class="styled.columnItem"
+            >
+              <Vk />
+            </a>
+
+            <a
+              href="#"
+              :class="styled.columnItem"
+            >
+              <Facebook />
+            </a>
+
+            <a
+              href="#"
+              :class="styled.columnItem"
+            >
+              <Instagram />
+            </a>
+
+            <a
+              href="#"
+              :class="styled.columnItem"
+            >
+              <Twitter />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Политика конфиденциальности </a>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Договор оферты </a>
-      <a
-        :class="styled.bottomItem"
-        href="#"
-      > Обратная связь </a>
+      <div>
+        <router-link
+          :to="{name: 'empty'}"
+          :class="styled.bottomItem"
+        >
+          Политика конфиденциальности
+        </router-link>
+
+        <router-link
+          :to="{name: 'empty'}"
+          :class="styled.bottomItem"
+        >
+          Договор оферты
+        </router-link>
+
+        <router-link
+          :to="{name: 'empty'}"
+          :class="styled.bottomItem"
+        >
+          Обратная связь
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

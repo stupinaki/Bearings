@@ -1,0 +1,5 @@
+.notice {
+  margin: var(--primary-margin);
+  font-size: 60px;
+  line-height: 80px;
+}

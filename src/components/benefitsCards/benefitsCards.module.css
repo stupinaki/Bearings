@@ -4,7 +4,7 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .wrapper {
     grid-template-columns: 100%;
     gap: 24px;

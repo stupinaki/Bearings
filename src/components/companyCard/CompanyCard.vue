@@ -15,7 +15,9 @@
           {{ offersText }}
         </div>
         <div>
-          <Arrow />
+          <router-link to="/home">
+            <Arrow />
+          </router-link>
         </div>
       </div>
     </div>
@@ -35,18 +37,22 @@ export default {
     title: {
       type: String,
       require: true,
+      default:undefined,
     },
     subTitle: {
       type: String,
       require: true,
+      default:undefined,
     },
     address: {
       type: String,
       require: true,
+      default:undefined,
     },
     offersText: {
       type: String,
       require: true,
+      default:undefined,
     },
   },
   data() {

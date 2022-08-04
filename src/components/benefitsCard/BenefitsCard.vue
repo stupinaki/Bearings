@@ -18,8 +18,26 @@ import styled from "./benefitsCard.module.css";
 export default {
   name: "BenefitsCard",
   props: {
-    title: String,
-    subTitle: String,
+    title: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    subTitle: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    imgName: {
+      type: String,
+      require: true,
+      default: "-"
+    },
+    way: {
+      type: String,
+      require: true,
+      default: "-"
+    },
   },
   data() {
     return {

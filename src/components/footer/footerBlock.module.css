@@ -1,12 +1,15 @@
-.wrapper {
+.footer {
   background-color: var(--secondary-background);
+}
+
+.wrapper {
+  margin: var(--primary-margin);
 }
 
 .container {
   display: grid;
   grid-template-columns: 20% 20% 20% 20%;
-  padding: 12px;
-  margin-bottom: 32px;
+  margin: 16px 0 32px;
 }
 
 .column {

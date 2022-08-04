@@ -62,22 +62,27 @@ export default {
     contactUsTitle: {
       type: String,
       require: true,
+      default:undefined,
     },
     aboutCompanyName: {
       type: String,
       require: true,
+      default:undefined,
     },
     aboutCompanyAddress: {
       type: String,
       require: true,
+      default:undefined,
     },
     contactsPhone: {
       type: String,
       require: true,
+      default:undefined,
     },
     contactsEmail: {
       type: String,
       require: true,
+      default:undefined,
     },
   },
   data() {

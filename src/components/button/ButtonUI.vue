@@ -23,6 +23,7 @@ export default {
     type: {
       type: String,
       require: true,
+      default: "primary",
       validator(type) {
         return ["primary", "secondary", "pseudo", "typeLink"].includes(type);
       },

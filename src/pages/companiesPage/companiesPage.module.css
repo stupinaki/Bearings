@@ -1,0 +1,17 @@
+.container {
+  margin: var(--primary-margin);
+}
+
+.header {
+  margin: 56px 0;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 78px;
+  color: var(--primary-text-color);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 56px 0 120px;
+}
