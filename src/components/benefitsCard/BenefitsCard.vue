@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.img">
-      <slot/>
+      <slot />
     </div>
     <div :class="styled.title">
       {{ title }}
