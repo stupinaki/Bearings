@@ -99,7 +99,6 @@
             >
               <component :is="imageMap[img.imgName]" />
             </a>
-
           </div>
         </div>
       </div>
