@@ -1,0 +1,24 @@
+.wrapper {
+  margin: 40px 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16%;
+  gap: 12px;
+  margin: 40px 0;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  color: var(--primary-text-color);
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    grid-template-columns: 50% 50%;
+  }
+}
