@@ -21,11 +21,6 @@
   line-height: 20px;
 }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .app {
   display: flex;
   flex-direction: column;

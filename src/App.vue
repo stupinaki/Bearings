@@ -12,6 +12,7 @@
 
 <script>
 import styles from "../src/styles/globalStyle.module.css";
+import reset from "../src/styles/reset.css"
 import HeaderBlock from "@/components/header/HeaderBlock.vue";
 import FooterBlock from "@/components/footer/FooterBlock.vue";
 
@@ -24,6 +25,7 @@ export default {
   data() {
     return {
       styles,
+      reset,
     }
   }
 }

@@ -2,8 +2,8 @@
   <div :class="styled.wrapper">
     <router-link to="/home">
       <ButtonUI
-          size="m"
-          type="pseudo"
+        size="m"
+        type="pseudo"
       >
         Найти подшипники
       </ButtonUI>
@@ -11,8 +11,8 @@
 
     <router-link to="/empty">
       <ButtonUI
-          size="m"
-          type="pseudo"
+        size="m"
+        type="pseudo"
       >
         Вопросы и ответы
       </ButtonUI>
@@ -20,8 +20,8 @@
 
     <router-link to="/companies">
       <ButtonUI
-          size="m"
-          type="pseudo"
+        size="m"
+        type="pseudo"
       >
         Компании
       </ButtonUI>
@@ -29,8 +29,8 @@
 
     <router-link to="/empty">
       <ButtonUI
-          size="m"
-          type="pseudo"
+        size="m"
+        type="pseudo"
       >
         Контакты
       </ButtonUI>
@@ -38,13 +38,12 @@
 
     <router-link to="/empty">
       <ButtonUI
-          size="m"
-          type="secondary"
+        size="m"
+        type="secondary"
       >
         Стать партнером
       </ButtonUI>
     </router-link>
-
   </div>
 </template>
 
