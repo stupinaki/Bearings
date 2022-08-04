@@ -65,42 +65,14 @@
         >
           skovalev74@yandex.ru
         </a>
-        <div :class="styled.columnItem">
+        <div :class="styled.columnItems">
           <a
-            :class="styled.linksItem"
+            v-for="img in footerImgValue"
+            :key="img.id"
+            :class="styled.columnItem"
             href="#"
           >
-            <img
-              :src="Vk"
-              alt="vk"
-            >
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
-            <img
-              :src="Facebook"
-              alt="facebook"
-            >
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
-            <img
-              :src="Instagram"
-              alt="instagram"
-            >
-          </a>
-          <a
-            :class="styled.linksItem"
-            href="#"
-          >
-            <img
-              :src="Twitter"
-              alt="twitter"
-            >
+            <component :is="imageMap[img.imgName]" />
           </a>
         </div>
       </div>
@@ -125,20 +97,16 @@
 
 <script>
 import styled from "./footerBlock.module.css";
-import Twitter from "../../assets/twitter.svg";
-import Instagram from "../../assets/instagram.svg";
-import Facebook from "../../assets/facebook.svg";
-import Vk from "../../assets/vk.svg";
+import imageMap from "./footerImages";
+import {footerImgValue} from "../../../data/footerImgValue";
 
 export default {
   name: "FooterBlock",
   data() {
     return {
       styled,
-      Twitter,
-      Instagram,
-      Facebook,
-      Vk,
+      imageMap,
+      footerImgValue,
     };
   },
 };

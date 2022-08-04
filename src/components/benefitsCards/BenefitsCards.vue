@@ -7,9 +7,9 @@
       <BenefitsCard
         :title="benefit.title"
         :sub-title="benefit.subTitle"
-        :way="benefit.way"
-        :img-name="benefit.imgName"
-      />
+      >
+        <component :is="imageMap[benefit.imgName]" />
+      </BenefitsCard>
     </div>
   </div>
 </template>
@@ -17,6 +17,8 @@
 <script>
 import BenefitsCard from "../benefitsCard/BenefitsCard.vue";
 import { benefitsValue } from "../../../data/benefitsValue";
+import imageMap from "./benifitImages";
+
 import styled from "./benefitsCards.module.css";
 
 export default {
@@ -27,6 +29,7 @@ export default {
   data() {
     return {
       benefitsValue,
+      imageMap,
       styled,
     };
   },
