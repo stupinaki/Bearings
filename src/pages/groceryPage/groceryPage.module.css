@@ -1,22 +1,3 @@
 .container {
   margin: var(--primary-margin);
 }
-
-.header {
-  padding: 20px 0;
-}
-
-.title {
-  margin-bottom: 22px;
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 78px;
-  color: var(--primary-text-color);
-}
-
-.sub-title {
-  display: grid;
-  grid-template-columns: 36%;
-  font-size: 20px;
-  line-height: 24px;
-}
