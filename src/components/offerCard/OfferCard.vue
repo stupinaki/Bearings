@@ -1,10 +1,10 @@
 <template>
   <div :class="styled.offerCard">
     <div :class="styled.title">
-      {{city}}
+      {{ city }}
     </div>
     <div :class="styled.subTitle">
-      {{count}} {{correctWord}}
+      {{ count }} {{ correctWord }}
     </div>
   </div>
 </template>
@@ -14,11 +14,6 @@ import styled from "./offerCard.module.css"
 
 export default {
   name: "OfferCard",
-  data() {
-    return {
-      styled,
-    }
-  },
   props: {
     city: {
       type: String,
@@ -29,6 +24,11 @@ export default {
       type: String,
       require: true,
       default: "0",
+    }
+  },
+  data() {
+    return {
+      styled,
     }
   },
   computed: {

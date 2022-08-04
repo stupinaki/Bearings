@@ -1,16 +1,16 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.title">
-      Найдено {{allCount}} предложений
+      Найдено {{ allCount }} предложений
     </div>
     <div :class="styled.cards">
       <div
-          v-for="card in offerCardsValue"
-          :key="card.id"
+        v-for="card in offerCardsValue"
+        :key="card.id"
       >
         <OfferCard
-            :city="card.city"
-            :count="card.count"
+          :city="card.city"
+          :count="card.count"
         />
       </div>
     </div>
@@ -24,14 +24,14 @@ import OfferCard from "../offerCard/OfferCard.vue";
 
 export default {
   name: "OfferCards",
+  components: {
+    OfferCard,
+  },
   data(){
     return {
       styled,
       offerCardsValue,
     }
-  },
-  components: {
-    OfferCard,
   },
   computed: {
     allCount(){

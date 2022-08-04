@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.container">
-    <OfferCards/>
+    <OfferCards />
     <GroceryCard />
   </div>
 </template>
