@@ -1,7 +1,8 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import HomePage from "../../src/pages/HomePage.vue";
-import CompaniesPage from "../../src/pages/CompaniesPage.vue";
-import GroceryPage from "../pages/GroceryPage.vue";
+import HomePage from "../pages/homePage/HomePage.vue";
+import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
+import GroceryPage from "../pages/groceryPage/GroceryPage.vue";
+import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 
 
 const routes = [
@@ -16,6 +17,10 @@ const routes = [
     {
         path: '/grocery',
         component: GroceryPage,
+    },
+    {
+        path: '/empty',
+        component: EmptyPage,
     },
 ]
 

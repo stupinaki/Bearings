@@ -6,7 +6,7 @@
 
 <script>
 import styled from "./groceryPage.module.css";
-import GroceryCard from "../components/groceryCard/GroceryCard.vue";
+import GroceryCard from "../../components/groceryCard/GroceryCard.vue";
 
 export default {
   name: "GroceryPage",

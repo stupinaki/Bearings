@@ -1,5 +1,5 @@
 .container {
-  margin: 0 72px;
+  margin: var(--primary-margin);
 }
 
 .header {

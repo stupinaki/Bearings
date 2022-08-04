@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BenefitsCards from "../components/benefitsCards/BenefitsCards.vue";
+import BenefitsCards from "../../components/benefitsCards/BenefitsCards.vue";
 import styled from "./homePage.module.css"
 
 export default {
