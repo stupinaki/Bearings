@@ -90,34 +90,16 @@
           </a>
 
 
-          <div :class="styled.columnItem">
+          <div :class="styled.columnItems">
             <a
+              v-for="img in footerImgValue"
+              :key="img.id"
               href="#"
               :class="styled.columnItem"
             >
-              <Vk />
+              <component :is="imageMap[img.imgName]" />
             </a>
 
-            <a
-              href="#"
-              :class="styled.columnItem"
-            >
-              <Facebook />
-            </a>
-
-            <a
-              href="#"
-              :class="styled.columnItem"
-            >
-              <Instagram />
-            </a>
-
-            <a
-              href="#"
-              :class="styled.columnItem"
-            >
-              <Twitter />
-            </a>
           </div>
         </div>
       </div>
