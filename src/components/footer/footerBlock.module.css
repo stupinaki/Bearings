@@ -31,6 +31,10 @@
   text-decoration: none;
 }
 
+.column-items {
+  display: flex;
+}
+
 .links {
   display: flex;
   align-items: center;

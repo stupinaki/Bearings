@@ -150,22 +150,16 @@
 
 <script>
 import styled from "./footerBlock.module.css";
-import Twitter from "../../assets/twitter.svg";
-import Instagram from "../../assets/instagram.svg";
-import Facebook from "../../assets/facebook.svg";
-import Vk from "../../assets/vk.svg";
+import imageMap from "./footerImages";
+import {footerImgValue} from "../../../data/footerImgValue";
 
 export default {
   name: "FooterBlock",
-  components: {
-    Twitter,
-    Instagram,
-    Facebook,
-    Vk,
-  },
   data() {
     return {
       styled,
+      imageMap,
+      footerImgValue,
     };
   },
 };
