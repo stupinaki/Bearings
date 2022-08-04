@@ -6,7 +6,7 @@
 
     <CompanyCards />
 
-    <div :class="styled.btn">
+    <div :class="styled.btnContainer">
       <ButtonUI type="secondary">
         Показать еще
       </ButtonUI>
