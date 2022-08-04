@@ -1,0 +1,69 @@
+/* FONT SIZE */
+.typography {
+  font-weight: 400;
+}
+
+.sub-title2 {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.sub-title1 {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.title2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.title1 {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.header3 {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.header2 {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 44px;
+}
+
+.header1 {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 80px;
+}
+
+/* FONT FAMILY */
+.font-inter {
+  font-family: Inter, serif;
+}
+
+/* FONT COLOR */
+.color-darkgray {
+  color: var(--primary-text-color);
+}
+
+.color-darkblue {
+  color: var(--primary-btn-color);
+}
+
+.color-white {
+  color: var(--primary-background);
+}
+
+.color-gray {
+  color: var(--secondary-text-color);
+}
+
+.color-coral {
+  color: var(--third-text-color);
+}
