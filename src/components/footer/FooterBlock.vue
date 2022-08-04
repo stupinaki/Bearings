@@ -9,36 +9,36 @@
         </div>
         <div :class="styled.column">
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             <b>Покупателям</b>
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Оптовый заказ
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Помощь
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Вопросы и ответы
           </router-link>
@@ -46,22 +46,22 @@
 
         <div :class="styled.column">
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             <b>Покупателям</b>
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Продавцам
           </router-link>
 
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             Вопросы и ответы
           </router-link>
@@ -69,22 +69,22 @@
 
         <div :class="styled.column">
           <router-link
-              to="/home"
-              :class="styled.columnItem"
+            to="/empty"
+            :class="styled.columnItem"
           >
             <b>Контакты</b>
           </router-link>
 
           <a
-              href="tel:79272772330"
-              :class="styled.columnItem"
+            href="tel:79272772330"
+            :class="styled.columnItem"
           >
             +7 927-277-23-30
           </a>
 
           <a
-              href="mailto:skovalev74@yandex.ru"
-              :class="styled.columnItem"
+            href="mailto:skovalev74@yandex.ru"
+            :class="styled.columnItem"
           >
             skovalev74@yandex.ru
           </a>
@@ -92,29 +92,29 @@
 
           <div :class="styled.columnItem">
             <a
-                href="#"
-                :class="styled.columnItem"
+              href="#"
+              :class="styled.columnItem"
             >
               <Vk />
             </a>
 
             <a
-                href="#"
-                :class="styled.columnItem"
+              href="#"
+              :class="styled.columnItem"
             >
               <Facebook />
             </a>
 
             <a
-                href="#"
-                :class="styled.columnItem"
+              href="#"
+              :class="styled.columnItem"
             >
               <Instagram />
             </a>
 
             <a
-                href="#"
-                :class="styled.columnItem"
+              href="#"
+              :class="styled.columnItem"
             >
               <Twitter />
             </a>
@@ -124,22 +124,22 @@
 
       <div>
         <router-link
-            to="/home"
-            :class="styled.bottomItem"
+          to="/empty"
+          :class="styled.bottomItem"
         >
           Политика конфиденциальности
         </router-link>
 
         <router-link
-            to="/home"
-            :class="styled.bottomItem"
+          to="/empty"
+          :class="styled.bottomItem"
         >
           Договор оферты
         </router-link>
 
         <router-link
-            to="/home"
-            :class="styled.bottomItem"
+          to="/empty"
+          :class="styled.bottomItem"
         >
           Обратная связь
         </router-link>

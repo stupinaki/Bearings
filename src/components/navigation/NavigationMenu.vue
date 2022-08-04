@@ -1,35 +1,50 @@
 <template>
   <div :class="styled.wrapper">
-    <ButtonUI
-      size="m"
-      type="pseudo"
-    >
-      Найти подшипники
-    </ButtonUI>
-    <ButtonUI
-      size="m"
-      type="pseudo"
-    >
-      Вопросы и ответы
-    </ButtonUI>
-    <ButtonUI
-      size="m"
-      type="pseudo"
-    >
-      Компании
-    </ButtonUI>
-    <ButtonUI
-      size="m"
-      type="pseudo"
-    >
-      Контакты
-    </ButtonUI>
-    <ButtonUI
-      size="m"
-      type="secondary"
-    >
-      Стать партнером
-    </ButtonUI>
+    <router-link to="/home">
+      <ButtonUI
+          size="m"
+          type="pseudo"
+      >
+        Найти подшипники
+      </ButtonUI>
+    </router-link>
+
+    <router-link to="/empty">
+      <ButtonUI
+          size="m"
+          type="pseudo"
+      >
+        Вопросы и ответы
+      </ButtonUI>
+    </router-link>
+
+    <router-link to="/companies">
+      <ButtonUI
+          size="m"
+          type="pseudo"
+      >
+        Компании
+      </ButtonUI>
+    </router-link>
+
+    <router-link to="/empty">
+      <ButtonUI
+          size="m"
+          type="pseudo"
+      >
+        Контакты
+      </ButtonUI>
+    </router-link>
+
+    <router-link to="/empty">
+      <ButtonUI
+          size="m"
+          type="secondary"
+      >
+        Стать партнером
+      </ButtonUI>
+    </router-link>
+
   </div>
 </template>
 

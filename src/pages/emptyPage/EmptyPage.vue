@@ -1,7 +1,7 @@
 <template>
-    <div :class="styled.notice">
-      Эта страница еще не была нарисована ¯\_(ツ)_/¯
-    </div>
+  <div :class="styled.notice">
+    Эта страница еще не была нарисована ¯\_(ツ)_/¯
+  </div>
 </template>
 
 <script>
