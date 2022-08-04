@@ -9,35 +9,35 @@
         </div>
         <div :class="styled.column">
           <router-link
-            to="/empty"
+            :to="{ name: 'empty' }"
             :class="styled.columnItem"
           >
             <b>Покупателям</b>
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Оптовый заказ
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Помощь
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
@@ -46,21 +46,21 @@
 
         <div :class="styled.column">
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             <b>Покупателям</b>
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Продавцам
           </router-link>
 
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
@@ -69,7 +69,7 @@
 
         <div :class="styled.column">
           <router-link
-            to="/empty"
+            :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
             <b>Контакты</b>
@@ -124,21 +124,21 @@
 
       <div>
         <router-link
-          to="/empty"
+          :to="{name: 'empty'}"
           :class="styled.bottomItem"
         >
           Политика конфиденциальности
         </router-link>
 
         <router-link
-          to="/empty"
+          :to="{name: 'empty'}"
           :class="styled.bottomItem"
         >
           Договор оферты
         </router-link>
 
         <router-link
-          to="/empty"
+          :to="{name: 'empty'}"
           :class="styled.bottomItem"
         >
           Обратная связь
