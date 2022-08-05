@@ -8,8 +8,8 @@
         Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
       </div>
     </div>
-    <BenefitsCards />
     <SearchComponent />
+    <BenefitsCards />
   </div>
 </template>
 

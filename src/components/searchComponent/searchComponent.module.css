@@ -1,5 +1,35 @@
 .wrapper {
   padding: 24px;
+  margin: 24px 0 72px;
   background: var(--third-background);
+  border-radius: 8px;
+}
+
+.names {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  color: var(--primary-text-color);
+}
+
+.help {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--primary-btn-color);
+  text-decoration-line: underline;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 30% 50% 20%;
+  margin: 8px 0;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px;
+  background: var(--primary-background);
+  border: 1px solid var(--primary-border);
   border-radius: 8px;
 }
