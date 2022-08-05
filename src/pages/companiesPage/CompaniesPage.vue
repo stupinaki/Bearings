@@ -9,16 +9,46 @@
       </div>
     </div>
 
+    <div :class="styled.input">
+      <img
+        src="../../assets/searchInput.svg"
+        alt=""
+      >
+      <input
+        placeholder="Например, Авангард-подшипник"
+      >
+    </div>
+
     <CompanyCards />
 
     <div :class="styled.btnContainer">
-      <ButtonUI type="secondary">
+      <ButtonUI
+        v-if="getRestCompaniesQuantities() <= 0"
+        type="secondary"
+        disabled
+      >
         <div :class="styled.btnContentWrapper">
           <div :class="styled.btnText">
             Показать еще
           </div>
           <div :class="styled.btnQuantities">
-            ({{getRestCompaniesQuantities()}})
+            ({{ getRestCompaniesQuantities() }})
+          </div>
+        </div>
+      </ButtonUI>
+
+      <ButtonUI
+        v-else
+        type="secondary"
+      >
+        <div
+          :class="styled.btnContentWrapper"
+        >
+          <div :class="styled.btnText">
+            Показать еще
+          </div>
+          <div :class="styled.btnQuantities">
+            ({{ getRestCompaniesQuantities() }})
           </div>
         </div>
       </ButtonUI>
@@ -54,7 +84,7 @@ export default {
       const quantities = this.companiesQuantities;
       const rest = quantities - 10;
       return rest < 0 ? 0 : rest;
-    }
+    },
   }
 }
 </script>

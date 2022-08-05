@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: 48% 48%;
+  grid-template-columns: calc((100% - 32px)/2) calc((100% - 32px)/2);
   gap: 32px;
 }
 
