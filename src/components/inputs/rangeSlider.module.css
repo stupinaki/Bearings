@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  width: 384px;
+  height: 56px;
+  margin: 8px 0;
+  border: 1px solid var(--primary-border);
+  border-radius: 8px;
+}
+
+.slider {
+  position: absolute;
+  right: 50%;
+  bottom: -100%;
+  left: 50%;
+  width: 272px;
+  transform: translateX(-50%);
+}
+
+.text {
+  padding: 4px;
+  color: var(--secondary-text-color);
+}
+
+.number {
+  padding: 4px;
+  color: var(--primary-text-color);
+}
+
+.description {
+  display: flex;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 16px;
+}
