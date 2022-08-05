@@ -71,6 +71,7 @@
 
 .btn-disabled,
 .btn-disabled:hover {
+  color: var(--primary-text-color);
   cursor: auto;
   background-color: var(--secondary-text-color);
 }
