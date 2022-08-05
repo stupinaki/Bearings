@@ -15,9 +15,10 @@
   --primary-color: #000;
   --third-text-color: #ec5b55;
   --primary-margin: 0 72px;
-  --breakpoint1: 1050px;
-  --breakpoint2: 900px;
-  --breakpoint3: 600px;
+
+  @custom-media --breakpoint3 screen and (max-width: 600px);
+  @custom-media --breakpoint2 (max-width: 900px);
+  @custom-media --breakpoint1 screen and (max-width: 1050px);
 
   font-size: 16px;
   font-weight: 400;
