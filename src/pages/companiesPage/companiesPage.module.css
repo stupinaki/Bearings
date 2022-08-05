@@ -23,7 +23,7 @@
 
 .btn-container {
   display: grid;
-  grid-template-columns: 32%;
+  grid-template-columns: 20%;
   justify-content: center;
   margin: 56px 0 120px;
 }
