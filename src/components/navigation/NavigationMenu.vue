@@ -1,6 +1,6 @@
 <template>
   <div :class="styled.wrapper">
-    <router-link :to="{name: 'home'}">
+    <router-link :to="{name: 'home'}" :class="styled.itemLink">
       <ButtonUI
         size="m"
         type="pseudo"
@@ -9,7 +9,7 @@
       </ButtonUI>
     </router-link>
 
-    <router-link :to="{name: 'empty'}">
+    <router-link :to="{name: 'empty'}" :class="styled.itemLink">
       <ButtonUI
         size="m"
         type="pseudo"
@@ -18,7 +18,7 @@
       </ButtonUI>
     </router-link>
 
-    <router-link :to="{name: 'companies'}">
+    <router-link :to="{name: 'companies'}" :class="styled.itemLink">
       <ButtonUI
         size="m"
         type="pseudo"
@@ -27,7 +27,7 @@
       </ButtonUI>
     </router-link>
 
-    <router-link :to="{name: 'empty'}">
+    <router-link :to="{name: 'empty'}" :class="styled.itemLink">
       <ButtonUI
         size="m"
         type="pseudo"
@@ -36,7 +36,7 @@
       </ButtonUI>
     </router-link>
 
-    <router-link :to="{name: 'empty'}">
+    <router-link :to="{name: 'empty'}" :class="styled.itemLink">
       <ButtonUI
         size="m"
         type="secondary"

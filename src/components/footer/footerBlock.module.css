@@ -47,7 +47,7 @@
 
 .bottom-item {
   display: inline-block;
-  padding: 12px;
+  padding: 12px 24px 12px 0;
   color: var(--primary-background);
   text-decoration: none;
   opacity: 0.5;

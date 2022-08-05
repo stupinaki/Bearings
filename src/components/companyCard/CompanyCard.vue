@@ -15,7 +15,7 @@
           {{ offersText }}
         </div>
         <div>
-          <router-link to="/home">
+          <router-link :to="{name: 'empty'}">
             <Arrow />
           </router-link>
         </div>
