@@ -112,7 +112,7 @@
         </router-link>
 
         <router-link
-          :to="{name: 'empty'}"
+          :to="{name: 'contractOffer'}"
           :class="styled.bottomItem"
         >
           Договор оферты
