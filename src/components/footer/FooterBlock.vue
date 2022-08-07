@@ -105,7 +105,7 @@
 
       <div>
         <router-link
-          :to="{name: 'empty'}"
+          :to="{name: 'privacyPolicy'}"
           :class="styled.bottomItem"
         >
           Политика конфиденциальности

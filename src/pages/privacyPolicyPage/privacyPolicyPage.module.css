@@ -1,0 +1,8 @@
+.container {
+  margin: var(--primary-margin);
+  text-align: justify;
+}
+
+.block {
+  padding: 12px 0;
+}
