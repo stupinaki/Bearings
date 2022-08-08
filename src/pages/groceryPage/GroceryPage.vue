@@ -2,20 +2,20 @@
   <div :class="styled.container">
     <OfferCards />
     <FiltersComponent />
-    <GroceryCard />
+    <GroceryCards />
   </div>
 </template>
 
 <script>
 import styled from "./groceryPage.module.css";
-import GroceryCard from "../../components/groceryCard/GroceryCard.vue";
+import GroceryCards from "../../components/groceryCards/GroceryCards.vue";
 import OfferCards from "../../components/offerCards/OfferCards.vue";
 import FiltersComponent from "../../components/filters/FiltersComponent.vue";
 
 export default {
   name: "GroceryPage",
   components: {
-    GroceryCard,
+    GroceryCards,
     OfferCards,
     FiltersComponent,
   },

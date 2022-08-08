@@ -70,7 +70,7 @@
               Внутренний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ innerDiameter }}
+              {{ inner_d }}
             </div>
           </div>
           <div :class="styled.row">
@@ -78,7 +78,7 @@
               Внешний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ externalDiameter }}
+              {{ outer_d }}
             </div>
           </div>
           <div :class="styled.row">
@@ -101,12 +101,7 @@
       </div>
     </div>
 
-    <div
-      v-for="card in getInTouchCardsValue"
-      :key="card.id"
-    >
-      <GetInTouchCard v-bind="card" />
-    </div>
+    <GetInTouchCard v-bind="getInTouchCard" />
   </div>
 </template>
 
@@ -121,50 +116,54 @@ export default {
     GetInTouchCard,
   },
   props: {
-    mark: {
-      type: String,
-      default: "-",
-    },
-    priceForOne: {
-      type: String,
-      default: "-",
-    },
-    availability: {
-      type: String,
-      default: "-",
-    },
-    accuracyClass: {
-      type: String,
-      default: "-",
-    },
-    type: {
-      type: String,
-      default: "-",
-    },
-    parameter: {
-      type: String,
-      default: "-",
-    },
-    manufacturer: {
-      type: String,
-      default: "-",
-    },
-    innerDiameter: {
-      type: String,
-      default: "-",
-    },
-    externalDiameter: {
-      type: String,
-      default: "-",
-    },
-    width: {
-      type: String,
-      default: "-",
-    },
-    weight: {
-      type: String,
-      default: "-",
-    },
+      mark: {
+        type: String,
+        default: "-",
+      },
+      priceForOne: {
+        type: String,
+        default: "-",
+      },
+      availability: {
+        type: String,
+        default: "-",
+      },
+      accuracyClass: {
+        type: String,
+        default: "-",
+      },
+      type: {
+        type: String,
+        default: "-",
+      },
+      parameter: {
+        type: String,
+        default: "-",
+      },
+      manufacturer: {
+        type: String,
+        default: "-",
+      },
+      inner_d: {
+        type: String,
+        default: "-",
+      },
+      outer_d: {
+        type: String,
+        default: "-",
+      },
+      width: {
+        type: String,
+        default: "-",
+      },
+      weight: {
+        type: String,
+        default: "-",
+      },
+    companyId: {
+        type: Number,
+        default: null,
+    }
   },
   data() {
     return {
@@ -172,5 +171,10 @@ export default {
       getInTouchCardsValue,
     };
   },
+  computed: {
+    getInTouchCard() {
+      return this.getInTouchCardsValue.find(card => card.id === this.companyId)
+    }
+  }
 };
 </script>

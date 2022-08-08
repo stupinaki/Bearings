@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.title">
-      Найдено {{ allCount }} {{correctWord}}
+      Найдено {{ allCount }} {{ correctWord }}
     </div>
     <div :class="styled.cards">
       <div
