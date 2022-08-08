@@ -3,26 +3,16 @@
     name="select"
     :class="styled.select"
   >
-    <option
-      :class="[styled.option, styled.selected]"
-      value="price"
-      selected
-      disabled
-    >
+    <option value="" disabled selected>
       Сортировать по
       <KeyboardArrow />
     </option>
     <option
+      v-for="option in options"
+      :key="option.id"
       :class="styled.option"
-      value="price"
     >
-      Цене
-    </option>
-    <option
-      :class="styled.option"
-      value="availability"
-    >
-      Наличию
+      {{ option.name }}
     </option>
   </select>
 </template>
@@ -39,7 +29,18 @@ export default {
   data(){
     return {
       styled,
+      options: [
+        {
+          id: 1,
+          name: "Возрастанию цены",
+        },
+        {
+          id: 2,
+          name: "Убыванию цены",
+        },
+
+      ]
     }
-  }
+  },
 }
 </script>

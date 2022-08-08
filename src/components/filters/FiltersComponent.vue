@@ -4,7 +4,7 @@
       В наличии, шт
     </div>
     <div :class="styled.filters">
-      <RangeSlider />
+      <RangeSlider :max-value="maxValue" />
       <SelectInput />
     </div>
   </div>
@@ -14,6 +14,7 @@
 import styled from "./filters.module.css";
 import RangeSlider from "../inputs/RangeSlider.vue";
 import SelectInput from "../inputs/SelectInput.vue";
+import {groceryCardsValue} from "../../../data/groceryCardValue";
 
 export default {
   name: "FiltersComponent",
@@ -24,6 +25,13 @@ export default {
   data(){
     return {
       styled,
+      groceryCardsValue,
+    }
+  },
+  computed: {
+    maxValue() {
+      const available = groceryCardsValue.map(card => card.availability);
+      return Math.max(...available);
     }
   }
 }

@@ -1,6 +1,4 @@
 .select {
-  width: 280px;
-  height: 56px;
   padding: 16px;
   border: 1px solid var(--primary-border);
   border-radius: 8px;
@@ -13,4 +11,13 @@
 
 .selected {
   display: flex;
+}
+
+.select-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  color: var(--secondary-text-color);
+  border: 1px solid var(--primary-border);
+  border-radius: 8px;
 }

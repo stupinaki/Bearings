@@ -1,5 +1,6 @@
 .filters {
-  display: flex;
+  display: grid;
+  grid-template-columns: 32% 32%;
   align-items: center;
   justify-content: space-between;
 }

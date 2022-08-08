@@ -15,14 +15,12 @@
           до
         </div>
         <div :class="styled.number">
-          1000
+          {{ maxValue }}
         </div>
       </div>
     </div>
     <div :class="styled.slider">
       <v-range-slider
-        min="1"
-        max="1000"
         track-color="#d8ddf9"
         track-fill-color="#4a53f5"
         track-size="2"
@@ -38,6 +36,13 @@ import styled from "./rangeSlider.module.css";
 
 export default {
   name: "RangeSlider",
+  props: {
+    maxValue: {
+      require: true,
+      default: null,
+      type: Number,
+    }
+  },
   data(){
     return {
       styled,
