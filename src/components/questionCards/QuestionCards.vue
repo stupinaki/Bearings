@@ -5,11 +5,11 @@
     </div>
     <div :class="styled.question">
       <div
-          v-for="question in questionCardValue"
-          :key="question.id"
+        v-for="question in questionCardValue"
+        :key="question.id"
       >
         <QuestionCard
-            :text="question.text"
+          :text="question.text"
         />
       </div>
     </div>
@@ -17,7 +17,7 @@
       <router-link :to="{name: 'empty'}">
         <ButtonUI type="type-link">
           Все вопросы
-          <Arrow/>
+          <Arrow />
         </ButtonUI>
       </router-link>
     </div>
