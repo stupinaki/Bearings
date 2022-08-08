@@ -1,7 +1,15 @@
 .wrapper {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  padding: 20px;
+  grid-template-columns: calc((100% - 62px)/3) calc((100% - 62px)/3) calc((100% - 62px)/3);
+  gap: 32px;
+}
+
+.title {
+  margin: 48px 0;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  color: var(--primary-text-color);
 }
 
 @media screen and (max-width: 900px) {

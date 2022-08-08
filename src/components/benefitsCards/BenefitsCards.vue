@@ -1,4 +1,7 @@
 <template>
+  <div :class="styled.title">
+    Почему стоит воспользоваться нашим сервисом?
+  </div>
   <div :class="styled.wrapper">
     <div
       v-for="benefit in benefitsValue"
