@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 24px;
+  padding: 24px 24px 40px;
   margin: 24px 0 72px;
   background: var(--third-background);
   border-radius: 8px;
@@ -20,16 +20,21 @@
 
 .form {
   display: grid;
-  grid-template-columns: 30% 50% 20%;
-  margin: 8px 0;
+  grid-template-columns: 32% 40% 5% 20%;
+  gap: 1%;
+  padding: 8px;
+  margin: 12px 0;
+  background: var(--primary-background);
+  border: 1px solid var(--primary-border);
+  border-radius: 8px;
 }
 
 .input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px;
-  background: var(--primary-background);
-  border: 1px solid var(--primary-border);
-  border-radius: 8px;
+}
+
+.line {
+  border-right: 1px solid var(--primary-border);
 }
