@@ -1,5 +1,7 @@
+@import "@/styles/variables.modules.css";
+
 .notice {
-  margin: var(--primary-margin);
+  margin: $primary-margin;
   font-size: 60px;
   line-height: 80px;
 }

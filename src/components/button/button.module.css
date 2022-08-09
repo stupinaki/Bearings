@@ -1,3 +1,5 @@
+@import "@/styles/variables.modules.css";
+
 .btn {
   display: flex;
   flex-direction: row;
@@ -32,21 +34,21 @@
 }
 
 .btn-primary {
-  color: var(--primary-background);
-  background: var(--primary-btn-color);
+  color: $primary-background;
+  background: $primary-btn-color;
 }
 
 .btn-primary:hover {
-  background: var(--primary-btn-hover-color);
+  background: $primary-btn-hover-color;
 }
 
 .btn-secondary {
   color: #4a53f5;
-  background: var(--secondary-btn-color);
+  background: $secondary-btn-color;
 }
 
 .btn-secondary:hover {
-  background: var(--secondary-btn-hover-color);
+  background: $secondary-btn-hover-color;
 }
 
 .btn-pseudo {
@@ -55,22 +57,22 @@
 }
 
 .btn-pseudo:hover {
-  background: var(--pseudo-btn-hover-color);
+  background: $pseudo-btn-hover-color;
 }
 
 .btn-type-link {
   padding: 0;
-  color: var(--primary-btn-color);
+  color: $primary-btn-color;
   text-decoration-line: underline;
   background-color: transparent;
 
   &:hover {
-    color: var(--primary-btn-hover-color);
+    color: $primary-btn-hover-color;
   }
 }
 
 .btn-disabled,
 .btn-disabled:hover {
   cursor: auto;
-  background-color: var(--secondary-text-color);
+  background-color: $secondary-text-color;
 }

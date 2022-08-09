@@ -1,8 +1,10 @@
+@import "@/styles/variables.modules.css";
+
 .wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
   padding: 8px 0;
-  margin: var(--primary-margin);
+  margin: $primary-margin;
 }
 
 .logo-map {
@@ -17,7 +19,7 @@
 
 .city {
   margin-left: 4px;
-  color: var(--primary-btn-color);
+  color: $primary-btn-color;
 }
 
 .pic {
@@ -25,10 +27,10 @@
   font-size: 48px;
   font-weight: 800;
   line-height: 58px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: $breakpoint1) {
   .wrapper {
     grid-template-columns: 100%;
   }
