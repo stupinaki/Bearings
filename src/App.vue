@@ -1,7 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <div :class="styles.app">
+      <div
+        :class="styles.app"
+        @drop.prevent
+        @dragenter.prevent
+        @dragover.prevent
+        @dragleave.prevent
+      >
         <HeaderBlock />
         <router-view />
         <FooterBlock />
