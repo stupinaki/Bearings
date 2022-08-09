@@ -1,0 +1,21 @@
+.drop-zone {
+  padding: 60px;
+  border: 2px dashed var(--primary-border);
+  border-radius: 4px;
+}
+
+.instruction {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--primary-text-color);
+}
+
+.drop-text {
+  padding-bottom: 8px;
+}
+
+.supported-formats {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--secondary-text-color);
+}
