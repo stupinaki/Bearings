@@ -1,20 +1,22 @@
+@import "/src/styles/variables.modules.css";
+
 .wrapper {
   padding: 24px 24px 40px;
   margin: 24px 0 72px;
-  background: var(--third-background);
+  background: $third-background;
   border-radius: 8px;
 }
 
 .names {
   display: grid;
   grid-template-columns: 40% 60%;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .help {
   font-size: 14px;
   line-height: 16px;
-  color: var(--primary-btn-color);
+  color: $primary-btn-color;
   text-decoration-line: underline;
 }
 
@@ -24,8 +26,8 @@
   gap: 1%;
   padding: 8px;
   margin: 12px 0;
-  background: var(--primary-background);
-  border: 1px solid var(--primary-border);
+  background: $primary-background;
+  border: 1px solid $primary-border;
   border-radius: 8px;
 }
 
@@ -36,5 +38,5 @@
 }
 
 .line {
-  border-right: 1px solid var(--primary-border);
+  border-right: 1px solid $primary-border;
 }

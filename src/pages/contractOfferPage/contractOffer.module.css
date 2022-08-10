@@ -1,0 +1,11 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  margin: $primary-margin;
+  margin-bottom: 24px;
+  text-align: justify;
+}
+
+.text {
+  padding: 12px 0;
+}

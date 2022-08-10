@@ -3,6 +3,8 @@ import HomePage from "../pages/homePage/HomePage.vue";
 import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
 import GroceryPage from "../pages/groceryPage/GroceryPage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
+import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
+import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
 
 
 const routes = [
@@ -25,6 +27,16 @@ const routes = [
         path: '/empty',
         name: "empty",
         component: EmptyPage,
+    },
+    {
+        path: '/contract-offer',
+        name: "contractOffer",
+        component: ContractOfferPage,
+    },
+    {
+        path: '/privacy-policy',
+        name: "privacyPolicy",
+        component: PrivacyPolicyPage,
     },
 ]
 

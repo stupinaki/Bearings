@@ -1,9 +1,16 @@
+@import "/src/styles/variables.modules.css";
+
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
-@media screen and (max-width: 900px) {
+.item-link {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: $breakpoint2) {
   .wrapper {
     display: grid;
     grid-template-columns: 50% 50%;

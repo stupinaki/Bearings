@@ -1,17 +1,52 @@
+@import "/src/styles/variables.modules.css";
+
 .container {
-  margin: var(--primary-margin);
+  margin: $primary-margin;
+}
+
+.header-wrapper {
+  display: flex;
+  margin: 56px 0;
 }
 
 .header {
-  margin: 56px 0;
+  padding: 12px 0;
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
+}
+
+.quantities {
+  font-size: 36px;
+  line-height: 44px;
+  color: $primary-btn-color;
 }
 
 .btn-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 20%;
   justify-content: center;
   margin: 56px 0 120px;
+}
+
+.btn-content-wrapper {
+  display: flex;
+}
+
+.btn-quantities {
+  padding-bottom: 12px;
+}
+
+.btn-text {
+  padding: 4px;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: 8% 92%;
+  padding: 16px;
+  margin: 32px 0;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
 }

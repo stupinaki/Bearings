@@ -1,7 +1,10 @@
 @import "/src/styles/variables.modules.css";
 
-.notice {
+.container {
   margin: $primary-margin;
-  font-size: 60px;
-  line-height: 80px;
+  text-align: justify;
+}
+
+.block {
+  padding: 12px 0;
 }

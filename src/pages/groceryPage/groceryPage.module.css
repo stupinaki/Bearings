@@ -1,5 +1,7 @@
+@import "/src/styles/variables.modules.css";
+
 .container {
-  margin: var(--primary-margin);
+  margin: $primary-margin;
 }
 
 .header {
@@ -11,7 +13,7 @@
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .sub-title {

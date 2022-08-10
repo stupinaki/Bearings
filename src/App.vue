@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import styles from "./styles/globalStyle.module.css";
+import styles from "./styles/app.module.css";
 import reset from "../src/styles/reset.css"
 import HeaderBlock from "@/components/header/HeaderBlock.vue";
 import FooterBlock from "@/components/footer/FooterBlock.vue";

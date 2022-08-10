@@ -1,10 +1,20 @@
+@import "/src/styles/variables.modules.css";
+
 .wrapper {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  padding: 20px;
+  grid-template-columns: calc((100% - 62px)/3) calc((100% - 62px)/3) calc((100% - 62px)/3);
+  gap: 32px;
 }
 
-@media screen and (max-width: 900px) {
+.title {
+  margin: 48px 0;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  color: $primary-text-color;
+}
+
+@media screen and (max-width: $breakpoint2) {
   .wrapper {
     grid-template-columns: 100%;
     gap: 24px;

@@ -1,12 +1,14 @@
+@import "/src/styles/variables.modules.css";
+
 .primary {
   display: inline-block;
   padding: 8px;
-  color: var(--primary-background);
-  background: var(--primary-chip-background);
+  color: $primary-background;
+  background: $primary-chip-background;
   border: none;
   border-radius: 60px;
 }
 
 .secondary {
-  background: var(--secondary-chip-background);
+  background: $secondary-chip-background;
 }
