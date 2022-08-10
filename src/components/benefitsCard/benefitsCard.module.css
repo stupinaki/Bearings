@@ -3,7 +3,6 @@
 .wrapper {
   height: 100%;
   padding: 16px;
-  margin: 8px;
   background: $third-background;
   border: none;
   border-radius: 8px;

@@ -105,14 +105,14 @@
 
       <div>
         <router-link
-          :to="{name: 'empty'}"
+          :to="{name: 'privacyPolicy'}"
           :class="styled.bottomItem"
         >
           Политика конфиденциальности
         </router-link>
 
         <router-link
-          :to="{name: 'empty'}"
+          :to="{name: 'contractOffer'}"
           :class="styled.bottomItem"
         >
           Договор оферты
