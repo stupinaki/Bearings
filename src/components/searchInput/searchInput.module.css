@@ -1,0 +1,19 @@
+@import "/src/styles/variables.modules.css";
+
+.input {
+  display: grid;
+  grid-template-columns: 8% 92%;
+  padding: 16px;
+  margin: 32px 0;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.empty-search-query {
+  display: grid;
+  grid-template-columns: 8% 92%;
+  padding: 16px;
+  margin: 32px 0;
+  border: 2px solid $third-text-color;
+  border-radius: 8px;
+}

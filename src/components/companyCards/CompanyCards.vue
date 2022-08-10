@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.cards">
     <div
-      v-for="card in cardsValue"
+      v-for="card in searchCards"
       :key="card.id"
       :class="styled.card"
     >
@@ -20,11 +20,29 @@ export default {
   components: {
     CompanyCard,
   },
+  props: {
+    searchCompanyName: {
+      type: String,
+      require: false,
+      default: undefined,
+    }
+  },
   data() {
     return {
       cardsValue,
       styled,
     };
   },
+  computed: {
+    searchCards() {
+      const { searchCompanyName } = this.$props;
+      const { cardsValue } = this.$data;
+      if (!searchCompanyName) {
+        return cardsValue;
+      }
+      return cardsValue.filter(card => card.title.toLowerCase().includes(searchCompanyName));
+    }
+  },
+
 };
 </script>

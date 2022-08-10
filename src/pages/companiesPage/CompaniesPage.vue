@@ -8,18 +8,13 @@
         ({{ companiesQuantities }})
       </div>
     </div>
-
-    <div :class="styled.input">
-      <img
-        src="../../assets/searchInput.svg"
-        alt=""
-      >
-      <input
-        placeholder="Например, Авангард-подшипник"
-      >
-    </div>
-
-    <CompanyCards />
+    <SearchInput
+      placeholder="Например, Авангард-подшипник"
+      @start-search="onStartSearch"
+    />
+    <CompanyCards
+      :search-company-name="searchText"
+    />
 
     <div :class="styled.btnContainer">
       <ButtonUI
@@ -59,17 +54,18 @@
 <script>
 import CompanyCards from "../../components/companyCards/CompanyCards.vue";
 import styled from "./companiesPage.module.css"
-import ButtonUI from "../../components/button/ButtonUI.vue";
 import {cardsValue} from "../../../data/cardsValue";
+import SearchInput from "../../components/searchInput/SearchInput.vue";
 
 export default {
   name: "CompaniesPage",
   components: {
     CompanyCards,
-    ButtonUI,
+    SearchInput,
   },
   data() {
     return {
+      searchText: '',
       styled,
       cardsValue,
     }
@@ -80,11 +76,17 @@ export default {
     },
   },
   methods: {
+    onStartSearch(string) {
+      this.$data.searchText = string;
+    },
     getRestCompaniesQuantities(){
       const quantities = this.companiesQuantities;
       const rest = quantities - 10;
       return rest < 0 ? 0 : rest;
     },
+    startSearch(value) {
+      console.log(value)
+    }
   }
 }
 </script>
