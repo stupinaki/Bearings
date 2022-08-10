@@ -1,23 +1,21 @@
 <template>
   <form
-      action=""
-      @submit.prevent
+    action=""
+    @submit.prevent
   >
     <div :class="className">
-
       <ButtonUI
-          type="pseudo"
-          @click="onStartSearch"
+        type="pseudo"
+        @click="onStartSearch"
       >
-        <SearchInputImg/>
+        <SearchInputImg />
       </ButtonUI>
       <input
-          ref="searchQuery"
-          :placeholder="placeholder"
+        ref="searchQuery"
+        :placeholder="placeholder"
       >
     </div>
   </form>
-
 </template>
 
 <script>
