@@ -40,3 +40,11 @@
   border: 4px dashed var(--primary-btn-color);
   border-radius: 4px;
 }
+
+.progress-false {
+  display: none;
+}
+
+.progress-true {
+  display: block;
+}
