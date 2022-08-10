@@ -6,17 +6,36 @@
     <div :class="styled.subTitle">
       Мы передадим данные нашим партнерам, и они свяжутся с вами для уточнения деталей.
     </div>
-    <form action="" :class="styled.form">
-      <input type="text" placeholder="Имя" :class="styled.textInput">
-      <input type="text" placeholder="Телефон" :class="styled.textInput">
-      <input type="text" placeholder="E-mail" :class="styled.textInput">
+    <form
+      action=""
+      :class="styled.form"
+    >
+      <input
+        type="text"
+        placeholder="Имя"
+        :class="styled.textInput"
+      >
+      <input
+        type="text"
+        placeholder="Телефон"
+        :class="styled.textInput"
+      >
+      <input
+        type="text"
+        placeholder="E-mail"
+        :class="styled.textInput"
+      >
       <div>
-        <div :class="styled.dropText">Загрузить список документов</div>
+        <div :class="styled.dropText">
+          Загрузить список документов
+        </div>
         <div :class="styled.dropZone"> 
           <div>
             <div :class="styled.instruction">
               <div>Перетащите файлы или</div>
-              <ButtonUI type="type-link"> загрузите </ButtonUI>
+              <ButtonUI type="type-link">
+                загрузите
+              </ButtonUI>
             </div>
             <div :class="styled.supportedFormats">
               Подерживаемый формат: .doc, .docx, .excel
@@ -26,9 +45,9 @@
       </div>
       <div :class="styled.checkboxWrapper">
         <input
-            type="checkbox"
-            id="checkboxForm"
-            :class="styled.checkbox"
+          id="checkboxForm"
+          type="checkbox"
+          :class="styled.checkbox"
         >
         <label for="checkboxForm">
           Я согласен с
@@ -53,13 +72,13 @@ import ButtonUI from "../button/ButtonUI.vue";
 
 export default {
   name: "BulkOrderForm",
+  components: {
+    ButtonUI,
+  },
   data() {
     return {
       styled,
     }
-  },
-  components: {
-    ButtonUI,
   }
 }
 </script>
