@@ -4,15 +4,19 @@
     @submit.prevent
   >
     <div :class="className">
-      <ButtonUI
-        type="pseudo"
-        @click="onStartSearch"
-      >
-        <SearchInputImg />
-      </ButtonUI>
+      <div :class="styled.searchBtnWrapper">
+        <ButtonUI
+            type="pseudo"
+            @click="onStartSearch"
+        >
+          <SearchInputImg />
+        </ButtonUI>
+      </div>
       <input
         ref="searchQuery"
         :placeholder="placeholder"
+        :class="styled.input"
+        @blur="onBlur"
       >
     </div>
   </form>
@@ -49,7 +53,7 @@ export default {
       if (this.$data.isEmptySearchQuery) {
         return [styled.emptySearchQuery];
       }
-      return [styled.input]
+      return [styled.fillSearchQuery];
     }
   },
   methods: {
@@ -57,6 +61,9 @@ export default {
       const searchQuery = this.$refs.searchQuery.value;
       this.$data.isEmptySearchQuery = !searchQuery;
       this.$emit('startSearch', searchQuery.toLowerCase())
+    },
+    onBlur(){
+      this.$data.isEmptySearchQuery = false;
     }
   }
 }
