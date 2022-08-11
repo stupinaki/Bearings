@@ -6,8 +6,8 @@
     <div :class="className">
       <div :class="styled.searchBtnWrapper">
         <ButtonUI
-            type="pseudo"
-            @click="onStartSearch"
+          type="pseudo"
+          @click="onStartSearch"
         >
           <SearchInputImg />
         </ButtonUI>

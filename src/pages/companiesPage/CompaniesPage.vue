@@ -17,6 +17,7 @@
     />
 
     <div :class="styled.btnContainer">
+
       <ButtonUI
         v-if="getRestCompaniesQuantities() <= 0"
         type="secondary"
@@ -56,12 +57,14 @@ import CompanyCards from "../../components/companyCards/CompanyCards.vue";
 import styled from "./companiesPage.module.css"
 import {cardsValue} from "../../../data/cardsValue";
 import SearchInput from "../../components/searchInput/SearchInput.vue";
+import ButtonUI from "../../components/button/ButtonUI.vue";
 
 export default {
   name: "CompaniesPage",
   components: {
     CompanyCards,
     SearchInput,
+    ButtonUI,
   },
   data() {
     return {
@@ -84,9 +87,6 @@ export default {
       const rest = quantities - 10;
       return rest < 0 ? 0 : rest;
     },
-    startSearch(value) {
-      console.log(value)
-    }
   }
 }
 </script>

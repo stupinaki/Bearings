@@ -1,4 +1,4 @@
-@import "@/styles/variables.modules.css";
+@import "/src/styles/variables.modules.css";
 
 .btn {
   display: flex;
@@ -43,7 +43,7 @@
 }
 
 .btn-secondary {
-  color: #4a53f5;
+  color: $primary-btn-color;
   background: $secondary-btn-color;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .btn-pseudo {
-  color: #3a3d4b;
+  color: $primary-text-color;
   background: transparent;
 }
 
@@ -73,7 +73,7 @@
 
 .btn-disabled,
 .btn-disabled:hover {
-  color: var(--primary-text-color);
+  color: $primary-text-color;
   cursor: auto;
   background-color: $secondary-text-color;
 }
