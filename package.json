@@ -35,7 +35,6 @@
     "husky": "^8.0.0",
     "jsdom": "^20.0.0",
     "postcss": "^8.4.16",
-    "postcss-modules": "^4.3.1",
     "postcss-nesting": "^10.1.10",
     "postcss-simple-vars": "^6.0.3",
     "prettier": "^2.7.1",
