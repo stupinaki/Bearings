@@ -11,8 +11,7 @@
 </template>
 
 <script>
-import CompanyCard from "../companyCard/CompanyCard.vue";
-import { cardsValue } from "../../../data/cardsValue";
+import CompanyCard from "./CompanyCard.vue";
 import styled from "./companyCards.module.css";
 
 export default {
@@ -22,9 +21,13 @@ export default {
   },
   data() {
     return {
-      cardsValue,
       styled,
     };
   },
+  computed: {
+    cardsValue() {
+      return this.$store.state.cardsValue;
+    }
+  }
 };
 </script>

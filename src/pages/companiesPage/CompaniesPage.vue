@@ -59,8 +59,7 @@
 <script>
 import CompanyCards from "../../components/companyCards/CompanyCards.vue";
 import styled from "./companiesPage.module.css"
-import ButtonUI from "../../components/button/ButtonUI.vue";
-import {cardsValue} from "../../../data/cardsValue";
+import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 
 export default {
   name: "CompaniesPage",
@@ -71,12 +70,11 @@ export default {
   data() {
     return {
       styled,
-      cardsValue,
     }
   },
   computed: {
     companiesQuantities(){
-      return this.cardsValue.length;
+      return this.$store.state.cardsValue.length;
     },
   },
   methods: {

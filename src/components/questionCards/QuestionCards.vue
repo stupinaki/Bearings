@@ -25,10 +25,9 @@
 </template>
 
 <script>
-import QuestionCard from "../questionCard/QuestionCard.vue";
-import {questionCardValue} from "../../../data/questionCardValue";
+import QuestionCard from "./QuestionCard.vue";
 import styled from "./questionCards.module.css";
-import ButtonUI from "../button/ButtonUI.vue";
+import ButtonUI from "../UI/button/ButtonUI.vue";
 import Arrow from "../../assets/arrow_downward.svg"
 
 export default {
@@ -40,8 +39,12 @@ export default {
   },
   data(){
     return {
-      questionCardValue,
       styled,
+    }
+  },
+  computed: {
+    questionCardValue(){
+      return this.$store.state.questionCardValue;
     }
   }
 }

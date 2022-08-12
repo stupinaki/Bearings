@@ -19,8 +19,7 @@
 
 <script>
 import styled from "./offerCards.module.css";
-import {offerCardsValue} from "../../../data/offerCardsValue";
-import OfferCard from "../offerCard/OfferCard.vue";
+import OfferCard from "./OfferCard.vue";
 
 export default {
   name: "OfferCards",
@@ -30,10 +29,12 @@ export default {
   data(){
     return {
       styled,
-      offerCardsValue,
     }
   },
   computed: {
+    offerCardsValue(){
+      return this.$store.state.offerCardsValue;
+    },
     allCount(){
       return this.offerCardsValue.reduce((acc, card) => acc + +card.count, 0)
     },
