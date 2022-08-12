@@ -40,3 +40,56 @@
 .line {
   border-right: 1px solid $primary-border;
 }
+
+.main-form {
+  display: block;
+}
+
+.additional-form-wrapper {
+  margin-top: 56px;
+}
+
+.additional-form {
+  display: grid;
+  grid-template-columns: repeat(3, calc((70% - 48px) / 3));
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.additional-form-wrapper-hide {
+  display: none;
+}
+
+.additional-form-input {
+  padding: 16px;
+  background: $primary-background;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.additional-form-text {
+  padding-bottom: 12px;
+}
+
+.reset-btn {
+  color: $third-text-color;
+}
+
+.help-reset {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.btn-wrapper {
+  display: inline-block;
+}
+
+.additional-form-text-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.text-padding-right {
+  padding-right: 8px;
+}
