@@ -1,4 +1,4 @@
-@import "@/styles/variables.modules.css";
+@import "/src/styles/variables.modules.css";
 
 .btn {
   display: flex;
@@ -73,7 +73,7 @@
 
 .btn-disabled,
 .btn-disabled:hover {
-  color: var(--primary-text-color);
+  color: $primary-text-color;
   cursor: auto;
   background-color: $secondary-text-color;
 }
