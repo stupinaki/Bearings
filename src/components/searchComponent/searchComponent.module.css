@@ -13,13 +13,6 @@
   color: $primary-text-color;
 }
 
-.help {
-  font-size: 14px;
-  line-height: 16px;
-  color: $primary-btn-color;
-  text-decoration-line: underline;
-}
-
 .form {
   display: grid;
   grid-template-columns: 32% 40% 5% 20%;
@@ -51,7 +44,7 @@
 
 .additional-form {
   display: grid;
-  grid-template-columns: repeat(3, calc((70% - 48px) / 3));
+  grid-template-columns: repeat(3, calc((60% - 48px) / 3));
   gap: 24px;
   margin-top: 56px;
 }
@@ -61,6 +54,7 @@
 }
 
 .additional-form-input {
+  width: 100%;
   padding: 16px;
   background: $primary-background;
   border: 1px solid $primary-border;
@@ -92,4 +86,22 @@
 
 .text-padding-right {
   padding-right: 8px;
+}
+
+@media screen and (max-width: $breakpoint1) {
+  .additional-form {
+    display: grid;
+    grid-template-columns: repeat(2, calc((60% - 24px) / 2));
+    gap: 24px;
+    margin-top: 56px;
+  }
+}
+
+@media screen and (max-width: $breakpoint2) {
+  .additional-form {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 24px;
+    margin-top: 56px;
+  }
 }
