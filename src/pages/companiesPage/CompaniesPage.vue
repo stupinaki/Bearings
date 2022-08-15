@@ -17,34 +17,15 @@
     />
 
     <div :class="styled.btnContainer">
-
       <ButtonUI
-        v-if="getRestCompaniesQuantities() <= 0"
         type="secondary"
-        disabled
       >
         <div :class="styled.btnContentWrapper">
           <div :class="styled.btnText">
             Показать еще
           </div>
           <div :class="styled.btnQuantities">
-            ({{ getRestCompaniesQuantities() }})
-          </div>
-        </div>
-      </ButtonUI>
-
-      <ButtonUI
-        v-else
-        type="secondary"
-      >
-        <div
-          :class="styled.btnContentWrapper"
-        >
-          <div :class="styled.btnText">
-            Показать еще
-          </div>
-          <div :class="styled.btnQuantities">
-            ({{ getRestCompaniesQuantities() }})
+            ({{ companiesCount }})
           </div>
         </div>
       </ButtonUI>
@@ -53,11 +34,10 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import SearchInput from "../../components/searchInput/SearchInput.vue";
-import ButtonUI from "../../components/button/ButtonUI.vue";
-import { mapActions, mapState } from "vuex";
-import {cardsValue} from "../../../data/cardsValue";
+import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 import styled from "./companiesPage.module.css"
 
 export default {
@@ -78,6 +58,10 @@ export default {
     companiesQuantities() {
       return this.companies.length;
     },
+    companiesCount() {
+      const rest = this.companiesQuantities - 10;
+      return rest < 0 ? 0 : rest;
+    },
   },
   beforeMount() {
     this.initCompanies();
@@ -86,11 +70,6 @@ export default {
     ...mapActions("companies", ["initCompanies"]),
     onStartSearch(string) {
       this.$data.searchText = string;
-    },
-    getRestCompaniesQuantities(){
-      const quantities = this.companiesQuantities;
-      const rest = quantities - 10;
-      return rest < 0 ? 0 : rest;
     },
   }
 }

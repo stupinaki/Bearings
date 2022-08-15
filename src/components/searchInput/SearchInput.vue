@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import ButtonUI from "../../components/button/ButtonUI.vue";
+import ButtonUI from "../UI/button/ButtonUI.vue";
 import SearchInputImg from "../../assets/searchInput.svg";
 import styled from "./searchInput.module.css"
 
@@ -44,13 +44,13 @@ export default {
   data() {
     return {
       styled,
-      isEmptySearchQuery: false,
+      isError: false,
       value: undefined,
     }
   },
   computed: {
     className() {
-      if (this.$data.isEmptySearchQuery) {
+      if (this.$data.isError) {
         return [styled.emptySearchQuery];
       }
       return [styled.fillSearchQuery];
@@ -59,11 +59,11 @@ export default {
   methods: {
     onStartSearch() {
       const searchQuery = this.$refs.searchQuery.value;
-      this.$data.isEmptySearchQuery = !searchQuery;
+      this.$data.isError = !searchQuery;
       this.$emit('startSearch', searchQuery.toLowerCase())
     },
     onBlur(){
-      this.$data.isEmptySearchQuery = false;
+      this.$data.isError = false;
     }
   }
 }
