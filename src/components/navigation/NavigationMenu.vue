@@ -13,7 +13,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'empty'}"
+      :to="{name: 'products'}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -64,7 +64,7 @@
 
 <script>
 import styled from "./navigationMenu.module.css";
-import ButtonUI from "../button/ButtonUI.vue";
+import ButtonUI from "../UI/button/ButtonUI.vue";
 
 export default {
   name: "NavigationMenu",

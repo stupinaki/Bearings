@@ -53,11 +53,12 @@
 </template>
 
 <script>
-import CompanyCards from "../../components/companyCards/CompanyCards.vue";
-import styled from "./companiesPage.module.css"
-import {cardsValue} from "../../../data/cardsValue";
+import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import SearchInput from "../../components/searchInput/SearchInput.vue";
 import ButtonUI from "../../components/button/ButtonUI.vue";
+import { mapActions, mapState } from "vuex";
+import {cardsValue} from "../../../data/cardsValue";
+import styled from "./companiesPage.module.css"
 
 export default {
   name: "CompaniesPage",
@@ -70,15 +71,19 @@ export default {
     return {
       searchText: '',
       styled,
-      cardsValue,
     }
   },
   computed: {
-    companiesQuantities(){
-      return this.cardsValue.length;
+    ...mapState("companies", ["companies"]),
+    companiesQuantities() {
+      return this.companies.length;
     },
   },
+  beforeMount() {
+    this.initCompanies();
+  },
   methods: {
+    ...mapActions("companies", ["initCompanies"]),
     onStartSearch(string) {
       this.$data.searchText = string;
     },
