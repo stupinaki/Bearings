@@ -132,6 +132,7 @@
 <script>
 import styled from "./footerBlock.module.css";
 import imageMap from "./footerImages";
+import {footerImgValue} from "../../../data/footerImgValue";
 
 export default {
   name: "FooterBlock",
@@ -139,12 +140,8 @@ export default {
     return {
       styled,
       imageMap,
+      footerImgValue,
     };
   },
-  computed: {
-    footerImgValue(){
-      return this.$store.state.footerImgValue;
-    }
-  }
 };
 </script>

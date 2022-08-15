@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import CompanyCards from "../../components/companyCards/CompanyCards.vue";
+import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import styled from "./companiesPage.module.css"
 import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 

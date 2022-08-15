@@ -113,7 +113,7 @@
 <script>
 import styled from "./groceryCard.module.css";
 import GetInTouchCard from "../getInTouchCard/GetInTouchCard.vue";
-import { getInTouchCardsValue } from "../../../data/getInTouchCardsValue";
+import { getInTouchCardsValue } from "../../../../../data/getInTouchCardsValue";
 
 export default {
   name: "GroceryCard",

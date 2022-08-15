@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import ButtonUI from "../UI/button/ButtonUI.vue";
+import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import styled from "./getInTouchCard.module.css";
 
 export default {

@@ -19,7 +19,7 @@
 
 <script>
 import styled from "./offerCards.module.css";
-import OfferCard from "./OfferCard.vue";
+import OfferCard from "../offerCard/OfferCard.vue";
 
 export default {
   name: "OfferCards",

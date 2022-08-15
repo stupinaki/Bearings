@@ -18,8 +18,9 @@
 </template>
 
 <script>
-import BenefitsCard from "./BenefitsCard.vue";
+import BenefitsCard from "../benefitsCard/BenefitsCard.vue";
 import imageMap from "./benifitImages";
+import {benefitsValue} from "../../../../../data/benefitsValue";
 
 import styled from "./benefitsCards.module.css";
 
@@ -32,12 +33,8 @@ export default {
     return {
       imageMap,
       styled,
+      benefitsValue,
     };
   },
-  computed: {
-    benefitsValue(){
-      return this.$store.state.benefitsValue;
-    }
-  }
 };
 </script>

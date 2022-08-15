@@ -11,7 +11,7 @@
 
 <script>
 import styled from "./questionCard.module.css";
-import Arrow from "../../assets/arrow_downward.svg"
+import Arrow from "../../../../assets/arrow_downward.svg"
 
 export default {
   name: "QuestionCard",

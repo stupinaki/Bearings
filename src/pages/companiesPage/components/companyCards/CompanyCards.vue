@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CompanyCard from "./CompanyCard.vue";
+import CompanyCard from "../companyCard/CompanyCard.vue";
 import styled from "./companyCards.module.css";
 
 export default {

@@ -68,7 +68,7 @@
 
 <script>
 import styled from "./bulkOrderForm.module.css";
-import ButtonUI from "../UI/button/ButtonUI.vue";
+import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 
 export default {
   name: "BulkOrderForm",
