@@ -13,7 +13,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'empty'}"
+      :to="{name: 'products'}"
       :class="styled.itemLink"
     >
       <ButtonUI

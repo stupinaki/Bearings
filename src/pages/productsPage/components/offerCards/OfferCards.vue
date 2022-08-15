@@ -5,7 +5,7 @@
     </div>
     <div :class="styled.cards">
       <div
-        v-for="card in offerCardsValue"
+        v-for="card in offers"
         :key="card.id"
       >
         <OfferCard
@@ -20,6 +20,7 @@
 <script>
 import styled from "./offerCards.module.css";
 import OfferCard from "../offerCard/OfferCard.vue";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "OfferCards",
@@ -31,12 +32,16 @@ export default {
       styled,
     }
   },
+  beforeMount() {
+    this.initOffers();
+  },
+  methods: {
+    ...mapActions("offers", ["initOffers"]),
+  },
   computed: {
-    offerCardsValue(){
-      return this.$store.state.offerCardsValue;
-    },
+    ...mapState("offers", ["offers"]),
     allCount(){
-      return this.offerCardsValue.reduce((acc, card) => acc + +card.count, 0)
+      return this.offers.reduce((acc, card) => acc + +card.count, 0)
     },
     correctWord(){
       const count = this.allCount.toString();
