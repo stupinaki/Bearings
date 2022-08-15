@@ -1,3 +1,5 @@
+@import "/src/styles/variables.modules.css";
+
 .wrapper {
   margin: 20px 0;
 }
@@ -14,7 +16,7 @@
   font-size: 36px;
   font-weight: 500;
   line-height: 44px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .question-btn {
