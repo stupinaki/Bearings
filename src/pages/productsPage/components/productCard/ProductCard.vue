@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import styled from "./groceryCard.module.css";
+import styled from "./productCard.module.css";
 import GetInTouchCard from "../getInTouchCard/GetInTouchCard.vue";
 import { getInTouchCardsValue } from "../../../../../data/getInTouchCardsValue";
 

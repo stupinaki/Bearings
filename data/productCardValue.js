@@ -1,4 +1,4 @@
-export const groceryCardsValue = [
+export const productCardsValue = [
   {
     id: 73446798,
     mark: "6302cg18",

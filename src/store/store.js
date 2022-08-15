@@ -1,16 +1,16 @@
 import {createStore} from "vuex";
-import {companyCardsValue} from "../../data/CompanyCardsValue";
+import {companiesCardsValue} from "../../data/CompaniesCardsValue";
 import {getInTouchCardsValue} from "../../data/getInTouchCardsValue";
-import {groceryCardsValue} from "../../data/groceryCardValue";
+import {productCardsValue} from "../../data/productCardValue";
 import {offerCardsValue} from "../../data/offerCardsValue";
 
 
 const store = createStore({
     state () {
         return {
-            cardsValue: companyCardsValue,
+            cardsValue: companiesCardsValue,
             getInTouchCardsValue: getInTouchCardsValue,
-            groceryCardsValue: groceryCardsValue,
+            productCardsValue: productCardsValue,
             offerCardsValue: offerCardsValue,
         }
     },

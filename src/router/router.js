@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import HomePage from "../pages/homePage/HomePage.vue";
 import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
-import GroceryPage from "../pages/groceryPage/GroceryPage.vue";
+import GroceryPage from "../pages/productsPage/ProductsPage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
@@ -19,8 +19,8 @@ const routes = [
         component: CompaniesPage,
     },
     {
-        path: '/grocery',
-        name: "grocery",
+        path: '/products',
+        name: "products",
         component: GroceryPage,
     },
     {
