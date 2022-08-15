@@ -1,12 +1,11 @@
 <template>
   <div>
-
     <div
-        v-for="product  in products"
-        :key="product.id"
+      v-for="product in products"
+      :key="product.id"
     >
       <ProductCard
-          v-bind="product"
+        v-bind="product"
       />
     </div>
   </div>
@@ -19,13 +18,13 @@ import {mapActions, mapState} from "vuex";
 
 export default {
   name: "ProductCards",
+  components: {
+    ProductCard,
+  },
   data() {
     return {
       styled,
     }
-  },
-  components: {
-    ProductCard,
   },
   beforeMount() {
     this.initProducts();
