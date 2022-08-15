@@ -11,7 +11,7 @@
   font-size: 36px;
   font-weight: 500;
   line-height: 44px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 @media screen and (max-width: $breakpoint2) {

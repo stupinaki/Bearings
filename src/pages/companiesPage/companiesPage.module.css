@@ -20,7 +20,7 @@
 .quantities {
   font-size: 36px;
   line-height: 44px;
-  color: var(--primary-btn-color);
+  color: $primary-btn-color;
 }
 
 .btn-container {
@@ -47,6 +47,6 @@
   grid-template-columns: 8% 92%;
   padding: 16px;
   margin: 32px 0;
-  border: 1px solid var(--primary-border);
+  border: 1px solid $primary-border;
   border-radius: 8px;
 }
