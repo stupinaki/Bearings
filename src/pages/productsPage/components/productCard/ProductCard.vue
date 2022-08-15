@@ -102,7 +102,7 @@
     </div>
 
     <div
-      v-for="card in getInTouchCardsValue"
+      v-for="card in getInTouch"
       :key="card.id"
     >
       <GetInTouchCard v-bind="card" />
@@ -113,7 +113,7 @@
 <script>
 import styled from "./productCard.module.css";
 import GetInTouchCard from "../getInTouchCard/GetInTouchCard.vue";
-import { getInTouchCardsValue } from "../../../../../data/getInTouchCardsValue";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "GroceryCard",
@@ -169,8 +169,16 @@ export default {
   data() {
     return {
       styled,
-      getInTouchCardsValue,
     };
   },
-};
+  beforeMount() {
+    this.initGetInTouch();
+  },
+  methods: {
+    ...mapActions("getInTouch", ["initGetInTouch"]),
+  },
+  computed: {
+    ...mapState("getInTouch", ["getInTouch"]),
+  }
+}
 </script>
