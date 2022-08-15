@@ -32,12 +32,6 @@ export default {
       styled,
     }
   },
-  beforeMount() {
-    this.initOffers();
-  },
-  methods: {
-    ...mapActions("offers", ["initOffers"]),
-  },
   computed: {
     ...mapState("offers", ["offers"]),
     allCount(){
@@ -54,6 +48,12 @@ export default {
       }
       return "предложений";
     },
+  },
+  beforeMount() {
+    this.initOffers();
+  },
+  methods: {
+    ...mapActions("offers", ["initOffers"]),
   },
 }
 </script>

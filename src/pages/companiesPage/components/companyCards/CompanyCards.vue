@@ -25,14 +25,14 @@ export default {
       styled,
     };
   },
+  computed: {
+    ...mapState("companies", ["companies", "loading"]),
+  },
   beforeMount() {
     this.initCompanies();
   },
   methods: {
     ...mapActions("companies", ["initCompanies"]),
-  },
-  computed: {
-    ...mapState("companies", ["companies", "loading"]),
   }
 };
 </script>

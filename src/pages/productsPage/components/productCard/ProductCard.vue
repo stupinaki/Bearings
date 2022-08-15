@@ -171,14 +171,14 @@ export default {
       styled,
     };
   },
+  computed: {
+    ...mapState("getInTouch", ["getInTouch"]),
+  },
   beforeMount() {
     this.initGetInTouch();
   },
   methods: {
     ...mapActions("getInTouch", ["initGetInTouch"]),
-  },
-  computed: {
-    ...mapState("getInTouch", ["getInTouch"]),
   }
 }
 </script>

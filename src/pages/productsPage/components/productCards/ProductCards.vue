@@ -26,14 +26,14 @@ export default {
       styled,
     }
   },
+  computed: {
+    ...mapState("products", ["products"]),
+  },
   beforeMount() {
     this.initProducts();
   },
   methods: {
     ...mapActions("products", ["initProducts"]),
-  },
-  computed: {
-    ...mapState("products", ["products"]),
   },
 }
 </script>
