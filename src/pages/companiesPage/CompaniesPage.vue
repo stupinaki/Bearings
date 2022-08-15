@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import CompanyCards from "../../components/companyCards/CompanyCards.vue";
+import CompanyCards from "./components/companyCards/CompanyCards.vue";
 import styled from "./companiesPage.module.css"
-import ButtonUI from "../../components/button/ButtonUI.vue";
-import {cardsValue} from "../../../data/cardsValue";
+import ButtonUI from "../../components/UI/button/ButtonUI.vue";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "CompaniesPage",
@@ -71,15 +71,19 @@ export default {
   data() {
     return {
       styled,
-      cardsValue,
     }
   },
   computed: {
-    companiesQuantities(){
-      return this.cardsValue.length;
+    ...mapState("companies", ["companies"]),
+    companiesQuantities() {
+      return this.companies.length;
     },
   },
+  beforeMount() {
+    this.initCompanies();
+  },
   methods: {
+    ...mapActions("companies", ["initCompanies"]),
     getRestCompaniesQuantities(){
       const quantities = this.companiesQuantities;
       const rest = quantities - 10;
