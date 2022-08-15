@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.cards">
     <div
-      v-for="card in cardsValue"
+      v-for="card in companies"
       :key="card.id"
       :class="styled.card"
     >
@@ -13,6 +13,7 @@
 <script>
 import CompanyCard from "../companyCard/CompanyCard.vue";
 import styled from "./companyCards.module.css";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "CompanyCards",
@@ -24,10 +25,14 @@ export default {
       styled,
     };
   },
+  beforeMount() {
+    this.initCompanies();
+  },
+  methods: {
+    ...mapActions("companies", ["initCompanies"]),
+  },
   computed: {
-    cardsValue() {
-      return this.$store.state.cardsValue;
-    }
+    ...mapState("companies", ["companies", "loading"]),
   }
 };
 </script>
