@@ -43,7 +43,7 @@
 }
 
 .btn-secondary {
-  color: #4a53f5;
+  color: $primary-btn-color;
   background: $secondary-btn-color;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .btn-pseudo {
-  color: #3a3d4b;
+  color: $primary-text-color;
   background: transparent;
 }
 

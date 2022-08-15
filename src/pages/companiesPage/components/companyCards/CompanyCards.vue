@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.cards">
     <div
-      v-for="card in companies"
+      v-for="card in searchCards"
       :key="card.id"
       :class="styled.card"
     >
@@ -20,6 +20,13 @@ export default {
   components: {
     CompanyCard,
   },
+  props: {
+    searchCompanyName: {
+      type: String,
+      require: false,
+      default: undefined,
+    }
+  },
   data() {
     return {
       styled,
@@ -27,6 +34,15 @@ export default {
   },
   computed: {
     ...mapState("companies", ["companies", "loading"]),
+    searchCards() {
+      const { searchCompanyName } = this.$props;
+      if (!searchCompanyName) {
+        return this.companies;
+      }
+      return this.companies.filter(company =>
+          company.title.toLowerCase().includes(searchCompanyName)
+      );
+    }
   },
   beforeMount() {
     this.initCompanies();
