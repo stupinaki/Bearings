@@ -2,7 +2,7 @@ const postcssNesting = require("postcss-nesting");
 const postcssSimpleVars = require("postcss-simple-vars");
 
 module.exports = {
-  localsConvention: "camelCaseOnly",
+  localsConvention: "camelCase",
   plugins: [postcssNesting, postcssSimpleVars],
   modules: {
     localsConvention: 'camelCase',

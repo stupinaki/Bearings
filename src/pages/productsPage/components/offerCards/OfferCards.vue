@@ -35,7 +35,7 @@ export default {
   computed: {
     ...mapState("offers", ["offers"]),
     allCount(){
-      return this.offers.reduce((acc, card) => acc + +card.count, 0)
+      return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
     correctWord(){
       const count = this.allCount.toString();
