@@ -116,7 +116,7 @@ import GetInTouchCard from "../getInTouchCard/GetInTouchCard.vue";
 import {mapActions, mapState} from "vuex";
 
 export default {
-  name: "GroceryCard",
+  name: "ProductCard",
   components: {
     GetInTouchCard,
   },
