@@ -3,7 +3,11 @@
     name="select"
     :class="styled.select"
   >
-    <option value="" disabled selected>
+    <option
+      value=""
+      disabled
+      selected
+    >
       Сортировать по
       <KeyboardArrow />
     </option>
@@ -19,7 +23,7 @@
 
 <script>
 import styled from "./select.module.css";
-import KeyboardArrow from "../../assets/keyboardArrow.svg";
+import KeyboardArrow from "../../../assets/keyboardArrow.svg";
 
 export default {
   name: "SelectInput",
@@ -38,9 +42,8 @@ export default {
           id: 2,
           name: "Убыванию цены",
         },
-
       ]
     }
-  },
+  }
 }
 </script>

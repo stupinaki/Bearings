@@ -1,9 +1,10 @@
+@import "/src/styles/variables.modules.css";
+
 .wrapper {
   position: relative;
-  width: 384px;
   height: 56px;
   margin: 8px 0;
-  border: 1px solid var(--primary-border);
+  border: 1px solid $primary-border;
   border-radius: 8px;
 }
 
@@ -12,18 +13,18 @@
   right: 50%;
   bottom: -100%;
   left: 50%;
-  width: 272px;
+  width: 80%;
   transform: translateX(-50%);
 }
 
 .text {
   padding: 4px;
-  color: var(--secondary-text-color);
+  color: $secondary-text-color;
 }
 
 .number {
   padding: 4px;
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .description {

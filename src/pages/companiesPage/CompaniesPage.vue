@@ -36,7 +36,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import CompanyCards from "./components/companyCards/CompanyCards.vue";
-import SearchInput from "../../components/searchInput/SearchInput.vue";
+import SearchInput from "../../components/UI/searchInput/SearchInput.vue";
 import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 import styled from "./companiesPage.module.css"
 

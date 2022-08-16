@@ -4,17 +4,21 @@
       В наличии, шт
     </div>
     <div :class="styled.filters">
-      <RangeSlider :max-value="maxValue" />
+      <RangeSlider
+        :min-value="1"
+        :max-value="maxValue"
+      />
+      <div />
       <SelectInput />
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from "vuex";
+import RangeSlider from "../../../../components/UI/inputs/RangeSlider.vue";
+import SelectInput from "../../../../components/UI/inputs/SelectInput.vue";
 import styled from "./filters.module.css";
-import RangeSlider from "../inputs/RangeSlider.vue";
-import SelectInput from "../inputs/SelectInput.vue";
-import {groceryCardsValue} from "../../../data/groceryCardValue";
 
 export default {
   name: "FiltersComponent",
@@ -25,12 +29,12 @@ export default {
   data(){
     return {
       styled,
-      groceryCardsValue,
     }
   },
   computed: {
+    ...mapState('products', ['products']),
     maxValue() {
-      const available = groceryCardsValue.map(card => card.availability);
+      const available = this.products.map(card => card.availability);
       return Math.max(...available);
     }
   }

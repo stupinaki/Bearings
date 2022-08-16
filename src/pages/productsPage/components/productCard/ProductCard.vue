@@ -70,7 +70,7 @@
               Внутренний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ inner_d }}
+              {{ innerD }}
             </div>
           </div>
           <div :class="styled.row">
@@ -78,7 +78,7 @@
               Внешний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ outer_d }}
+              {{ outerD }}
             </div>
           </div>
           <div :class="styled.row">
@@ -100,7 +100,6 @@
         </div>
       </div>
     </div>
-
     <GetInTouchCard v-bind="getInTouchCard" />
   </div>
 </template>
@@ -144,11 +143,11 @@ export default {
         type: String,
         default: "-",
       },
-      inner_d: {
+      innerD: {
         type: String,
         default: "-",
       },
-      outer_d: {
+      outerD: {
         type: String,
         default: "-",
       },
@@ -173,7 +172,7 @@ export default {
   computed: {
     ...mapState("getInTouch", ["getInTouch"]),
     getInTouchCard() {
-      return this.getInTouchCardsValue.find(card => card.id === this.companyId)
+      return this.getInTouch.find(card => card.id === this.companyId);
     }
   },
   beforeMount() {

@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import ButtonUI from "../UI/button/ButtonUI.vue";
-import SearchInputImg from "../../assets/searchInput.svg";
+import ButtonUI from "../button/ButtonUI.vue";
+import SearchInputImg from "../../../assets/searchInput.svg";
 import styled from "./searchInput.module.css"
 
 export default {
