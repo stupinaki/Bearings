@@ -4,6 +4,7 @@ import { offers } from "./offers";
 import { getInTouch } from  "./getInTouch";
 import { products } from "./products"
 import {cities} from "./cities";
+import {mainSearchForm} from "./mainSearchForm";
 
 
 const store = createStore({
@@ -13,8 +14,8 @@ const store = createStore({
         products,
         companies,
         getInTouch,
+        mainSearchForm,
     },
-
 })
 
 export default store;

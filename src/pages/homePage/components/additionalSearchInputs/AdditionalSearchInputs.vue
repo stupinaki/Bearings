@@ -94,6 +94,7 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import Help from "../../../../assets/help.svg"
 import styled from "./additionalSearchInputs.module.css";
@@ -107,12 +108,12 @@ export default {
   data(){
     return {
       styled,
-      isAdditionalFormVisible: false,
     }
   },
   computed: {
-    additionalFormClass(){
-      if(this.$data.isAdditionalFormVisible) {
+    ...mapState('mainSearchForm', ['isAdditionalFormVisible']),
+    additionalFormClass() {
+      if(this.isAdditionalFormVisible) {
         return [styled.additionalFormWrapper];
       }
       return [styled.additionalFormWrapperHide];

@@ -61,7 +61,6 @@ export default {
   data() {
     return {
       styled,
-      isAdditionalFormVisible: false,
     }
   },
   computed: {
@@ -75,8 +74,9 @@ export default {
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
+    ...mapActions("mainSearchForm", ["toggleAdditionalForm"]),
     showAdditionalForm(){
-      this.$data.isAdditionalFormVisible = !this.$data.isAdditionalFormVisible;
+      this.toggleAdditionalForm();
     }
   }
 }
