@@ -1,3 +1,5 @@
+@import "@/styles/variables.modules.css";
+
 /* FONT SIZE */
 .typography {
   font-weight: 400;
@@ -49,21 +51,21 @@
 
 /* FONT COLOR */
 .color-darkgray {
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .color-darkblue {
-  color: var(--primary-btn-color);
+  color: $primary-btn-color;
 }
 
 .color-white {
-  color: var(--primary-background);
+  color: $primary-background;
 }
 
 .color-gray {
-  color: var(--secondary-text-color);
+  color: $secondary-text-color;
 }
 
 .color-coral {
-  color: var(--third-text-color);
+  color: $third-text-color;
 }
