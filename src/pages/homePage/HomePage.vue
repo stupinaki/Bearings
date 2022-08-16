@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
+import SearchComponent from "./components/searchComponent/SearchComponent.vue";
 import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
 import BulkOrderForm from "./components/bulkOrderForm/BulkOrderForm.vue";
 import QuestionCards from "./components/questionCards/QuestionCards.vue";

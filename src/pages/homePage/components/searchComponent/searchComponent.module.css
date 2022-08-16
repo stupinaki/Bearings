@@ -1,0 +1,8 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  padding: 24px 24px 40px;
+  margin: 24px 0 72px;
+  background: $third-background;
+  border-radius: 8px;
+}

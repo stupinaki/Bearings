@@ -1,43 +1,5 @@
 @import "/src/styles/variables.modules.css";
 
-.wrapper {
-  padding: 24px 24px 40px;
-  margin: 24px 0 72px;
-  background: $third-background;
-  border-radius: 8px;
-}
-
-.names {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  color: $primary-text-color;
-}
-
-.form {
-  display: grid;
-  grid-template-columns: 32% 40% 5% 20%;
-  gap: 1%;
-  padding: 8px;
-  margin: 12px 0;
-  background: $primary-background;
-  border: 1px solid $primary-border;
-  border-radius: 8px;
-}
-
-.input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.line {
-  border-right: 1px solid $primary-border;
-}
-
-.main-form {
-  display: block;
-}
-
 .additional-form-wrapper {
   margin-top: 56px;
 }
@@ -65,8 +27,17 @@
   padding-bottom: 12px;
 }
 
-.reset-btn {
-  color: $third-text-color;
+.additional-form-text-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.btn-wrapper {
+  display: inline-block;
+}
+
+.text-padding-right {
+  padding-right: 8px;
 }
 
 .help-reset {
@@ -75,17 +46,8 @@
   padding: 16px 0;
 }
 
-.btn-wrapper {
-  display: inline-block;
-}
-
-.additional-form-text-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.text-padding-right {
-  padding-right: 8px;
+.reset-btn {
+  color: $third-text-color;
 }
 
 @media screen and (max-width: $breakpoint1) {
