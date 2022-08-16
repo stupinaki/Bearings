@@ -16,11 +16,12 @@
 </template>
 
 <script>
-import BenefitsCards from "../../components/benefitsCards/BenefitsCards.vue";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
+import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
+import BulkOrderForm from "./components/bulkOrderForm/BulkOrderForm.vue";
+import QuestionCards from "./components/questionCards/QuestionCards.vue";
 import styled from "./homePage.module.css"
-import BulkOrderForm from "../../components/bulkOrderForm/BulkOrderForm.vue";
-import QuestionCards from "../../components/questionCards/QuestionCards.vue";
+
 export default {
   name: "HomePage",
   components: {

@@ -41,12 +41,3 @@
 .btn-text {
   padding: 4px;
 }
-
-.input {
-  display: grid;
-  grid-template-columns: 8% 92%;
-  padding: 16px;
-  margin: 32px 0;
-  border: 1px solid $primary-border;
-  border-radius: 8px;
-}

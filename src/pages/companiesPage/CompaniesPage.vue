@@ -8,47 +8,24 @@
         ({{ companiesQuantities }})
       </div>
     </div>
-
-    <div :class="styled.input">
-      <img
-        src="../../assets/searchInput.svg"
-        alt=""
-      >
-      <input
-        placeholder="Например, Авангард-подшипник"
-      >
-    </div>
-
-    <CompanyCards />
+    <SearchInput
+      placeholder="Например, Авангард-подшипник"
+      @start-search="onStartSearch"
+    />
+    <CompanyCards
+      :search-company-name="searchText"
+    />
 
     <div :class="styled.btnContainer">
       <ButtonUI
-        v-if="getRestCompaniesQuantities() <= 0"
         type="secondary"
-        disabled
       >
         <div :class="styled.btnContentWrapper">
           <div :class="styled.btnText">
             Показать еще
           </div>
           <div :class="styled.btnQuantities">
-            ({{ getRestCompaniesQuantities() }})
-          </div>
-        </div>
-      </ButtonUI>
-
-      <ButtonUI
-        v-else
-        type="secondary"
-      >
-        <div
-          :class="styled.btnContentWrapper"
-        >
-          <div :class="styled.btnText">
-            Показать еще
-          </div>
-          <div :class="styled.btnQuantities">
-            ({{ getRestCompaniesQuantities() }})
+            ({{ companiesCount }})
           </div>
         </div>
       </ButtonUI>
@@ -57,33 +34,42 @@
 </template>
 
 <script>
-import CompanyCards from "../../components/companyCards/CompanyCards.vue";
+import { mapActions, mapState } from "vuex";
+import CompanyCards from "./components/companyCards/CompanyCards.vue";
+import SearchInput from "../../components/searchInput/SearchInput.vue";
+import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 import styled from "./companiesPage.module.css"
-import ButtonUI from "../../components/button/ButtonUI.vue";
-import {cardsValue} from "../../../data/cardsValue";
 
 export default {
   name: "CompaniesPage",
   components: {
     CompanyCards,
+    SearchInput,
     ButtonUI,
   },
   data() {
     return {
+      searchText: '',
       styled,
-      cardsValue,
     }
   },
   computed: {
-    companiesQuantities(){
-      return this.cardsValue.length;
+    ...mapState("companies", ["companies"]),
+    companiesQuantities() {
+      return this.companies.length;
+    },
+    companiesCount() {
+      const rest = this.companiesQuantities - 10;
+      return rest < 0 ? 0 : rest;
     },
   },
+  beforeMount() {
+    this.initCompanies();
+  },
   methods: {
-    getRestCompaniesQuantities(){
-      const quantities = this.companiesQuantities;
-      const rest = quantities - 10;
-      return rest < 0 ? 0 : rest;
+    ...mapActions("companies", ["initCompanies"]),
+    onStartSearch(string) {
+      this.$data.searchText = string;
     },
   }
 }
