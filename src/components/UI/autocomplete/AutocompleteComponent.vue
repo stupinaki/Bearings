@@ -1,7 +1,5 @@
 <template>
-  <v-autocomplete
-    :class="[styled.vFieldOutline, styled.vFieldOverlay, styled.vFieldVariantFilled, styled.vInputDetails]"
-  />
+  <v-autocomplete />
 </template>
 
 <script>

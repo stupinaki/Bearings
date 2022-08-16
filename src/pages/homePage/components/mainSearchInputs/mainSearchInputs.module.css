@@ -8,8 +8,8 @@
 
 .form {
   display: grid;
-  grid-template-columns: 32% 40% 5% 20%;
-  gap: 1%;
+  grid-template-columns: 4fr 4fr 1fr 3fr;
+  gap: 8px;
   padding: 8px;
   margin: 12px 0;
   background: $primary-background;
