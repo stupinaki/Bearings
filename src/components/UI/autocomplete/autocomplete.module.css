@@ -1,11 +1,19 @@
 @import "/src/styles/variables.modules.css";
 
-.v-input-details,
-.v-field-outline {
-  display: none;
-}
+.autocomplete {
+  & :global(.v-field__overlay) {
+    display: none;
+  }
 
-.v-field-variant-filled,
-.v-field-overlay {
-  background-color: transparent;
+  & :global(.v-field__outline) {
+    display: none;
+  }
+
+  & :global(.v-input) {
+    width: 100%;
+  }
+
+  & :global(.v-input__details) {
+    display: none;
+  }
 }

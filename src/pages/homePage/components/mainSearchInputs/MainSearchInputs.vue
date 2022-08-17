@@ -21,7 +21,6 @@
         :multiple="true"
         :chips="true"
         :items="citiesName"
-        :class="styled.input"
       />
 
       <ButtonUI

@@ -1,5 +1,12 @@
 <template>
-  <v-autocomplete />
+  <div :class="styled.autocomplete">
+    <v-autocomplete
+        :transition="transition"
+        :multiple="multiple"
+        :chips="chips"
+        :items="items"
+    />
+  </div>
 </template>
 
 <script>
@@ -11,6 +18,12 @@ export default {
     return {
       styled,
     }
+  },
+  props: {
+    transition: Boolean,
+    multiple: Boolean,
+    chips: Boolean,
+    items: Array,
   }
 }
 </script>
