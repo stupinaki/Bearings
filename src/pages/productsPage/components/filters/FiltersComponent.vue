@@ -9,7 +9,19 @@
         :max-value="maxValue"
       />
       <div />
-      <SelectInput />
+      <SelectInput
+        :options="options"
+      >
+        <template #hint-options>
+          <option
+            value=""
+            disabled
+            selected
+          >
+            Сортировать по
+          </option>
+        </template>
+      </SelectInput>
     </div>
   </div>
 </template>
@@ -29,6 +41,16 @@ export default {
   data(){
     return {
       styled,
+      options: [
+        {
+          id: 1,
+          name: "Возрастанию цены",
+        },
+        {
+          id: 2,
+          name: "Убыванию цены",
+        },
+      ]
     }
   },
   computed: {

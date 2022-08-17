@@ -21,11 +21,11 @@
     </div>
     <div :class="styled.slider">
       <v-range-slider
-        track-color="#d8ddf9"
-        track-fill-color="#4a53f5"
-        track-size="2"
-        thumb-color="#4a53f5"
-        thumb-size="16"
+        :track-color="trackColor"
+        :track-fill-color="trackFillColor"
+        :track-size="trackSize"
+        :thumb-color="thumbColor"
+        :thumb-size="thumbSize"
       />
     </div>
   </div>
@@ -46,7 +46,32 @@ export default {
       require: true,
       default: null,
       type: Number,
-    }
+    },
+    trackColor: {
+      require: true,
+      default: "#d8ddf9",
+      type: String,
+    },
+    trackFillColor: {
+      require: true,
+      default: "#4a53f5",
+      type: String,
+    },
+    trackSize: {
+      require: true,
+      default: 2,
+      type: Number,
+    },
+    thumbColor: {
+      require: true,
+      default: "#4a53f5",
+      type: String,
+    },
+    thumbSize: {
+      require: true,
+      default: 16,
+      type: Number,
+    },
   },
   data(){
     return {

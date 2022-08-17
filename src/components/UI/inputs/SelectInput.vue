@@ -3,14 +3,7 @@
     name="select"
     :class="styled.select"
   >
-    <option
-      value=""
-      disabled
-      selected
-    >
-      Сортировать по
-      <KeyboardArrow />
-    </option>
+    <slot name="hint-options" />
     <option
       v-for="option in options"
       :key="option.id"
@@ -23,26 +16,24 @@
 
 <script>
 import styled from "./select.module.css";
-import KeyboardArrow from "../../../assets/keyboardArrow.svg";
 
 export default {
   name: "SelectInput",
-  components: {
-    KeyboardArrow,
+  props: {
+    options: {
+      type: Array,
+      require: true,
+      default: () => { [] },
+    },
+    selectedOption: {
+      type: String,
+      require: true,
+      default: "Сортировать по"
+    }
   },
   data(){
     return {
       styled,
-      options: [
-        {
-          id: 1,
-          name: "Возрастанию цены",
-        },
-        {
-          id: 2,
-          name: "Убыванию цены",
-        },
-      ]
     }
   }
 }
