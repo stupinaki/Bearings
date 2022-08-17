@@ -1,0 +1,40 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  position: relative;
+  height: 56px;
+  margin: 8px 0;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.slider {
+  position: absolute;
+  right: 50%;
+  bottom: -100%;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%);
+}
+
+.text {
+  padding: 4px;
+  color: $secondary-text-color;
+}
+
+.number {
+  padding: 4px;
+  color: $primary-text-color;
+}
+
+.description {
+  display: flex;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 16px;
+}

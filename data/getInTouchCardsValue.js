@@ -9,4 +9,20 @@ export const getInTouchCardsValue = [
     contactsPhone: "+7 888 888 88 88",
     contactsEmail: "mail@mail.ru",
   },
+  {
+    id: 13331133,
+    contactUsTitle: "Для заказа свяжитесь с компанией",
+    aboutCompanyName: "ГПЗ 4",
+    aboutCompanyAddress: "г. Екатеринбург (1000 км от Саратова)",
+    contactsPhone: "+7 888 888 88 88",
+    contactsEmail: "mail@mail.ru",
+  },
+  {
+    id: 13331122,
+    contactUsTitle: "Для заказа свяжитесь с компанией",
+    aboutCompanyName: "Какая-то компания",
+    aboutCompanyAddress: "г. Екатеринбург (1000 км от Саратова)",
+    contactsPhone: "+7 888 888 88 88",
+    contactsEmail: "mail@mail.ru",
+  },
 ];
