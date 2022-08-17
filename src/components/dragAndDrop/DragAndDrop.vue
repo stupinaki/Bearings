@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import styled from "./dragAndDrop.module.css";
 
@@ -60,31 +59,23 @@ export default {
     return {
       styled,
       isUploadSuccessful: false,
+      isFileInDropZone: false,
+      isLoading: false,
     }
   },
   computed: {
-    ...mapState("dragAndDrop", [
-        "isFileInDropZone",
-        "isLoading",
-    ]),
     dropZoneClass() {
-      if(!this.isFileInDropZone){
+      if(!this.$data.isFileInDropZone){
         return [styled.dropZone];
       }
       return [styled.highlight];
     },
   },
   methods: {
-    ...mapActions("dragAndDrop", [
-        "turnOnHighlight",
-        "turnOffHighlight",
-        "initToggleLoading",
-    ]),
     handleLoad(){
       this.$refs.input.click();
     },
     handleDrop(e) {
-      this.initToggleLoading();
       this.unHighlight();
       const dt = e.dataTransfer;
       const files = dt.files;
@@ -94,10 +85,10 @@ export default {
       }
     },
     highlight() {
-      this.turnOnHighlight();
+      this.$data.isFileInDropZone = true;
     },
     unHighlight() {
-      this.turnOffHighlight();
+      this.$data.isFileInDropZone = false;
     },
     uploadedComplete(){
       this.$data.isUploadSuccessful = true;
