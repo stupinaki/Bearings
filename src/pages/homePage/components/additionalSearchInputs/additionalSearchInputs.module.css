@@ -6,8 +6,9 @@
 
 .additional-form {
   display: grid;
-  grid-template-columns: repeat(3, calc((60% - 48px) / 3));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  width: 60%;
   margin-top: 56px;
 }
 
@@ -53,8 +54,9 @@
 @media screen and (max-width: $breakpointExtraLarge) {
   .additional-form {
     display: grid;
-    grid-template-columns: repeat(2, calc((60% - 24px) / 2));
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    width: 60%;
     margin-top: 56px;
   }
 }
@@ -64,6 +66,7 @@
     display: grid;
     grid-template-columns: 100%;
     gap: 24px;
+    width: 100%;
     margin-top: 56px;
   }
 }
