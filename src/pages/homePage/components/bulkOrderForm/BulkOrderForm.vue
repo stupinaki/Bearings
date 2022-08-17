@@ -53,7 +53,7 @@
 <script>
 import styled from "./bulkOrderForm.module.css";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import DragAndDrop from "../dragAndDrop/DragAndDrop.vue";
+import DragAndDrop from "../../../../components/dragAndDrop/DragAndDrop.vue";
 
 export default {
   name: "BulkOrderForm",
