@@ -29,7 +29,7 @@
         type="file"
         multiple
         accept="doc,.docx,.excel"
-        @change="uploadedComplete"
+        @input="uploadedComplete"
       >
 
       <p :class="styled.supportedFormats">
@@ -37,12 +37,11 @@
       </p>
 
       <p
-        v-show="this.isUploadSuccessful"
+        v-show="isUploadSuccessful"
         :class="styled.uploadedComplete"
       >
         <b>Загрузка завершена</b>
       </p>
-
     </div>
   </div>
 </template>
@@ -84,9 +83,15 @@ export default {
     handleLoad(){
       this.$refs.input.click();
     },
-    handleDrop() {
+    handleDrop(e) {
       this.initToggleLoading();
       this.unHighlight();
+      const dt = e.dataTransfer;
+      const files = dt.files;
+
+      if(files.length){
+        this.uploadedComplete()
+      }
     },
     highlight() {
       this.turnOnHighlight();
