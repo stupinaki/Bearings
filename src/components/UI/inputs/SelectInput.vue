@@ -25,11 +25,6 @@ export default {
       require: true,
       default: () => { [] },
     },
-    selectedOption: {
-      type: String,
-      require: true,
-      default: "Сортировать по"
-    }
   },
   data(){
     return {
