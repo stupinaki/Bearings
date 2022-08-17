@@ -1,0 +1,24 @@
+@import "/src/styles/variables.modules.css";
+
+.fill-search-query {
+  display: flex;
+  margin: 32px 0;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.empty-search-query {
+  display: flex;
+  margin: 32px 0;
+  border: 1px solid $third-text-color;
+  border-radius: 8px;
+}
+
+.search-btn-wrapper {
+  display: inline-block;
+}
+
+.input {
+  width: 100%;
+  padding-left: 8px;
+}
