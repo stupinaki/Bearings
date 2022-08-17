@@ -11,7 +11,7 @@
   align-items: stretch;
 }
 
-@media screen and (max-width: $breakpoint1) {
+@media screen and (max-width: $breakpointExtraLarge) {
   .cards {
     grid-template-columns: 100%;
     gap: 24px;

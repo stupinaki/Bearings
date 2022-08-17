@@ -14,7 +14,7 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpoint2) {
+@media screen and (max-width: $breakpointLarge) {
   .wrapper {
     grid-template-columns: 100%;
     gap: 24px;

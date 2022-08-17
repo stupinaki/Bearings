@@ -50,7 +50,7 @@
   color: $third-text-color;
 }
 
-@media screen and (max-width: $breakpoint1) {
+@media screen and (max-width: $breakpointExtraLarge) {
   .additional-form {
     display: grid;
     grid-template-columns: repeat(2, calc((60% - 24px) / 2));
@@ -59,7 +59,7 @@
   }
 }
 
-@media screen and (max-width: $breakpoint2) {
+@media screen and (max-width: $breakpointLarge) {
   .additional-form {
     display: grid;
     grid-template-columns: 100%;

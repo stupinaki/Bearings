@@ -10,7 +10,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: $breakpoint2) {
+@media screen and (max-width: $breakpointLarge) {
   .wrapper {
     display: grid;
     grid-template-columns: 50% 50%;

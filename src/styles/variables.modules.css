@@ -21,6 +21,6 @@ $primary-color: #000;
 
 $primary-margin: 0 72px;
 
-$breakpoint3: 600px;
-$breakpoint2: 900px;
-$breakpoint1: 1200px;
+$breakpointSmall: 600px;
+$breakpointLarge: 900px;
+$breakpointExtraLarge: 1200px;

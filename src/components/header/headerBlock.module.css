@@ -30,7 +30,7 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpoint1) {
+@media screen and (max-width: $breakpointExtraLarge) {
   .wrapper {
     grid-template-columns: 100%;
   }
