@@ -10,15 +10,19 @@
 </template>
 
 <script>
-import styled from "./autocomplete.module.css";
+import styled from "./autocompleteUI.module.css";
 
 export default {
-  name: "AutocompleteComponent",
+  name: "AutocompleteUI",
   props: {
     transition: Boolean,
     multiple: Boolean,
     chips: Boolean,
-    items: Array,
+    items: {
+      type: Array,
+      require: true,
+      default: () =>  { [] },
+    },
   },
   data() {
     return {
