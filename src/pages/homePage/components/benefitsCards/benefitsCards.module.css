@@ -1,6 +1,10 @@
 @import "/src/styles/variables.modules.css";
 
 .wrapper {
+  padding: $primary-padding-top-bottom;
+}
+
+.benefits-wrapper {
   display: grid;
   grid-template-columns: calc((100% - 62px)/3) calc((100% - 62px)/3) calc((100% - 62px)/3);
   gap: 32px;

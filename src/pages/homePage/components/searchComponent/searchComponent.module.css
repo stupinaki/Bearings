@@ -2,7 +2,7 @@
 
 .wrapper {
   padding: 24px 24px 40px;
-  margin: 24px 0 72px;
+  margin: $primary-padding-top-bottom;
   background: $third-background;
   border-radius: 8px;
 }

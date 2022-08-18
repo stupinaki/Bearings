@@ -1,18 +1,20 @@
 <template>
-  <div :class="styled.title">
-    Почему стоит воспользоваться нашим сервисом?
-  </div>
   <div :class="styled.wrapper">
-    <div
-      v-for="benefit in benefitsValue"
-      :key="benefit.id"
-    >
-      <BenefitsCard
-        :title="benefit.title"
-        :sub-title="benefit.subTitle"
+    <div :class="styled.title">
+      Почему стоит воспользоваться нашим сервисом?
+    </div>
+    <div :class="styled.benefitsWrapper">
+      <div
+          v-for="benefit in benefitsValue"
+          :key="benefit.id"
       >
-        <component :is="imageMap[benefit.imgName]" />
-      </BenefitsCard>
+        <BenefitsCard
+            :title="benefit.title"
+            :sub-title="benefit.subTitle"
+        >
+          <component :is="imageMap[benefit.imgName]" />
+        </BenefitsCard>
+      </div>
     </div>
   </div>
 </template>
