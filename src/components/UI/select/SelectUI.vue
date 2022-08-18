@@ -18,7 +18,7 @@
 import styled from "./select.module.css";
 
 export default {
-  name: "SelectInput",
+  name: "SelectUI",
   props: {
     options: {
       type: Array,

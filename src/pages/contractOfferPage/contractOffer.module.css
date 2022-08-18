@@ -1,5 +1,7 @@
+@import "/src/styles/variables.modules.css";
+
 .container {
-  margin: var(--primary-margin);
+  margin: $primary-margin;
   margin-bottom: 24px;
   text-align: justify;
 }

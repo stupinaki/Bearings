@@ -28,8 +28,8 @@
 
 <script>
 import {mapState} from "vuex";
-import RangeSlider from "../../../../components/UI/inputs/RangeSlider.vue";
-import SelectInput from "../../../../components/UI/inputs/SelectInput.vue";
+import RangeSlider from "../../../../components/UI/rangeSlider/RangeSlider.vue";
+import SelectInput from "../../../../components/UI/select/SelectUI.vue";
 import styled from "./filters.module.css";
 
 export default {

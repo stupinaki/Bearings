@@ -8,6 +8,7 @@
         Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
       </div>
     </div>
+    <SearchComponent />
     <BenefitsCards />
     <BulkOrderForm />
     <QuestionCards />
@@ -15,10 +16,11 @@
 </template>
 
 <script>
+import SearchComponent from "./components/searchComponent/SearchComponent.vue";
 import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
-import QuestionCards from "./components/questionCards/QuestionCards.vue";
 import BulkOrderForm from "./components/bulkOrderForm/BulkOrderForm.vue";
-import styled from "./homePage.module.css";
+import QuestionCards from "./components/questionCards/QuestionCards.vue";
+import styled from "./homePage.module.css"
 
 export default {
   name: "HomePage",
@@ -26,6 +28,7 @@ export default {
     BenefitsCards,
     QuestionCards,
     BulkOrderForm,
+    SearchComponent,
   },
   data(){
     return {
