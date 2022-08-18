@@ -1,78 +1,23 @@
 <template>
   <div :class="additionalFormClass">
     <div :class="styled.additionalForm">
-      <div>
-        <div :class="styled.additionalFormTextWrapper">
-          <div :class="[styled.additionalFormText, styled.textPaddingRight]">
-            Класс точности
-          </div>
-          <div :class="[styled.btnWrapper, styled.additionalFormText]">
+      <div
+        v-for="input in inputsValue"
+        :key="input.id"
+      >
+        <InputUI
+          :label="input.label"
+          :placeholder="input.placeholder"
+        >
+          <template
+            v-if="input.hint"
+            #hint
+          >
             <ButtonUI type="type-link">
-              <Help />
+              <HelpImg />
             </ButtonUI>
-          </div>
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
-      </div>
-
-      <div>
-        <div :class="styled.additionalFormTextWrapper">
-          <div :class="[styled.additionalFormText, styled.textPaddingRight]">
-            Тип подшипника
-          </div>
-          <div :class="[styled.btnWrapper, styled.additionalFormText]">
-            <ButtonUI type="type-link">
-              <Help />
-            </ButtonUI>
-          </div>
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
-      </div>
-
-      <div>
-        <div :class="styled.additionalFormText">
-          Параметр подшипника
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
-      </div>
-
-      <div>
-        <div :class="styled.additionalFormText">
-          Внешний диаметр
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
-      </div>
-
-      <div>
-        <div :class="styled.additionalFormText">
-          Внутренний диаметр
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
-      </div>
-
-      <div>
-        <div :class="styled.additionalFormText">
-          Ширина
-        </div>
-        <input
-          type="text"
-          :class="styled.additionalFormInput"
-        >
+          </template>
+        </InputUI>
       </div>
     </div>
     <div :class="styled.helpReset">
@@ -96,18 +41,54 @@
 <script>
 import {mapState} from "vuex";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import Help from "../../../../assets/help.svg"
+import InputUI from "../../../../components/UI/input/InputUI.vue";
+import HelpImg from "../../../../assets/help.svg";
 import styled from "./additionalSearchInputs.module.css";
 
 export default {
   name: "AdditionalSearchInputs",
   components: {
-    Help,
     ButtonUI,
+    InputUI,
+    HelpImg,
   },
   data(){
     return {
       styled,
+      inputsValue: [
+        {
+          id: 333,
+          label: "Класс точности",
+          placeholder: "6302cg18",
+          hint: "test",
+        },
+        {
+          id: 3333,
+          label: "Тип подшипника",
+          placeholder: "6302cg18",
+          hint: "test",
+        },
+        {
+          id: 33333,
+          label: "Параметр подшипника",
+          placeholder: "6302cg18",
+        },
+        {
+          id: 333333,
+          label: "Внешний диаметр",
+          placeholder: "25 мм",
+        },
+        {
+          id: 3333333,
+          label: "Внутренний диаметр",
+          placeholder: "15 мм",
+        },
+        {
+          id: 33333333,
+          label: "Ширина",
+          placeholder: "30 мм",
+        }
+      ],
     }
   },
   computed: {

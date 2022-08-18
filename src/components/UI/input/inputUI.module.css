@@ -1,3 +1,26 @@
-.input {
-  display: block;
+@import "/src/styles/variables.modules.css";
+
+.additional-form-text-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.additional-form-input {
+  width: 100%;
+  padding: 16px;
+  background: $primary-background;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.additional-form-text {
+  padding-bottom: 12px;
+}
+
+.text-padding-right {
+  padding-right: 8px;
+}
+
+.btn-wrapper {
+  display: inline-block;
 }
