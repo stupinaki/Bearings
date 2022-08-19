@@ -5,12 +5,12 @@
     </div>
     <div :class="styled.benefitsWrapper">
       <div
-          v-for="benefit in benefitsValue"
-          :key="benefit.id"
+        v-for="benefit in benefitsValue"
+        :key="benefit.id"
       >
         <BenefitsCard
-            :title="benefit.title"
-            :sub-title="benefit.subTitle"
+          :title="benefit.title"
+          :sub-title="benefit.subTitle"
         >
           <component :is="imageMap[benefit.imgName]" />
         </BenefitsCard>
