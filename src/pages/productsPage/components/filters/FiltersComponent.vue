@@ -11,17 +11,9 @@
       <div />
       <SelectInput
         :options="options"
-      >
-        <template #hint-options>
-          <option
-            value=""
-            disabled
-            selected
-          >
-            Сортировать по
-          </option>
-        </template>
-      </SelectInput>
+        :clearable="true"
+        :outlined="true"
+      />
     </div>
   </div>
 </template>
@@ -41,16 +33,7 @@ export default {
   data(){
     return {
       styled,
-      options: [
-        {
-          id: 1,
-          name: "Возрастанию цены",
-        },
-        {
-          id: 2,
-          name: "Убыванию цены",
-        },
-      ]
+      options: ["Возрастанию цены", "Убыванию цены"],
     }
   },
   computed: {

@@ -1,17 +1,13 @@
 <template>
-  <select
-    name="select"
-    :class="styled.select"
-  >
-    <slot name="hint-options" />
-    <option
-      v-for="option in options"
-      :key="option.id"
-      :class="styled.option"
-    >
-      {{ option.name }}
-    </option>
-  </select>
+  <div :class="styled.wrapper">
+    <v-select
+      :outlined="outlined"
+      :clearable="clearable"
+      :items="options"
+      :label="label"
+      :variant="variant"
+    />
+  </div>
 </template>
 
 <script>
@@ -25,6 +21,18 @@ export default {
       require: true,
       default: () => { [] },
     },
+    clearable: Boolean,
+    outlined: Boolean,
+    label: {
+      type: String,
+      require: false,
+      default: "Сортировать по",
+    },
+    variant: {
+      type: String,
+      require: false,
+      default: "outlined",
+    }
   },
   data(){
     return {
