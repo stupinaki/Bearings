@@ -41,7 +41,10 @@
     </div>
 
     <div :class="styled.btnWrapper">
-      <ButtonUI type="type-link">
+      <ButtonUI
+          type="type-link"
+          @click.prevent
+      >
         Как узнать маркировку?
       </ButtonUI>
     </div>

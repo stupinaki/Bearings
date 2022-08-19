@@ -1,10 +1,13 @@
 <template>
   <form
+      ref="searchForm"
       action=""
       :class="styled.wrapper"
   >
     <MainSearchInputs />
-    <AdditionalSearchInputs />
+    <AdditionalSearchInputs
+      @clear-form="clearForm"
+    />
   </form>
 
 </template>
@@ -25,5 +28,11 @@ export default {
       styled,
     }
   },
+  methods: {
+    clearForm(){
+      const form = this.$refs.searchForm;
+      console.log('clearForm:', form)
+    }
+  }
 }
 </script>

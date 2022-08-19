@@ -22,7 +22,10 @@
     </div>
     <div :class="styled.helpReset">
       <div :class="styled.btnWrapper">
-        <ButtonUI type="type-link">
+        <ButtonUI
+            type="type-link"
+            @click.prevent
+        >
           Помощь в измерении
         </ButtonUI>
       </div>
@@ -30,6 +33,7 @@
         <ButtonUI
           type="type-link"
           :class="styled.resetBtn"
+          @click.prevent="onClearForm"
         >
           Сбросить фильтры
         </ButtonUI>
@@ -99,6 +103,11 @@ export default {
       }
       return [styled.additionalFormWrapperHide];
     },
+  },
+  methods: {
+    onClearForm(){
+      this.$emit('clearForm');
+    }
   }
 }
 </script>
