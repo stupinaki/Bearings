@@ -21,7 +21,7 @@
         :multiple="true"
         :chips="true"
         :items="citiesName"
-        :closableChips="true"
+        :closable-chips="true"
       />
 
       <ButtonUI
