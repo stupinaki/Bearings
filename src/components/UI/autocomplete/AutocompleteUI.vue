@@ -1,11 +1,13 @@
 <template>
   <div :class="styled.autocomplete">
+
     <v-autocomplete
       :transition="transition"
       :multiple="multiple"
       :chips="chips"
       :items="items"
       :closable-chips="closableChips"
+      :label="label"
     />
   </div>
 </template>
@@ -25,11 +27,16 @@ export default {
       require: true,
       default: () =>  { [] },
     },
+    label: {
+      type: String,
+      require: false,
+      default: "",
+    }
   },
   data() {
     return {
       styled,
     }
-  }
+  },
 }
 </script>

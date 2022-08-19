@@ -8,33 +8,37 @@
         География поиска
       </div>
     </div>
-    <form
-      action=""
-      :class="styled.form"
+    <div
+      :class="styled.wrapper"
     >
       <input
         type="text"
+        placeholder="Начните вводить"
         :class="[styled.input, styled.line]"
       >
+      <div :class="styled.imgWrapper">
+        <PlaceImg />
+      </div>
       <AutocompleteUI
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesName"
         :closable-chips="true"
+        label="Искать по всей России"
       />
 
       <ButtonUI
         type="secondary"
         @click.prevent="showAdditionalForm"
       >
-        <FilterVariant />
+        <FilterVariantImg />
       </ButtonUI>
 
-      <ButtonUI>
+      <ButtonUI @click.prevent>
         Найти
       </ButtonUI>
-    </form>
+    </div>
 
     <div :class="styled.btnWrapper">
       <ButtonUI type="type-link">
@@ -48,7 +52,8 @@
 import {mapActions, mapState} from "vuex";
 import AutocompleteUI from "../../../../components/UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import FilterVariant from "../../../../assets/filter_variant.svg"
+import FilterVariantImg from "../../../../assets/filter_variant.svg"
+import PlaceImg from "../../../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 
 export default {
@@ -56,7 +61,8 @@ export default {
   components: {
     ButtonUI,
     AutocompleteUI,
-    FilterVariant,
+    FilterVariantImg,
+    PlaceImg,
   },
   data() {
     return {

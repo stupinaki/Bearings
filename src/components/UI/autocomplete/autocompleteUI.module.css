@@ -9,11 +9,19 @@
     display: none;
   }
 
+  & :global(.v-field__field) {
+    padding: 0;
+  }
+
   & :global(.v-input) {
     width: 100%;
   }
 
   & :global(.v-input__details) {
+    display: none;
+  }
+
+  & :global(.v-field__append-inner) {
     display: none;
   }
 }

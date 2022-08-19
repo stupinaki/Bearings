@@ -1,8 +1,12 @@
 <template>
-  <div :class="styled.wrapper">
+  <form
+      action=""
+      :class="styled.wrapper"
+  >
     <MainSearchInputs />
     <AdditionalSearchInputs />
-  </div>
+  </form>
+
 </template>
 
 <script>
