@@ -38,6 +38,6 @@
 }
 
 .delete-all-attachments {
-  padding-bottom: 8px;
+  padding: 8px 0;
   color: $third-text-color;
 }
