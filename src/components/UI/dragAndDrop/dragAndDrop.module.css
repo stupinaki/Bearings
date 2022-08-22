@@ -1,0 +1,16 @@
+@import "/src/styles/variables.modules.css";
+
+.drop-zone {
+  padding: 60px;
+  border: 2px dashed $primary-border;
+  border-radius: 4px;
+}
+
+.drop-zone:hover {
+  background-color: $third-background;
+}
+
+.active {
+  background-color: $third-background;
+  border: 2px dashed $primary-btn-color;
+}

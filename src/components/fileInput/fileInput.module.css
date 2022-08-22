@@ -1,0 +1,43 @@
+@import "/src/styles/variables.modules.css";
+
+.file-input {
+  display: none;
+}
+
+.instruction {
+  font-size: 14px;
+  line-height: 16px;
+  color: $primary-text-color;
+}
+
+.load-btn {
+  justify-content: flex-start;
+}
+
+.drop-description {
+  display: grid;
+  grid-template-columns: 80%;
+  justify-content: center;
+}
+
+.supported-formats {
+  font-size: 14px;
+  line-height: 16px;
+  color: $secondary-text-color;
+}
+
+.attachment-name {
+  padding-right: 8px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $secondary-text-color;
+}
+
+.delete-icon {
+  cursor: pointer;
+}
+
+.delete-all-attachments {
+  padding-bottom: 8px;
+  color: $third-text-color;
+}

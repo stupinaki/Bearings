@@ -26,7 +26,7 @@
         placeholder="E-mail"
         :class="styled.textInput"
       >
-      <DragAndDrop />
+      <FileInput />
       <div :class="styled.checkboxWrapper">
         <input
           id="checkboxForm"
@@ -53,13 +53,13 @@
 <script>
 import styled from "./bulkOrderForm.module.css";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import DragAndDrop from "../../../../components/dragAndDrop/DragAndDrop.vue";
+import FileInput from "../../../../components/fileInput/FileInput.vue";
 
 export default {
   name: "BulkOrderForm",
   components: {
     ButtonUI,
-    DragAndDrop,
+    FileInput,
   },
   data() {
     return {
