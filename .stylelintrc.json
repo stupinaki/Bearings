@@ -12,6 +12,7 @@
       {
         "ignorePseudoClasses": ["global", "local"]
       }
-    ]
+    ],
+    "selector-class-pattern": null
   }
 }

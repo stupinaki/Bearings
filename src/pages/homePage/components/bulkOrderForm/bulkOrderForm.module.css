@@ -3,7 +3,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 60%;
-  margin: 20px 0;
+  padding: $primary-padding-top-bottom;
 }
 
 .title {

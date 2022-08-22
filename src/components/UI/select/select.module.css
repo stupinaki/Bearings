@@ -1,0 +1,25 @@
+@import "/src/styles/variables.modules.css";
+
+.select {
+  padding: 16px;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.option {
+  padding: 4px;
+  color: $secondary-text-color;
+}
+
+.selected {
+  display: flex;
+}
+
+.select-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  color: $secondary-text-color;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}

@@ -92,7 +92,11 @@ export default {
   },
   computed: {
     correctPhoneNumber() {
-      return this.$props.contactsPhone.match(/[0-9]+/g).join("");
+      const mobileNumber = this.$props.contactsPhone;
+      if(mobileNumber) {
+        return mobileNumber.match(/[0-9]+/g).join("");
+      }
+      return  "Номер отсутствует";
     },
   },
 };

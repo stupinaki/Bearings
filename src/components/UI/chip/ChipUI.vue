@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import styled from "./chipLabel.module.css";
+import styled from "./chipUI.module.css";
 
 export default {
-  name: "ChipLabel",
+  name: "ChipUI",
   props: {
     value: {
       type: String,

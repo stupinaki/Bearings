@@ -1,0 +1,19 @@
+@import "/src/styles/variables.modules.css";
+
+.autocomplete {
+  & :global(.v-field__overlay) {
+    display: none;
+  }
+
+  & :global(.v-field__outline) {
+    display: none;
+  }
+
+  & :global(.v-input) {
+    width: 100%;
+  }
+
+  & :global(.v-input__details) {
+    display: none;
+  }
+}

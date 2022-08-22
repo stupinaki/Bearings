@@ -1,6 +1,7 @@
-@import "@/styles/variables.modules.css";
+@import "/src/styles/variables.modules.css";
 
 .footer {
+  margin-top: 40px;
   background-color: $secondary-background;
 }
 
@@ -55,7 +56,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: $breakpoint2) {
+@media screen and (max-width: $breakpointLarge) {
   .container {
     display: grid;
     grid-template-columns: 50% 50%;

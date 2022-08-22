@@ -20,8 +20,8 @@ $secondary-chip-background: #e99d45;
 $primary-color: #000;
 
 $primary-margin: 0 72px;
+$primary-padding-top-bottom: 40px 0;
 
-$breakpoint3: 600px;
-$breakpoint2: 900px;
-$breakpoint1: 1050px;
-$breakpoint1: 1050px;
+$breakpointSmall: 600px;
+$breakpointLarge: 900px;
+$breakpointExtraLarge: 1200px;

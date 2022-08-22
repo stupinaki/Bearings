@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import styles from "./styles/app.module.css";
+import HeaderBlock from "/src/components/header/HeaderBlock.vue";
+import FooterBlock from "/src/components/footer/FooterBlock.vue";
 import reset from "../src/styles/reset.css"
-import HeaderBlock from "@/components/header/HeaderBlock.vue";
-import FooterBlock from "@/components/footer/FooterBlock.vue";
+import styles from "./styles/app.module.css";
 
 export default {
   name: "App",
