@@ -26,7 +26,7 @@
         placeholder="E-mail"
         :class="styled.textInput"
       >
-      <FileInput is-multiple/>
+      <FileInput is-multiple />
       <div :class="styled.checkboxWrapper">
         <input
           id="checkboxForm"
