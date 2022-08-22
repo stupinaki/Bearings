@@ -35,7 +35,10 @@
         >
         <label for="checkboxForm">
           Я согласен с
-          <router-link :to="{name: 'privacyPolicy'}">
+          <router-link
+            :to="{name: 'privacyPolicy'}"
+            :class="styled.link"
+          >
             политикой конфиденциальности
           </router-link>
           и даю согласие на обработку моих персональных данных
