@@ -9,6 +9,7 @@
     <form
       action=""
       :class="styled.form"
+      @submit.prevent
     >
       <input
         type="text"
@@ -25,24 +26,7 @@
         placeholder="E-mail"
         :class="styled.textInput"
       >
-      <div>
-        <div :class="styled.dropText">
-          Загрузить список документов
-        </div>
-        <div :class="styled.dropZone"> 
-          <div>
-            <div :class="styled.instruction">
-              <div>Перетащите файлы или</div>
-              <ButtonUI type="type-link">
-                загрузите
-              </ButtonUI>
-            </div>
-            <div :class="styled.supportedFormats">
-              Подерживаемый формат: .doc, .docx, .excel
-            </div>
-          </div>
-        </div>
-      </div>
+      <FileInput is-multiple />
       <div :class="styled.checkboxWrapper">
         <input
           id="checkboxForm"
@@ -51,7 +35,10 @@
         >
         <label for="checkboxForm">
           Я согласен с
-          <router-link :to="{name: 'privacyPolicy'}">
+          <router-link
+            :to="{name: 'privacyPolicy'}"
+            :class="styled.link"
+          >
             политикой конфиденциальности
           </router-link>
           и даю согласие на обработку моих персональных данных
@@ -69,11 +56,13 @@
 <script>
 import styled from "./bulkOrderForm.module.css";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
+import FileInput from "../../../../components/fileInput/FileInput.vue";
 
 export default {
   name: "BulkOrderForm",
   components: {
     ButtonUI,
+    FileInput,
   },
   data() {
     return {
