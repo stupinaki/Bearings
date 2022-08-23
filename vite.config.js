@@ -18,7 +18,7 @@ export default defineConfig({
         eslintPlugin(),
         stylelintPlugin(),
         svgLoader(),
-        vuetify({autoImport: true}),
+        vuetify(),
     ],
     css: {
         postcss: {

@@ -3,6 +3,7 @@
     <div :class="styled.text">
       В наличии, шт
     </div>
+
     <div :class="styled.filters">
       <RangeSlider
         :min-value="1"

@@ -1,11 +1,15 @@
 <template>
-  <div :class="styled.wrapper">
+  <div
+      :class="styled.wrapper"
+  >
     <v-select
       :outlined="outlined"
       :clearable="clearable"
       :items="options"
       :label="label"
       :variant="variant"
+      ref="select"
+      @select="onChange"
     />
   </div>
 </template>
@@ -19,7 +23,7 @@ export default {
     options: {
       type: Array,
       require: true,
-      default: () => { [] },
+      default: () => [],
     },
     clearable: Boolean,
     outlined: Boolean,
@@ -37,6 +41,11 @@ export default {
   data(){
     return {
       styled,
+    }
+  },
+  methods: {
+    onChange() {
+      console.log("выбрали опцию")
     }
   }
 }
