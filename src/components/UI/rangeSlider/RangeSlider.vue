@@ -21,11 +21,14 @@
     </div>
     <div :class="styled.slider">
       <v-range-slider
+        v-model="sliderValue"
         :track-color="trackColor"
         :track-fill-color="trackFillColor"
         :track-size="trackSize"
         :thumb-color="thumbColor"
         :thumb-size="thumbSize"
+        :max="maxValue"
+        :min="minValue"
       />
     </div>
   </div>
@@ -76,6 +79,14 @@ export default {
   data(){
     return {
       styled,
+      sliderValue: null,
+    }
+  },
+  emits: ["sliderChange"],
+  watch: {
+    sliderValue(value) {
+      const selectedValue = Math.round(value[1])
+      this.$emit("sliderChange", selectedValue);
     }
   }
 }

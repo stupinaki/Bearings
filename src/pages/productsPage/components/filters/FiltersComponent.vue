@@ -6,8 +6,9 @@
 
     <div :class="styled.filters">
       <RangeSlider
-        :min-value="1"
+        :min-value="minValue"
         :max-value="maxValue"
+        @slider-change="filterSlider"
       />
       <div />
       <SelectUI
@@ -43,6 +44,10 @@ export default {
     maxValue() {
       const available = this.products.map(card => card.availability);
       return Math.max(...available);
+    },
+    minValue() {
+      const available = this.products.map(card => card.availability);
+      return Math.min(...available);
     }
   },
   methods: {
@@ -55,6 +60,9 @@ export default {
       return newSelected === "Возрастанию цены" ?
           this.sortAscendingPrice() :
           this.sortDescendingPrice();
+    },
+    filterSlider(value){
+      console.log("filterSlider:", value)
     }
   }
 }
