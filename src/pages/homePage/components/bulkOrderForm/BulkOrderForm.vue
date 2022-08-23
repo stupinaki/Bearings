@@ -16,15 +16,15 @@
         <b>Ваша заявка успешно отправлена</b>
       </span>
       <input
-        ref="oderFormName"
-        required
+          required
+          v-model.trim.lazy="oderFormName"
         type="text"
         placeholder="Имя"
         :class="styled.textInput"
       >
       <input
-        ref="oderFormPhone"
-        required
+          required
+          v-model.trim="oderFormPhone"
         type="text"
         placeholder="Телефон"
         :class="inputPhoneStyle"
@@ -33,8 +33,8 @@
         @blur="checkPhone"
       >
       <input
-        ref="oderFormEmail"
-        required
+          required
+          v-model.trim="oderFormEmail"
         type="text"
         placeholder="E-mail"
         :class="inputEmailStyle"
@@ -46,7 +46,7 @@
       <div :class="styled.checkboxWrapper">
         <input
           id="checkboxForm"
-          ref="oderFormCheckbox"
+          v-model="oderFormCheckbox"
           required
           type="checkbox"
           :class="styled.checkbox"
@@ -60,7 +60,10 @@
         </label>
       </div>
       <div :class="styled.formBtn">
-        <ButtonUI @click="onClick">
+        <ButtonUI
+          type="submit"
+          @click="onClick"
+        >
           Отправить
         </ButtonUI>
       </div>
@@ -69,11 +72,11 @@
 </template>
 
 <script>
-import {isCorrectEmail} from "../../../../helpers/isCorrectEmail";
+import { validateEmail } from "../../../../helpers/validateEmail.js";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import FileInput from "../fileInput/FileInput.vue";
 import styled from "./bulkOrderForm.module.css";
-import {isCorrectPhone} from "../../../../helpers/isCorrectPhone";
+import { validatePhone } from "../../../../helpers/validatePhone.js";
 
 export default {
   name: "BulkOrderForm",
@@ -87,6 +90,10 @@ export default {
       isErrorEmail: false,
       isErrorPhone: false,
       isFormSubmit: false,
+      oderFormName: "",
+      oderFormPhone: "",
+      oderFormEmail: "",
+      oderFormCheckbox: false,
     }
   },
   computed: {
@@ -109,7 +116,7 @@ export default {
       if(!value) {
         return;
       }
-      this.$data.isErrorEmail = !isCorrectEmail(value);
+      this.$data.isErrorEmail = !validateEmail(value);
     },
     onFocusInputEmail() {
       this.$data.isErrorEmail = false;
@@ -119,22 +126,22 @@ export default {
       if(!value) {
         return;
       }
-      this.$data.isErrorPhone = !isCorrectPhone(value);
+      this.$data.isErrorPhone = !validatePhone(value);
     },
     onFocusInputPhone() {
       this.$data.isErrorPhone = false;
     },
     onClick() {
-      let name = this.$refs.oderFormName.value;
-      let phone = this.$refs.oderFormPhone.value;
-      let email = this.$refs.oderFormEmail.value;
-      let checkbox = this.$refs.oderFormCheckbox.checked;
+      const name = this.$data.oderFormName;
+      const phone = this.$data.oderFormPhone;
+      const email = this.$data.oderFormEmail;
+      const checkbox = this.$data.oderFormCheckbox;
 
       if(name && phone && email && checkbox) {
-        this.$refs.oderFormName.value = "";
-        this.$refs.oderFormPhone.value = "";
-        this.$refs.oderFormEmail.value = "";
-        this.$refs.oderFormCheckbox.checked = false;
+        this.$data.oderFormName = "";
+        this.$data.oderFormPhone = "";
+        this.$data.oderFormEmail = "";
+        this.$data.oderFormCheckbox = false;
         this.$data.isFormSubmit = true;
       }
     }
