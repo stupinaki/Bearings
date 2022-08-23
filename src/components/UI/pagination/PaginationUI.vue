@@ -1,19 +1,19 @@
 <template>
   <div :class="styled.pagination">
     <div
-        v-for="page in visibleQuantityPage"
-        :key="page"
+      v-for="page in visibleQuantityPage"
+      :key="page"
     >
       <ButtonUI
-          type="pseudo"
+        type="pseudo"
       >
         {{ page }}
       </ButtonUI>
     </div>
 
     <div
-        v-if="quantityPage > 10"
-        :class="styled.morePages"
+      v-if="quantityPage > 10"
+      :class="styled.morePages"
     >
       <div :class="styled.dots">
         ...
@@ -36,10 +36,9 @@ import styled from "./paginationUI.module.css";
 
 export default {
   name: "PaginationUI",
-  data() {
-    return {
-      styled,
-    }
+  components: {
+    ButtonUI,
+    ArrowForwardImg,
   },
   props: {
     quantityCard: {
@@ -52,9 +51,10 @@ export default {
       default: 10,
     }
   },
-  components: {
-    ButtonUI,
-    ArrowForwardImg,
+  data() {
+    return {
+      styled,
+    }
   },
   computed: {
     quantityPage() {

@@ -4,8 +4,8 @@
     <FiltersComponent />
     <ProductCards />
     <PaginationUI
-        :quantity-card="200"
-        :chunk="7"
+      :quantity-card="200"
+      :chunk="7"
     />
     <NothingFoundForm />
   </div>

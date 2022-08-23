@@ -64,10 +64,10 @@
     <div :class="styled.contacts">
       <div :class="styled.phone">
         <a
-          href="tel:79272772330"
+          :href="tel"
           :class="styled.contactsData"
         >
-          +7 927-277-23-30
+          {{ ourContacts.phone }}
         </a>
         <span :class="styled.contactsSubTitle">
           По телефону
@@ -75,10 +75,10 @@
       </div>
       <div>
         <a
-          href="mailto:skovalev74@yandex.ru"
+          :href="mailto"
           :class="styled.contactsData"
         >
-          skovalev74@yandex.ru
+          {{ ourContacts.email }}
         </a>
         <span :class="styled.contactsSubTitle">
           По почте
@@ -89,6 +89,8 @@
 </template>
 
 <script>
+import { ourContacts } from "../../../data/ourContacts.js";
+import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import styled from "./nothingFoundForm.module.css";
 
@@ -107,10 +109,19 @@ export default {
   data() {
     return {
       styled,
+      ourContacts,
       nothingFoundName: "",
       nothingFoundPhone: "",
       nothingFoundEmail: "",
       nothingFoundCheckbox: false,
+    }
+  },
+  computed: {
+    mailto() {
+      return getMailto(ourContacts.email);
+    },
+    tel() {
+      return getPhone(ourContacts.phone);
     }
   },
   methods: {
