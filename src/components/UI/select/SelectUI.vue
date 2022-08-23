@@ -1,15 +1,14 @@
 <template>
   <div
-      :class="styled.wrapper"
+    :class="styled.wrapper"
   >
     <v-select
+      v-model="selected"
       :outlined="outlined"
       :clearable="clearable"
       :items="options"
       :label="label"
       :variant="variant"
-      ref="select"
-      @select="onChange"
     />
   </div>
 </template>
@@ -38,14 +37,16 @@ export default {
       default: "outlined",
     }
   },
+  emits: ["selectOption"],
   data(){
     return {
       styled,
+      selected: undefined,
     }
   },
-  methods: {
-    onChange() {
-      console.log("выбрали опцию")
+  watch: {
+    selected(newSelected){
+      this.$emit("selectOption", newSelected);
     }
   }
 }

@@ -10,26 +10,27 @@
         :max-value="maxValue"
       />
       <div />
-      <SelectInput
+      <SelectUI
         :options="options"
         :clearable="true"
         :outlined="true"
+        @select-option="sortSelect"
       />
     </div>
   </div>
 </template>
 
 <script>
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 import RangeSlider from "../../../../components/UI/rangeSlider/RangeSlider.vue";
-import SelectInput from "../../../../components/UI/select/SelectUI.vue";
+import SelectUI from "../../../../components/UI/select/SelectUI.vue";
 import styled from "./filters.module.css";
 
 export default {
   name: "FiltersComponent",
   components: {
     RangeSlider,
-    SelectInput,
+    SelectUI,
   },
   data(){
     return {
@@ -42,6 +43,18 @@ export default {
     maxValue() {
       const available = this.products.map(card => card.availability);
       return Math.max(...available);
+    }
+  },
+  methods: {
+    ...mapActions("products", [
+        "initProducts",
+        "sortAscendingPrice",
+        "sortDescendingPrice"
+    ]),
+    sortSelect(newSelected){
+      return newSelected === "Возрастанию цены" ?
+          this.sortAscendingPrice() :
+          this.sortDescendingPrice();
     }
   }
 }
