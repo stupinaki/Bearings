@@ -55,7 +55,7 @@
       </div>
       <div :class="styled.formBtn">
         <ButtonUI
-            @click="onClick"
+          @click="onClick"
         >
           Отправить
         </ButtonUI>
@@ -97,6 +97,13 @@ export default {
   components: {
     ButtonUI,
   },
+  props: {
+    request: {
+      type: String,
+      require: true,
+      default: "какой-то запрос"
+    }
+  },
   data() {
     return {
       styled,
@@ -104,13 +111,6 @@ export default {
       nothingFoundPhone: "",
       nothingFoundEmail: "",
       nothingFoundCheckbox: false,
-    }
-  },
-  props: {
-    request: {
-      type: String,
-      require: true,
-      default: "какой-то запрос"
     }
   },
   methods: {

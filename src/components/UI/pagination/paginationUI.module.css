@@ -1,0 +1,15 @@
+@import "/src/styles/variables.modules.css";
+
+.pagination {
+  display: flex;
+  min-width: 100%;
+}
+
+.more-pages {
+  display: flex;
+  align-items: center;
+}
+
+.dots {
+  padding: 0 8px;
+}
