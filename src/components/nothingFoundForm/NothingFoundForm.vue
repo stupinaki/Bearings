@@ -14,21 +14,21 @@
       :class="styled.form"
     >
       <input
-        ref="nothingFoundName"
+        v-model="nothingFoundName"
         required
         type="text"
         placeholder="Имя"
         :class="styled.textInput"
       >
       <input
-        ref="nothingFoundPhone"
+        v-model="nothingFoundPhone"
         required
         type="text"
         placeholder="Телефон"
         :class="styled.textInput"
       >
       <input
-        ref="nothingFoundEmail"
+        v-model="nothingFoundEmail"
         required
         type="text"
         placeholder="E-mail"
@@ -37,7 +37,7 @@
       <div :class="styled.checkboxWrapper">
         <input
           id="nothingFoundCheckbox"
-          ref="nothingFoundCheckbox"
+          v-model="nothingFoundCheckbox"
           required
           type="checkbox"
           :class="styled.checkbox"
@@ -54,16 +54,18 @@
         </label>
       </div>
       <div :class="styled.formBtn">
-        <ButtonUI @click="onClick">
+        <ButtonUI
+            @click="onClick"
+        >
           Отправить
         </ButtonUI>
       </div>
     </form>
-    <div>
+    <div :class="styled.contacts">
       <div :class="styled.phone">
         <a
           href="tel:79272772330"
-          :class="styled.contacts"
+          :class="styled.contactsData"
         >
           +7 927-277-23-30
         </a>
@@ -74,7 +76,7 @@
       <div>
         <a
           href="mailto:skovalev74@yandex.ru"
-          :class="styled.contacts"
+          :class="styled.contactsData"
         >
           skovalev74@yandex.ru
         </a>
@@ -95,16 +97,20 @@ export default {
   components: {
     ButtonUI,
   },
+  data() {
+    return {
+      styled,
+      nothingFoundName: "",
+      nothingFoundPhone: "",
+      nothingFoundEmail: "",
+      nothingFoundCheckbox: false,
+    }
+  },
   props: {
     request: {
       type: String,
       require: true,
       default: "какой-то запрос"
-    }
-  },
-  data() {
-    return {
-      styled,
     }
   },
   methods: {

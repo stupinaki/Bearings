@@ -57,7 +57,7 @@
 
 .form-btn {
   display: grid;
-  grid-template-columns: 50%;
+  grid-template-columns: 60%;
   justify-content: start;
 }
 
@@ -65,7 +65,7 @@
   border: 1px solid $third-text-color;
 }
 
-.contacts {
+.contacts-data {
   font-size: 26px;
   font-weight: 500;
   line-height: 30px;
@@ -88,4 +88,30 @@
 .link {
   color: $secondary-text-color;
   text-decoration: underline;
+}
+
+@media screen and (max-width: $breakpointExtraLarge) {
+  .contacts-and-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+@media screen and (max-width: $breakpointLarge) {
+  .contacts-data {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .contacts-and-form {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .contacts {
+    display: flex;
+    gap: 40px;
+  }
 }
