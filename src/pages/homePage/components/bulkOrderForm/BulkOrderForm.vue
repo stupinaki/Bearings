@@ -128,6 +128,7 @@ export default {
     },
     onFocusInputEmail() {
       this.$data.isErrorEmail = false;
+      this.$data.isFormSubmit = false;
     },
     checkPhone() {
       const value = this.$data.oderFormPhone;
@@ -135,6 +136,7 @@ export default {
     },
     onFocusInputPhone() {
       this.$data.isErrorPhone = false;
+      this.$data.isFormSubmit = false;
     },
     checkName() {
       const value = this.$data.oderFormName;
@@ -142,10 +144,13 @@ export default {
     },
     onFocusInputName() {
       this.$data.isErrorName = false;
+      this.$data.isFormSubmit = false;
     },
     checkCheckbox() {
       this.$data.isErrorCheckbox = !this.$data.oderFormCheckbox;
+      this.$data.isFormSubmit = false;
     },
+
     onClick() {
       this.checkEmail();
       this.checkPhone();
