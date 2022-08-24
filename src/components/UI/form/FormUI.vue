@@ -1,73 +1,73 @@
 <template>
-    <div :class="styled.title">
-      {{ title }}
-    </div>
-    <div :class="styled.subTitle">
-      {{ subTitle }}
-    </div>
+  <div :class="styled.title">
+    {{ title }}
+  </div>
+  <div :class="styled.subTitle">
+    {{ subTitle }}
+  </div>
 
-    <form
-        :class="styled.form"
-        @submit.prevent
+  <form
+    :class="styled.form"
+    @submit.prevent
+  >
+    <span v-if="isFormSubmit">
+      <b>Ваша заявка успешно отправлена</b>
+    </span>
+    <input
+      v-model.trim.lazy="oderFormName"
+      type="text"
+      placeholder="Имя"
+      :class="inputNameStyle"
+      @blur="checkName"
+      @focus="onFocusInputName"
     >
-      <span v-if="isFormSubmit">
-        <b>Ваша заявка успешно отправлена</b>
-      </span>
-      <input
-          v-model.trim.lazy="oderFormName"
-          type="text"
-          placeholder="Имя"
-          :class="inputNameStyle"
-          @blur="checkName"
-          @focus="onFocusInputName"
-      >
-      <input
-          v-model.trim="oderFormPhone"
-          type="text"
-          placeholder="Телефон"
-          :class="inputPhoneStyle"
-          @focus="onFocusInputPhone"
-          @blur="checkPhone"
-      >
-      <input
-          v-model.trim="oderFormEmail"
-          type="text"
-          placeholder="E-mail"
-          :class="inputEmailStyle"
-          @focus="onFocusInputEmail"
-          @blur="checkEmail"
-      >
+    <input
+      v-model.trim="oderFormPhone"
+      type="text"
+      placeholder="Телефон"
+      :class="inputPhoneStyle"
+      @focus="onFocusInputPhone"
+      @blur="checkPhone"
+    >
+    <input
+      v-model.trim="oderFormEmail"
+      type="text"
+      placeholder="E-mail"
+      :class="inputEmailStyle"
+      @focus="onFocusInputEmail"
+      @blur="checkEmail"
+    >
 
-      <slot />
+    <slot />
 
-      <div :class="inputCheckboxStyle">
-        <input
-            id="checkboxForm"
-            v-model="oderFormCheckbox"
-            type="checkbox"
-            :class="styled.checkbox"
-            @change="checkCheckbox"
+    <div :class="inputCheckboxStyle">
+      <input
+        id="checkboxForm"
+        v-model="oderFormCheckbox"
+        type="checkbox"
+        :class="styled.checkbox"
+        @change="checkCheckbox"
+      >
+      <label for="checkboxForm">
+        Я согласен с
+        <router-link
+          :to="{name: 'privacyPolicy'}"
+          :class="styled.link"
         >
-        <label for="checkboxForm">
-          Я согласен с
-          <router-link
-              :to="{name: 'privacyPolicy'}"
-              :class="styled.link"
-          >
-            политикой конфиденциальности
-          </router-link>
-          и даю согласие на обработку моих персональных данных
-        </label>
-      </div>
-      <div :class="styled.formBtn">
-        <ButtonUI
-            type="submit"
-            @click="onClick"
-        >
-          Отправить
-        </ButtonUI>
-      </div>
-    </form>
+          политикой конфиденциальности
+        </router-link>
+        и даю согласие на обработку моих персональных данных
+      </label>
+    </div>
+    <div :class="styled.formBtn">
+      <ButtonUI
+        type="submit"
+        @click="onClick"
+      >
+        Отправить
+      </ButtonUI>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -81,6 +81,18 @@ export default {
   components: {
     ButtonUI,
   },
+  props: {
+    title: {
+      type:String,
+      required: false,
+      default: "",
+    },
+    subTitle: {
+      type:String,
+      required: false,
+      default: "",
+    }
+  },
   data() {
     return {
       styled,
@@ -93,16 +105,6 @@ export default {
       oderFormName: "",
       oderFormPhone: "",
       oderFormEmail: "",
-    }
-  },
-  props: {
-    title: {
-      type:String,
-      required: false,
-    },
-    subTitle: {
-      type:String,
-      required: false,
     }
   },
   computed: {
