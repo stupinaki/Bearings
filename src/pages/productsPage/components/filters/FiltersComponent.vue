@@ -54,14 +54,16 @@ export default {
     ...mapActions("products", [
         "initProducts",
         "sortAscendingPrice",
-        "sortDescendingPrice"
+        "sortDescendingPrice",
+        "filterProductsAvailability"
     ]),
     sortSelect(newSelected){
       return newSelected === "Возрастанию цены" ?
           this.sortAscendingPrice() :
           this.sortDescendingPrice();
     },
-    filterSlider(value){
+    filterSlider(value) {
+      this.filterProductsAvailability(value)
       console.log("filterSlider:", value)
     }
   }

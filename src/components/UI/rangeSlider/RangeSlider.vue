@@ -29,6 +29,7 @@
         :thumb-size="thumbSize"
         :max="maxValue"
         :min="minValue"
+        @click="onSliderClick"
       />
     </div>
   </div>
@@ -83,11 +84,12 @@ export default {
     }
   },
   emits: ["sliderChange"],
-  watch: {
-    sliderValue(value) {
-      const selectedValue = Math.round(value[1])
-      this.$emit("sliderChange", selectedValue);
+  methods: {
+    onSliderClick() {
+      const selectedValueMin = Math.round(this.$data.sliderValue[0]);
+      const selectedValueMax = Math.round(this.$data.sliderValue[1]);
+      this.$emit("sliderChange", [selectedValueMin, selectedValueMax]);
     }
-  }
+  },
 }
 </script>

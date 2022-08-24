@@ -10,5 +10,8 @@ export default {
     },
     sortDescendingPrice({commit}) {
         commit(actionNames.SORT_DESCENDING_PRICE);
+    },
+    filterProductsAvailability({commit}, rangeArray) {
+        commit(actionNames.FILTER_PRODUCTS, rangeArray)
     }
 }
