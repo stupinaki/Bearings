@@ -8,7 +8,6 @@
     </div>
 
     <form
-      action=""
       :class="styled.form"
       @submit.prevent
     >
@@ -16,40 +15,38 @@
         <b>Ваша заявка успешно отправлена</b>
       </span>
       <input
-          required
-          v-model.trim.lazy="oderFormName"
+        v-model.trim.lazy="oderFormName"
         type="text"
         placeholder="Имя"
-        :class="styled.textInput"
+        :class="inputNameStyle"
+        @blur="checkName"
+        @focus="onFocusInputName"
       >
       <input
-          required
-          v-model.trim="oderFormPhone"
+        v-model.trim="oderFormPhone"
         type="text"
         placeholder="Телефон"
         :class="inputPhoneStyle"
-        @change="checkPhone"
         @focus="onFocusInputPhone"
         @blur="checkPhone"
       >
       <input
-          required
-          v-model.trim="oderFormEmail"
+        v-model.trim="oderFormEmail"
         type="text"
         placeholder="E-mail"
         :class="inputEmailStyle"
-        @change="checkEmail"
         @focus="onFocusInputEmail"
         @blur="checkEmail"
       >
       <FileInput is-multiple />
-      <div :class="styled.checkboxWrapper">
+
+      <div :class="inputCheckboxStyle">
         <input
           id="checkboxForm"
           v-model="oderFormCheckbox"
-          required
           type="checkbox"
           :class="styled.checkbox"
+          @change="checkCheckbox"
         >
         <label for="checkboxForm">
           Я согласен с
@@ -87,13 +84,15 @@ export default {
   data() {
     return {
       styled,
+      isErrorName: false,
       isErrorEmail: false,
       isErrorPhone: false,
       isFormSubmit: false,
+      isErrorCheckbox: false,
+      oderFormCheckbox: false,
       oderFormName: "",
       oderFormPhone: "",
       oderFormEmail: "",
-      oderFormCheckbox: false,
     }
   },
   computed: {
@@ -101,43 +100,74 @@ export default {
       if(this.$data.isErrorEmail) {
         return [styled.textInput, styled.error];
       }
-      return [styled.textInput];
+      return styled.textInput;
     },
     inputPhoneStyle() {
       if(this.$data.isErrorPhone) {
         return [styled.textInput, styled.error];
       }
-      return [styled.textInput];
-    }
+      return styled.textInput;
+    },
+    inputNameStyle() {
+      if(this.$data.isErrorName) {
+        return [styled.textInput, styled.error];
+      }
+      return styled.textInput;
+    },
+    inputCheckboxStyle(){
+      if(this.$data.isErrorCheckbox){
+        return [styled.checkboxWrapper, styled.error]
+      }
+      return styled.checkboxWrapper;
+    },
   },
   methods: {
     checkEmail() {
-      const value = this.$refs.oderFormEmail.value;
-      if(!value) {
-        return;
-      }
+      const value = this.$data.oderFormEmail;
       this.$data.isErrorEmail = !validateEmail(value);
     },
     onFocusInputEmail() {
       this.$data.isErrorEmail = false;
     },
     checkPhone() {
-      const value = this.$refs.oderFormPhone.value;
-      if(!value) {
-        return;
-      }
+      const value = this.$data.oderFormPhone;
       this.$data.isErrorPhone = !validatePhone(value);
     },
     onFocusInputPhone() {
       this.$data.isErrorPhone = false;
     },
+    checkName() {
+      const value = this.$data.oderFormName;
+      this.$data.isErrorName = !value;
+    },
+    onFocusInputName() {
+      this.$data.isErrorName = false;
+    },
+    checkCheckbox() {
+      this.$data.isErrorCheckbox = !this.$data.oderFormCheckbox;
+    },
     onClick() {
-      const name = this.$data.oderFormName;
-      const phone = this.$data.oderFormPhone;
-      const email = this.$data.oderFormEmail;
-      const checkbox = this.$data.oderFormCheckbox;
+      this.checkEmail();
+      this.checkPhone();
+      this.checkName();
+      this.checkCheckbox()
 
-      if(name && phone && email && checkbox) {
+      const {oderFormName, oderFormPhone, oderFormEmail, oderFormCheckbox} = this.$data;
+      const {isErrorName, isErrorEmail, isErrorPhone, isErrorCheckbox} = this.$data;
+
+      const order = {
+        name: oderFormName,
+        phone: oderFormPhone,
+        email: oderFormEmail,
+        checkbox: oderFormCheckbox,
+      }
+
+      const isAllFilled = oderFormName && oderFormPhone && oderFormEmail && oderFormCheckbox;
+      const isCorrectFilled = !isErrorName && !isErrorEmail && !isErrorPhone && !isErrorCheckbox;
+
+      if(isAllFilled && isCorrectFilled) {
+        console.log("click on button!", order)
+
         this.$data.oderFormName = "";
         this.$data.oderFormPhone = "";
         this.$data.oderFormEmail = "";

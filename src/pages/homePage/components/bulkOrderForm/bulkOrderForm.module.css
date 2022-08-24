@@ -59,6 +59,7 @@
   grid-template-columns: calc((100% - 8px) * 0.04) calc((100% - 8px) * 0.96);
   gap: 8px;
   align-items: center;
+  padding: 8px;
   margin: 20px 0;
   font-size: 14px;
   line-height: 16px;
@@ -73,8 +74,10 @@
   display: grid;
   grid-template-columns: 50%;
   justify-content: start;
+  color: $primary-background;
 }
 
 .error {
   border: 1px solid $third-text-color;
+  border-radius: 8px;
 }

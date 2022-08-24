@@ -45,11 +45,10 @@ export default {
   },
   computed: {
     className() {
-      const { size, name, disabled, type } = this.$props;
+      const { size, name, disabled } = this.$props;
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
       classes.push(styled[`btn-${name}`]);
-      classes.push(styled[`btn-${type}`]);
       if (disabled) {
         classes.push(styled.btnDisabled);
       }

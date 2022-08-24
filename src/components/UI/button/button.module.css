@@ -77,7 +77,3 @@
   cursor: auto;
   background-color: $secondary-text-color;
 }
-
-.btn-submit {
-  color: $primary-background;
-}
