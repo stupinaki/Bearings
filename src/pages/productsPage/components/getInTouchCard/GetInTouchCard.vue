@@ -6,13 +6,13 @@
       </div>
       <div>
         <a
-          :href="`tel:${correctPhoneNumber}`"
+          :href="tel"
           :class="styled.phone"
         >
           {{ contactsPhone }}
         </a>
         <a
-          :href="`mailto:${contactsEmail}`"
+          :href="mailto"
           :class="styled.email"
         >
           {{ contactsEmail }}
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { getMailto,getPhone } from "../../../../helpers/getOurContacts.js"
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import styled from "./getInTouchCard.module.css";
 
@@ -91,13 +92,12 @@ export default {
     };
   },
   computed: {
-    correctPhoneNumber() {
-      const mobileNumber = this.$props.contactsPhone;
-      if(mobileNumber) {
-        return mobileNumber.match(/[0-9]+/g).join("");
-      }
-      return  "Номер отсутствует";
+    mailto() {
+      return getMailto(this.contactsEmail);
     },
+    tel() {
+      return getPhone(this.contactsPhone);
+    }
   },
 };
 </script>

@@ -21,3 +21,8 @@
     padding: $primary-padding-top-bottom;
   }
 }
+
+.link {
+  color: $secondary-text-color;
+  text-decoration: underline;
+}
