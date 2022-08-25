@@ -13,7 +13,7 @@
             v-if="input.hint"
             #hint
           >
-            <ButtonUI type="type-link">
+            <ButtonUI name="type-link">
               <HelpImg />
             </ButtonUI>
           </template>
@@ -22,13 +22,13 @@
     </div>
     <div :class="styled.helpReset">
       <div :class="styled.btnWrapper">
-        <ButtonUI type="type-link">
+        <ButtonUI name="type-link">
           Помощь в измерении
         </ButtonUI>
       </div>
       <div :class="styled.btnWrapper">
         <ButtonUI
-          type="type-link"
+          name="type-link"
           :class="styled.resetBtn"
         >
           Сбросить фильтры

@@ -33,14 +33,14 @@
         <ButtonUI
           :class="styled.row"
           size="s"
-          type="type-link"
+          name="type-link"
         >
           Оптовый заказ
         </ButtonUI>
         <ButtonUI
           :class="styled.btn"
           size="s"
-          type="type-link"
+          name="type-link"
         >
           О компании
         </ButtonUI>

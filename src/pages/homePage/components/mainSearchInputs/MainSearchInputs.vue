@@ -24,7 +24,7 @@
       />
 
       <ButtonUI
-        type="secondary"
+        name="secondary"
         @click.prevent="showAdditionalForm"
       >
         <FilterVariant />
@@ -36,7 +36,7 @@
     </form>
 
     <div :class="styled.btnWrapper">
-      <ButtonUI type="type-link">
+      <ButtonUI name="type-link">
         Как узнать маркировку?
       </ButtonUI>
     </div>
