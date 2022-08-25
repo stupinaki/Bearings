@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="product in products"
+      v-for="product in orderedProducts"
       :key="product.id"
     >
       <ProductCard
@@ -14,7 +14,7 @@
 <script>
 import styled from "../../productsPage.module.css";
 import ProductCard from "../productCard/ProductCard.vue";
-import {mapActions, mapState} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
   name: "ProductCards",
@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    ...mapState("products", ["products"]),
+    ...mapGetters("products", ["orderedProducts"]),
   },
   beforeMount() {
     this.initProducts();

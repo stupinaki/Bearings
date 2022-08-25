@@ -4,17 +4,10 @@ export default {
     [actionNames.SET_PRODUCTS](state, products) {
         state.products = products;
     },
-    [actionNames.SORT_ASCENDING_PRICE](state) {
-
-        state.products = state.products.sort((a, b) => a.priceForOne - b.priceForOne);
+    [actionNames.SET_SORT_DIRECTION](state, isDesc) {
+        state.isOrderDesc = isDesc;
     },
-    [actionNames.SORT_DESCENDING_PRICE](state) {
-        state.products = state.products.sort((a, b) => b.priceForOne - a.priceForOne);
-    },
-    [actionNames.FILTER_PRODUCTS](state, value){
-        const { productCardsValue, rangeArray } = value;
-        const max = rangeArray[1];
-        const min = rangeArray[0];
-        state.products = productCardsValue.filter(product => product.availability >= min && product.availability <= max);
+    [actionNames.FILTER_PRODUCTS](state, rangeArray) {
+        state.rangeFilter = rangeArray;
     }
 }

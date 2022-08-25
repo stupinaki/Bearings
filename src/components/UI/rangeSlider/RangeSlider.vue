@@ -35,7 +35,7 @@
         :thumb-size="thumbSize"
         :max="maxValue"
         :min="minValue"
-        @click="onSliderClick"
+        @update:model-value="onSliderClick"
       />
     </div>
   </div>
@@ -94,6 +94,7 @@ export default {
   },
   methods: {
     onSliderClick() {
+      console.log("onSliderClick")
       const selectedValueMin = Math.round(this.$data.sliderValue[0]);
       const selectedValueMax = Math.round(this.$data.sliderValue[1]);
       this.$data.fromMin = selectedValueMin;
@@ -106,7 +107,7 @@ export default {
 
       if( fromMin > toMax ) {
         this.$data.toMax = maxValue;
-        this.$data.sliderValue = [fromMin, maxValue];
+        this.$data.sliderValue = [minValue, maxValue];
       }
       if ( fromMin > maxValue ) {
         this.$data.fromMin = maxValue;
@@ -122,7 +123,7 @@ export default {
       } else {
         this.$data.sliderValue[0] = fromMin;
       }
-      this.$emit("sliderChange", [fromMin, sliderValue[1]]);
+      this.$emit("sliderChange", [this.$data.fromMin, sliderValue[1]]);
     },
     onMaxChange() {
       const { toMax, fromMin, sliderValue } = this.$data;
@@ -146,7 +147,7 @@ export default {
       } else {
         this.$data.sliderValue[1] = toMax;
       }
-      this.$emit("sliderChange", [sliderValue[0], toMax]);
+      this.$emit("sliderChange", [sliderValue[0], this.$data.toMax]);
     }
   }
 }

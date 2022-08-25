@@ -8,7 +8,7 @@
       <RangeSlider
         :min-value="minValue"
         :max-value="maxValue"
-        @slider-change="filterSlider"
+        @slider-change="filterProductsAvailability"
       />
       <div />
       <SelectUI
@@ -33,10 +33,10 @@ export default {
     RangeSlider,
     SelectUI,
   },
-  data(){
+  data() {
     return {
       styled,
-      options: ["Возрастанию цены", "Убыванию цены"],
+      options: [{title: "Возрастанию цены", value: true }, {title: "Убыванию цены", value: false }],
       maxValue: 300,
       minValue: 10,
     }
@@ -46,20 +46,13 @@ export default {
   },
   methods: {
     ...mapActions("products", [
-        "initProducts",
-        "sortAscendingPrice",
-        "sortDescendingPrice",
-        "filterProductsAvailability"
+      "initProducts",
+      "setSortDirection",
+      "filterProductsAvailability"
     ]),
-    sortSelect(newSelected){
-      return newSelected === "Возрастанию цены" ?
-          this.sortAscendingPrice() :
-          this.sortDescendingPrice();
+    sortSelect(direction) {
+      this.setSortDirection(direction);
     },
-    filterSlider(value) {
-      this.filterProductsAvailability(value)
-      console.log("filterSlider:", value)
-    }
   }
 }
 </script>

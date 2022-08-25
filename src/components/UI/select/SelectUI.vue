@@ -9,6 +9,7 @@
       :items="options"
       :label="label"
       :variant="variant"
+      @update:model-value="onChange"
     />
   </div>
 </template>
@@ -44,9 +45,9 @@ export default {
       selected: undefined,
     }
   },
-  watch: {
-    selected(newSelected){
-      this.$emit("selectOption", newSelected);
+  methods: {
+    onChange(direction){
+      this.$emit("selectOption", direction);
     }
   }
 }
