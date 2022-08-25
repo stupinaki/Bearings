@@ -1,11 +1,4 @@
 <template>
-  <div :class="styled.title">
-    {{ title }}
-  </div>
-  <div :class="styled.subTitle">
-    {{ subTitle }}
-  </div>
-
   <form
     :class="styled.form"
     @submit.prevent
@@ -80,18 +73,6 @@ export default {
   name: "ContactUsForm",
   components: {
     ButtonUI,
-  },
-  props: {
-    title: {
-      type:String,
-      required: false,
-      default: "",
-    },
-    subTitle: {
-      type:String,
-      required: false,
-      default: "",
-    }
   },
   data() {
     return {

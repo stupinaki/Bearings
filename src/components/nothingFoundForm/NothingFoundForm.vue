@@ -7,60 +7,8 @@
       Исправьте запрос или свяжитесь с нами. Мы попробуем вам помочь.
     </div>
   </div>
-
   <div :class="styled.contactsAndForm">
-    <form
-      action=""
-      :class="styled.form"
-    >
-      <input
-        v-model="nothingFoundName"
-        required
-        type="text"
-        placeholder="Имя"
-        :class="styled.textInput"
-      >
-      <input
-        v-model="nothingFoundPhone"
-        required
-        type="text"
-        placeholder="Телефон"
-        :class="styled.textInput"
-      >
-      <input
-        v-model="nothingFoundEmail"
-        required
-        type="text"
-        placeholder="E-mail"
-        :class="styled.textInput"
-      >
-      <div :class="styled.checkboxWrapper">
-        <input
-          id="nothingFoundCheckbox"
-          v-model="nothingFoundCheckbox"
-          required
-          type="checkbox"
-          :class="styled.checkbox"
-        >
-        <label for="nothingFoundCheckbox">
-          Я согласен с
-          <router-link
-            :to="{name: 'privacyPolicy'}"
-            :class="styled.link"
-          >
-            политикой конфиденциальности
-          </router-link>
-          и даю согласие на обработку моих персональных данных
-        </label>
-      </div>
-      <div :class="styled.formBtn">
-        <ButtonUI
-          @click="onClick"
-        >
-          Отправить
-        </ButtonUI>
-      </div>
-    </form>
+    <ContactUsForm />
     <div :class="styled.contacts">
       <div :class="styled.phone">
         <a
@@ -89,15 +37,15 @@
 </template>
 
 <script>
-import { ourContacts } from "../../../data/ourContacts.js";
 import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
-import ButtonUI from "../UI/button/ButtonUI.vue";
+import { ourContacts } from "../../../data/ourContacts.js";
+import ContactUsForm from "../contactUsForm/ContactUsForm.vue";
 import styled from "./nothingFoundForm.module.css";
 
 export default {
   name: "NothingFoundForm",
   components: {
-    ButtonUI,
+    ContactUsForm,
   },
   props: {
     request: {

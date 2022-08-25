@@ -1,9 +1,23 @@
 @import "/src/styles/variables.modules.css";
 
+.title {
+  margin: 32px 0;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  color: $primary-text-color;
+}
+
+.sub-title {
+  font-size: 18px;
+  line-height: 22px;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 60%;
   padding: $primary-padding-top-bottom;
+  margin: 48px 0;
 }
 
 @media screen and (max-width: $breakpointExtraLarge) {

@@ -1,9 +1,13 @@
 <template>
+  <div :class="styled.title">
+    Для заказа оптом заполните форму
+  </div>
+  <div :class="styled.subTitle">
+    Мы передадим данные нашим партнерам, и они свяжутся с вами для уточнения деталей.
+  </div>
+
   <div :class="styled.wrapper">
-    <ContactUsForm
-      title="Для заказа оптом заполните форму"
-      sub-title="Мы передадим данные нашим партнерам, и они свяжутся с вами для уточнения деталей."
-    >
+    <ContactUsForm>
       <FileInput is-multiple />
     </ContactUsForm>
   </div>
