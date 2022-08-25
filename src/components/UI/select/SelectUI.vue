@@ -1,6 +1,6 @@
 <template>
   <select
-    name="select"
+    type="select"
     :class="styled.select"
   >
     <slot name="hint-options" />

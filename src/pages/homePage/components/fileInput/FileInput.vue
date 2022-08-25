@@ -6,7 +6,7 @@
           {{ text }}
         </span>
         <ButtonUI
-          name="type-link"
+          type-style="type-link"
           :class="styled.loadBtn"
           @click="handleLoad"
         >

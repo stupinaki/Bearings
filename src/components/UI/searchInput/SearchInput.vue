@@ -6,7 +6,7 @@
     <div :class="className">
       <div :class="styled.searchBtnWrapper">
         <ButtonUI
-          name="pseudo"
+          type-style="pseudo"
           @click="onStartSearch"
         >
           <SearchInputImg />

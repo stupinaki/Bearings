@@ -5,7 +5,7 @@
       :key="page"
     >
       <ButtonUI
-        type="pseudo"
+        type-style="pseudo"
       >
         {{ page }}
       </ButtonUI>
@@ -18,10 +18,10 @@
       <div :class="styled.dots">
         ...
       </div>
-      <ButtonUI type="pseudo">
+      <ButtonUI type-style="pseudo">
         {{ quantityPage }}
       </ButtonUI>
-      <ButtonUI type="pseudo">
+      <ButtonUI type-style="pseudo">
         Вперед
         <ArrowForwardImg />
       </ButtonUI>

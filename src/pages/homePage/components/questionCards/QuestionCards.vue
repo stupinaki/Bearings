@@ -15,7 +15,7 @@
     </div>
     <div :class="styled.questionBtn">
       <router-link :to="{name: 'empty'}">
-        <ButtonUI name="type-link">
+        <ButtonUI type-style="type-link">
           Все вопросы
           <Arrow />
         </ButtonUI>

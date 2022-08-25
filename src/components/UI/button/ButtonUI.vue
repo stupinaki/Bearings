@@ -2,7 +2,6 @@
   <button
     :class="className"
     :disabled="disabled"
-    :type="type"
   >
     <slot />
   </button>
@@ -21,19 +20,11 @@ export default {
         return ["s", "m", "l"].includes(size);
       },
     },
-    name: {
+    typeStyle: {
       type: String,
       default: "primary",
-      validator(type) {
-        return ["primary", "secondary", "pseudo", "type-link"].includes(type);
-      },
-    },
-    type: {
-      type: String,
-      required: false,
-      default: "",
-      validator(type) {
-        return ["button", "submit", "reset"].includes(type);
+      validator(style) {
+        return ["primary", "secondary", "pseudo", "type-link"].includes(style);
       },
     },
     disabled: Boolean
@@ -45,10 +36,10 @@ export default {
   },
   computed: {
     className() {
-      const { size, name, disabled } = this.$props;
+      const { size, typeStyle, disabled } = this.$props;
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
-      classes.push(styled[`btn-${name}`]);
+      classes.push(styled[`btn-${typeStyle}`]);
       if (disabled) {
         classes.push(styled.btnDisabled);
       }
