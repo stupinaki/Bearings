@@ -22,19 +22,25 @@
   color: $secondary-text-color;
 }
 
-.number {
-  padding: 4px;
-  color: $primary-text-color;
-}
-
-.description {
-  display: flex;
-}
-
 .range {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   align-items: center;
-  justify-content: space-between;
   height: 100%;
   padding: 0 16px;
+}
+
+.range-value {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4px;
+  align-items: center;
+}
+
+.input {
+  max-width: 120px;
+  padding: 8px;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
 }

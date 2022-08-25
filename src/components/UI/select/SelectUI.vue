@@ -1,17 +1,15 @@
 <template>
-  <select
-    type="select"
-    :class="styled.select"
-  >
-    <slot name="hint-options" />
-    <option
-      v-for="option in options"
-      :key="option.id"
-      :class="styled.option"
-    >
-      {{ option.name }}
-    </option>
-  </select>
+  <div :class="styled.wrapper">
+    <v-select
+      v-model="selected"
+      :outlined="outlined"
+      :clearable="clearable"
+      :items="options"
+      :label="label"
+      :variant="variant"
+      @update:model-value="onChange"
+    />
+  </div>
 </template>
 
 <script>
@@ -23,12 +21,31 @@ export default {
     options: {
       type: Array,
       require: true,
-      default: () => { [] },
+      default: () => [],
     },
+    clearable: Boolean,
+    outlined: Boolean,
+    label: {
+      type: String,
+      require: false,
+      default: "Сортировать по",
+    },
+    variant: {
+      type: String,
+      require: false,
+      default: "outlined",
+    }
   },
+  emits: ["selectOption"],
   data(){
     return {
       styled,
+      selected: undefined,
+    }
+  },
+  methods: {
+    onChange(direction){
+      this.$emit("selectOption", direction);
     }
   }
 }

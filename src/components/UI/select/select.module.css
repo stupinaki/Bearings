@@ -1,5 +1,45 @@
 @import "/src/styles/variables.modules.css";
 
+.wrapper {
+  & :global(.v-field__input) {
+    padding: 0 0 0 16px;
+  }
+
+  & :global(.v-field--variant-outlined) {
+    border: 1px solid $primary-border;
+    border-radius: 8px;
+    opacity: 1;
+  }
+
+  & :global(.v-input__details) {
+    display: none;
+  }
+
+  & :global(.v-field__overlay) {
+    display: none;
+  }
+
+  & :global(.v-field--variant-outlined .v-field__outline__start) {
+    border: none;
+  }
+
+  & :global(.v-field--variant-outlined .v-field__outline__end) {
+    border: none;
+  }
+
+  & :global(.v-field--variant-outlined .v-field__outline__notch) {
+    border: none;
+  }
+
+  & :global(.v-field--variant-outlined .v-field__outline__notch::before) {
+    display: none;
+  }
+
+  & :global(.v-field--variant-outlined .v-field__outline__notch::after) {
+    display: none;
+  }
+}
+
 .select {
   padding: 16px;
   border: 1px solid $primary-border;

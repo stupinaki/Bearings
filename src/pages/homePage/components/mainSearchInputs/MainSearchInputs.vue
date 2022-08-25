@@ -16,11 +16,12 @@
         type="text"
         :class="[styled.input, styled.line]"
       >
-      <AutocompleteComponent
+      <AutocompleteUI
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesName"
+        :closable-chips="true"
       />
 
       <ButtonUI
@@ -45,7 +46,7 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-import AutocompleteComponent from "../../../../components/UI/autocomplete/AutocompleteUI.vue";
+import AutocompleteUI from "../../../../components/UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import FilterVariant from "../../../../assets/filter_variant.svg"
 import styled from "./mainSearchInputs.module.css";
@@ -54,7 +55,7 @@ export default {
   name: "MainSearchInputs",
   components: {
     ButtonUI,
-    AutocompleteComponent,
+    AutocompleteUI,
     FilterVariant,
   },
   data() {

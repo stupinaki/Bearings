@@ -5,6 +5,7 @@
       :multiple="multiple"
       :chips="chips"
       :items="items"
+      :closable-chips="closableChips"
     />
   </div>
 </template>
@@ -18,10 +19,11 @@ export default {
     transition: Boolean,
     multiple: Boolean,
     chips: Boolean,
+    closableChips: Boolean,
     items: {
       type: Array,
       require: true,
-      default: () =>  { [] },
+      default: () =>  [],
     },
   },
   data() {
