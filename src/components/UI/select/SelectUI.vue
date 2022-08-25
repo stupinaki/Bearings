@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="styled.wrapper"
-  >
+  <div :class="styled.wrapper">
     <v-select
       v-model="selected"
       :outlined="outlined"

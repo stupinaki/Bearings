@@ -1,0 +1,51 @@
+@import "/src/styles/variables.modules.css";
+
+.text-input {
+  padding: 16px;
+  margin: 8px 0;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 80%;
+}
+
+.instruction {
+  font-size: 14px;
+  line-height: 16px;
+  color: $primary-text-color;
+}
+
+.checkbox-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  align-items: center;
+  padding: 8px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: $secondary-text-color;
+}
+
+.checkbox {
+  max-width: 24px;
+}
+
+.link {
+  color: $secondary-text-color;
+  text-decoration: underline;
+}
+
+.form-btn {
+  display: grid;
+  grid-template-columns: 50%;
+  justify-content: start;
+  color: $primary-background;
+}
+
+.error {
+  border: 1px solid $third-text-color;
+  border-radius: 8px;
+}

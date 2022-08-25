@@ -6,7 +6,7 @@
     >
       <ButtonUI
         size="m"
-        type="pseudo"
+        type-style="pseudo"
       >
         Найти подшипники
       </ButtonUI>
@@ -18,7 +18,7 @@
     >
       <ButtonUI
         size="m"
-        type="pseudo"
+        type-style="pseudo"
       >
         Вопросы и ответы
       </ButtonUI>
@@ -30,7 +30,7 @@
     >
       <ButtonUI
         size="m"
-        type="pseudo"
+        type-style="pseudo"
       >
         Компании
       </ButtonUI>
@@ -42,7 +42,7 @@
     >
       <ButtonUI
         size="m"
-        type="pseudo"
+        type-style="pseudo"
       >
         Контакты
       </ButtonUI>
@@ -54,7 +54,7 @@
     >
       <ButtonUI
         size="m"
-        type="secondary"
+        type-style="secondary"
       >
         Стать партнером
       </ButtonUI>

@@ -6,7 +6,7 @@
           {{ text }}
         </span>
         <ButtonUI
-          type="type-link"
+          type-style="type-link"
           :class="styled.loadBtn"
           @click="handleLoad"
         >
@@ -58,8 +58,8 @@
 
 <script>
 import {uniqBy} from "lodash";
-import DragAndDrop from "../UI/dragAndDrop/DragAndDrop.vue";
-import ButtonUI from "../UI/button/ButtonUI.vue";
+import DragAndDrop from "../../../../components/UI/dragAndDrop/DragAndDrop.vue";
+import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import styled from "./fileInput.module.css";
 
 export default {
