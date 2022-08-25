@@ -1,44 +1,30 @@
 <template>
   <div :class="styled.wrapper">
     <div :class="styled.range">
-      <div :class="styled.description">
+      <div :class="styled.rangeValue">
         <span :class="styled.text">
-          min
+          от
         </span>
-        <span :class="styled.number">
-          {{ minValue }}
-        </span>
-      </div>
-
-      <div :class="styled.inputs">
         <input
           v-model.number="fromMin"
           type="number"
-          placeholder="от"
           :class="styled.input"
           @change="onMinChange"
         >
-        <span :class="styled.hyphen">
-          <b>—</b>
+      </div>
+      <div :class="styled.rangeValue">
+        <span :class="styled.text">
+          до
         </span>
         <input
           v-model.number="toMax"
           type="number"
-          placeholder="до"
           :class="styled.input"
           @change="onMaxChange"
         >
       </div>
-
-      <div :class="styled.description">
-        <span :class="styled.text">
-          max
-        </span>
-        <span :class="styled.number">
-          {{ maxValue }}
-        </span>
-      </div>
     </div>
+
     <div :class="styled.slider">
       <v-range-slider
         v-model="sliderValue"
@@ -102,24 +88,9 @@ export default {
     return {
       styled,
       sliderValue: [this.minValue, this.maxValue],
-      fromMin: undefined,
-      toMax: undefined,
+      fromMin: this.minValue,
+      toMax: this.maxValue,
     }
-  },
-  watch: {
-    sliderValue() {
-      const { sliderValue } = this.$data;
-      this.$emit("sliderChange", sliderValue);
-    },
-    fromMin() {
-      const { fromMin, toMax } = this.$data;
-      this.$emit("sliderChange", [fromMin, toMax]);
-
-    },
-    toMax() {
-      const { fromMin, toMax } = this.$data;
-      this.$emit("sliderChange", [fromMin, toMax]);
-    },
   },
   methods: {
     onSliderClick() {
@@ -127,10 +98,10 @@ export default {
       const selectedValueMax = Math.round(this.$data.sliderValue[1]);
       this.$data.fromMin = selectedValueMin;
       this.$data.toMax = selectedValueMax;
-      // this.$emit("sliderChange", [selectedValueMin, selectedValueMax]);
+      this.$emit("sliderChange", [selectedValueMin, selectedValueMax]);
     },
     onMinChange() {
-      const { fromMin, toMax } = this.$data;
+      const { fromMin, toMax, sliderValue } = this.$data;
       const { minValue, maxValue } = this.$props;
 
       if( fromMin > toMax ) {
@@ -151,12 +122,10 @@ export default {
       } else {
         this.$data.sliderValue[0] = fromMin;
       }
-      // const b = [fromMin, sliderValue[1]]
-      // console.log("range from MIN:", b)
-      // this.$emit("sliderChange", [fromMin, sliderValue[1]]);
+      this.$emit("sliderChange", [fromMin, sliderValue[1]]);
     },
     onMaxChange() {
-      const { toMax, fromMin } = this.$data;
+      const { toMax, fromMin, sliderValue } = this.$data;
       const { minValue, maxValue } = this.$props;
 
       if( toMax > maxValue ) {
@@ -177,9 +146,7 @@ export default {
       } else {
         this.$data.sliderValue[1] = toMax;
       }
-      // const a = [sliderValue[0], toMax]
-      // console.log("range from MAX:", a)
-      // this.$emit("sliderChange", [sliderValue[0], toMax]);
+      this.$emit("sliderChange", [sliderValue[0], toMax]);
     }
   }
 }

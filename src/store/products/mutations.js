@@ -12,8 +12,9 @@ export default {
         state.products = state.products.sort((a, b) => b.priceForOne - a.priceForOne);
     },
     [actionNames.FILTER_PRODUCTS](state, value){
-        const max = value[1];
-        const min = value[0];
-        state.products = state.products.filter(product => product.availability >= min && product.availability <= max);
+        const { productCardsValue, rangeArray } = value;
+        const max = rangeArray[1];
+        const min = rangeArray[0];
+        state.products = productCardsValue.filter(product => product.availability >= min && product.availability <= max);
     }
 }

@@ -12,6 +12,9 @@ export default {
         commit(actionNames.SORT_DESCENDING_PRICE);
     },
     filterProductsAvailability({commit}, rangeArray) {
-        commit(actionNames.FILTER_PRODUCTS, rangeArray)
+        commit(actionNames.FILTER_PRODUCTS, {
+            productCardsValue,
+            rangeArray
+        })
     }
 }

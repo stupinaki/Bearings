@@ -22,37 +22,25 @@
   color: $secondary-text-color;
 }
 
-.number {
-  padding: 4px;
-  color: $primary-text-color;
-}
-
-.description {
-  display: flex;
-}
-
 .range {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: center;
   height: 100%;
   padding: 0 16px;
 }
 
-.inputs {
+.range-value {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
+  gap: 4px;
+  align-items: center;
 }
 
 .input {
-  max-width: 80px;
+  max-width: 120px;
   padding: 8px;
   border: 1px solid $primary-border;
   border-radius: 8px;
-}
-
-.hyphen {
-  padding: 8px;
-  color: $secondary-text-color;
 }
