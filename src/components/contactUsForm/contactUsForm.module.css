@@ -26,32 +26,15 @@
   margin: 48px 0;
 }
 
-.drop-zone {
-  padding: 60px;
-  border: 2px dashed $primary-border;
-  border-radius: 4px;
-}
-
 .instruction {
   font-size: 14px;
   line-height: 16px;
   color: $primary-text-color;
 }
 
-.drop-text {
-  padding-bottom: 8px;
-}
-
-.supported-formats {
-  font-size: 14px;
-  line-height: 16px;
-  color: $secondary-text-color;
-}
-
 .checkbox-wrapper {
   display: grid;
-  grid-template-columns: calc((100% - 8px) * 0.04) calc((100% - 8px) * 0.96);
-  gap: 8px;
+  grid-template-columns: 1fr 11fr;
   align-items: center;
   padding: 8px;
   margin: 20px 0;

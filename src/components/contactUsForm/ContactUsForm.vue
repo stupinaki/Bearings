@@ -71,13 +71,13 @@
 </template>
 
 <script>
-import { validateEmail } from "../../../helpers/validateEmail.js";
-import { validatePhone } from "../../../helpers/validatePhone.js";
-import ButtonUI from "../../../components/UI/button/ButtonUI.vue"
-import styled from "./formUI.module.css";
+import { validateEmail } from "../../helpers/validateEmail.js";
+import { validatePhone } from "../../helpers/validatePhone.js";
+import ButtonUI from "../UI/button/ButtonUI.vue"
+import styled from "./contactUsForm.module.css";
 
 export default {
-  name: "FormUI",
+  name: "ContactUsForm",
   components: {
     ButtonUI,
   },
