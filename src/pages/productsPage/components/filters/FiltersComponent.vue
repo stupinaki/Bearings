@@ -37,18 +37,12 @@ export default {
     return {
       styled,
       options: ["Возрастанию цены", "Убыванию цены"],
+      maxValue: 300,
+      minValue: 10,
     }
   },
   computed: {
     ...mapState('products', ['products']),
-    maxValue() {
-      const available = this.products.map(card => card.availability);
-      return Math.max(...available);
-    },
-    minValue() {
-      const available = this.products.map(card => card.availability);
-      return Math.min(...available);
-    }
   },
   methods: {
     ...mapActions("products", [
