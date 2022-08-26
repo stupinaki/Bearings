@@ -19,6 +19,10 @@
   color: $primary-text-color;
 }
 
+.btn-wrapper {
+  width: max-content;
+}
+
 .btn {
   padding: 0;
 }

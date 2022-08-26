@@ -172,7 +172,6 @@ export default {
   computed: {
     ...mapState("getInTouch", ["getInTouch"]),
     getInTouchCard() {
-      debugger
       return this.getInTouch.find(card => card.id_org === this.id_organization);
     }
   },

@@ -7,10 +7,12 @@
       <div
         v-for="card in offers"
         :key="card.id"
+        :class="styled.btnWrapper"
       >
         <ButtonUI
           type-style="pseudo"
           :class="styled.btn"
+          @click="citySearch(card)"
         >
           <OfferCard
             :city="card.city"
@@ -41,6 +43,7 @@ export default {
   },
   computed: {
     ...mapState("offers", ["offers"]),
+    ...mapState('products', ['products']),
     allCount(){
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
@@ -61,6 +64,17 @@ export default {
   },
   methods: {
     ...mapActions("offers", ["initOffers"]),
+    ...mapActions("products", [
+      "initProducts",
+      "setSortDirection",
+      "filterProductsAvailability",
+      "cityFilter"
+    ]),
+    citySearch(card) {
+      const { city, id } = card;
+      console.log("citySearch click on:", city)
+      this.cityFilter(id);
+    }
   },
 }
 </script>

@@ -3,21 +3,21 @@ export const offerCardsValue = [
     {
         id: 99,
         city: 'Челябинск',
-        count: '20'
+        count: '1'
     },
     {
         id: 999,
         city: 'Саратов',
-        count: '10'
+        count: '1'
     },
     {
         id: 9999,
         city: 'Санкт-Петербург',
-        count: '50'
+        count: '1'
     },
     {
         id: 99999,
         city: 'Екатеринбург',
-        count: '30'
+        count: '1'
     },
 ]

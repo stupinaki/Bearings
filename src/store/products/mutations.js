@@ -9,5 +9,8 @@ export default {
     },
     [actionNames.FILTER_PRODUCTS](state, rangeArray) {
         state.rangeFilter = rangeArray;
+    },
+    [actionNames.FILTER_CITY](state, cityId) {
+        state.cityId = cityId;
     }
 }

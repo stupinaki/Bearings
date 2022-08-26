@@ -36,7 +36,6 @@ export default {
     ...mapState("companies", ["companies", "loading"]),
     searchCards() {
       const { searchCompanyName } = this.$props;
-      debugger
       if (!searchCompanyName) {
         return this.companies;
       }
