@@ -21,9 +21,9 @@ export default {
       default: undefined,
     },
     count: {
-      type: String,
+      type: Number,
       require: true,
-      default: "0",
+      default: null,
     }
   },
   data() {
