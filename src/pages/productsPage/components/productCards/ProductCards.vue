@@ -2,7 +2,7 @@
   <div>
     <div
       v-for="product in orderedProducts"
-      :key="product.id"
+      :key="product.id_bearing"
     >
       <ProductCard
         v-bind="product"
@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import styled from "../../productsPage.module.css";
-import ProductCard from "../productCard/ProductCard.vue";
 import {mapActions, mapGetters} from "vuex";
+import ProductCard from "../productCard/ProductCard.vue";
+import styled from "../../productsPage.module.css";
 
 export default {
   name: "ProductCards",

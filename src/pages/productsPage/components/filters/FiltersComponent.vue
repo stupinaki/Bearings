@@ -37,8 +37,8 @@ export default {
     return {
       styled,
       options: [{title: "Возрастанию цены", value: true }, {title: "Убыванию цены", value: false }],
-      maxValue: 300,
-      minValue: 10,
+      maxValue: 4504,
+      minValue: 6,
     }
   },
   computed: {

@@ -8,10 +8,15 @@
         v-for="card in offers"
         :key="card.id"
       >
-        <OfferCard
-          :city="card.city"
-          :count="card.count"
-        />
+        <ButtonUI
+          type-style="pseudo"
+          :class="styled.btn"
+        >
+          <OfferCard
+            :city="card.city"
+            :count="card.count"
+          />
+        </ButtonUI>
       </div>
     </div>
   </div>
@@ -21,11 +26,13 @@
 import styled from "./offerCards.module.css";
 import OfferCard from "../offerCard/OfferCard.vue";
 import {mapActions, mapState} from "vuex";
+import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 
 export default {
   name: "OfferCards",
   components: {
     OfferCard,
+    ButtonUI,
   },
   data(){
     return {

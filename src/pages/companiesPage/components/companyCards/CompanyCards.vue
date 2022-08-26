@@ -36,11 +36,12 @@ export default {
     ...mapState("companies", ["companies", "loading"]),
     searchCards() {
       const { searchCompanyName } = this.$props;
+      debugger
       if (!searchCompanyName) {
         return this.companies;
       }
       return this.companies.filter(company =>
-          company.title.toLowerCase().includes(searchCompanyName)
+          company.name.toLowerCase().includes(searchCompanyName)
       );
     }
   },
