@@ -1,5 +1,11 @@
 <template>
   <div :class="styled.pagination">
+    <div v-if="nextPush">
+      <ButtonUI type-style="pseudo">
+        <ArrowForwardImg :class="styled.arrow"/>
+        Назад
+      </ButtonUI>
+    </div>
     <div
       v-for="page in visibleQuantityPage"
       :key="page"
@@ -54,6 +60,7 @@ export default {
   data() {
     return {
       styled,
+      nextPush: false,
     }
   },
   computed: {
