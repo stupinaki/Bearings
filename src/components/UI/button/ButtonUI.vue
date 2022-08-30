@@ -20,14 +20,14 @@ export default {
         return ["s", "m", "l"].includes(size);
       },
     },
-    type: {
+    typeStyle: {
       type: String,
       default: "primary",
-      validator(type) {
-        return ["primary", "secondary", "pseudo", "type-link"].includes(type);
+      validator(style) {
+        return ["primary", "secondary", "pseudo", "type-link"].includes(style);
       },
     },
-    disabled: Boolean,
+    disabled: Boolean
   },
   data() {
     return {
@@ -36,10 +36,10 @@ export default {
   },
   computed: {
     className() {
-      const { size, type, disabled } = this.$props;
+      const { size, typeStyle, disabled } = this.$props;
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
-      classes.push(styled[`btn-${type}`]);
+      classes.push(styled[`btn-${typeStyle}`]);
       if (disabled) {
         classes.push(styled.btnDisabled);
       }

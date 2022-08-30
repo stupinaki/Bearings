@@ -18,7 +18,7 @@
 
     <div :class="styled.btnContainer">
       <ButtonUI
-        type="secondary"
+        type-style="secondary"
       >
         <div :class="styled.btnContentWrapper">
           <div :class="styled.btnText">

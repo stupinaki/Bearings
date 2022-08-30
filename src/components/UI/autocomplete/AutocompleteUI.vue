@@ -25,7 +25,7 @@ export default {
     items: {
       type: Array,
       require: true,
-      default: () =>  { [] },
+      default: () =>  [],
     },
     label: {
       type: String,

@@ -1,0 +1,26 @@
+@import "/src/styles/variables.modules.css";
+
+.hint {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  max-width: 224px;
+  max-height: 160px;
+  background: $hint-background;
+  border-radius: 8px;
+  box-shadow: 1px 8px 12px rgb(58 60 76 / 8%), 1px 1px 2px rgb(58 60 76 / 4%);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 16px;
+  color: $primary-text-color;
+  background: $primary-background;
+  border-radius: 0 0 8px 8px;
+}
+
+.img {
+  margin: 0 auto;
+}

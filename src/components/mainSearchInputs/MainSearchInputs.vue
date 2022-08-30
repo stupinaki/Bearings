@@ -29,7 +29,7 @@
       />
 
       <ButtonUI
-        type="secondary"
+        type-style="secondary"
         @click.prevent="showAdditionalForm"
       >
         <FilterVariantImg />
@@ -42,7 +42,7 @@
 
     <div :class="styled.btnWrapper">
       <ButtonUI
-          type="type-link"
+          type-style="type-link"
           @click.prevent
       >
         Как узнать маркировку?
@@ -53,9 +53,9 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-import AutocompleteUI from "../../../../components/UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import FilterVariantImg from "../../../../assets/filter_variant.svg"
+import AutocompleteUI from "../UI/autocomplete/AutocompleteUI.vue";
+import ButtonUI from "../UI/button/ButtonUI.vue";
+import FilterVariantImg from "../../assets/filter_variant.svg"
 import PlaceImg from "../../../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 

@@ -1,11 +1,13 @@
 <template>
   <div :class="styled.wrapper">
     <v-select
+      v-model="selected"
       :outlined="outlined"
       :clearable="clearable"
       :items="options"
       :label="label"
       :variant="variant"
+      @update:model-value="onChange"
     />
   </div>
 </template>
@@ -19,7 +21,7 @@ export default {
     options: {
       type: Array,
       require: true,
-      default: () => { [] },
+      default: () => [],
     },
     clearable: Boolean,
     outlined: Boolean,
@@ -34,9 +36,16 @@ export default {
       default: "outlined",
     }
   },
+  emits: ["selectOption"],
   data(){
     return {
       styled,
+      selected: undefined,
+    }
+  },
+  methods: {
+    onChange(direction){
+      this.$emit("selectOption", direction);
     }
   }
 }

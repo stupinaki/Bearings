@@ -76,17 +76,17 @@
           </router-link>
 
           <a
-            href="tel:79272772330"
+            :href="tel"
             :class="styled.columnItem"
           >
-            +7 927-277-23-30
+            {{ ourContacts.phone }}
           </a>
 
           <a
-            href="mailto:skovalev74@yandex.ru"
+            :href="mailto"
             :class="styled.columnItem"
           >
-            skovalev74@yandex.ru
+            {{ ourContacts.email }}
           </a>
 
 
@@ -130,9 +130,11 @@
 </template>
 
 <script>
-import styled from "./footerBlock.module.css";
-import imageMap from "./footerImages";
 import {footerImgValue} from "../../../data/footerImgValue";
+import { ourContacts } from "../../../data/ourContacts.js";
+import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
+import imageMap from "./footerImages";
+import styled from "./footerBlock.module.css";
 
 export default {
   name: "FooterBlock",
@@ -140,8 +142,17 @@ export default {
     return {
       styled,
       imageMap,
+      ourContacts,
       footerImgValue,
     };
+  },
+  computed: {
+    mailto() {
+      return getMailto(ourContacts.email);
+    },
+    tel() {
+      return getPhone(ourContacts.phone);
+    }
   },
 };
 </script>
