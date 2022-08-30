@@ -8,7 +8,7 @@
       :quantity-card="200"
       :chunk="7"
     />
-    <NothingFoundForm  v-if="isNothingFound"/>
+    <NothingFoundForm v-if="isNothingFound" />
   </div>
 </template>
 

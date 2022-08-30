@@ -1,6 +1,5 @@
 <template>
   <div :class="styled.autocomplete">
-
     <v-autocomplete
       :transition="transition"
       :multiple="multiple"

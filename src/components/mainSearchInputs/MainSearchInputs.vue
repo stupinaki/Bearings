@@ -25,7 +25,6 @@
         :chips="true"
         :items="citiesName"
         :closable-chips="true"
-        label="Искать по всей России"
       />
 
       <ButtonUI
@@ -35,15 +34,15 @@
         <FilterVariantImg />
       </ButtonUI>
 
-      <ButtonUI @click.prevent>
+      <ButtonUI @click.prevent="startSearch">
         Найти
       </ButtonUI>
     </div>
 
     <div :class="styled.btnWrapper">
       <ButtonUI
-          type-style="type-link"
-          @click.prevent
+        type-style="type-link"
+        @click.prevent
       >
         Как узнать маркировку?
       </ButtonUI>
@@ -55,17 +54,17 @@
 import {mapActions, mapState} from "vuex";
 import AutocompleteUI from "../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../UI/button/ButtonUI.vue";
-import FilterVariantImg from "../../assets/filter_variant.svg"
-import PlaceImg from "../../../../assets/place.svg"
+import FilterVariantImg from "../../assets/filter_variant.svg";
+import PlaceImg from "../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 
 export default {
   name: "MainSearchInputs",
   components: {
+    PlaceImg,
     ButtonUI,
     AutocompleteUI,
     FilterVariantImg,
-    PlaceImg,
   },
   data() {
     return {
@@ -83,10 +82,15 @@ export default {
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
-    ...mapActions("mainSearchForm", ["toggleAdditionalForm"]),
+    ...mapActions("mainSearchForm", ["toggleAdditionalForm", "initSearchParams"]),
     showAdditionalForm(){
       this.toggleAdditionalForm();
-    }
+    },
+    startSearch() {
+      console.log("поиск начался!")
+      const params = {};
+      this.initSearchParams(params);
+    },
   }
 }
 </script>

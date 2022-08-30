@@ -1,4 +1,4 @@
- <template>
+<template>
   <div :class="additionalFormClass">
     <div :class="styled.additionalForm">
       <div
@@ -13,7 +13,10 @@
             v-if="input.hint"
             #hint
           >
-            <ButtonUI type-style="type-link">
+            <ButtonUI
+              type-style="type-link"
+              @click.prevent
+            >
               <HelpImg />
             </ButtonUI>
           </template>
@@ -23,8 +26,8 @@
     <div :class="styled.helpReset">
       <div :class="styled.btnWrapper">
         <ButtonUI
-            type-style="type-link"
-            @click.prevent
+          type-style="type-link"
+          @click.prevent
         >
           Помощь в измерении
         </ButtonUI>
@@ -56,6 +59,7 @@ export default {
     InputUI,
     HelpImg,
   },
+  emits: ["clearForm"],
   data(){
     return {
       styled,
@@ -106,7 +110,7 @@ export default {
   },
   methods: {
     onClearForm(){
-      this.$emit('clearForm');
+      this.$emit("clearForm");
     }
   }
 }
