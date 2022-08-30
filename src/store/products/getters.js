@@ -14,5 +14,15 @@ export default {
             return state.products.filter(product => product.id_city === state.cityId);
         }
         return state.products;
+    },
+    chunks(state, chunk) {
+        const arr = this.state.products.slice();
+        const res = [];
+
+        for(let i = 0; i < arr.length; i+=chunk) {
+            const piece = arr.slice(i, i + chunk);
+            res.push(piece);
+        }
+        return res;
     }
 }

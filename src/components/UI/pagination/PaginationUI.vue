@@ -1,38 +1,81 @@
 <template>
   <div :class="styled.pagination">
-    <div v-if="nextPush">
-      <ButtonUI type-style="pseudo">
-        <ArrowForwardImg :class="styled.arrow"/>
+    <div
+        v-if="hasPrev"
+        :class="styled.morePages"
+    >
+      <ButtonUI
+          type-style="pseudo"
+          @click="prevPage"
+      >
+        <ArrowForwardImg :class="styled.arrow" />
         Назад
       </ButtonUI>
+      <ButtonUI
+          type-style="pseudo"
+          @click="getFirstPage"
+      >
+        1
+      </ButtonUI>
+      <div :class="styled.dots">
+        ...
+      </div>
     </div>
+
     <div
-      v-for="page in visibleQuantityPage"
-      :key="page"
+      v-for="pageNumber in leftButtons"
+      :key="pageNumber"
     >
       <ButtonUI
         type-style="pseudo"
+        @click="changePage(pageNumber)"
       >
-        {{ page }}
+        {{ pageNumber }}
+      </ButtonUI>
+    </div>
+
+    <ButtonUI
+      :class="styled.selectedBtn"
+      type-style="pseudo"
+    >
+      {{ pageNumber }}
+    </ButtonUI>
+
+    <div
+        v-for="pageNumber in rightButtons"
+        :key="pageNumber"
+    >
+      <ButtonUI
+          type-style="pseudo"
+          @click="changePage(pageNumber)"
+      >
+        {{ pageNumber }}
       </ButtonUI>
     </div>
 
     <div
-      v-if="quantityPage > 10"
-      :class="styled.morePages"
+        v-if="hasNext"
+        :class="styled.morePages"
     >
       <div :class="styled.dots">
         ...
       </div>
-      <ButtonUI type-style="pseudo">
-        {{ quantityPage }}
+      <ButtonUI
+          type-style="pseudo"
+          @click="getLastPage"
+      >
+        {{ totalPages }}
       </ButtonUI>
-      <ButtonUI type-style="pseudo">
+      <ButtonUI
+          type-style="pseudo"
+          @click="nextPage"
+      >
         Вперед
         <ArrowForwardImg />
       </ButtonUI>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -47,31 +90,96 @@ export default {
     ArrowForwardImg,
   },
   props: {
-    quantityCard: {
+    totalQty: {
       type: Number,
       required: true,
     },
-    chunk: {
+    pageSize: {
+      type: Number,
+      required: true
+    },
+    visiblePageCount: {
       type: Number,
       required: true,
-      default: 10,
+      default: 5,
     }
   },
+  emits: ["changePageNumber"],
   data() {
     return {
       styled,
-      nextPush: false,
+      pageNumber: 1,
     }
   },
   computed: {
-    quantityPage() {
-      return Math.round(this.quantityCard / this.chunk);
+    hasNext() {
+      return this.$data.pageNumber < this.totalPages;
     },
-    visibleQuantityPage() {
-      if(this.quantityPage <= 10) {
-        return this.quantityPage;
+    hasPrev() {
+      return this.$data.pageNumber > 1;
+    },
+    totalPages() {
+      const { totalQty, pageSize } = this.$props;
+      return Math.ceil(totalQty / pageSize);
+    },
+    sideButtonCount() {
+      if(this.$props.visiblePageCount > this.totalPages) {
+        return Math.floor((this.totalPages - 1) / 2);
       }
-      return 10;
+      return Math.floor((this.$props.visiblePageCount - 1) / 2);
+    },
+    buttonCountOffset() {
+      if (this.pageNumber <= this.sideButtonCount) {
+        return this.sideButtonCount + 1 - this.pageNumber;
+      }
+      const stop = this.totalPages - this.sideButtonCount;
+      if (this.pageNumber >= stop) {
+        return stop - this.pageNumber;
+      }
+      return 0;
+    },
+    leftButtonQty() {
+      return this.sideButtonCount - this.buttonCountOffset;
+    },
+    rightButtonQty() {
+      return this.sideButtonCount + this.buttonCountOffset;
+    },
+    leftButtons() {
+      return new Array(this.leftButtonQty)
+          .fill(this.pageNumber)
+          .map((pageNumber, i) => pageNumber - i - 1)
+          .reverse();
+    },
+    rightButtons() {
+      return new Array(this.rightButtonQty)
+          .fill(this.pageNumber)
+          .map((pageNumber, i) => i + 1 + pageNumber);
+    }
+  },
+  methods: {
+    changePage(page) {
+      this.$data.pageNumber = page;
+      this.$emit("changePageNumber", this.$data.pageNumber)
+    },
+    getLastPage() {
+      this.$data.pageNumber = this.totalPages;
+      this.$emit("changePageNumber", this.$data.pageNumber)
+    },
+    getFirstPage() {
+      this.$data.pageNumber = 1;
+      this.$emit("changePageNumber", this.$data.pageNumber);
+    },
+    nextPage() {
+      if(this.$data.pageNumber < this.totalPages) {
+         this.$data.pageNumber = this.$data.pageNumber + 1;
+         this.$emit("changePageNumber", this.$data.pageNumber);
+      }
+    },
+    prevPage() {
+      if(this.$data.pageNumber > 1) {
+        this.$data.pageNumber = this.$data.pageNumber - 1;
+        this.$emit("changePageNumber", this.$data.pageNumber);
+      }
     },
   }
 }

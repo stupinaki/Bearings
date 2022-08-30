@@ -17,3 +17,7 @@
 .arrow {
   transform: rotate(180deg);
 }
+
+.selected-btn {
+  background: $pseudo-btn-hover-color;
+}
