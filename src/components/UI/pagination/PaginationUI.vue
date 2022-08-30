@@ -115,9 +115,6 @@ export default {
     }
   },
   computed: {
-    isFirstVisible() {
-      return this.$data.pageNumber < this.sideButtonCount + 2
-    },
     hasNext() {
       return this.$data.pageNumber < this.totalPages;
     },
