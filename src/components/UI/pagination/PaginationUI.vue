@@ -75,6 +75,10 @@
       </ButtonUI>
     </div>
   </div>
+  <div>
+    pageNumber {{ pageNumber }}
+    sideButtonCount {{ sideButtonCount }}
+  </div>
 </template>
 
 <script>
@@ -111,6 +115,9 @@ export default {
     }
   },
   computed: {
+    isFirstVisible() {
+      return this.$data.pageNumber < this.sideButtonCount + 2
+    },
     hasNext() {
       return this.$data.pageNumber < this.totalPages;
     },
