@@ -1,18 +1,15 @@
 <template>
   <div>
     <div
-      v-for="product in orderedProducts"
+      v-for="product in productsChunk"
       :key="product.id_bearing"
     >
-      <ProductCard
-        v-bind="product"
-      />
+      <ProductCard v-bind="product" />
     </div>
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
 import ProductCard from "../productCard/ProductCard.vue";
 import styled from "../../productsPage.module.css";
 
@@ -21,19 +18,16 @@ export default {
   components: {
     ProductCard,
   },
+  props: {
+    productsChunk: {
+      type: Array,
+      required: true,
+    }
+  },
   data() {
     return {
       styled,
     }
-  },
-  computed: {
-    ...mapGetters("products", ["orderedProducts"]),
-  },
-  beforeMount() {
-    this.initProducts();
-  },
-  methods: {
-    ...mapActions("products", ["initProducts"]),
   },
 }
 </script>

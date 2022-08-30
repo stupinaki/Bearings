@@ -13,3 +13,12 @@
 .dots {
   padding: 0 8px;
 }
+
+.arrow {
+  transform: rotate(180deg);
+}
+
+.selected-btn {
+  max-width: max-content;
+  background: $pseudo-btn-hover-color;
+}

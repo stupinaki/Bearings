@@ -1,6 +1,8 @@
+@import "/src/styles/variables.modules.css";
+
 .filters {
   display: grid;
-  grid-template-columns: 4fr 5fr 3fr;
+  grid-template-columns: 3fr 6fr 3fr;
   align-items: center;
 }
 
@@ -13,8 +15,19 @@
   line-height: 18px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: $breakpointExtraLarge) {
   .filters {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 3fr 2fr 3fr;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: $breakpointLarge) {
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: center;
   }
 }

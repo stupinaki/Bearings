@@ -14,5 +14,5 @@ export default {
             return state.products.filter(product => product.id_city === state.cityId);
         }
         return state.products;
-    }
+    },
 }
