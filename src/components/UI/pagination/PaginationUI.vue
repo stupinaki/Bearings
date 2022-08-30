@@ -1,19 +1,19 @@
 <template>
   <div :class="styled.pagination">
     <div
-        v-if="hasPrev"
-        :class="styled.morePages"
+      v-if="hasPrev"
+      :class="styled.morePages"
     >
       <ButtonUI
-          type-style="pseudo"
-          @click="prevPage"
+        type-style="pseudo"
+        @click="prevPage"
       >
         <ArrowForwardImg :class="styled.arrow" />
         Назад
       </ButtonUI>
       <ButtonUI
-          type-style="pseudo"
-          @click="getFirstPage"
+        type-style="pseudo"
+        @click="getFirstPage"
       >
         1
       </ButtonUI>
@@ -23,14 +23,14 @@
     </div>
 
     <div
-      v-for="pageNumber in leftButtons"
-      :key="pageNumber"
+      v-for="pageNumberLeft in leftButtons"
+      :key="pageNumberLeft"
     >
       <ButtonUI
         type-style="pseudo"
-        @click="changePage(pageNumber)"
+        @click="changePage(pageNumberLeft)"
       >
-        {{ pageNumber }}
+        {{ pageNumberLeft }}
       </ButtonUI>
     </div>
 
@@ -42,40 +42,39 @@
     </ButtonUI>
 
     <div
-        v-for="pageNumber in rightButtons"
-        :key="pageNumber"
+      v-for="pageNumberRight in rightButtons"
+      :key="pageNumberRight"
     >
       <ButtonUI
-          type-style="pseudo"
-          @click="changePage(pageNumber)"
+        type-style="pseudo"
+        @click="changePage(pageNumberRight)"
       >
-        {{ pageNumber }}
+        {{ pageNumberRight }}
       </ButtonUI>
     </div>
 
     <div
-        v-if="hasNext"
-        :class="styled.morePages"
+      v-if="hasNext"
+      :class="styled.morePages"
     >
       <div :class="styled.dots">
         ...
       </div>
       <ButtonUI
-          type-style="pseudo"
-          @click="getLastPage"
+        type-style="pseudo"
+        @click="getLastPage"
       >
         {{ totalPages }}
       </ButtonUI>
       <ButtonUI
-          type-style="pseudo"
-          @click="nextPage"
+        type-style="pseudo"
+        @click="nextPage"
       >
         Вперед
         <ArrowForwardImg />
       </ButtonUI>
     </div>
   </div>
-
 </template>
 
 <script>

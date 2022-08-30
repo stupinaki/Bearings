@@ -19,5 +19,6 @@
 }
 
 .selected-btn {
+  max-width: max-content;
   background: $pseudo-btn-hover-color;
 }
