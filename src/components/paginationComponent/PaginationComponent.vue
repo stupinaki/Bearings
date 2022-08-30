@@ -3,6 +3,7 @@
 
   <PaginationUI
     v-if="chunks.length"
+    :current-page-number="currentPageNumber"
     :total-qty="data.length"
     :page-size="pageSize"
     :visible-page-count="visiblePageCount"
@@ -46,6 +47,11 @@ export default {
     },
     currentPageData() {
       return this.chunks[this.$data.currentPageNumber - 1]
+    }
+  },
+  watch: {
+    data() {
+      this.currentPageNumber = 1;
     }
   },
   methods: {

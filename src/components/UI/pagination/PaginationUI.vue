@@ -6,7 +6,7 @@
     >
       <ButtonUI
         type-style="pseudo"
-        @click="prevPage"
+        @click="changePage(currentPageNumber - 1)"
       >
         <ArrowForwardImg :class="styled.arrow" />
         Назад
@@ -14,7 +14,7 @@
       <ButtonUI
         v-if="isFirstVisible"
         type-style="pseudo"
-        @click="getFirstPage"
+        @click="changePage(1)"
       >
         1
       </ButtonUI>
@@ -42,7 +42,7 @@
       :class="styled.selectedBtn"
       type-style="pseudo"
     >
-      {{ pageNumber }}
+      {{ currentPageNumber }}
     </ButtonUI>
 
     <div
@@ -70,13 +70,13 @@
       <ButtonUI
         v-if="isLastVisible"
         type-style="pseudo"
-        @click="getLastPage"
+        @click="changePage(totalPages)"
       >
         {{ totalPages }}
       </ButtonUI>
       <ButtonUI
         type-style="pseudo"
-        @click="nextPage"
+        @click="changePage(currentPageNumber + 1)"
       >
         Вперед
         <ArrowForwardImg />
@@ -109,48 +109,48 @@ export default {
       type: Number,
       required: true,
       default: 5,
+    },
+    currentPageNumber: {
+      type: Number,
+      required: true,
     }
   },
   emits: ["changePageNumber"],
   data() {
     return {
       styled,
-      pageNumber: 1,
     }
   },
   computed: {
     hasNext() {
-      return this.$data.pageNumber < this.totalPages;
+      return this.$props.currentPageNumber < this.totalPages;
     },
     hasPrev() {
-      return this.$data.pageNumber > 1;
+      return this.$props.currentPageNumber > 1;
     },
     isFirstVisible() {
-      return this.$data.pageNumber - 1 > this.leftButtonQty;
+      return this.$props.currentPageNumber - 1 > this.leftButtonQty;
     },
     isLastVisible() {
-      return this.$data.pageNumber + this.rightButtonQty !== this.totalPages;
+      return this.$props.currentPageNumber + this.rightButtonQty !== this.totalPages;
     },
     totalPages() {
       const {totalQty, pageSize} = this.$props;
       return Math.ceil(totalQty / pageSize);
     },
     sideButtonCount() {
-      if( this.$data.pageNumber > this.totalPages) {
-        this.getFirstPage();
-      }
       if (this.$props.visiblePageCount > this.totalPages) {
         return Math.floor((this.totalPages - 1) / 2);
       }
       return Math.floor((this.$props.visiblePageCount - 1) / 2);
     },
     buttonCountOffset() {
-      if (this.pageNumber <= this.sideButtonCount) {
-        return this.sideButtonCount + 1 - this.pageNumber;
+      if (this.currentPageNumber <= this.sideButtonCount) {
+        return this.sideButtonCount + 1 - this.currentPageNumber;
       }
       const stop = this.totalPages - this.sideButtonCount;
-      if (this.pageNumber >= stop) {
-        return stop - this.pageNumber;
+      if (this.currentPageNumber >= stop) {
+        return stop - this.currentPageNumber;
       }
       return 0;
     },
@@ -162,40 +162,19 @@ export default {
     },
     leftButtons() {
       return new Array(this.leftButtonQty)
-          .fill(this.pageNumber)
+          .fill(this.currentPageNumber)
           .map((pageNumber, i) => pageNumber - i - 1)
           .reverse();
     },
     rightButtons() {
       return new Array(this.rightButtonQty)
-          .fill(this.pageNumber)
+          .fill(this.currentPageNumber)
           .map((pageNumber, i) => i + 1 + pageNumber);
     }
   },
   methods: {
     changePage(page) {
-      this.$data.pageNumber = page;
-      this.$emit("changePageNumber", this.$data.pageNumber)
-    },
-    getLastPage() {
-      this.$data.pageNumber = this.totalPages;
-      this.$emit("changePageNumber", this.$data.pageNumber)
-    },
-    getFirstPage() {
-      this.$data.pageNumber = 1;
-      this.$emit("changePageNumber", this.$data.pageNumber);
-    },
-    nextPage() {
-      if (this.$data.pageNumber < this.totalPages) {
-        this.$data.pageNumber = this.$data.pageNumber + 1;
-        this.$emit("changePageNumber", this.$data.pageNumber);
-      }
-    },
-    prevPage() {
-      if (this.$data.pageNumber > 1) {
-        this.$data.pageNumber = this.$data.pageNumber - 1;
-        this.$emit("changePageNumber", this.$data.pageNumber);
-      }
+      this.$emit("changePageNumber", page)
     },
   }
 }
