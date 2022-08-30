@@ -136,6 +136,9 @@ export default {
       return Math.ceil(totalQty / pageSize);
     },
     sideButtonCount() {
+      if( this.$data.pageNumber > this.totalPages) {
+        this.getFirstPage();
+      }
       if (this.$props.visiblePageCount > this.totalPages) {
         return Math.floor((this.totalPages - 1) / 2);
       }
