@@ -1,51 +1,54 @@
 <template>
-  <ProductCards :products-chunk="productsChunk" />
+  <slot :current-page-data="currentPageData" />
+
   <PaginationUI
-    :total-qty="orderedProducts.length"
-    :page-size="chunk"
-    :visible-page-count="7"
+    v-if="chunks.length"
+    :total-qty="data.length"
+    :page-size="pageSize"
+    :visible-page-count="visiblePageCount"
     @change-page-number="onChangePageNumber"
   />
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import chunk from "lodash/chunk";
 import PaginationUI from "../UI/pagination/PaginationUI.vue";
-import ProductCards from "../../pages/productsPage/components/productCards/ProductCards.vue";
 
 export default {
   name: "PaginationComponent",
   components: {
     PaginationUI,
-    ProductCards,
+  },
+  props: {
+    data: {
+      type: Array,
+      required: true,
+    },
+    pageSize: {
+      type: Number,
+      required: true
+    },
+    visiblePageCount: {
+      type: Number,
+      required: true,
+      default: 5,
+    },
   },
   data() {
     return {
-      chunk: 2,
       currentPageNumber: 1,
     }
   },
   computed: {
-    ...mapGetters("products", ["orderedProducts"]),
     chunks() {
-      const arr = this.orderedProducts.slice();
-      const res = [];
-
-      for(let i = 0; i < arr.length; i+= this.$data.chunk) {
-        const piece = arr.slice(i, i + this.$data.chunk);
-        res.push(piece);
-      }
-      return res;
+      const {data, pageSize} = this.$props;
+      return chunk(data, pageSize);
     },
-    productsChunk() {
-      return this.chunks[this.$data.currentPageNumber - 1];
+    currentPageData() {
+      return this.chunks[this.$data.currentPageNumber - 1]
     }
   },
-  beforeMount() {
-    this.initProducts();
-  },
   methods: {
-    ...mapActions("products", ["initProducts"]),
     onChangePageNumber(pageNumber) {
       this.$data.currentPageNumber = pageNumber;
     }

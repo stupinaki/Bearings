@@ -12,12 +12,16 @@
         Назад
       </ButtonUI>
       <ButtonUI
+        v-if="isFirstVisible"
         type-style="pseudo"
         @click="getFirstPage"
       >
         1
       </ButtonUI>
-      <div :class="styled.dots">
+      <div
+        v-if="isFirstVisible"
+        class="styled.dots"
+      >
         ...
       </div>
     </div>
@@ -57,10 +61,14 @@
       v-if="hasNext"
       :class="styled.morePages"
     >
-      <div :class="styled.dots">
+      <div
+        v-if="isLastVisible"
+        :class="styled.dots"
+      >
         ...
       </div>
       <ButtonUI
+        v-if="isLastVisible"
         type-style="pseudo"
         @click="getLastPage"
       >
@@ -74,10 +82,6 @@
         <ArrowForwardImg />
       </ButtonUI>
     </div>
-  </div>
-  <div>
-    pageNumber {{ pageNumber }}
-    sideButtonCount {{ sideButtonCount }}
   </div>
 </template>
 
@@ -121,12 +125,18 @@ export default {
     hasPrev() {
       return this.$data.pageNumber > 1;
     },
+    isFirstVisible() {
+      return this.$data.pageNumber - 1 > this.leftButtonQty;
+    },
+    isLastVisible() {
+      return this.$data.pageNumber + this.rightButtonQty !== this.totalPages;
+    },
     totalPages() {
-      const { totalQty, pageSize } = this.$props;
+      const {totalQty, pageSize} = this.$props;
       return Math.ceil(totalQty / pageSize);
     },
     sideButtonCount() {
-      if(this.$props.visiblePageCount > this.totalPages) {
+      if (this.$props.visiblePageCount > this.totalPages) {
         return Math.floor((this.totalPages - 1) / 2);
       }
       return Math.floor((this.$props.visiblePageCount - 1) / 2);
@@ -173,13 +183,13 @@ export default {
       this.$emit("changePageNumber", this.$data.pageNumber);
     },
     nextPage() {
-      if(this.$data.pageNumber < this.totalPages) {
-         this.$data.pageNumber = this.$data.pageNumber + 1;
-         this.$emit("changePageNumber", this.$data.pageNumber);
+      if (this.$data.pageNumber < this.totalPages) {
+        this.$data.pageNumber = this.$data.pageNumber + 1;
+        this.$emit("changePageNumber", this.$data.pageNumber);
       }
     },
     prevPage() {
-      if(this.$data.pageNumber > 1) {
+      if (this.$data.pageNumber > 1) {
         this.$data.pageNumber = this.$data.pageNumber - 1;
         this.$emit("changePageNumber", this.$data.pageNumber);
       }
