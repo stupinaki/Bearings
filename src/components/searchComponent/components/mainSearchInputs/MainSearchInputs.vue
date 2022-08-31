@@ -12,9 +12,11 @@
       :class="styled.wrapper"
     >
       <input
+        v-model="markingInput"
         type="text"
         placeholder="Начните вводить"
         :class="[styled.input, styled.line]"
+        @change="onMarkingInputChange"
       >
       <div :class="styled.imgWrapper">
         <PlaceImg />
@@ -25,6 +27,8 @@
         :chips="true"
         :items="citiesName"
         :closable-chips="true"
+        placeholder="Искать по всей России"
+        @autocomplete-change="getAutocompleteValue"
       />
 
       <ButtonUI
@@ -52,10 +56,10 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-import AutocompleteUI from "../UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../UI/button/ButtonUI.vue";
-import FilterVariantImg from "../../assets/filter_variant.svg";
-import PlaceImg from "../../assets/place.svg"
+import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
+import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import FilterVariantImg from "../../../../assets/filter_variant.svg";
+import PlaceImg from "../../../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 
 export default {
@@ -66,9 +70,11 @@ export default {
     AutocompleteUI,
     FilterVariantImg,
   },
+  emits: ["search"],
   data() {
     return {
       styled,
+      markingInput: undefined,
     }
   },
   computed: {
@@ -82,15 +88,19 @@ export default {
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
-    ...mapActions("mainSearchForm", ["toggleAdditionalForm", "initSearchParams"]),
+    ...mapActions("searchComponent", ["toggleAdditionalForm", "initSearchParams"]),
     showAdditionalForm(){
       this.toggleAdditionalForm();
     },
     startSearch() {
-      console.log("поиск начался!")
-      const params = {};
-      this.initSearchParams(params);
+      this.$emit("search");
     },
+    getAutocompleteValue(citiesAutocomplete) {
+      this.initSearchParams(["citiesFilter", citiesAutocomplete]);
+    },
+    onMarkingInputChange() {
+      this.initSearchParams(["marking", this.$data.markingInput]);
+    }
   }
 }
 </script>

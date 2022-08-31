@@ -1,12 +1,14 @@
 <template>
   <div :class="styled.autocomplete">
     <v-autocomplete
+      v-model="citiesAutocomplete"
       :transition="transition"
       :multiple="multiple"
       :chips="chips"
       :items="items"
       :closable-chips="closableChips"
-      :label="label"
+      :placeholder="placeholder"
+      return-object
     />
   </div>
 </template>
@@ -26,16 +28,23 @@ export default {
       require: true,
       default: () =>  [],
     },
-    label: {
+    placeholder: {
       type: String,
       require: false,
       default: "",
     }
   },
+  emits: ["autocompleteChange"],
   data() {
     return {
       styled,
+      citiesAutocomplete: undefined,
     }
   },
+  watch: {
+    citiesAutocomplete() {
+      this.$emit("autocompleteChange", this.$data.citiesAutocomplete);
+    }
+  }
 }
 </script>

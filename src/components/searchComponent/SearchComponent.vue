@@ -10,16 +10,14 @@
   <form
     :class="styled.wrapper"
   >
-    <MainSearchInputs />
-    <AdditionalSearchInputs
-      @clear-form="clearForm"
-    />
+    <MainSearchInputs @search="initSearch" />
+    <AdditionalSearchInputs />
   </form>
 </template>
 
 <script>
-import AdditionalSearchInputs from "../additionalSearchInputs/AdditionalSearchInputs.vue";
-import MainSearchInputs from "../mainSearchInputs/MainSearchInputs.vue";
+import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
+import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import styled from "./searchComponent.module.css";
 
 export default {
@@ -34,9 +32,9 @@ export default {
     }
   },
   methods: {
-    clearForm(){
-      console.log('clearForm')
-    }
+    initSearch() {
+      console.log("поиск начался!")
+    },
   }
 }
 </script>

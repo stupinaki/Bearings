@@ -1,4 +1,5 @@
 export default() => ({
     isAdditionalFormVisible: false,
-    searchParams: [],
+    isClearForm: false,
+    searchParams: {},
 })

@@ -1,11 +1,11 @@
 @import "/src/styles/variables.modules.css";
 
-.additional-form-text-wrapper {
+.text-wrapper {
   display: flex;
   align-items: center;
 }
 
-.additional-form-input {
+.input {
   width: 100%;
   padding: 16px;
   background: $primary-background;
@@ -13,7 +13,7 @@
   border-radius: 8px;
 }
 
-.additional-form-text {
+.text {
   padding-bottom: 12px;
 }
 
