@@ -37,12 +37,14 @@ export default {
     return {
       styled,
       options: [{title: "Возрастанию цены", value: true }, {title: "Убыванию цены", value: false }],
-      maxValue: 4504,
-      minValue: 6,
     }
   },
   computed: {
     ...mapState('products', ['products']),
+    ...mapState("filtersRange", ["minValue", "maxValue"])
+  },
+  beforeMount() {
+    this.initFilterRange();
   },
   methods: {
     ...mapActions("products", [
@@ -50,6 +52,7 @@ export default {
       "setSortDirection",
       "filterProductsAvailability"
     ]),
+    ...mapActions("filtersRange", ["initFilterRange"]),
     sortSelect(direction) {
       this.setSortDirection(direction);
     },
