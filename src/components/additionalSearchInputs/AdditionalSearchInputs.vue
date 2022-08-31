@@ -1,4 +1,4 @@
- <template>
+<template>
   <div :class="additionalFormClass">
     <div :class="styled.additionalForm">
       <div
