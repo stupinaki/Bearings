@@ -5,6 +5,7 @@ import { getInTouch } from  "./getInTouch";
 import {cities} from "./cities";
 import {mainSearchForm} from "./mainSearchForm";
 import { products } from "./products";
+import { filtersRange } from "./filtersRange";
 
 
 const store = createStore({
@@ -14,6 +15,7 @@ const store = createStore({
         products,
         companies,
         getInTouch,
+        filtersRange,
         mainSearchForm,
     },
 })

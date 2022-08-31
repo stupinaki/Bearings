@@ -19,6 +19,14 @@
   color: $primary-text-color;
 }
 
+.btn-wrapper {
+  width: max-content;
+}
+
+.btn {
+  padding: 0;
+}
+
 @media screen and (max-width: $breakpointLarge) {
   .cards {
     grid-template-columns: 50% 50%;

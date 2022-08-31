@@ -2,27 +2,22 @@
 export const offerCardsValue = [
     {
         id: 99,
-        city: 'Екатеринбург',
-        count: '200'
+        city: 'Челябинск',
+        count: '1'
     },
     {
         id: 999,
-        city: 'Ижевск',
-        count: '100'
+        city: 'Саратов',
+        count: '1'
     },
     {
         id: 9999,
-        city: 'Воронеж',
-        count: '44'
+        city: 'Санкт-Петербург',
+        count: '1'
     },
     {
         id: 99999,
-        city: 'Белгород',
-        count: '30'
-    },
-    {
-        id: 999999,
-        city: 'Архангельск',
+        city: 'Екатеринбург',
         count: '1'
-    }
+    },
 ]

@@ -1,12 +1,18 @@
 export default {
     orderedProducts(state, getters) {
         if (state.isOrderDesc) {
-            return getters.productsInRange.sort((a, b) => a.priceForOne - b.priceForOne)
+            return getters.productsInRange.sort((a, b) => a.price - b.price)
         }
-        return getters.productsInRange.sort((a, b) => b.priceForOne - a.priceForOne);
+        return getters.productsInRange.sort((a, b) => b.price - a.price);
     },
-    productsInRange(state) {
+    productsInRange(state, getters) {
         const [min, max] = state.rangeFilter;
-        return state.products.filter(product => product.availability >= min && product.availability <= max)
-    }
+        return getters.productsInCity.filter(product => product.count >= min && product.count <= max)
+    },
+    productsInCity(state) {
+        if(state.cityId) {
+            return state.products.filter(product => product.id_city === state.cityId);
+        }
+        return state.products;
+    },
 }

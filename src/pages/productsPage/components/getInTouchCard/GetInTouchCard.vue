@@ -2,20 +2,20 @@
   <div :class="styled.getInTouchCard">
     <div :class="styled.contactUs">
       <div :class="[styled.title, styled.row]">
-        {{ contactUsTitle }}
+        Для заказа свяжитесь с компанией
       </div>
       <div>
         <a
           :href="tel"
           :class="styled.phone"
         >
-          {{ contactsPhone }}
+          {{ phone }}
         </a>
         <a
           :href="mailto"
           :class="styled.email"
         >
-          {{ contactsEmail }}
+          {{ email }}
         </a>
       </div>
     </div>
@@ -23,10 +23,10 @@
     <div :class="styled.aboutCompany">
       <div>
         <div :class="[styled.name, styled.row]">
-          {{ aboutCompanyName }}
+          {{ name }}
         </div>
         <div :class="styled.address">
-          {{ aboutCompanyAddress }}
+          г. {{ city }}
         </div>
       </div>
       <div :class="styled.btns">
@@ -60,30 +60,25 @@ export default {
     ButtonUI,
   },
   props: {
-    contactUsTitle: {
+    name: {
       type: String,
       require: true,
-      default:undefined,
+      default: "название компании не указано",
     },
-    aboutCompanyName: {
+    city: {
       type: String,
       require: true,
-      default:undefined,
+      default: "город не указан",
     },
-    aboutCompanyAddress: {
+    phone: {
       type: String,
       require: true,
-      default:undefined,
+      default: "телефон отсутвует",
     },
-    contactsPhone: {
+    email: {
       type: String,
       require: true,
-      default:undefined,
-    },
-    contactsEmail: {
-      type: String,
-      require: true,
-      default:undefined,
+      default: "email отсутсвует",
     },
   },
   data() {
@@ -93,10 +88,10 @@ export default {
   },
   computed: {
     mailto() {
-      return getMailto(this.contactsEmail);
+      return getMailto(this.email);
     },
     tel() {
-      return getPhone(this.contactsPhone);
+      return getPhone(this.phone);
     }
   },
 };

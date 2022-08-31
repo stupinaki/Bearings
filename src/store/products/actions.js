@@ -10,5 +10,8 @@ export default {
     },
     filterProductsAvailability({commit}, rangeArray) {
         commit(actionNames.FILTER_PRODUCTS, rangeArray)
+    },
+    cityFilter({commit}, cityId) {
+        commit(actionNames.FILTER_CITY, cityId)
     }
 }

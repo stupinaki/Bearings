@@ -1,14 +1,14 @@
 <template>
   <div :class="styled.companyCard">
     <h2 :class="styled.title">
-      {{ title }}
+      {{ name }}
     </h2>
     <div :class="styled.subTitle">
-      {{ subTitle }}
+      {{ description }}
     </div>
     <div :class="styled.wrapper">
       <div :class="styled.address">
-        {{ address }}
+        г. {{ city }}
       </div>
       <div :class="styled.offers">
         <div :class="styled.text">
@@ -34,25 +34,25 @@ export default {
     Arrow
   },
   props: {
-    title: {
+    name: {
       type: String,
       require: true,
-      default:undefined,
+      default: "название комапании отсутвует",
     },
-    subTitle: {
+    description: {
       type: String,
       require: true,
-      default:undefined,
+      default: "описание компании отсутвует",
     },
-    address: {
+    city: {
       type: String,
       require: true,
-      default:undefined,
+      default: "отсвутвует",
     },
     offersText: {
       type: String,
       require: true,
-      default:undefined,
+      default: "количество предложений отсутвует",
     },
   },
   data() {
