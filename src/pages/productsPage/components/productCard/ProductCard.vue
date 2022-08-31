@@ -7,7 +7,7 @@
             Маркировка
           </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
-            {{ mark }}
+            {{ name }}
           </div>
         </div>
         <div>
@@ -15,7 +15,7 @@
             Цена
           </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
-            {{ priceForOne }} ₽/шт
+            {{ price }} ₽/шт
           </div>
         </div>
         <div>
@@ -23,7 +23,7 @@
             Наличие
           </div>
           <div :class="[styled.descriptionSubTitle, styled.text]">
-            {{ availability }} шт
+            {{ count }} шт
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
               Класс точности
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ accuracyClass }}
+              {{ pr_class }}
             </div>
           </div>
           <div :class="styled.row">
@@ -51,7 +51,7 @@
               Параметр
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ parameter }}
+              {{ bearing_parameters }}
             </div>
           </div>
           <div :class="styled.row">
@@ -70,7 +70,7 @@
               Внутренний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ innerD }}
+              {{ inner_d }}
             </div>
           </div>
           <div :class="styled.row">
@@ -78,7 +78,7 @@
               Внешний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ outerD }}
+              {{ outer_d }}
             </div>
           </div>
           <div :class="styled.row">
@@ -115,51 +115,51 @@ export default {
     GetInTouchCard,
   },
   props: {
-      mark: {
+    name: {
         type: String,
         default: "-",
       },
-      priceForOne: {
+    price: {
+        type: Number,
+        default: null,
+      },
+    count: {
+        type: Number,
+        default: null,
+      },
+    pr_class: {
         type: String,
         default: "-",
       },
-      availability: {
+    type: {
         type: String,
         default: "-",
       },
-      accuracyClass: {
+    bearing_parameters: {
         type: String,
         default: "-",
       },
-      type: {
+    manufacturer: {
         type: String,
         default: "-",
       },
-      parameter: {
-        type: String,
-        default: "-",
+    inner_d: {
+        type: Number,
+        default: null,
       },
-      manufacturer: {
-        type: String,
-        default: "-",
+    outer_d: {
+        type: Number,
+        default: null,
       },
-      innerD: {
-        type: String,
-        default: "-",
+    width: {
+        type: Number,
+        default: null,
       },
-      outerD: {
-        type: String,
-        default: "-",
+    weight: {
+        type: Number,
+        default: null,
       },
-      width: {
-        type: String,
-        default: "-",
-      },
-      weight: {
-        type: String,
-        default: "-",
-      },
-    companyId: {
+    id_organization: {
         type: Number,
         default: null,
     }
@@ -172,7 +172,7 @@ export default {
   computed: {
     ...mapState("getInTouch", ["getInTouch"]),
     getInTouchCard() {
-      return this.getInTouch.find(card => card.id === this.companyId);
+      return this.getInTouch.find(card => card.id_org === this.id_organization);
     }
   },
   beforeMount() {

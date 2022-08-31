@@ -3,39 +3,51 @@
     <SearchComponent />
     <OfferCards />
     <FiltersComponent />
-    <ProductCards />
-    <PaginationUI
-      :quantity-card="200"
-      :chunk="7"
-    />
-    <NothingFoundForm v-if="isNothingFound" />
+    <PaginationComponent
+      :data="orderedProducts"
+      :page-size="2"
+      :visible-page-count="7"
+    >
+      <template #default="props">
+        <ProductCards :products-chunk="props.currentPageData" />
+      </template>
+    </PaginationComponent>
   </div>
 </template>
 
 <script>
+import {mapActions, mapGetters, mapState} from "vuex";
 import OfferCards from "./components/offerCards/OfferCards.vue";
+import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import ProductCards from "./components/productCards/ProductCards.vue";
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
-import NothingFoundForm from "../../components/nothingFoundForm/NothingFoundForm.vue";
-import PaginationUI from "../../components/UI/pagination/PaginationUI.vue";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
   name: "ProductsPage",
   components: {
-    ProductCards,
     OfferCards,
-    FiltersComponent,
-    NothingFoundForm,
-    PaginationUI,
+    ProductCards,
     SearchComponent,
+    FiltersComponent,
+    PaginationComponent,
   },
   data() {
     return {
       styled,
       isNothingFound: false,
     }
+  },
+  computed: {
+    ...mapGetters("products", ["orderedProducts"]),
+    ...mapState("products", ["products"])
+  },
+  beforeMount() {
+    this.initProducts();
+  },
+  methods: {
+    ...mapActions("products", ["initProducts"])
   }
 }
 </script>

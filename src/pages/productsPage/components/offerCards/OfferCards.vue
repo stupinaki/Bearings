@@ -7,11 +7,18 @@
       <div
         v-for="card in offers"
         :key="card.id"
+        :class="styled.btnWrapper"
       >
-        <OfferCard
-          :city="card.city"
-          :count="card.count"
-        />
+        <ButtonUI
+          type-style="pseudo"
+          :class="styled.btn"
+          @click="citySearch(card)"
+        >
+          <OfferCard
+            :city="card.city"
+            :count="card.count"
+          />
+        </ButtonUI>
       </div>
     </div>
   </div>
@@ -21,11 +28,13 @@
 import styled from "./offerCards.module.css";
 import OfferCard from "../offerCard/OfferCard.vue";
 import {mapActions, mapState} from "vuex";
+import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 
 export default {
   name: "OfferCards",
   components: {
     OfferCard,
+    ButtonUI,
   },
   data(){
     return {
@@ -34,6 +43,7 @@ export default {
   },
   computed: {
     ...mapState("offers", ["offers"]),
+    ...mapState('products', ['products']),
     allCount(){
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
@@ -54,6 +64,17 @@ export default {
   },
   methods: {
     ...mapActions("offers", ["initOffers"]),
+    ...mapActions("products", [
+      "initProducts",
+      "setSortDirection",
+      "filterProductsAvailability",
+      "cityFilter"
+    ]),
+    citySearch(card) {
+      const { city, id } = card;
+      console.log("citySearch click on:", city)
+      this.cityFilter(id);
+    }
   },
 }
 </script>

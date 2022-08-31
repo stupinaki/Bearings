@@ -33,7 +33,7 @@
 
 .range-value {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 6fr;
   gap: 4px;
   align-items: center;
 }
@@ -41,6 +41,4 @@
 .input {
   max-width: 120px;
   padding: 8px;
-  border: 1px solid $primary-border;
-  border-radius: 8px;
 }
