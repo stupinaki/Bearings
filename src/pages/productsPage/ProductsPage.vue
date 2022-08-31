@@ -1,5 +1,6 @@
 <template>
   <div :class="styled.container">
+    <SearchComponent />
     <OfferCards />
     <FiltersComponent />
     <PaginationComponent
@@ -17,9 +18,10 @@
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
 import OfferCards from "./components/offerCards/OfferCards.vue";
-import FiltersComponent from "./components/filters/FiltersComponent.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import ProductCards from "./components/productCards/ProductCards.vue";
+import FiltersComponent from "./components/filters/FiltersComponent.vue";
+import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
@@ -27,12 +29,14 @@ export default {
   components: {
     OfferCards,
     ProductCards,
+    SearchComponent,
     FiltersComponent,
     PaginationComponent,
   },
   data() {
     return {
       styled,
+      isNothingFound: false,
     }
   },
   computed: {

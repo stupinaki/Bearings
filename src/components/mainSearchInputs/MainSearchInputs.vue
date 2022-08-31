@@ -46,9 +46,9 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-import AutocompleteUI from "../../../../components/UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import FilterVariant from "../../../../assets/filter_variant.svg"
+import AutocompleteUI from "../UI/autocomplete/AutocompleteUI.vue";
+import ButtonUI from "../UI/button/ButtonUI.vue";
+import FilterVariant from "../../assets/filter_variant.svg"
 import styled from "./mainSearchInputs.module.css";
 
 export default {

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div :class="additionalFormClass">
     <div :class="styled.additionalForm">
       <div
@@ -40,9 +40,9 @@
 
 <script>
 import {mapState} from "vuex";
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import InputUI from "../../../../components/UI/input/InputUI.vue";
-import HelpImg from "../../../../assets/help.svg";
+import ButtonUI from "../UI/button/ButtonUI.vue";
+import InputUI from "../UI/input/InputUI.vue";
+import HelpImg from "../../assets/help.svg";
 import styled from "./additionalSearchInputs.module.css";
 
 export default {
@@ -92,7 +92,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('mainSearchForm', ['isAdditionalFormVisible']),
+    ...mapState("mainSearchForm", ["isAdditionalFormVisible", "searchParams"]),
     additionalFormClass() {
       if(this.isAdditionalFormVisible) {
         return [styled.additionalFormWrapper];
