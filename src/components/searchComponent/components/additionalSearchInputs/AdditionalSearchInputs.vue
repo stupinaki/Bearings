@@ -1,15 +1,16 @@
 <template>
-  <div :class="additionalFormClass">
+  <div :class="styled.additionalFormWrapper">
     <div :class="styled.additionalForm">
       <div
-        v-for="input in inputsData"
-        :key="input.id"
+        v-for="(input, i) in inputsData"
+        :key="i"
       >
         <InputUI
+          :value="input.value"
           :label="input.label"
           :placeholder="input.placeholder"
           :name="input.name"
-          @input-value-change="getInputValue"
+          @input="$emit('onInputChange', { name: input.eventName, value: $event })"
         >
           <template
             v-if="input.hint"
@@ -38,7 +39,7 @@
         <ButtonUI
           type-style="type-link"
           :class="styled.resetBtn"
-          @click.prevent="onClearForm"
+          @click.prevent="$emit('clearForm')"
         >
           Сбросить фильтры
         </ButtonUI>
@@ -48,7 +49,7 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import {mapState} from "vuex";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
 import HelpImg from "../../../../assets/help.svg";
@@ -61,68 +62,68 @@ export default {
     InputUI,
     HelpImg,
   },
+  props: {
+    formValues: {
+      type: Object,
+      required: true
+    }
+  },
+  emits: ["clearForm", "onInputChange"],
   data(){
     return {
       styled,
-      inputsData: [
-        {
-          id: 333,
-          label: "Класс точности",
-          placeholder: "6302cg18",
-          hint: "test",
-          name: "accuracyClass",
-        },
-        {
-          id: 3333,
-          label: "Тип подшипника",
-          placeholder: "6302cg18",
-          hint: "test",
-          name: "bearingType",
-        },
-        {
-          id: 33333,
-          label: "Параметр подшипника",
-          placeholder: "6302cg18",
-          name: "bearingParameter",
-        },
-        {
-          id: 333333,
-          label: "Внешний диаметр",
-          placeholder: "25 мм",
-          name: "outerDiameter",
-        },
-        {
-          id: 3333333,
-          label: "Внутренний диаметр",
-          placeholder: "15 мм",
-          name: "innerDiameter",
-        },
-        {
-          id: 33333333,
-          label: "Ширина",
-          placeholder: "30 мм",
-          name: "bearingWidth",
-        }
-      ],
     }
   },
   computed: {
     ...mapState("searchComponent", ["isAdditionalFormVisible", "searchParams"]),
-    additionalFormClass() {
-      if(this.isAdditionalFormVisible) {
-        return [styled.additionalFormWrapper];
-      }
-      return [styled.additionalFormWrapperHide];
-    },
-  },
-  methods: {
-    ...mapActions("searchComponent", ["initSearchParams", "clearForm"]),
-    onClearForm() {
-      this.clearForm()
-      //todo нужно удалять значения из инпутов после
-    },
-    getInputValue(value) {
-      this.initSearchParams(value);
+    inputsData() {
+      const { formValues } = this.$props;
+      return [
+        {
+          value: formValues.accuracyClass,
+          label: "Класс точности",
+          placeholder: "6302cg18",
+          hint: "test",
+          name: "accuracyClass",
+          eventName: "onAccuracyClassChange"
+        },
+        {
+          value: formValues.bearingType,
+          label: "Тип подшипника",
+          placeholder: "6302cg18",
+          hint: "test",
+          name: "bearingType",
+          eventName: "onBearingTypeChange"
+        },
+        {
+          value: formValues.bearingParameter,
+          label: "Параметр подшипника",
+          placeholder: "6302cg18",
+          name: "bearingParameter",
+          eventName: "onBearingParameterChange"
+        },
+        {
+          value: formValues.outerDiameter,
+          label: "Внешний диаметр",
+          placeholder: "25 мм",
+          name: "outerDiameter",
+          eventName: "onOuterDiameterChange"
+        },
+        {
+          value: formValues.innerDiameter,
+          label: "Внутренний диаметр",
+          placeholder: "15 мм",
+          name: "innerDiameter",
+          eventName: "onInnerDiameterChange"
+        },
+        {
+          value: formValues.bearingWidth,
+          label: "Ширина",
+          placeholder: "30 мм",
+          name: "bearingWidth",
+          eventName: "onBearingWidthChange"
+        }
+      ]
     },
   }
 }

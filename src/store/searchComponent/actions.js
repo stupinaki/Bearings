@@ -1,13 +1,13 @@
 import actionNames from "./actionNames.js";
 
 export default {
-    toggleAdditionalForm(context) {
-        context.commit(actionNames.TOGGLE_ADDITIONAL_VISIBLE);
+    toggleAdditionalForm({commit, state}) {
+        commit(actionNames.SET_ADDITIONAL_VISIBLE, !state.isAdditionalFormVisible);
     },
-    initSearchParams(context, params) {
-        context.commit(actionNames.SET_SEARCH_PARAMS, params);
+    setInputValue({ commit }, params) {
+        commit(actionNames.SET_INPUT_VALUE, params);
     },
-    clearForm(context) {
+    clearSearchParams(context) {
         context.commit(actionNames.CLEAR_FORM);
     }
 }

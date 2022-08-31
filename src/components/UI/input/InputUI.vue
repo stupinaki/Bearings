@@ -9,11 +9,11 @@
       </div>
     </div>
     <input
-      v-model="inputValue"
+      :value="value"
       type="text"
       :class="styled.input"
       :placeholder="placeholder"
-      @change="onInputChange"
+      @input="$emit('input', $event.target.value)"
     >
   </div>
 </template>
@@ -45,19 +45,11 @@ export default {
       default: undefined,
     }
   },
-  emits: ["inputValueChange"],
+  emits: ["input"],
   data() {
     return {
       styled,
-      inputValue: undefined,
     }
-  },
-  methods: {
-    onInputChange() {
-      const { name } = this.$props;
-      const { inputValue } = this.$data;
-      this.$emit("inputValueChange", [name, inputValue]);
-    }
-  },
+  }
 }
 </script>

@@ -1,5 +1,7 @@
+import {defaultBearingsSearchParams} from "../../consts/defaultBearingsSearchParams.js";
+import {cloneDeep} from "lodash";
+
 export default() => ({
     isAdditionalFormVisible: false,
-    isClearForm: false,
-    searchParams: {},
+    searchParams: cloneDeep(defaultBearingsSearchParams),
 })

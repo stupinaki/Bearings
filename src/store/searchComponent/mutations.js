@@ -1,15 +1,19 @@
 import actionNames from "./actionNames.js";
+import {defaultBearingsSearchParams} from "../../consts/defaultBearingsSearchParams.js";
+import cloneDeep from "lodash/cloneDeep";
 
 export default {
-    [actionNames.TOGGLE_ADDITIONAL_VISIBLE](state) {
-        state.isAdditionalFormVisible = !state.isAdditionalFormVisible;
+    [actionNames.SET_INPUT_VALUE](state, {name, value}) {
+        console.log(actionNames.SET_INPUT_VALUE,{name, value})
+        state.searchParams[name] = value;
     },
-    [actionNames.SET_SEARCH_PARAMS](state, params) {
-        state.searchParams[params[0]] = params[1];
-        console.log("store searchParams:", state.searchParams)
+    [actionNames.SET_ADDITIONAL_VISIBLE](state, value) {
+        console.log(actionNames.SET_ADDITIONAL_VISIBLE, { value})
+
+        state.isAdditionalFormVisible = value;
     },
     [actionNames.CLEAR_FORM](state) {
-        state.searchParams = {};
-        console.log("store searchParams after clear:", state.searchParams)
+        console.log(actionNames.CLEAR_FORM)
+        state.searchParams = cloneDeep(defaultBearingsSearchParams);
     }
 }

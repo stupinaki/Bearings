@@ -12,11 +12,11 @@
       :class="styled.wrapper"
     >
       <input
-        v-model="markingInput"
+        :value="marking"
         type="text"
         placeholder="Начните вводить"
         :class="[styled.input, styled.line]"
-        @change="onMarkingInputChange"
+        @input="$emit('onMarkingChange', $event.target.value)"
       >
       <div :class="styled.imgWrapper">
         <PlaceImg />
@@ -25,20 +25,20 @@
         :transition="true"
         :multiple="true"
         :chips="true"
-        :items="citiesName"
+        :items="citiesOptions"
         :closable-chips="true"
         placeholder="Искать по всей России"
-        @autocomplete-change="getAutocompleteValue"
+        @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
 
       <ButtonUI
         type-style="secondary"
-        @click.prevent="showAdditionalForm"
+        @click.prevent="$emit('toggleAdditionalFormVisible')"
       >
         <FilterVariantImg />
       </ButtonUI>
 
-      <ButtonUI @click.prevent="startSearch">
+      <ButtonUI type="submit">
         Найти
       </ButtonUI>
     </div>
@@ -55,7 +55,6 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
@@ -70,36 +69,27 @@ export default {
     AutocompleteUI,
     FilterVariantImg,
   },
-  emits: ["search"],
+  props: {
+    marking: {
+      type: String,
+    },
+    citiesOptions: {
+      type: Array,
+      default: () => []
+    },
+    citiesFilter: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  emits: [
+      "onMarkingChange",
+      "onCitiesFilterChange",
+      "toggleAdditionalFormVisible",
+  ],
   data() {
     return {
       styled,
-      markingInput: undefined,
-    }
-  },
-  computed: {
-    ...mapState("cities", ["cities"]),
-    citiesName() {
-      return this.cities.map(city => city.name);
-    }
-  },
-  beforeMount() {
-    this.initCities();
-  },
-  methods: {
-    ...mapActions("cities", ["initCities"]),
-    ...mapActions("searchComponent", ["toggleAdditionalForm", "initSearchParams"]),
-    showAdditionalForm(){
-      this.toggleAdditionalForm();
-    },
-    startSearch() {
-      this.$emit("search");
-    },
-    getAutocompleteValue(citiesAutocomplete) {
-      this.initSearchParams(["citiesFilter", citiesAutocomplete]);
-    },
-    onMarkingInputChange() {
-      this.initSearchParams(["marking", this.$data.markingInput]);
     }
   }
 }
