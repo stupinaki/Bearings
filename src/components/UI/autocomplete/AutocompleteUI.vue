@@ -1,7 +1,7 @@
 <template>
   <div :class="styled.autocomplete">
     <v-autocomplete
-      v-model="citiesAutocomplete"
+      :model-value="value"
       :transition="transition"
       :multiple="multiple"
       :chips="chips"
@@ -9,6 +9,7 @@
       :closable-chips="closableChips"
       :placeholder="placeholder"
       return-object
+      @update:model-value="changeSelected"
     />
   </div>
 </template>
@@ -19,6 +20,11 @@ import styled from "./autocompleteUI.module.css";
 export default {
   name: "AutocompleteUI",
   props: {
+    value: {
+      type: Array,
+      require: false,
+      default: undefined,
+    },
     transition: Boolean,
     multiple: Boolean,
     chips: Boolean,
@@ -38,13 +44,12 @@ export default {
   data() {
     return {
       styled,
-      citiesAutocomplete: undefined,
     }
   },
-  watch: {
-    citiesAutocomplete() {
-      this.$emit("autocompleteChange", this.$data.citiesAutocomplete);
+  methods: {
+    changeSelected(e) {
+      this.$emit("autocompleteChange", e);
     }
-  }
+  },
 }
 </script>

@@ -23,6 +23,7 @@
       </div>
 
       <AutocompleteUI
+        :value="citiesFilter"
         :transition="true"
         :multiple="true"
         :chips="true"
@@ -93,6 +94,7 @@ export default {
   data() {
     return {
       styled,
+      isValue: true
     }
   },
   computed: {
