@@ -13,7 +13,7 @@
       type="text"
       :class="styled.input"
       :placeholder="placeholder"
-      @input="$emit('input', $event.target.value)"
+      @input="onInput"
     >
   </div>
 </template>
@@ -26,12 +26,12 @@ export default {
   props: {
     label: {
       type: String,
-      require: true,
+      require: false,
       default: '',
     },
     placeholder: {
       type: String,
-      require: true,
+      require: false,
       default: '',
     },
     name: {
@@ -49,6 +49,11 @@ export default {
   data() {
     return {
       styled,
+    }
+  },
+  methods: {
+    onInput(e) {
+      this.$emit('input', e.target.value);
     }
   }
 }

@@ -11,11 +11,12 @@
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
-    {{searchParams}}
+    {{ searchParams }}
     <MainSearchInputs
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
+      :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
       @toggle-additional-form-visible="toggleAdditionalForm"
       @on-marking-change="setInputValue({name: 'marking', value: $event})"
       @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
@@ -23,17 +24,17 @@
     <AdditionalSearchInputs
       v-if="isAdditionalFormVisible"
       :form-values="searchParams"
-      @on-input-change="setInputValue({name: $event.name, value: $event.value})"
+      @on-input-change="additionalInputsChange"
       @clear-form="clearSearchParams"
     />
   </form>
 </template>
 
 <script>
+import {mapActions, mapState} from "vuex";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
 import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import styled from "./searchComponent.module.css";
-import {mapActions, mapState} from "vuex";
 
 export default {
   name: "SearchComponent",
@@ -49,9 +50,11 @@ export default {
   computed: {
     ...mapState("cities", ["cities"]),
     ...mapState("searchComponent", ["searchParams", "isAdditionalFormVisible"]),
-
     citiesOptions() {
-      return this.cities.map(c => ({label: c.name, value: c.id}))
+      return this.cities.map(c => ({title: c.name, value: c.id}))
+    },
+    isVisibleAutocompletePlaceholder() {
+      return !this.searchParams.citiesFilter.length;
     }
   },
   beforeMount() {
@@ -66,7 +69,10 @@ export default {
     ]),
     initSearch() {
       console.log("поиск начался!")
-    }
+    },
+    additionalInputsChange(obj) {
+      this.setInputValue(obj);
+    },
   }
 }
 </script>

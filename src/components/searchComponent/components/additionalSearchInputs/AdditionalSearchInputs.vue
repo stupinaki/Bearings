@@ -10,7 +10,7 @@
           :label="input.label"
           :placeholder="input.placeholder"
           :name="input.name"
-          @input="$emit('onInputChange', { name: input.eventName, value: $event })"
+          @input="$emit('onInputChange', { name: input.name, value: $event })"
         >
           <template
             v-if="input.hint"
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
 import HelpImg from "../../../../assets/help.svg";
@@ -75,7 +74,6 @@ export default {
     }
   },
   computed: {
-    ...mapState("searchComponent", ["isAdditionalFormVisible", "searchParams"]),
     inputsData() {
       const { formValues } = this.$props;
       return [
@@ -85,7 +83,6 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "accuracyClass",
-          eventName: "onAccuracyClassChange"
         },
         {
           value: formValues.bearingType,
@@ -93,38 +90,33 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "bearingType",
-          eventName: "onBearingTypeChange"
         },
         {
           value: formValues.bearingParameter,
           label: "Параметр подшипника",
           placeholder: "6302cg18",
           name: "bearingParameter",
-          eventName: "onBearingParameterChange"
         },
         {
           value: formValues.outerDiameter,
           label: "Внешний диаметр",
           placeholder: "25 мм",
           name: "outerDiameter",
-          eventName: "onOuterDiameterChange"
         },
         {
           value: formValues.innerDiameter,
           label: "Внутренний диаметр",
           placeholder: "15 мм",
           name: "innerDiameter",
-          eventName: "onInnerDiameterChange"
         },
         {
           value: formValues.bearingWidth,
           label: "Ширина",
           placeholder: "30 мм",
           name: "bearingWidth",
-          eventName: "onBearingWidthChange"
         }
       ]
     },
-  }
+  },
 }
 </script>

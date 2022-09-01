@@ -21,13 +21,14 @@
       <div :class="styled.imgWrapper">
         <PlaceImg />
       </div>
+
       <AutocompleteUI
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesOptions"
         :closable-chips="true"
-        placeholder="Искать по всей России"
+        :placeholder="autocompletePlaceholder"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
 
@@ -37,12 +38,12 @@
       >
         <FilterVariantImg />
       </ButtonUI>
-
-      <ButtonUI type="submit">
-        Найти
-      </ButtonUI>
+      <div :class="styled.btnSearchWrapper">
+        <ButtonUI type="submit">
+          Найти
+        </ButtonUI>
+      </div>
     </div>
-
     <div :class="styled.btnWrapper">
       <ButtonUI
         type-style="type-link"
@@ -72,6 +73,7 @@ export default {
   props: {
     marking: {
       type: String,
+      default: '',
     },
     citiesOptions: {
       type: Array,
@@ -81,6 +83,7 @@ export default {
       type: Array,
       default: () => [],
     },
+    isVisibleAutocompletePlaceholder: Boolean,
   },
   emits: [
       "onMarkingChange",
@@ -91,6 +94,13 @@ export default {
     return {
       styled,
     }
-  }
+  },
+  computed: {
+    autocompletePlaceholder() {
+      return this.$props.isVisibleAutocompletePlaceholder
+          ? "Искать по всей России"
+          : "";
+    }
+  },
 }
 </script>

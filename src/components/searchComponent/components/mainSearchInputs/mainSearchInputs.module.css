@@ -40,3 +40,7 @@
 .btn-wrapper {
   display: inline-block;
 }
+
+.btn-search-wrapper {
+  color: $primary-background;
+}
