@@ -152,20 +152,11 @@ export default {
 
       const {oderFormName, oderFormPhone, oderFormEmail, oderFormCheckbox} = this.$data;
       const {isErrorName, isErrorEmail, isErrorPhone, isErrorCheckbox} = this.$data;
-
-      const order = {
-        name: oderFormName,
-        phone: oderFormPhone,
-        email: oderFormEmail,
-        checkbox: oderFormCheckbox,
-      }
-
+      
       const isAllFilled = oderFormName && oderFormPhone && oderFormEmail && oderFormCheckbox;
       const isCorrectFilled = !isErrorName && !isErrorEmail && !isErrorPhone && !isErrorCheckbox;
 
       if(isAllFilled && isCorrectFilled) {
-        console.log("click on button!", order)
-
         this.$data.oderFormName = "";
         this.$data.oderFormPhone = "";
         this.$data.oderFormEmail = "";
