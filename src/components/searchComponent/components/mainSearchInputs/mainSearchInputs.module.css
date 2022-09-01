@@ -44,3 +44,17 @@
 .btn-search-wrapper {
   color: $primary-background;
 }
+
+.hint-hide {
+  display: none;
+}
+
+.hint-visible {
+  position: absolute;
+  top: 0;
+  left: 196px;
+}
+
+.btn-hint-wrapper {
+  position: relative;
+}

@@ -152,7 +152,7 @@ export default {
 
       const {oderFormName, oderFormPhone, oderFormEmail, oderFormCheckbox} = this.$data;
       const {isErrorName, isErrorEmail, isErrorPhone, isErrorCheckbox} = this.$data;
-      
+
       const isAllFilled = oderFormName && oderFormPhone && oderFormEmail && oderFormCheckbox;
       const isCorrectFilled = !isErrorName && !isErrorEmail && !isErrorPhone && !isErrorCheckbox;
 

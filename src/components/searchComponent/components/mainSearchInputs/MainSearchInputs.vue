@@ -47,13 +47,20 @@
         </ButtonUI>
       </div>
     </div>
-    <div :class="styled.btnWrapper">
-      <ButtonUI
-        type-style="type-link"
-        @click.prevent
-      >
-        Как узнать маркировку?
-      </ButtonUI>
+
+    <div :class="styled.btnHintWrapper">
+      <div :class="styled.btnWrapper">
+        <ButtonUI
+          type-style="type-link"
+          @focus="showHint"
+          @blur="hideHint"
+        >
+          Как узнать маркировку?
+        </ButtonUI>
+      </div>
+      <div :class="hintStyle">
+        <MarkingHint />
+      </div>
     </div>
   </div>
 </template>
@@ -63,6 +70,7 @@ import { preventEnter } from "../../../../helpers/preventEnter.js";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
+import MarkingHint from "../../../markingHint/MarkingHint.vue";
 import PlaceImg from "../../../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 
@@ -71,6 +79,7 @@ export default {
   components: {
     PlaceImg,
     ButtonUI,
+    MarkingHint,
     AutocompleteUI,
     FilterVariantImg,
   },
@@ -97,7 +106,7 @@ export default {
   data() {
     return {
       styled,
-      isValue: true
+      isHintVisible: false,
     }
   },
   computed: {
@@ -105,11 +114,23 @@ export default {
       return this.$props.isVisibleAutocompletePlaceholder
           ? "Искать по всей России"
           : "";
+    },
+    hintStyle() {
+      if(this.$data.isHintVisible) {
+        return styled.hintVisible;
+      }
+      return styled.hintHide;
     }
   },
   methods: {
     onPreventEnter(e) {
       preventEnter(e);
+    },
+    showHint() {
+      this.$data.isHintVisible = true;
+    },
+    hideHint() {
+      this.$data.isHintVisible = false;
     }
   }
 }
