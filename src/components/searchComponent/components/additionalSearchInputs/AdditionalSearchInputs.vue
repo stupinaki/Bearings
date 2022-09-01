@@ -11,6 +11,7 @@
           :placeholder="input.placeholder"
           :name="input.name"
           @input="$emit('onInputChange', { name: input.name, value: $event })"
+          @keydown="onPreventEnter"
         >
           <template
             v-if="input.hint"
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+import { preventEnter } from "../../../../helpers/preventEnter.js";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
 import HelpImg from "../../../../assets/help.svg";
@@ -118,5 +120,10 @@ export default {
       ]
     },
   },
+  methods: {
+    onPreventEnter(e) {
+      preventEnter(e);
+    }
+  }
 }
 </script>

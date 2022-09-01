@@ -17,6 +17,7 @@
         placeholder="Начните вводить"
         :class="[styled.input, styled.line]"
         @input="$emit('onMarkingChange', $event.target.value)"
+        @keydown="onPreventEnter"
       >
       <div :class="styled.imgWrapper">
         <PlaceImg />
@@ -31,6 +32,7 @@
         :closable-chips="true"
         :placeholder="autocompletePlaceholder"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
+        @keydown="onPreventEnter"
       />
 
       <ButtonUI
@@ -57,6 +59,7 @@
 </template>
 
 <script>
+import { preventEnter } from "../../../../helpers/preventEnter.js";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
@@ -87,9 +90,9 @@ export default {
     isVisibleAutocompletePlaceholder: Boolean,
   },
   emits: [
-      "onMarkingChange",
-      "onCitiesFilterChange",
-      "toggleAdditionalFormVisible",
+    "onMarkingChange",
+    "onCitiesFilterChange",
+    "toggleAdditionalFormVisible",
   ],
   data() {
     return {
@@ -104,5 +107,10 @@ export default {
           : "";
     }
   },
+  methods: {
+    onPreventEnter(e) {
+      preventEnter(e);
+    }
+  }
 }
 </script>
