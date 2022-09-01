@@ -11,15 +11,16 @@
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
-    {{ searchParams }}
     <MainSearchInputs
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
       :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
+      @clear-form="clearSearchParams"
       @toggle-additional-form-visible="toggleAdditionalForm"
       @on-marking-change="setInputValue({name: 'marking', value: $event})"
       @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
+      @on-input-change="setInputValue($event)"
     />
     <AdditionalSearchInputs
       v-if="isAdditionalFormVisible"
