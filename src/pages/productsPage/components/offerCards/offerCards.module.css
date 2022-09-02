@@ -20,11 +20,30 @@
 }
 
 .btn-wrapper {
-  width: max-content;
+  min-width: 100%;
 }
 
 .btn {
   padding: 0;
+}
+
+.arrow-down {
+  transform: rotate(90deg);
+}
+
+.arrow-up {
+  transform: rotate(270deg);
+}
+
+.btn-more {
+  width: max-content;
+  color: $secondary-background;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-background;
+    text-decoration: underline;
+  }
 }
 
 @media screen and (max-width: $breakpointLarge) {

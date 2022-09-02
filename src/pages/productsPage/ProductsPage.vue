@@ -41,13 +41,17 @@ export default {
   },
   computed: {
     ...mapGetters("products", ["orderedProducts"]),
-    ...mapState("products", ["products"])
+    ...mapState("products", ["products"]),
+    ...mapState("offers", ["offers"]),
   },
   beforeMount() {
     this.initProducts();
+    this.initOffers();
   },
   methods: {
-    ...mapActions("products", ["initProducts"])
+    ...mapActions("products", ["initProducts"]),
+    ...mapActions("offers", ["initOffers"]),
+
   }
 }
 </script>
