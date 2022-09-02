@@ -53,61 +53,9 @@
   position: absolute;
   top: 0;
   left: 196px;
+  z-index: 2;
 }
 
 .btn-hint-wrapper {
   position: relative;
-}
-
-.main-form-mobile {
-  display: none;
-}
-
-.autocomplete-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 11fr;
-  background: $primary-background;
-  border: 1px solid $primary-border;
-  border-radius: 8px;
-}
-
-.reset-btn {
-  justify-content: flex-end;
-  color: $third-text-color;
-}
-
-.more-search {
-  justify-content: flex-start;
-  color: $secondary-background;
-  text-decoration: none;
-}
-
-.btns-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.arrow {
-  transform: rotate(90deg);
-}
-
-@media screen and (max-width: $breakpointLarge) {
-  .main-form {
-    display: none;
-  }
-
-  .main-form-mobile {
-    display: grid;
-    grid-template-rows: 1fr;
-    gap: 12px;
-  }
-
-  .btn-search-wrapper {
-    margin: 16px 0;
-  }
-
-  .btn-hint-wrapper {
-    margin-bottom: 12px;
-  }
 }
