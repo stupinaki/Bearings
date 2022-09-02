@@ -16,6 +16,7 @@
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
+      :is-toggle-additional-form="isAdditionalFormVisible"
       :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
       @clear-form="clearSearchParams"
       @toggle-additional-form-visible="toggleAdditionalForm"

@@ -37,9 +37,9 @@
 }
 
 .btns-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 16px;
+  justify-content: space-between;
 }
 
 .hint-hide {
@@ -63,17 +63,28 @@
 
 .reset-btn {
   justify-content: flex-end;
+  width: max-content;
   color: $third-text-color;
 }
 
 .more-search {
   justify-content: flex-start;
+  width: max-content;
   color: $secondary-background;
   text-decoration: none;
+
+  &:hover {
+    color: $secondary-background;
+    text-decoration: underline;
+  }
 }
 
-.arrow {
+.arrow-down {
   transform: rotate(90deg);
+}
+
+.arrow-up {
+  transform: rotate(270deg);
 }
 
 .main-form-mobile {

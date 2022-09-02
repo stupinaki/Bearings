@@ -58,7 +58,7 @@
         @click.prevent="$emit('toggleAdditionalFormVisible')"
       >
         Расширенный поиск
-        <ArrowImg :class="styled.arrow" />
+        <ArrowImg :class="arrowStyle" />
       </ButtonUI>
 
       <ButtonUI
@@ -106,6 +106,7 @@ export default {
       default: () => [],
     },
     isVisibleAutocompletePlaceholder: Boolean,
+    isToggleAdditionalForm: Boolean,
   },
   emits: [
     "clearForm",
@@ -131,6 +132,9 @@ export default {
         return styled.hintVisible;
       }
       return styled.hintHide;
+    },
+    arrowStyle() {
+      return this.$props.isToggleAdditionalForm ? styled.arrowUp : styled.arrowDown;
     }
   },
   methods: {
