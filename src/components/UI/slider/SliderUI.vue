@@ -28,6 +28,8 @@
       <ArrowImg />
     </ButtonUI>
   </div>
+
+  windowInnerWidth: {{windowInnerWidth}}
 </template>
 
 <script>
@@ -50,7 +52,7 @@ export default {
       required: true,
       default: () => [],
     },
-    visibleItemsCount: {
+    visibleItemsMaxCount: {
       type: Number,
       required: false,
       default: 5,
@@ -60,12 +62,25 @@ export default {
     return {
       styled,
       chunkNumber: 0,
+      windowInnerWidth: undefined,
     }
+  },
+  beforeMount() {
+    this.$data.windowInnerWidth = window.innerWidth;
   },
   computed: {
     visibleItems() {
-      const {visibleItemsCount, items} = this.$props;
-      return chunk(items, visibleItemsCount);
+      const {visibleItemsMaxCount, items} = this.$props;
+      if(this.$data.windowInnerWidth < 1200 && this.$data.windowInnerWidth > 900) {
+        return chunk(items, 4);
+      }
+      if(this.$data.windowInnerWidth <= 900 && this.$data.windowInnerWidth > 700) {
+        return chunk(items, 3);
+      }
+      if(this.$data.windowInnerWidth <= 700) {
+        return chunk(items, 2);
+      }
+      return chunk(items, visibleItemsMaxCount);
     },
     btnNextStyle() {
       if(this.visibleItems.length === 1) {
