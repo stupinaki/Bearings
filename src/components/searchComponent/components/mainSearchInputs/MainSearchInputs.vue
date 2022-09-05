@@ -39,11 +39,14 @@
       >
         <FilterVariantImg />
       </ButtonUI>
-      <div :class="styled.btnSearchWrapper">
-        <ButtonUI type="submit" >
+      <router-link
+        :to="{name: 'products'}"
+        :class="styled.btnSearchWrapper"
+      >
+        <ButtonUI type="submit">
           Найти
         </ButtonUI>
-      </div>
+      </router-link>
     </div>
 
     <div :class="styled.btnHintWrapper">

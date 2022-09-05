@@ -7,7 +7,7 @@
       Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
     </div>
   </div>
-  {{searchParams}}
+  {{ searchParams }}
   <form
     :class="styled.wrapper"
     @submit.prevent="initSearch"
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
-    ...mapActions("products", ["initProducts"]),
+    ...mapActions("products", ["initProducts", "getProductsTest"]),
     ...mapActions("searchComponent", [
       "toggleAdditionalForm",
       "setInputValue",
@@ -85,11 +85,7 @@ export default {
     ]),
     initSearch() {
       console.log("поиск начался!")
-      this.initProducts(this.searchParams)
-      //берем searchParams и идем в getters/products
-      // там ищем карточки, поторые подходят под параметры запроса
-      // если запрос ушел пустой, то показываем все карчтоки
-      // если ничего не подошло, то показывает форму для связи
+      this.getProductsTest(this.searchParams);
     },
     additionalInputsChange(obj) {
       this.setInputValue(obj);

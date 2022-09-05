@@ -1,10 +1,10 @@
 <template>
   <button
-      type="button"
-      :class="className"
-      :disabled="disabled"
+    type="button"
+    :class="className"
+    :disabled="disabled"
   >
-    <slot/>
+    <slot />
   </button>
 </template>
 

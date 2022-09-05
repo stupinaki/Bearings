@@ -13,5 +13,8 @@ export default {
     },
     [actionNames.FILTER_CITY](state, cityId) {
         state.cityId = cityId;
-    }
+    },
+    [actionNames.SET_LOADING](state, isLoading) {
+        state.loading = isLoading;
+    },
 }

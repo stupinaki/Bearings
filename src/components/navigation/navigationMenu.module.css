@@ -8,6 +8,11 @@
 .item-link {
   width: 100%;
   height: 100%;
+  color: $primary-text-color;
+}
+
+.item-link-secondary-btn {
+  color: $primary-btn-hover-color;
 }
 
 @media screen and (max-width: $breakpointLarge) {

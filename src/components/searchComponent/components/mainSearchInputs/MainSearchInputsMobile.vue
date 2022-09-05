@@ -43,11 +43,14 @@
       />
     </div>
 
-    <div :class="styled.btnSearchWrapper">
+    <router-link
+      :to="{name: 'products'}"
+      :class="styled.btnSearchWrapper"
+    >
       <ButtonUI type="submit">
         Найти
       </ButtonUI>
-    </div>
+    </router-link>
 
     <div :class="styled.btnsWrapper">
       <ButtonUI

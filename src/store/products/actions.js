@@ -1,33 +1,61 @@
 import actionNames from "./actionNames";
+import {timeoutPromise} from "../../helpers/timeoutPromise";
 import {productCardsValue} from "../../../data/productCardsValue";
 
 export default {
     //todo добавить промисификацию, обработку ошибок, лоадинг
-    initProducts({commit}, searchParams) {
-
-        console.log({productCardsValue, searchParams})
-        // const test = productCardsValue.filter(card => card.name === searchParams.marking)
-        // const { marking, citiesFilter, accuracyClass, bearingType, bearingParameter, outerDiameter, innerDiameter,  bearingWidth } = searchParams;
-        // const arr =  productCardsValue.filter(productCard => {
-            // return productCard.name === marking &&
-            // productCard.type === bearingType &&
-            // productCard.pr_class === accuracyClass &&
-            // productCard.outer_d === outerDiameter &&
-            // productCard.inner_d === innerDiameter &&
-            // productCard.width === bearingWidth &&
-            // productCard.bearing_parameters === bearingParameter
-            // searchParams.cityFilter.(productCard.id_city)
-        // })
-        // console.log({arr})
-        // if(!arr.length) {
-        //     console.log(" ничего не найдено")
-        // }
-        commit(actionNames.SET_PRODUCTS, productCardsValue);
-
+    async initProducts({ state, commit, dispatch }) {
+        if (state.products.length) {
+            return;
+        }
+        commit(actionNames.SET_LOADING, true);
+        const result = await dispatch('getProducts');
+        commit(actionNames.SET_PRODUCTS, result);
+        commit(actionNames.SET_LOADING, false);
     },
-    // initProducts({commit}) {
-    //     commit(actionNames.SET_PRODUCTS, productCardsValue);
-    // },
+    getProductsTest({commit}, searchParams) {
+        const {
+            marking,
+            citiesFilter,
+            accuracyClass,
+            bearingType,
+            bearingParameter,
+            outerDiameter,
+            innerDiameter,
+            bearingWidth
+        } = searchParams;
+        const citiesID = citiesFilter.map(city => city.value);
+        const isEmptySearchParams = marking === "" && citiesFilter.length === 0 && accuracyClass === ""
+            && bearingType === ""  && bearingParameter === ""  && outerDiameter === ""
+            && innerDiameter === ""  && bearingWidth === "";
+
+        if(isEmptySearchParams) {
+            console.log("покажи все карточки")
+            commit(actionNames.SET_PRODUCTS, productCardsValue);
+        }
+
+        const filteredProductCard = productCardsValue.filter(productCard => {
+            return productCard.name.includes(marking) &&
+                   (bearingType ? productCard.type.includes(bearingType) : true) &&
+                   ( bearingParameter ? productCard.bearing_parameters.includes(bearingParameter) : true) &&
+                   (accuracyClass ? productCard.pr_class === accuracyClass: true) &&
+                   (outerDiameter ? productCard.outer_d === +outerDiameter : true) &&
+                   (innerDiameter ? productCard.inner_d === +innerDiameter : true) &&
+                   (bearingWidth ? productCard.width === +bearingWidth : true) &&
+                   ( citiesID.length ? citiesID.includes(productCard.id_city) : true);
+        })
+
+        if(filteredProductCard.length === 0) {
+            console.log("покажи форму связи с нами, ибо ничего не найдено")
+        }
+
+        console.log("покажи отсортированные карточки")
+        commit(actionNames.SET_PRODUCTS, filteredProductCard);
+    },
+
+    getProducts() {
+        return timeoutPromise(productCardsValue, 1000)
+    },
     setSortDirection({commit}, isDesc) {
         commit(actionNames.SET_SORT_DIRECTION, isDesc);
     },

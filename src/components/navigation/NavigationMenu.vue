@@ -13,7 +13,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'products'}"
+      :to="{name: 'empty'}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -50,7 +50,7 @@
 
     <router-link
       :to="{name: 'empty'}"
-      :class="styled.itemLink"
+      :class="[styled.itemLink, styled.itemLinkSecondaryBtn]"
     >
       <ButtonUI
         size="m"
