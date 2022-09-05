@@ -9,6 +9,7 @@
       </div>
     </div>
     <SearchComponent />
+    <LoaderUI />
     <BenefitsCards />
     <BulkOrderForm />
     <QuestionCards />
@@ -21,6 +22,7 @@ import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
 import BulkOrderForm from "./components/bulkOrderForm/BulkOrderForm.vue";
 import QuestionCards from "./components/questionCards/QuestionCards.vue";
 import styled from "./homePage.module.css"
+import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 
 export default {
   name: "HomePage",
@@ -29,6 +31,7 @@ export default {
     QuestionCards,
     BulkOrderForm,
     SearchComponent,
+    LoaderUI
   },
   data(){
     return {
