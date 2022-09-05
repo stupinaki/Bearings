@@ -34,4 +34,14 @@
     font-size: 16px;
     line-height: 20px;
   }
+
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .container {
+    margin: $mobile-margin;
+  }
 }

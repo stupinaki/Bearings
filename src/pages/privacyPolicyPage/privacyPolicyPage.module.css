@@ -8,3 +8,15 @@
 .block {
   padding: 12px 0;
 }
+
+@media screen and (max-width: $breakpointLarge) {
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .container {
+    margin: $mobile-margin;
+  }
+}

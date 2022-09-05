@@ -15,15 +15,20 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 60%;
+  grid-template-columns: 40%;
   padding: $primary-padding-top-bottom;
   margin: 48px 0;
+}
+
+.link {
+  color: $secondary-text-color;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: $breakpointExtraLarge) {
   .wrapper {
     display: grid;
-    grid-template-columns: 80%;
+    grid-template-columns: 60%;
     padding: $primary-padding-top-bottom;
   }
 }
@@ -31,12 +36,14 @@
 @media screen and (max-width: $breakpointLarge) {
   .wrapper {
     display: grid;
-    grid-template-columns: 90%;
-    padding: $primary-padding-top-bottom;
+    grid-template-columns: 80%;
+    padding: 0;
   }
 }
 
-.link {
-  color: $secondary-text-color;
-  text-decoration: underline;
+@media screen and (max-width: $breakpointSmall) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+  }
 }

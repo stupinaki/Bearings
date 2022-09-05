@@ -22,3 +22,15 @@
   font-size: 20px;
   line-height: 24px;
 }
+
+@media screen and (max-width: $breakpointLarge) {
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .container {
+    margin: $mobile-margin;
+  }
+}

@@ -9,7 +9,6 @@
 
 .form {
   display: grid;
-  grid-template-columns: 80%;
 }
 
 .instruction {
@@ -48,4 +47,11 @@
 .error {
   border: 1px solid $third-text-color;
   border-radius: 8px;
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .form-btn {
+    display: grid;
+    grid-template-columns: 100%;
+  }
 }
