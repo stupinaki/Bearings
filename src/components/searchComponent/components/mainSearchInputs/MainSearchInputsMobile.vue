@@ -7,7 +7,6 @@
       name="marking"
       :class="[styled.input, styled.line]"
       @input="$emit('onInputChange', { name: 'marking', value: $event })"
-      @keydown="onPreventEnter"
     />
     <div :class="styled.btnHintWrapper">
       <div :class="styled.btnWrapper">
@@ -41,7 +40,6 @@
         :closable-chips="true"
         :placeholder="autocompletePlaceholder"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
-        @keydown="onPreventEnter"
       />
     </div>
 
@@ -73,7 +71,6 @@
 </template>
 
 <script>
-import {preventEnter} from "../../../../helpers/preventEnter.js";
 import InputUI from "../../../UI/input/InputUI.vue";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
@@ -138,9 +135,6 @@ export default {
     }
   },
   methods: {
-    onPreventEnter(e) {
-      preventEnter(e);
-    },
     showHint() {
       this.$data.isHintVisible = true;
     },

@@ -3,6 +3,7 @@ import actionNames from "./actionNames";
 export default {
     [actionNames.SET_PRODUCTS](state, products) {
         state.products = products;
+        console.log(state.products)
     },
     [actionNames.SET_SORT_DIRECTION](state, isDesc) {
         state.isOrderDesc = isDesc;

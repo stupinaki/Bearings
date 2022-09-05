@@ -1,9 +1,10 @@
 <template>
   <button
-    :class="className"
-    :disabled="disabled"
+      type="button"
+      :class="className"
+      :disabled="disabled"
   >
-    <slot />
+    <slot/>
   </button>
 </template>
 
@@ -36,7 +37,7 @@ export default {
   },
   computed: {
     className() {
-      const { size, typeStyle, disabled } = this.$props;
+      const {size, typeStyle, disabled} = this.$props;
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
       classes.push(styled[`btn-${typeStyle}`]);
