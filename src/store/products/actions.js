@@ -1,9 +1,16 @@
 import actionNames from "./actionNames";
-import {productCardsValue} from "../../../data/productCardsValue";
+import {fetchRequestProducts} from "../../api/fetchRequestProducts";
 
 export default {
-    initProducts({commit}) {
-        commit(actionNames.SET_PRODUCTS, productCardsValue);
+    //todo добавить обработку ошибок, лоадинг
+    async initProducts({ state, commit, dispatch }, searchParams) {
+        commit(actionNames.SET_LOADING, true);
+        const result = await dispatch('fetchProducts', searchParams);
+        commit(actionNames.SET_PRODUCTS, result);
+        commit(actionNames.SET_LOADING, false);
+    },
+    fetchProducts(_, searchParams) {
+        return fetchRequestProducts(searchParams);
     },
     setSortDirection({commit}, isDesc) {
         commit(actionNames.SET_SORT_DIRECTION, isDesc);

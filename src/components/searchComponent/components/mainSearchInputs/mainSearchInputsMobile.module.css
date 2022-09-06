@@ -1,0 +1,94 @@
+@import "/src/styles/variables.modules.css";
+
+.names {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  color: $primary-text-color;
+}
+
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.line {
+  border-right: 1px solid $primary-border;
+}
+
+.btn-wrapper {
+  display: inline-block;
+}
+
+.btn-hint-wrapper {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.btn-search-wrapper {
+  margin: 16px 0;
+  color: $primary-background;
+}
+
+.btns-wrapper {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.hint-hide {
+  display: none;
+}
+
+.hint-visible {
+  position: absolute;
+  top: 0;
+  left: 196px;
+  z-index: 2;
+}
+
+.autocomplete-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  background: $primary-background;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.reset-btn {
+  justify-content: flex-end;
+  width: max-content;
+  color: $third-text-color;
+}
+
+.more-search {
+  justify-content: flex-start;
+  width: max-content;
+  color: $secondary-background;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-background;
+    text-decoration: underline;
+  }
+}
+
+.arrow-down {
+  transform: rotate(90deg);
+}
+
+.arrow-up {
+  transform: rotate(270deg);
+}
+
+.main-form-mobile {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 12px;
+}

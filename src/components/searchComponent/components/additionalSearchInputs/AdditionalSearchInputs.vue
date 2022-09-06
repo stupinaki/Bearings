@@ -1,19 +1,25 @@
 <template>
-  <div :class="additionalFormClass">
+  <div :class="styled.additionalFormWrapper">
     <div :class="styled.additionalForm">
       <div
-        v-for="input in inputsValue"
-        :key="input.id"
+        v-for="(input, i) in inputsData"
+        :key="i"
       >
         <InputUI
+          :value="input.value"
           :label="input.label"
           :placeholder="input.placeholder"
+          :name="input.name"
+          @input="$emit('onInputChange', { name: input.name, value: $event })"
         >
           <template
             v-if="input.hint"
             #hint
           >
-            <ButtonUI type-style="type-link">
+            <ButtonUI
+              type-style="type-link"
+              @click.prevent
+            >
               <HelpImg />
             </ButtonUI>
           </template>
@@ -22,7 +28,10 @@
     </div>
     <div :class="styled.helpReset">
       <div :class="styled.btnWrapper">
-        <ButtonUI type-style="type-link">
+        <ButtonUI
+          type-style="type-link"
+          @click.prevent
+        >
           Помощь в измерении
         </ButtonUI>
       </div>
@@ -30,6 +39,7 @@
         <ButtonUI
           type-style="type-link"
           :class="styled.resetBtn"
+          @click.prevent="$emit('clearForm')"
         >
           Сбросить фильтры
         </ButtonUI>
@@ -39,10 +49,9 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
-import ButtonUI from "../UI/button/ButtonUI.vue";
-import InputUI from "../UI/input/InputUI.vue";
-import HelpImg from "../../assets/help.svg";
+import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import InputUI from "../../../UI/input/InputUI.vue";
+import HelpImg from "../../../../assets/help.svg";
 import styled from "./additionalSearchInputs.module.css";
 
 export default {
@@ -52,52 +61,61 @@ export default {
     InputUI,
     HelpImg,
   },
+  props: {
+    formValues: {
+      type: Object,
+      required: true
+    }
+  },
+  emits: ["clearForm", "onInputChange"],
   data(){
     return {
       styled,
-      inputsValue: [
-        {
-          id: 333,
-          label: "Класс точности",
-          placeholder: "6302cg18",
-          hint: "test",
-        },
-        {
-          id: 3333,
-          label: "Тип подшипника",
-          placeholder: "6302cg18",
-          hint: "test",
-        },
-        {
-          id: 33333,
-          label: "Параметр подшипника",
-          placeholder: "6302cg18",
-        },
-        {
-          id: 333333,
-          label: "Внешний диаметр",
-          placeholder: "25 мм",
-        },
-        {
-          id: 3333333,
-          label: "Внутренний диаметр",
-          placeholder: "15 мм",
-        },
-        {
-          id: 33333333,
-          label: "Ширина",
-          placeholder: "30 мм",
-        }
-      ],
     }
   },
   computed: {
-    ...mapState("mainSearchForm", ["isAdditionalFormVisible", "searchParams"]),
-    additionalFormClass() {
-      if(this.isAdditionalFormVisible) {
-        return [styled.additionalFormWrapper];
-      }
-      return [styled.additionalFormWrapperHide];
+    inputsData() {
+      const { formValues } = this.$props;
+      return [
+        {
+          value: formValues.accuracyClass,
+          label: "Класс точности",
+          placeholder: "6302cg18",
+          hint: "test",
+          name: "accuracyClass",
+        },
+        {
+          value: formValues.bearingType,
+          label: "Тип подшипника",
+          placeholder: "6302cg18",
+          hint: "test",
+          name: "bearingType",
+        },
+        {
+          value: formValues.bearingParameter,
+          label: "Параметр подшипника",
+          placeholder: "6302cg18",
+          name: "bearingParameter",
+        },
+        {
+          value: formValues.outerDiameter,
+          label: "Внешний диаметр",
+          placeholder: "25 мм",
+          name: "outerDiameter",
+        },
+        {
+          value: formValues.innerDiameter,
+          label: "Внутренний диаметр",
+          placeholder: "15 мм",
+          name: "innerDiameter",
+        },
+        {
+          value: formValues.bearingWidth,
+          label: "Ширина",
+          placeholder: "30 мм",
+          name: "bearingWidth",
+        }
+      ]
     },
   }
 }

@@ -6,15 +6,21 @@
   color: $primary-text-color;
 }
 
-.form {
+.wrapper {
   display: grid;
-  grid-template-columns: 4fr 4fr 1fr 3fr;
+  grid-template-columns: 4fr 1fr 4fr 1fr 3fr;
   gap: 8px;
   padding: 8px;
   margin: 12px 0;
   background: $primary-background;
   border: 1px solid $primary-border;
   border-radius: 8px;
+}
+
+.img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input {
@@ -33,4 +39,23 @@
 
 .btn-wrapper {
   display: inline-block;
+}
+
+.btn-search-wrapper {
+  color: $primary-background;
+}
+
+.hint-hide {
+  display: none;
+}
+
+.hint-visible {
+  position: absolute;
+  top: 0;
+  left: 196px;
+  z-index: 2;
+}
+
+.btn-hint-wrapper {
+  position: relative;
 }

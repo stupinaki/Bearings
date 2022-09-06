@@ -71,9 +71,7 @@ export default {
       "cityFilter"
     ]),
     citySearch(card) {
-      const { city, id } = card;
-      console.log("citySearch click on:", city)
-      this.cityFilter(id);
+      this.cityFilter(card.id);
     }
   },
 }

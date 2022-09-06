@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div :class="styled.additionalFormTextWrapper">
-      <div :class="[styled.additionalFormText, styled.textPaddingRight]">
+    <div :class="styled.textWrapper">
+      <div :class="[styled.text, styled.textPaddingRight]">
         {{ label }}
       </div>
-      <div :class="[styled.btnWrapper, styled.additionalFormText]">
+      <div :class="[styled.btnWrapper, styled.text]">
         <slot name="hint" />
       </div>
     </div>
     <input
+      :value="value"
       type="text"
-      :class="styled.additionalFormInput"
+      :class="styled.input"
       :placeholder="placeholder"
+      @input="onInput"
     >
   </div>
 </template>
@@ -24,18 +26,34 @@ export default {
   props: {
     label: {
       type: String,
-      require: true,
+      require: false,
       default: '',
     },
     placeholder: {
       type: String,
-      require: true,
+      require: false,
       default: '',
     },
+    name: {
+      type: String,
+      require: false,
+      default: '',
+    },
+    value: {
+      type: String,
+      require: false,
+      default: undefined,
+    }
   },
+  emits: ["input"],
   data() {
     return {
       styled,
+    }
+  },
+  methods: {
+    onInput(e) {
+      this.$emit('input', e.target.value);
     }
   }
 }

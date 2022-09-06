@@ -12,10 +12,6 @@
   margin-top: 56px;
 }
 
-.additional-form-wrapper-hide {
-  display: none;
-}
-
 .btn-wrapper {
   display: inline-block;
 }
@@ -47,5 +43,9 @@
     gap: 24px;
     width: 100%;
     margin-top: 56px;
+  }
+
+  .help-reset {
+    display: none;
   }
 }

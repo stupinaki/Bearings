@@ -9,11 +9,28 @@
     display: none;
   }
 
+  & :global(.v-field__field) {
+    padding: 0;
+  }
+
   & :global(.v-input) {
     width: 100%;
   }
 
   & :global(.v-input__details) {
     display: none;
+  }
+
+  & :global(.v-field__append-inner) {
+    display: none;
+  }
+
+  & :global(.v-field__input) {
+    align-items: center;
+    padding: 0;
+  }
+
+  & :global(.v-autocomplete .v-field .v-field__input > input) {
+    align-self: center;
   }
 }

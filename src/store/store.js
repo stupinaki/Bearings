@@ -3,7 +3,7 @@ import { companies } from "./companies";
 import { offers } from "./offers";
 import { getInTouch } from  "./getInTouch";
 import {cities} from "./cities";
-import {mainSearchForm} from "./mainSearchForm";
+import {searchComponent} from "./searchComponent";
 import { products } from "./products";
 import { filtersRange } from "./filtersRange";
 
@@ -16,7 +16,7 @@ const store = createStore({
         companies,
         getInTouch,
         filtersRange,
-        mainSearchForm,
+        searchComponent,
     },
 })
 

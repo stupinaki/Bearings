@@ -94,7 +94,6 @@ export default {
   },
   methods: {
     onSliderClick() {
-      console.log("onSliderClick")
       const selectedValueMin = Math.round(this.$data.sliderValue[0]);
       const selectedValueMax = Math.round(this.$data.sliderValue[1]);
       this.$data.fromMin = selectedValueMin;
