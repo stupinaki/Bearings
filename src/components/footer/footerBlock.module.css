@@ -11,7 +11,8 @@
 
 .container {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
   margin: 16px 0 32px;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .column-logo {
-  padding-right: 24px;
+  padding: 0 12px;
   font-size: 48px;
   font-weight: 800;
   line-height: 58px;
@@ -58,9 +59,25 @@
 
 @media screen and (max-width: $breakpointLarge) {
   .container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 8px;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
     margin-bottom: 24px;
+  }
+
+  .wrapper {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .wrapper {
+    margin: $mobile-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointExtraSmall) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

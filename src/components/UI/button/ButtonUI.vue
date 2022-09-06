@@ -28,7 +28,7 @@ export default {
         return ["primary", "secondary", "pseudo", "type-link"].includes(style);
       },
     },
-    disabled: Boolean
+    disabled: Boolean,
   },
   data() {
     return {

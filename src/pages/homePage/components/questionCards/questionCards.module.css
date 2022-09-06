@@ -6,7 +6,7 @@
 
 .question {
   display: grid;
-  grid-template-columns: calc((100% - 64px)/3) calc((100% - 64px)/3) calc((100% - 64px)/3);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin: 16px 0;
 }
@@ -23,14 +23,16 @@
   display: inline-block;
 }
 
-@media screen and (max-width: 900px) {
-  .wrapper {
-    grid-template-columns: calc((100% - 64px)/2) calc((100% - 64px)/2);
+@media screen and (max-width: $breakpointLarge) {
+  .question {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .wrapper {
-    grid-template-columns: 100%;
+@media screen and (max-width: $breakpointSmall) {
+  .question {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }

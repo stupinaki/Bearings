@@ -27,7 +27,6 @@
           </div>
         </div>
       </div>
-
       <div :class="styled.details">
         <div>
           <div :class="styled.row">

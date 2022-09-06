@@ -22,8 +22,10 @@ $primary-color: #000;
 
 $primary-margin: 0 72px;
 $secondary-margin: 0 40px;
+$mobile-margin: 0 20px;
 $primary-padding-top-bottom: 40px 0;
 
+$breakpointExtraSmall: 450px;
 $breakpointSmall: 600px;
 $breakpointLarge: 900px;
 $breakpointExtraLarge: 1200px;

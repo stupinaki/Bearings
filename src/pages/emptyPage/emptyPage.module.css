@@ -5,3 +5,15 @@
   font-size: 60px;
   line-height: 80px;
 }
+
+@media screen and (max-width: $breakpointLarge) {
+  .notice {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpointSmall) {
+  .notice {
+    margin: $mobile-margin;
+  }
+}
