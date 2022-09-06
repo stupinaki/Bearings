@@ -35,18 +35,15 @@
 
       <ButtonUI
         type-style="secondary"
-        @click.prevent="$emit('toggleAdditionalFormVisible')"
+        @click="$emit('toggleAdditionalFormVisible')"
       >
         <FilterVariantImg />
       </ButtonUI>
-      <router-link
-        :to="{name: 'products'}"
-        :class="styled.btnSearchWrapper"
-      >
+      <div :class="styled.btnSearchWrapper">
         <ButtonUI type="submit">
           Найти
         </ButtonUI>
-      </router-link>
+      </div>
     </div>
 
     <div :class="styled.btnHintWrapper">

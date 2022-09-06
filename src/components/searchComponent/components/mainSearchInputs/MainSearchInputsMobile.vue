@@ -42,16 +42,11 @@
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
     </div>
-
-    <router-link
-      :to="{name: 'products'}"
-      :class="styled.btnSearchWrapper"
-    >
+    <div :class="styled.btnSearchWrapper">
       <ButtonUI type="submit">
         Найти
       </ButtonUI>
-    </router-link>
-
+    </div>
     <div :class="styled.btnsWrapper">
       <ButtonUI
         type-style="type-link"

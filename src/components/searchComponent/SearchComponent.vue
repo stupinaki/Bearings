@@ -19,7 +19,7 @@
       :cities-filter="searchParams.citiesFilter"
       :is-toggle-additional-form="isAdditionalFormVisible"
       :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
-      @clear-form="clearSearchParams"
+      @clear-form="clearForm"
       @toggle-additional-form-visible="toggleAdditionalForm"
       @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
       @on-input-change="setInputValue($event)"
@@ -38,7 +38,7 @@
       v-if="isAdditionalFormVisible"
       :form-values="searchParams"
       @on-input-change="additionalInputsChange"
-      @clear-form="clearSearchParams"
+      @clear-form="clearForm"
     />
   </form>
 </template>
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
-    ...mapActions("products", ["initProducts", "getProductsTest"]),
+    ...mapActions("products", ["initProducts"]),
     ...mapActions("searchComponent", [
       "toggleAdditionalForm",
       "setInputValue",
@@ -85,11 +85,15 @@ export default {
     ]),
     initSearch() {
       console.log("поиск начался!")
-      this.getProductsTest(this.searchParams);
+      this.initProducts(this.searchParams);
     },
     additionalInputsChange(obj) {
       this.setInputValue(obj);
     },
+    clearForm() {
+      this.clearSearchParams()
+      this.initProducts(this.searchParams);
+    }
   }
 }
 </script>

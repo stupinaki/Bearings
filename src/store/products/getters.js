@@ -18,8 +18,4 @@ export default {
         }
         return state.products;
     },
-    //продукты отфильтрованные по поисковому запросу
-    getProducts() {
-
-    }
 }
