@@ -2,7 +2,7 @@
   <div
     v-if="width <= 900"
     :class="styled.mobileWrapper"
-  >
+    >
     <div
       v-if="isMenuOpen"
       :class="styled.menu"
@@ -14,6 +14,7 @@
         <ButtonUI
           size="m"
           type-style="pseudo"
+
         >
           Найти подшипники
         </ButtonUI>
@@ -25,6 +26,7 @@
         <ButtonUI
           size="m"
           type-style="pseudo"
+
         >
           Вопросы и ответы
         </ButtonUI>
@@ -36,6 +38,7 @@
         <ButtonUI
           size="m"
           type-style="pseudo"
+
         >
           Компании
         </ButtonUI>
@@ -47,6 +50,7 @@
         <ButtonUI
           size="m"
           type-style="pseudo"
+
         >
           Контакты
         </ButtonUI>
@@ -58,6 +62,7 @@
         <ButtonUI
           size="m"
           type-style="secondary"
+
         >
           Стать партнером
         </ButtonUI>
@@ -68,7 +73,6 @@
       type-style="pseudo"
       :class="styled.menuBtn"
       @click="onMenuClick"
-      @blur="isMenuOpen = false"
     >
       <MenuImg />
     </ButtonUI>
@@ -164,7 +168,7 @@ export default {
   methods: {
     onMenuClick() {
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
-    }
+    },
   }
 };
 </script>
