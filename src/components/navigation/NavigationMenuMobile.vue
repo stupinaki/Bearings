@@ -1,11 +1,15 @@
 <template>
-  <div :class="styled.menuMobile">
+  <div :class="styled.btnWrapper">
     <ButtonUI
       type-style="pseudo"
       :class="styled.btn"
+      @click="showMenu"
     >
       <MenuImg />
     </ButtonUI>
+  </div>
+
+  <div :class="menuStyle">
     <div>
       <router-link
         :to="{name: 'home'}"
@@ -80,6 +84,18 @@ export default {
   data() {
     return {
       styled,
+      isMenuOpen: false,
+    }
+  },
+  computed: {
+    menuStyle() {
+      return this.$data.isMenuOpen ? styled.menuMobile : styled.menuMobileHide;
+    }
+  },
+  methods: {
+    showMenu() {
+      this.$data.isMenuOpen = !this.$data.isMenuOpen;
+      console.log("покажи меню")
     }
   }
 }

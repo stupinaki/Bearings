@@ -5,8 +5,14 @@
   top: 0;
   right: 0;
   bottom: 0;
-  min-width: 360px;
+  min-width: 260px;
+  padding-top: 80px;
   background-color: $third-background;
+  box-shadow: 1px 8px 12px rgb(58 60 76 / 8%), 1px 1px 2px rgb(58 60 76 / 4%);
+}
+
+.menu-mobile-hide {
+  display: none;
 }
 
 .item-link {
@@ -18,4 +24,10 @@
 .btn {
   width: max-content;
   height: max-content;
+}
+
+.btn-wrapper {
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
 }
