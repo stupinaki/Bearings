@@ -1,5 +1,8 @@
 <template>
-  <div v-if="width <= 900" :class="styled.wrapperMobile">
+  <div
+    v-if="width <= 900"
+    :class="styled.wrapperMobile"
+  >
     <div :class="styled.logoMap">
       <div :class="styled.pic">
         PIC
@@ -14,20 +17,23 @@
     <NavigationMenuMobile />
   </div>
 
-  <div v-else :class="styled.wrapper">
-      <div :class="styled.logoMap">
-        <div :class="styled.pic">
-          PIC
-        </div>
-        <div :class="styled.map">
-          <Place />
-          <div :class="styled.city">
-            Саратов
-          </div>
+  <div
+    v-else
+    :class="styled.wrapper"
+  >
+    <div :class="styled.logoMap">
+      <div :class="styled.pic">
+        PIC
+      </div>
+      <div :class="styled.map">
+        <Place />
+        <div :class="styled.city">
+          Саратов
         </div>
       </div>
-      <NavigationMenu />
     </div>
+    <NavigationMenu />
+  </div>
 </template>
 
 <script>
