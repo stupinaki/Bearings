@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+import throttle from "lodash/throttle";
 import HeaderBlock from "/src/components/header/HeaderBlock.vue";
 import FooterBlock from "/src/components/footer/FooterBlock.vue";
 import reset from "../src/styles/reset.css"
@@ -32,6 +34,30 @@ export default {
     return {
       styles,
       reset,
+    }
+  },
+  beforeMount() {
+    const initialWidth = window.innerWidth;
+    const initialHeight = window.innerHeight;
+    this.initViewportWidth(initialWidth);
+    this.initViewportHeight(initialHeight)
+    window.addEventListener('resize',this.getNewResizeThrottle);
+  },
+  // beforeUnmount() {
+  //   window.removeEventListener('resize', this.getNewResizeThrottle);
+  // },
+  methods: {
+    ...mapActions("viewport", ["initViewportWidth", "initViewportHeight"]),
+    getNewResize(e) {
+      const width = e.target.innerWidth;
+      const height = e.target.innerHeight;
+      this.initViewportWidth(width);
+      this.initViewportHeight(height);
+    },
+  },
+  computed: {
+    getNewResizeThrottle() {
+      return throttle(this.getNewResize, 1000);
     }
   }
 }

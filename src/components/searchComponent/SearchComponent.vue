@@ -7,13 +7,12 @@
       Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
     </div>
   </div>
-  {{ searchParams }}
   <form
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
     <MainSearchInputsMobile
-      :class="styled.mainMobile"
+      v-if="viewportWidth <= 900"
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
@@ -25,7 +24,7 @@
       @on-input-change="setInputValue($event)"
     />
     <MainSearchInputs
-      :class="styled.mainWeb"
+      v-else
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
@@ -64,6 +63,7 @@ export default {
   },
   computed: {
     ...mapState("cities", ["cities"]),
+    ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams", "isAdditionalFormVisible"]),
     citiesOptions() {
       return this.cities.map(c => ({title: c.name, value: c.id}))

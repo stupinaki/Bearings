@@ -73,12 +73,16 @@
       </router-link>
     </div>
   </div>
+
+  viewportHeight: {{ viewportHeight }}
+  viewportWidth: {{ viewportWidth }}
 </template>
 
 <script>
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import MenuImg from "../../assets/menu.svg";
 import styled from "./navigationMenuMobile.module.css";
+import {mapState} from "vuex";
 
 export default {
   name: "NavigationMenuMobile",
@@ -89,15 +93,22 @@ export default {
   data() {
     return {
       styled,
-      isMenuOpen: false,
+      isMenuOpen: undefined,
     }
   },
   computed: {
+    ...mapState("viewport", ["viewportHeight", "viewportWidth"]),
     menuStyle() {
-      return this.$data.isMenuOpen ? styled.menuMobile : styled.menuMobileHide;
+      if (this.$data.isMenuOpen === undefined) {
+        return styled.menuMobileHide;
+      }
+      return this.$data.isMenuOpen ? styled.menuMobileOpen : styled.menuMobileClose;
     },
     opacityBlockStyle() {
       return this.$data.isMenuOpen ? styled.opacityBlock : styled.opacityBlockHide;
+    },
+    menuHeight() {
+      return "height: " + this.viewportHeight + "px;"
     }
   },
   methods: {

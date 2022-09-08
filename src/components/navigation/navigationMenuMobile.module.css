@@ -1,17 +1,32 @@
 @import "/src/styles/variables.modules.css";
 
-.menu-mobile {
-  position: absolute;
+.menu-mobile-open {
+  position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   z-index: 2;
-  display: block;
-  min-width: 220px;
-  padding-top: 80px;
+  width: 220px;
+  height: 100vh;
+  padding-top: 100px;
   background-color: $third-background;
   box-shadow: 1px 8px 12px rgb(58 60 76 / 8%), 1px 1px 2px rgb(58 60 76 / 4%);
-  animation-name: menu;
+  animation-name: menu-open;
+  animation-duration: 400ms;
+  animation-timing-function: linear;
+  animation-iteration-count: initial;
+}
+
+.menu-mobile-close {
+  position: fixed;
+  top: 0;
+  right: -220px;
+  z-index: 2;
+  width: 220px;
+  height: 100vh;
+  padding-top: 100px;
+  background-color: $third-background;
+  box-shadow: 1px 8px 12px rgb(58 60 76 / 8%), 1px 1px 2px rgb(58 60 76 / 4%);
+  animation-name: menu-close;
   animation-duration: 400ms;
   animation-timing-function: linear;
   animation-iteration-count: initial;
@@ -53,13 +68,27 @@
   display: none;
 }
 
-@keyframes menu {
+@keyframes menu-open {
   0% {
     transform: translateX(100%);
   }
 
   50% {
     transform: translateX(50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes menu-close {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-50%);
   }
 
   100% {
