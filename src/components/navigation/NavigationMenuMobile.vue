@@ -9,6 +9,11 @@
     </ButtonUI>
   </div>
 
+  <div
+    :class="opacityBlockStyle"
+    tabindex="0"
+    @focus="onOpacityFocus"
+  />
   <div :class="menuStyle">
     <div>
       <router-link
@@ -90,12 +95,17 @@ export default {
   computed: {
     menuStyle() {
       return this.$data.isMenuOpen ? styled.menuMobile : styled.menuMobileHide;
+    },
+    opacityBlockStyle() {
+      return this.$data.isMenuOpen ? styled.opacityBlock : styled.opacityBlockHide;
     }
   },
   methods: {
     showMenu() {
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
-      console.log("покажи меню")
+    },
+    onOpacityFocus() {
+      this.$data.isMenuOpen = false;
     }
   }
 }

@@ -52,10 +52,18 @@
     justify-content: space-between;
     margin: $secondary-margin;
   }
+
+  .wrapper-mobile {
+    margin: $secondary-margin;
+  }
 }
 
 @media screen and (max-width: $breakpointSmall) {
   .wrapper {
+    margin: $mobile-margin;
+  }
+
+  .wrapper-mobile {
     margin: $mobile-margin;
   }
 }
