@@ -76,11 +76,7 @@ export default {
   data() {
     return {
       styled,
-      width: undefined,
     };
-  },
-  beforeMount() {
-    this.$data.width = window.innerWidth;
   },
 };
 </script>
