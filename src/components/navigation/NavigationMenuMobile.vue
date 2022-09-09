@@ -2,87 +2,86 @@
   <div :class="styled.btnWrapper">
     <ButtonUI
       type-style="pseudo"
-      :class="styled.btn"
+      :class="btnStyle"
       @click="showMenu"
     >
       <MenuImg />
     </ButtonUI>
   </div>
-
-  <div
-    :class="opacityBlockStyle"
-    tabindex="0"
-    @focus="onOpacityFocus"
-  />
-  <div :class="menuStyle">
-    <div>
-      <router-link
-        :to="{name: 'home'}"
-        :class="styled.itemLink"
-      >
-        <ButtonUI
-          size="m"
-          type-style="pseudo"
-        >
-          Найти подшипники
-        </ButtonUI>
-      </router-link>
-      <router-link
-        :to="{name: 'products'}"
-        :class="styled.itemLink"
-      >
-        <ButtonUI
-          size="m"
-          type-style="pseudo"
-        >
-          Вопросы и ответы
-        </ButtonUI>
-      </router-link>
-      <router-link
-        :to="{name: 'companies'}"
-        :class="styled.itemLink"
-      >
-        <ButtonUI
-          size="m"
-          type-style="pseudo"
-        >
-          Компании
-        </ButtonUI>
-      </router-link>
-      <router-link
-        :to="{name: 'empty'}"
-        :class="styled.itemLink"
-      >
-        <ButtonUI
-          size="m"
-          type-style="pseudo"
-        >
-          Контакты
-        </ButtonUI>
-      </router-link>
-      <router-link
-        :to="{name: 'empty'}"
-        :class="styled.itemLink"
-      >
-        <ButtonUI
-          size="m"
-          type-style="secondary"
-        >
-          Стать партнером
-        </ButtonUI>
-      </router-link>
+  <div :class="styled.menuWrapper">
+    <div :class="styled.menuContainer">
+      <aside :class="menuStyle">
+        <nav>
+          <router-link
+            :to="{name: 'home'}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+            >
+              Найти подшипники
+            </ButtonUI>
+          </router-link>
+          <router-link
+            :to="{name: 'products'}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+            >
+              Вопросы и ответы
+            </ButtonUI>
+          </router-link>
+          <router-link
+            :to="{name: 'companies'}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+            >
+              Компании
+            </ButtonUI>
+          </router-link>
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+            >
+              Контакты
+            </ButtonUI>
+          </router-link>
+          <router-link
+            :to="{name: 'empty'}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="secondary"
+            >
+              Стать партнером
+            </ButtonUI>
+          </router-link>
+        </nav>
+      </aside>
+      <div
+        :class="opacityBlockStyle"
+        tabindex="0"
+        @focus="onOpacityFocus"
+      />
     </div>
   </div>
-
-  viewportHeight: {{ viewportHeight }}
-  viewportWidth: {{ viewportWidth }}
 </template>
 
 <script>
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import MenuImg from "../../assets/menu.svg";
 import styled from "./navigationMenuMobile.module.css";
-import {mapState} from "vuex";
 
 export default {
   name: "NavigationMenuMobile",
@@ -97,18 +96,21 @@ export default {
     }
   },
   computed: {
-    ...mapState("viewport", ["viewportHeight", "viewportWidth"]),
     menuStyle() {
       if (this.$data.isMenuOpen === undefined) {
         return styled.menuMobileHide;
       }
-      return this.$data.isMenuOpen ? styled.menuMobileOpen : styled.menuMobileClose;
+      return this.$data.isMenuOpen
+          ? [styled.menuMobile, styled.menuMobileOpen]
+          : [styled.menuMobile, styled.menuMobileClose];
     },
     opacityBlockStyle() {
       return this.$data.isMenuOpen ? styled.opacityBlock : styled.opacityBlockHide;
     },
-    menuHeight() {
-      return "height: " + this.viewportHeight + "px;"
+    btnStyle() {
+      return this.$data.isMenuOpen
+          ? [styled.btn, styled.btnMenuOpen]
+          : [styled.btn, styled.btnMenuClose];
     }
   },
   methods: {

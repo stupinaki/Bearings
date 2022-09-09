@@ -36,16 +36,21 @@ export default {
       reset,
     }
   },
+  computed: {
+    getNewResizeThrottle() {
+      return throttle(this.getNewResize, 1000);
+    }
+  },
   beforeMount() {
     const initialWidth = window.innerWidth;
     const initialHeight = window.innerHeight;
     this.initViewportWidth(initialWidth);
-    this.initViewportHeight(initialHeight)
+    this.initViewportHeight(initialHeight);
     window.addEventListener('resize',this.getNewResizeThrottle);
   },
-  // beforeUnmount() {
-  //   window.removeEventListener('resize', this.getNewResizeThrottle);
-  // },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.getNewResizeThrottle);
+  },
   methods: {
     ...mapActions("viewport", ["initViewportWidth", "initViewportHeight"]),
     getNewResize(e) {
@@ -55,10 +60,5 @@ export default {
       this.initViewportHeight(height);
     },
   },
-  computed: {
-    getNewResizeThrottle() {
-      return throttle(this.getNewResize, 1000);
-    }
-  }
 }
 </script>
