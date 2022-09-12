@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="viewportWidth <= 900"
+    v-if="isMobile"
     :class="styled.wrapperMobile"
   >
     <div :class="styled.logoMap">
@@ -37,11 +37,12 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { breakpoints } from "../../consts/breakpoints"
 import NavigationMenuMobile from "../navigation/NavigationMenuMobile.vue";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
 import Place from "../../assets/place.svg";
 import styled from "./headerBlock.module.css";
-import {mapState} from "vuex";
 
 export default {
   name: "HeaderBlock",
@@ -57,6 +58,9 @@ export default {
   },
   computed: {
     ...mapState("viewport", ["viewportWidth"]),
+    isMobile() {
+      return this.viewportWidth <= breakpoints.large;
+    }
   }
 };
 </script>

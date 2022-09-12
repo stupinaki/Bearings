@@ -23,14 +23,14 @@
   display: inline-block;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .question {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .question {
     grid-template-columns: 1fr;
     gap: 16px;

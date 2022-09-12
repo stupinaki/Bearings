@@ -40,13 +40,13 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .wrapper {
     grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .wrapper {
     display: flex;
     justify-content: space-between;
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .wrapper {
     margin: $mobile-margin;
   }

@@ -8,7 +8,7 @@
       <MenuImg />
     </ButtonUI>
   </div>
-  <div :class="styled.menuWrapper">
+  <div :class="menuWrapperStyle">
     <div :class="styled.menuContainer">
       <aside :class="menuStyle">
         <nav>
@@ -72,7 +72,7 @@
       <div
         :class="opacityBlockStyle"
         tabindex="0"
-        @focus="onOpacityFocus"
+        @focus="onOpacityBlockFocus"
       />
     </div>
   </div>
@@ -92,12 +92,13 @@ export default {
   data() {
     return {
       styled,
-      isMenuOpen: undefined,
+      isMenuOpen: false,
+      isMenuHide: true,
     }
   },
   computed: {
     menuStyle() {
-      if (this.$data.isMenuOpen === undefined) {
+      if (this.$data.isMenuHide) {
         return styled.menuMobileHide;
       }
       return this.$data.isMenuOpen
@@ -111,13 +112,17 @@ export default {
       return this.$data.isMenuOpen
           ? [styled.btn, styled.btnMenuOpen]
           : [styled.btn, styled.btnMenuClose];
+    },
+    menuWrapperStyle() {
+      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuMobileHide;
     }
   },
   methods: {
     showMenu() {
+      this.$data.isMenuHide = false;
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
     },
-    onOpacityFocus() {
+    onOpacityBlockFocus() {
       this.$data.isMenuOpen = false;
     }
   }

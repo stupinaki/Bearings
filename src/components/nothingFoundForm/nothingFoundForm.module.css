@@ -90,7 +90,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .contacts-and-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -98,7 +98,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .contacts-data {
     font-size: 20px;
     line-height: 26px;

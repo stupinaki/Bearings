@@ -1,11 +1,11 @@
 @import "/src/styles/variables.modules.css";
 
-.step-wrapper {
+.dot-wrapper {
   display: flex;
   justify-content: center;
 }
 
-.step {
+.dot {
   width: 8px;
   height: 8px;
   margin: 6px;
@@ -13,66 +13,66 @@
   border-radius: 50%;
 }
 
-.step1 {
-  animation-name: step1-scale;
+.dot1 {
+  animation-name: dot1-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.step2 {
-  animation-name: step2-scale;
+.dot2 {
+  animation-name: dot2-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.step3 {
-  animation-name: step3-scale;
+.dot3 {
+  animation-name: dot3-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.step4 {
-  animation-name: step4-scale;
+.dot4 {
+  animation-name: dot4-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.step5 {
-  animation-name: step5-scale;
+.dot5 {
+  animation-name: dot5-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes step1-scale {
+@keyframes dot1-scale {
   16% {
     transform: scale(2);
   }
 }
 
-@keyframes step2-scale {
+@keyframes dot2-scale {
   32% {
     transform: scale(2);
   }
 }
 
-@keyframes step3-scale {
+@keyframes dot3-scale {
   47% {
     transform: scale(2);
   }
 }
 
-@keyframes step4-scale {
+@keyframes dot4-scale {
   62% {
     transform: scale(2);
   }
 }
 
-@keyframes step5-scale {
+@keyframes dot5-scale {
   80% {
     transform: scale(2);
   }

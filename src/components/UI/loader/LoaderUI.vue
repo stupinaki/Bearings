@@ -1,10 +1,10 @@
 <template>
-  <div :class="styled.stepWrapper">
-    <div :class="[styled.step, styled.step1]" />
-    <div :class="[styled.step, styled.step2]" />
-    <div :class="[styled.step, styled.step3]" />
-    <div :class="[styled.step, styled.step4]" />
-    <div :class="[styled.step, styled.step5]" />
+  <div :class="styled.dotWrapper">
+    <div :class="[styled.dot, styled.dot1]" />
+    <div :class="[styled.dot, styled.dot2]" />
+    <div :class="[styled.dot, styled.dot3]" />
+    <div :class="[styled.dot, styled.dot4]" />
+    <div :class="[styled.dot, styled.dot5]" />
   </div>
 </template>
 
@@ -17,6 +17,6 @@ export default {
     return {
       styled,
     }
-  }
+  },
 }
 </script>

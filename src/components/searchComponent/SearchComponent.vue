@@ -12,7 +12,7 @@
     @submit.prevent="initSearch"
   >
     <MainSearchInputsMobile
-      v-if="viewportWidth <= 900"
+      v-if="isMobile"
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
@@ -44,6 +44,7 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
+import {breakpoints} from "../../consts/breakpoints";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
 import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import MainSearchInputsMobile from "./components/mainSearchInputs/MainSearchInputsMobile.vue";
@@ -70,6 +71,9 @@ export default {
     },
     isVisibleAutocompletePlaceholder() {
       return !this.searchParams.citiesFilter.length;
+    },
+    isMobile() {
+      return this.viewportWidth <= breakpoints.large;
     }
   },
   beforeMount() {

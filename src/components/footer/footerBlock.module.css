@@ -57,7 +57,7 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .container {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
@@ -69,13 +69,13 @@
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .wrapper {
     margin: $mobile-margin;
   }
 }
 
-@media screen and (max-width: $breakpointExtraSmall) {
+@media screen and (max-width: $breakpoint-extra-small) {
   .container {
     grid-template-columns: 1fr;
     gap: 4px;

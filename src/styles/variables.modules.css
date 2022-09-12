@@ -25,7 +25,11 @@ $secondary-margin: 0 40px;
 $mobile-margin: 0 20px;
 $primary-padding-top-bottom: 40px 0;
 
-$breakpointExtraSmall: 450px;
-$breakpointSmall: 600px;
-$breakpointLarge: 900px;
-$breakpointExtraLarge: 1200px;
+$breakpoint-extra-small: 450px;
+$breakpoint-small: 600px;
+$breakpoint-large: 900px;
+$breakpoint-extra-large: 1200px;
+
+$z-index-default: 10;
+$z-index-extra: 50;
+$z-index-total: 100;

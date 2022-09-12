@@ -53,7 +53,7 @@
   position: absolute;
   top: 0;
   left: 196px;
-  z-index: 2;
+  z-index: $z-index-default;
 }
 
 .btn-hint-wrapper {
