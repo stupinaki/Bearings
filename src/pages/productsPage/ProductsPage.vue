@@ -6,7 +6,7 @@
     <PaginationComponent
       :data="orderedProducts"
       :page-size="2"
-      :visible-page-count="7"
+      :visible-page-count="visiblePageCount"
     >
       <template #default="props">
         <ProductCards :products-chunk="props.currentPageData" />
@@ -17,6 +17,7 @@
 
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
+import {breakpoints} from "../../consts/breakpoints";
 import OfferCards from "./components/offerCards/OfferCards.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import ProductCards from "./components/productCards/ProductCards.vue";
@@ -41,7 +42,17 @@ export default {
   },
   computed: {
     ...mapGetters("products", ["orderedProducts"]),
-    ...mapState("products", ["products"])
+    ...mapState("products", ["products"]),
+    ...mapState("viewport", ["viewportWidth"]),
+    visiblePageCount() {
+      if(this.viewportWidth <= breakpoints.small) {
+        return 3;
+      }
+      if(this.viewportWidth <= breakpoints.extraSmall) {
+        return 5;
+      }
+      return 7;
+    },
   },
   beforeMount() {
     this.initProducts();
