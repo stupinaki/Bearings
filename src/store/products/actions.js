@@ -2,12 +2,27 @@ import actionNames from "./actionNames";
 import {fetchRequestProducts} from "../../api/fetchRequestProducts";
 
 export default {
-    //todo добавить обработку ошибок, лоадинг
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
-        const result = await dispatch('fetchProducts', searchParams);
-        commit(actionNames.SET_PRODUCTS, result);
-        commit(actionNames.SET_LOADING, false);
+
+        const promise = dispatch('fetchProducts', searchParams);
+
+        const consumer = () => {
+            promise.then(
+                (result) => {
+                    commit(actionNames.SET_PRODUCTS, result);
+                    console.log(result, "мы успешно получили карточки");
+                },
+                (error) => {
+                    commit(actionNames.SET_ERROR, true);
+                    console.log(error);
+                }
+            ).finally( () => {
+                commit(actionNames.SET_LOADING, false);
+                console.log( "мы в finally");
+            })
+        }
+        consumer();
     },
     fetchProducts(_, searchParams) {
         return fetchRequestProducts(searchParams);

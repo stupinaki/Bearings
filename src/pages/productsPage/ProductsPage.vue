@@ -1,8 +1,8 @@
 <template>
   <div :class="styled.container">
     <SearchComponent />
-    <OfferCards />
-    <FiltersComponent />
+    <OfferCards v-show="!loading" />
+    <FiltersComponent v-show="!loading" />
     <LoaderUI v-if="loading" />
     <PaginationComponent
       :data="orderedProducts"
