@@ -3,6 +3,7 @@
     <SearchComponent />
     <OfferCards />
     <FiltersComponent />
+    <LoaderUI v-if="loading" />
     <PaginationComponent
       :data="orderedProducts"
       :page-size="2"
@@ -19,6 +20,7 @@
 import {mapActions, mapGetters, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
 import OfferCards from "./components/offerCards/OfferCards.vue";
+import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import ProductCards from "./components/productCards/ProductCards.vue";
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
@@ -28,6 +30,7 @@ import styled from "./productsPage.module.css";
 export default {
   name: "ProductsPage",
   components: {
+    LoaderUI,
     OfferCards,
     ProductCards,
     SearchComponent,
@@ -42,7 +45,7 @@ export default {
   },
   computed: {
     ...mapGetters("products", ["orderedProducts"]),
-    ...mapState("products", ["products"]),
+    ...mapState("products", ["products", "loading"]),
     ...mapState("viewport", ["viewportWidth"]),
     visiblePageCount() {
       if(this.viewportWidth <= breakpoints.small) {

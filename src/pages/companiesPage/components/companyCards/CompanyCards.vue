@@ -1,4 +1,5 @@
 <template>
+  <LoaderUI v-if="loading" />
   <div :class="styled.cards">
     <div
       v-for="card in searchCards"
@@ -11,14 +12,16 @@
 </template>
 
 <script>
-import CompanyCard from "../companyCard/CompanyCard.vue";
-import styled from "./companyCards.module.css";
 import {mapActions, mapState} from "vuex";
+import CompanyCard from "../companyCard/CompanyCard.vue";
+import LoaderUI from "../../../../components/UI/loader/LoaderUI.vue";
+import styled from "./companyCards.module.css";
 
 export default {
   name: "CompanyCards",
   components: {
     CompanyCard,
+    LoaderUI,
   },
   props: {
     searchCompanyName: {

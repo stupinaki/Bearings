@@ -8,27 +8,34 @@
         ({{ companiesQuantities }})
       </div>
     </div>
-    <SearchInput
-      placeholder="Например, Авангард-подшипник"
-      @start-search="onStartSearch"
-    />
-    <CompanyCards
-      :search-company-name="searchText"
-    />
 
-    <div :class="styled.btnContainer">
-      <ButtonUI
-        type-style="secondary"
+    <div>
+      <SearchInput
+        v-show="!loading"
+        placeholder="Например, Авангард-подшипник"
+        @start-search="onStartSearch"
+      />
+      <CompanyCards
+        :search-company-name="searchText"
+      />
+
+      <div
+        v-show="!loading"
+        :class="styled.btnContainer"
       >
-        <div :class="styled.btnContentWrapper">
-          <div :class="styled.btnText">
-            Показать еще
+        <ButtonUI
+          type-style="secondary"
+        >
+          <div :class="styled.btnContentWrapper">
+            <div :class="styled.btnText">
+              Показать еще
+            </div>
+            <div :class="styled.btnQuantities">
+              ({{ companiesCount }})
+            </div>
           </div>
-          <div :class="styled.btnQuantities">
-            ({{ companiesCount }})
-          </div>
-        </div>
-      </ButtonUI>
+        </ButtonUI>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +61,7 @@ export default {
     }
   },
   computed: {
-    ...mapState("companies", ["companies"]),
+    ...mapState("companies", ["companies", "loading"]),
     companiesQuantities() {
       return this.companies.length;
     },

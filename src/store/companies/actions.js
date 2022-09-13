@@ -7,14 +7,31 @@ export default {
         if (state.companies.length) {
             return;
         }
+
         commit(actionNames.SET_LOADING, true);
-        const result = await dispatch('getCompanies');
-        commit(actionNames.SET_COMPANIES, result);
-        commit(actionNames.SET_LOADING, false);
+        const promise = dispatch('getCompanies');
+
+        const consumer = () => {
+            promise.then(
+                (result) => {
+                    commit(actionNames.SET_COMPANIES, result);
+                    console.log(result, "мы успешно получили карточки");
+                },
+                (error) => {
+                    commit(actionNames.SET_ERROR, true);
+                    console.log(error);
+                }
+            ).finally( () => {
+                commit(actionNames.SET_LOADING, false);
+                console.log( "мы в finally");
+            })
+        }
+        consumer();
     },
 
     getCompanies() {
         // todo replace with real data
-        return timeoutPromise(companiesCardsValue, 1000)
+        return timeoutPromise(companiesCardsValue, 2000)
     },
+
 }
