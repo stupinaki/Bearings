@@ -93,14 +93,10 @@ export default {
     return {
       styled,
       isMenuOpen: false,
-      isMenuHide: true,
     }
   },
   computed: {
     menuStyle() {
-      if (this.$data.isMenuHide) {
-        return styled.menuMobileHide;
-      }
       return this.$data.isMenuOpen
           ? [styled.menuMobile, styled.menuMobileOpen]
           : [styled.menuMobile, styled.menuMobileClose];
@@ -114,12 +110,11 @@ export default {
           : [styled.btn, styled.btnMenuClose];
     },
     menuWrapperStyle() {
-      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuMobileHide;
+      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuWrapperHide;
     }
   },
   methods: {
     showMenu() {
-      this.$data.isMenuHide = false;
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
     },
     onOpacityBlockFocus() {
