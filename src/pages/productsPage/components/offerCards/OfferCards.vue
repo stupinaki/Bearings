@@ -1,34 +1,27 @@
 <template>
   <div :class="styled.wrapper">
-    <div :class="styled.title">
+    <span :class="styled.title">
       Найдено {{ allCount }} {{ correctWord }}
-    </div>
-    <div :class="styled.cards">
-      <div
-        v-for="card in visibleOffers"
-        :key="card.id"
-        :class="styled.btnWrapper"
-      >
-        <ButtonUI
-          type-style="pseudo"
-          :class="styled.btn"
-          @click="citySearch(card)"
-        >
-          <OfferCard
-            :city="card.city"
-            :count="card.count"
-          />
-        </ButtonUI>
-      </div>
-    </div>
-    <ButtonUI
-      type-style="type-link"
-      :class="styled.btnMore"
-      @click="showMore"
-    >
-      Показать больше предложений по городам
-      <ArrowImg :class="arrowStyle" />
-    </ButtonUI>
+    </span>
+
+    <SliderUI :items="offers">
+      <template #default="props">
+        <div :class="styled.cards">
+          <ButtonUI
+            v-for="card in props.items"
+            :key="card.id"
+            :class="styled.btn"
+            type-style="pseudo"
+            @click="citySearch(card)"
+          >
+            <OfferCard
+              :city="card.city"
+              :count="card.count"
+            />
+          </ButtonUI>
+        </div>
+      </template>
+    </SliderUI>
   </div>
 </template>
 
@@ -36,7 +29,7 @@
 import {mapActions, mapState} from "vuex";
 import OfferCard from "../offerCard/OfferCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import ArrowImg from "../../../../assets/iconForward.svg"
+import SliderUI from "../../../../components/UI/slider/SliderUI.vue";
 import styled from "./offerCards.module.css";
 
 
@@ -45,9 +38,9 @@ export default {
   components: {
     OfferCard,
     ButtonUI,
-    ArrowImg
+    SliderUI,
   },
-  data(){
+  data() {
     return {
       styled,
       isAllOffersVisible: false,
@@ -56,32 +49,20 @@ export default {
   computed: {
     ...mapState("offers", ["offers"]),
     ...mapState('products', ['products']),
-    allCount(){
+    allCount() {
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
-    correctWord(){
+    correctWord() {
       const count = this.allCount.toString();
       const lastDigit = +count[count.length - 1];
-      if(lastDigit === 1){
+      if (lastDigit === 1) {
         return "предложение";
       }
-      if(lastDigit === 2 || lastDigit === 3 || lastDigit === 4){
+      if (lastDigit === 2 || lastDigit === 3 || lastDigit === 4) {
         return "предложения";
       }
       return "предложений";
     },
-    visibleOffers() {
-      if(this.$data.isAllOffersVisible) {
-        return this.offers;
-      }
-      return this.offers.slice(0, 5);
-    },
-    arrowStyle() {
-      if(this.$data.isAllOffersVisible) {
-        return styled.arrowUp;
-      }
-      return styled.arrowDown;
-    }
   },
   beforeMount() {
     this.initOffers();
@@ -97,9 +78,6 @@ export default {
     citySearch(card) {
       this.cityFilter(card.id);
     },
-    showMore() {
-      this.$data.isAllOffersVisible = !this.$data.isAllOffersVisible;
-    }
   },
 }
 </script>

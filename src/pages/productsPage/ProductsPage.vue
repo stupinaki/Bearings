@@ -2,7 +2,6 @@
   <div :class="styled.container">
     <SearchComponent />
     <OfferCards />
-    <SliderUI :items="offers"/>
     <FiltersComponent />
     <PaginationComponent
       :data="orderedProducts"
@@ -24,7 +23,6 @@ import ProductCards from "./components/productCards/ProductCards.vue";
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import styled from "./productsPage.module.css";
-import SliderUI from "../../components/UI/slider/SliderUI.vue";
 
 export default {
   name: "ProductsPage",
@@ -34,7 +32,6 @@ export default {
     SearchComponent,
     FiltersComponent,
     PaginationComponent,
-    SliderUI
   },
   data() {
     return {

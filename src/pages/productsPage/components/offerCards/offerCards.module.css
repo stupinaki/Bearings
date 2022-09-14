@@ -5,10 +5,10 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: 16% 16% 16% 16% 16%;
-  gap: 12px;
-  margin: 40px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .title {
@@ -19,11 +19,8 @@
   color: $primary-text-color;
 }
 
-.btn-wrapper {
-  min-width: 100%;
-}
-
 .btn {
+  width: max-content;
   padding: 0;
 }
 

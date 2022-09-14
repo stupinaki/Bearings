@@ -8,17 +8,7 @@
       <ArrowImg :class="styled.arrowPrev" />
     </ButtonUI>
 
-    <div :class="styled.slider">
-      <div
-        v-for="card in visibleItems[chunkNumber]"
-        :key="card.id"
-      >
-        <OfferCard
-          :city="card.city"
-          :count="card.count"
-        />
-      </div>
-    </div>
+    <slot :items="currentItems" />
 
     <ButtonUI
       type-style="pseudo"
@@ -28,13 +18,10 @@
       <ArrowImg />
     </ButtonUI>
   </div>
-
-  windowInnerWidth: {{windowInnerWidth}}
 </template>
 
 <script>
 import chunk from "lodash/chunk";
-import OfferCard from "../../../pages/productsPage/components/offerCard/OfferCard.vue";
 import ArrowImg from "../../../assets/iconForward.svg";
 import ButtonUI from "../button/ButtonUI.vue";
 import styled from "./sliderUI.module.css";
@@ -44,12 +31,11 @@ export default {
   components: {
     ArrowImg,
     ButtonUI,
-    OfferCard,
   },
   props: {
     items: {
       type: Array,
-      required: true,
+      required: false,
       default: () => [],
     },
     visibleItemsMaxCount: {
@@ -65,9 +51,6 @@ export default {
       windowInnerWidth: undefined,
     }
   },
-  beforeMount() {
-    this.$data.windowInnerWidth = window.innerWidth;
-  },
   computed: {
     visibleItems() {
       const {visibleItemsMaxCount, items} = this.$props;
@@ -81,6 +64,9 @@ export default {
         return chunk(items, 2);
       }
       return chunk(items, visibleItemsMaxCount);
+    },
+    currentItems() {
+      return this.visibleItems[this.$data.chunkNumber];
     },
     btnNextStyle() {
       if(this.visibleItems.length === 1) {
@@ -100,6 +86,9 @@ export default {
       }
       return [styled.btnWrapper, styled.btnHide];
     }
+  },
+  beforeMount() {
+    this.$data.windowInnerWidth = window.innerWidth;
   },
   methods: {
     goNext() {
