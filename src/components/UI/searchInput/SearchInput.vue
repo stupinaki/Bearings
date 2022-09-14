@@ -13,6 +13,7 @@
         </ButtonUI>
       </div>
       <input
+        inputmode="search"
         ref="searchQuery"
         :placeholder="placeholder"
         :class="styled.input"

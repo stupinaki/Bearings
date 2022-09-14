@@ -7,6 +7,7 @@
       <b>Ваша заявка успешно отправлена</b>
     </span>
     <input
+      inputmode="text"
       v-model.trim.lazy="oderFormName"
       type="text"
       placeholder="Имя"
@@ -15,6 +16,7 @@
       @focus="onFocusInputName"
     >
     <input
+      inputmode="tel"
       v-model.trim="oderFormPhone"
       type="text"
       placeholder="Телефон"
@@ -23,6 +25,7 @@
       @blur="checkPhone"
     >
     <input
+      inputmode="email"
       v-model.trim="oderFormEmail"
       type="text"
       placeholder="E-mail"
