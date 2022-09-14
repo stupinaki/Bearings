@@ -13,8 +13,8 @@
         </ButtonUI>
       </div>
       <input
-        inputmode="search"
         ref="searchQuery"
+        inputmode="search"
         :placeholder="placeholder"
         :class="styled.input"
         @blur="onBlur"
