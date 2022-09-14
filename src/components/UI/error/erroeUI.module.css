@@ -1,0 +1,16 @@
+@import "/src/styles/variables.modules.css";
+
+.oops-wrapper {
+  margin: 40px 0;
+}
+
+.header {
+  margin-bottom: 16px;
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.hint {
+  font-size: 20px;
+  line-height: 20px;
+}

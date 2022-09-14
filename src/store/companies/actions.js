@@ -3,30 +3,20 @@ import {timeoutPromise} from "../../helpers/timeoutPromise";
 import {companiesCardsValue} from "../../../data/companiesCardsValue";
 
 export default {
-    async initCompanies({ state, commit, dispatch}) {
+    async initCompanies({state, commit, dispatch}) {
         if (state.companies.length) {
             return;
         }
 
         commit(actionNames.SET_LOADING, true);
-        const promise = dispatch('getCompanies');
 
-        const consumer = () => {
-            promise.then(
-                (result) => {
-                    commit(actionNames.SET_COMPANIES, result);
-                    console.log(result, "мы успешно получили карточки");
-                },
-                (error) => {
-                    commit(actionNames.SET_ERROR, true);
-                    console.log(error);
-                }
-            ).finally( () => {
-                commit(actionNames.SET_LOADING, false);
-                console.log( "мы в finally");
-            })
+        try {
+            const result = await dispatch('getCompanies');
+            commit(actionNames.SET_COMPANIES, result);
+        } catch (error) {
+            commit(actionNames.SET_ERROR, true);
         }
-        consumer();
+        commit(actionNames.SET_LOADING, false);
     },
 
     getCompanies() {

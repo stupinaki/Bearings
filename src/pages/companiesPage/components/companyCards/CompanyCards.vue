@@ -1,4 +1,5 @@
 <template>
+  <ErrorUI v-if="error" />
   <LoaderUI v-if="loading" />
   <div :class="styled.cards">
     <div
@@ -15,6 +16,7 @@
 import {mapActions, mapState} from "vuex";
 import CompanyCard from "../companyCard/CompanyCard.vue";
 import LoaderUI from "../../../../components/UI/loader/LoaderUI.vue";
+import ErrorUI from "../../../../components/UI/error/ErrorUI.vue";
 import styled from "./companyCards.module.css";
 
 export default {
@@ -22,6 +24,7 @@ export default {
   components: {
     CompanyCard,
     LoaderUI,
+    ErrorUI,
   },
   props: {
     searchCompanyName: {
@@ -36,7 +39,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("companies", ["companies", "loading"]),
+    ...mapState("companies", ["companies", "loading", "error"]),
     searchCards() {
       const { searchCompanyName } = this.$props;
       if (!searchCompanyName) {

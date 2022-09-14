@@ -5,24 +5,15 @@ export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
 
-        const promise = dispatch('fetchProducts', searchParams);
-
-        const consumer = () => {
-            promise.then(
-                (result) => {
-                    commit(actionNames.SET_PRODUCTS, result);
-                    console.log(result, "мы успешно получили карточки");
-                },
-                (error) => {
-                    commit(actionNames.SET_ERROR, true);
-                    console.log(error);
-                }
-            ).finally( () => {
-                commit(actionNames.SET_LOADING, false);
-                console.log( "мы в finally");
-            })
+        try {
+            const result = await dispatch('fetchProducts', searchParams);
+            commit(actionNames.SET_PRODUCTS, result);
+            console.log(result, "мы успешно получили карточки");
+        } catch (error) {
+            commit(actionNames.SET_ERROR, true);
+            console.log(error);
         }
-        consumer();
+        commit(actionNames.SET_LOADING, false);
     },
     fetchProducts(_, searchParams) {
         return fetchRequestProducts(searchParams);

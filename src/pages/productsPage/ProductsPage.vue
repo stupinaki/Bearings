@@ -1,8 +1,9 @@
 <template>
   <div :class="styled.container">
     <SearchComponent />
-    <OfferCards v-show="!loading" />
-    <FiltersComponent v-show="!loading" />
+    <OfferCards v-show="isVisible" />
+    <FiltersComponent v-show="isVisible" />
+    <ErrorUI v-show="error" />
     <LoaderUI v-if="loading" />
     <PaginationComponent
       :data="orderedProducts"
@@ -24,12 +25,14 @@ import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import ProductCards from "./components/productCards/ProductCards.vue";
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
+import ErrorUI from "../../components/UI/error/ErrorUI.vue";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
   name: "ProductsPage",
   components: {
+    ErrorUI,
     LoaderUI,
     OfferCards,
     ProductCards,
@@ -45,7 +48,7 @@ export default {
   },
   computed: {
     ...mapGetters("products", ["orderedProducts"]),
-    ...mapState("products", ["products", "loading"]),
+    ...mapState("products", ["products", "loading", "error"]),
     ...mapState("viewport", ["viewportWidth"]),
     visiblePageCount() {
       if(this.viewportWidth <= breakpoints.small) {
@@ -55,6 +58,9 @@ export default {
         return 5;
       }
       return 7;
+    },
+    isVisible() {
+      return !this.loading && !this.error;
     },
   },
   beforeMount() {
