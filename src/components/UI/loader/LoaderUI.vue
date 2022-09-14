@@ -1,10 +1,11 @@
 <template>
   <div :class="styled.dotWrapper">
-    <div :class="[styled.dot, styled.dot1]" />
-    <div :class="[styled.dot, styled.dot2]" />
-    <div :class="[styled.dot, styled.dot3]" />
-    <div :class="[styled.dot, styled.dot4]" />
-    <div :class="[styled.dot, styled.dot5]" />
+    <div
+      v-for="dotNumber in 5"
+      :key="dotNumber"
+    >
+      <div :class="[styled.dot, styled['dot' + dotNumber]]" />
+    </div>
   </div>
 </template>
 
