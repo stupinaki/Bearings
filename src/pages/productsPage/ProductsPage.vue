@@ -1,32 +1,39 @@
 <template>
   <div :class="styled.container">
     <SearchComponent />
-    <OfferCards v-show="isVisible" />
-    <FiltersComponent v-show="isVisible" />
-    <ErrorUI v-show="error" />
+
     <LoaderUI v-if="loading" />
-    <PaginationComponent
-      :data="orderedProducts"
-      :page-size="2"
-      :visible-page-count="visiblePageCount"
-    >
-      <template #default="props">
-        <ProductCards :products-chunk="props.currentPageData" />
-      </template>
-    </PaginationComponent>
+    <ErrorUI v-show="error" />
+
+    <NothingFoundForm />
+
+    <div v-show="isVisible">
+      <OfferCards />
+      <FiltersComponent />
+      <PaginationComponent
+        :data="orderedProducts"
+        :page-size="2"
+        :visible-page-count="visiblePageCount"
+      >
+        <template #default="props">
+          <ProductCards :products-chunk="props.currentPageData" />
+        </template>
+      </PaginationComponent>
+    </div>
   </div>
 </template>
 
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
-import OfferCards from "./components/offerCards/OfferCards.vue";
-import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
-import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
-import ProductCards from "./components/productCards/ProductCards.vue";
-import FiltersComponent from "./components/filters/FiltersComponent.vue";
 import ErrorUI from "../../components/UI/error/ErrorUI.vue";
+import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
+import OfferCards from "./components/offerCards/OfferCards.vue";
+import ProductCards from "./components/productCards/ProductCards.vue";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
+import FiltersComponent from "./components/filters/FiltersComponent.vue";
+import NothingFoundForm from "../../components/nothingFoundForm/NothingFoundForm.vue";
+import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
@@ -38,12 +45,12 @@ export default {
     ProductCards,
     SearchComponent,
     FiltersComponent,
+    NothingFoundForm,
     PaginationComponent,
   },
   data() {
     return {
       styled,
-      isNothingFound: false,
     }
   },
   computed: {
