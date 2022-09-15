@@ -1,39 +1,81 @@
 @import "/src/styles/variables.modules.css";
 
-.wrapper {
-  margin: 0 auto;
+.dot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
 }
 
-.external {
-  width: 88px;
-  height: 88px;
-  margin: 0 auto;
-  border: 8px solid $primary-btn-color;
-  border-right: transparent;
-  border-left: transparent;
+.dot {
+  width: 8px;
+  height: 8px;
+  margin: 6px;
+  background-color: $secondary-btn-hover-color;
   border-radius: 50%;
-  animation-name: rotation;
+}
+
+.dot1 {
+  animation-name: dot1-scale;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.internal {
-  width: 72px;
-  height: 68px;
-  margin: 0 auto;
-  border: 6px solid $secondary-text-color;
-  border-top: transparent;
-  border-bottom: transparent;
-  border-radius: 50%;
+.dot2 {
+  animation-name: dot2-scale;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
+.dot3 {
+  animation-name: dot3-scale;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 
-  100% {
-    transform: rotate(360deg);
+.dot4 {
+  animation-name: dot4-scale;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.dot5 {
+  animation-name: dot5-scale;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes dot1-scale {
+  16% {
+    transform: scale(2);
+  }
+}
+
+@keyframes dot2-scale {
+  32% {
+    transform: scale(2);
+  }
+}
+
+@keyframes dot3-scale {
+  47% {
+    transform: scale(2);
+  }
+}
+
+@keyframes dot4-scale {
+  62% {
+    transform: scale(2);
+  }
+}
+
+@keyframes dot5-scale {
+  80% {
+    transform: scale(2);
   }
 }

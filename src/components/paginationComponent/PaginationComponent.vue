@@ -1,6 +1,5 @@
 <template>
   <slot :current-page-data="currentPageData" />
-
   <PaginationUI
     v-if="chunks.length"
     :current-page-number="currentPageNumber"

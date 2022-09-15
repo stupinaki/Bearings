@@ -42,13 +42,13 @@
   padding: 4px;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .container {
     margin: $mobile-margin;
   }

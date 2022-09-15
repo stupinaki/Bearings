@@ -23,7 +23,7 @@
   line-height: 24px;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .title {
     font-size: 40px;
     line-height: 40px;
@@ -40,7 +40,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .container {
     margin: $mobile-margin;
   }

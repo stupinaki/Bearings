@@ -8,6 +8,15 @@
   margin: $primary-margin;
 }
 
+.wrapper-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin: $primary-margin;
+}
+
 .logo-map {
   display: flex;
 }
@@ -31,22 +40,30 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .wrapper {
     grid-template-columns: 1fr;
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .wrapper {
     display: flex;
     justify-content: space-between;
     margin: $secondary-margin;
   }
+
+  .wrapper-mobile {
+    margin: $secondary-margin;
+  }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .wrapper {
+    margin: $mobile-margin;
+  }
+
+  .wrapper-mobile {
     margin: $mobile-margin;
   }
 }

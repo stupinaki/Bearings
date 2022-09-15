@@ -1,7 +1,7 @@
 export function throttle(func, ms){
     let isThrottling = false;
-    let lastArgs;
-    let lastThis;
+    let lastArgs = null;
+    let lastThis = null;
 
     function wrapper(){
         if(isThrottling){
@@ -9,7 +9,7 @@ export function throttle(func, ms){
             lastThis = this;
             return;
         }
-        func.applay(this, arguments);
+        func.apply(this, arguments);
         isThrottling = true;
 
         setTimeout(() => {

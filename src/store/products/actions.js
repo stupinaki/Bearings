@@ -2,11 +2,15 @@ import actionNames from "./actionNames";
 import {fetchRequestProducts} from "../../api/fetchRequestProducts";
 
 export default {
-    //todo добавить обработку ошибок, лоадинг
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
-        const result = await dispatch('fetchProducts', searchParams);
-        commit(actionNames.SET_PRODUCTS, result);
+
+        try {
+            const result = await dispatch('fetchProducts', searchParams);
+            commit(actionNames.SET_PRODUCTS, result);
+        } catch (error) {
+            commit(actionNames.SET_ERROR, true);
+        }
         commit(actionNames.SET_LOADING, false);
     },
     fetchProducts(_, searchParams) {

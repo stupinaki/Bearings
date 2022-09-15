@@ -25,7 +25,7 @@
   text-decoration: underline;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .wrapper {
     display: grid;
     grid-template-columns: 60%;
@@ -33,7 +33,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .wrapper {
     display: grid;
     grid-template-columns: 80%;
@@ -41,7 +41,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointSmall) {
+@media screen and (max-width: $breakpoint-small) {
   .wrapper {
     display: grid;
     grid-template-columns: 100%;

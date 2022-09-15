@@ -1,7 +1,10 @@
 <template>
-  <div :class="styled.wrapper">
-    <div :class="styled.external">
-      <div :class="styled.internal" />
+  <div :class="styled.dotWrapper">
+    <div
+      v-for="dotNumber in 5"
+      :key="dotNumber"
+    >
+      <div :class="[styled.dot, styled['dot' + dotNumber]]" />
     </div>
   </div>
 </template>
@@ -15,6 +18,6 @@ export default {
     return {
       styled,
     }
-  }
+  },
 }
 </script>

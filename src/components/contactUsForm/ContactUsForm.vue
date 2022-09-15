@@ -8,6 +8,7 @@
     </span>
     <input
       v-model.trim.lazy="oderFormName"
+      inputmode="text"
       type="text"
       placeholder="Имя"
       :class="inputNameStyle"
@@ -16,6 +17,7 @@
     >
     <input
       v-model.trim="oderFormPhone"
+      inputmode="tel"
       type="text"
       placeholder="Телефон"
       :class="inputPhoneStyle"
@@ -24,6 +26,7 @@
     >
     <input
       v-model.trim="oderFormEmail"
+      inputmode="email"
       type="text"
       placeholder="E-mail"
       :class="inputEmailStyle"

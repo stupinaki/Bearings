@@ -32,5 +32,5 @@ export function fetchRequestProducts(searchParams) {
                (bearingWidth ? productCard.width === +bearingWidth : true) &&
                (citiesID.length ? citiesID.includes(productCard.id_city) : true);
     })
-    return timeoutPromise(data, 1000);
+    return timeoutPromise(data, 2000);
 }

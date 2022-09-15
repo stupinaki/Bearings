@@ -18,7 +18,7 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .wrapper {
     grid-template-columns: 100%;
     gap: 24px;
@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointExtraSmall) {
+@media screen and (max-width: $breakpoint-extra-small) {
   .benefits-wrapper {
     grid-template-columns: 1fr;
   }

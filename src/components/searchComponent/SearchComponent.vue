@@ -7,13 +7,12 @@
       Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
     </div>
   </div>
-  {{ searchParams }}
   <form
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
     <MainSearchInputsMobile
-      :class="styled.mainMobile"
+      v-if="isMobile"
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
@@ -25,7 +24,7 @@
       @on-input-change="setInputValue($event)"
     />
     <MainSearchInputs
-      :class="styled.mainWeb"
+      v-else
       :marking="searchParams.marking"
       :cities-options="citiesOptions"
       :cities-filter="searchParams.citiesFilter"
@@ -45,6 +44,7 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
+import {breakpoints} from "../../consts/breakpoints";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
 import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import MainSearchInputsMobile from "./components/mainSearchInputs/MainSearchInputsMobile.vue";
@@ -64,12 +64,16 @@ export default {
   },
   computed: {
     ...mapState("cities", ["cities"]),
+    ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams", "isAdditionalFormVisible"]),
     citiesOptions() {
       return this.cities.map(c => ({title: c.name, value: c.id}))
     },
     isVisibleAutocompletePlaceholder() {
       return !this.searchParams.citiesFilter.length;
+    },
+    isMobile() {
+      return this.viewportWidth <= breakpoints.large;
     }
   },
   beforeMount() {
@@ -84,7 +88,6 @@ export default {
       "clearSearchParams"
     ]),
     initSearch() {
-      console.log("поиск начался!")
       this.initProducts(this.searchParams);
     },
     additionalInputsChange(obj) {
