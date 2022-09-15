@@ -88,7 +88,6 @@ export default {
       "clearSearchParams"
     ]),
     initSearch() {
-      console.log("поиск начался!")
       this.initProducts(this.searchParams);
     },
     additionalInputsChange(obj) {

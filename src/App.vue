@@ -48,8 +48,7 @@ export default {
     this.initViewportHeight(initialHeight);
     window.addEventListener('resize',this.getNewResizeThrottle);
   },
-  //todo
-  beforeUnmount() {
+  unmounted() {
     window.removeEventListener('resize', this.getNewResizeThrottle);
   },
   methods: {

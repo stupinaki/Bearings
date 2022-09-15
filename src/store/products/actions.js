@@ -8,10 +8,8 @@ export default {
         try {
             const result = await dispatch('fetchProducts', searchParams);
             commit(actionNames.SET_PRODUCTS, result);
-            console.log(result, "мы успешно получили карточки");
         } catch (error) {
             commit(actionNames.SET_ERROR, true);
-            console.log(error);
         }
         commit(actionNames.SET_LOADING, false);
     },
