@@ -27,7 +27,7 @@
   height: 100vh;
   padding-top: 100px;
   background-color: $third-background;
-  box-shadow: 1px 8px 12px rgb(58 60 76 / 8%), 1px 1px 2px rgb(58 60 76 / 4%);
+  box-shadow: $shadow-primary;
 }
 
 .menu-mobile-open {

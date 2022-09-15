@@ -20,6 +20,8 @@ $secondary-chip-background: #e99d45;
 
 $primary-color: #000;
 
+$shadow-primary: 1px 8px 12px #3a3c4c14, 1px 1px 2px #3a3c4c0a;
+
 $primary-margin: 0 72px;
 $secondary-margin: 0 40px;
 $mobile-margin: 0 20px;
