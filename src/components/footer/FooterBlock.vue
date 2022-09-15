@@ -43,7 +43,6 @@
             Вопросы и ответы
           </router-link>
         </div>
-
         <div :class="styled.column">
           <router-link
             :to="{name: 'empty'}"
@@ -66,7 +65,6 @@
             Вопросы и ответы
           </router-link>
         </div>
-
         <div :class="styled.column">
           <router-link
             :to="{name: 'empty'}"
@@ -102,7 +100,6 @@
           </div>
         </div>
       </div>
-
       <div>
         <router-link
           :to="{name: 'privacyPolicy'}"

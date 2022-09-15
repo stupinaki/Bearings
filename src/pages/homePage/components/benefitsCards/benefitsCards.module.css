@@ -6,7 +6,7 @@
 
 .benefits-wrapper {
   display: grid;
-  grid-template-columns: calc((100% - 62px)/3) calc((100% - 62px)/3) calc((100% - 62px)/3);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
 }
 
@@ -18,9 +18,19 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .wrapper {
     grid-template-columns: 100%;
     gap: 24px;
+  }
+
+  .benefits-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .benefits-wrapper {
+    grid-template-columns: 1fr;
   }
 }

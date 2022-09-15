@@ -14,6 +14,7 @@
       </div>
       <input
         ref="searchQuery"
+        inputmode="search"
         :placeholder="placeholder"
         :class="styled.input"
         @blur="onBlur"

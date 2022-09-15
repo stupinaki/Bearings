@@ -41,3 +41,15 @@
 .btn-text {
   padding: 4px;
 }
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    margin: $mobile-margin;
+  }
+}

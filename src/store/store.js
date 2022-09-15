@@ -3,9 +3,10 @@ import { companies } from "./companies";
 import { offers } from "./offers";
 import { getInTouch } from  "./getInTouch";
 import {cities} from "./cities";
-import {mainSearchForm} from "./mainSearchForm";
+import {searchComponent} from "./searchComponent";
 import { products } from "./products";
 import { filtersRange } from "./filtersRange";
+import { viewport } from "./viewport"
 
 
 const store = createStore({
@@ -13,10 +14,11 @@ const store = createStore({
         offers,
         cities,
         products,
+        viewport,
         companies,
         getInTouch,
         filtersRange,
-        mainSearchForm,
+        searchComponent,
     },
 })
 

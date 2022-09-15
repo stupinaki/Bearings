@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     :class="className"
     :disabled="disabled"
   >
@@ -27,7 +28,7 @@ export default {
         return ["primary", "secondary", "pseudo", "type-link"].includes(style);
       },
     },
-    disabled: Boolean
+    disabled: Boolean,
   },
   data() {
     return {
@@ -36,7 +37,7 @@ export default {
   },
   computed: {
     className() {
-      const { size, typeStyle, disabled } = this.$props;
+      const {size, typeStyle, disabled} = this.$props;
       const classes = [styled.btn];
       classes.push(styled[`btn-${size}`]);
       classes.push(styled[`btn-${typeStyle}`]);

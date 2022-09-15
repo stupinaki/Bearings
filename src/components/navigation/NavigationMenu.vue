@@ -1,5 +1,7 @@
 <template>
-  <div :class="styled.wrapper">
+  <div
+    :class="styled.wrapper"
+  >
     <router-link
       :to="{name: 'home'}"
       :class="styled.itemLink"
@@ -13,7 +15,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'products'}"
+      :to="{name: 'empty'}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -50,7 +52,7 @@
 
     <router-link
       :to="{name: 'empty'}"
-      :class="styled.itemLink"
+      :class="[styled.itemLink, styled.itemLinkSecondaryBtn]"
     >
       <ButtonUI
         size="m"
@@ -63,8 +65,8 @@
 </template>
 
 <script>
-import styled from "./navigationMenu.module.css";
 import ButtonUI from "../UI/button/ButtonUI.vue";
+import styled from "./navigationMenu.module.css";
 
 export default {
   name: "NavigationMenu",

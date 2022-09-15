@@ -15,28 +15,35 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 60%;
+  grid-template-columns: 40%;
   padding: $primary-padding-top-bottom;
   margin: 48px 0;
-}
-
-@media screen and (max-width: $breakpointExtraLarge) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 80%;
-    padding: $primary-padding-top-bottom;
-  }
-}
-
-@media screen and (max-width: $breakpointLarge) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 90%;
-    padding: $primary-padding-top-bottom;
-  }
 }
 
 .link {
   color: $secondary-text-color;
   text-decoration: underline;
+}
+
+@media screen and (max-width: $breakpoint-extra-large) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 60%;
+    padding: $primary-padding-top-bottom;
+  }
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 80%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+  }
 }

@@ -9,3 +9,15 @@
 .text {
   padding: 12px 0;
 }
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    margin: $mobile-margin;
+  }
+}

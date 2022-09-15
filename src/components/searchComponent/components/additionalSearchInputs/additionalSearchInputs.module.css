@@ -12,10 +12,6 @@
   margin-top: 56px;
 }
 
-.additional-form-wrapper-hide {
-  display: none;
-}
-
 .btn-wrapper {
   display: inline-block;
 }
@@ -30,7 +26,7 @@
   color: $third-text-color;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .additional-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -40,12 +36,16 @@
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .additional-form {
     display: grid;
     grid-template-columns: 100%;
     gap: 24px;
     width: 100%;
     margin-top: 56px;
+  }
+
+  .help-reset {
+    display: none;
   }
 }

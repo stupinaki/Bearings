@@ -20,9 +20,18 @@ $secondary-chip-background: #e99d45;
 
 $primary-color: #000;
 
+$shadow-primary: 1px 8px 12px #3a3c4c14, 1px 1px 2px #3a3c4c0a;
+
 $primary-margin: 0 72px;
+$secondary-margin: 0 40px;
+$mobile-margin: 0 20px;
 $primary-padding-top-bottom: 40px 0;
 
-$breakpointSmall: 600px;
-$breakpointLarge: 900px;
-$breakpointExtraLarge: 1200px;
+$breakpoint-extra-small: 450px;
+$breakpoint-small: 600px;
+$breakpoint-large: 900px;
+$breakpoint-extra-large: 1200px;
+
+$z-index-default: 10;
+$z-index-extra: 50;
+$z-index-total: 100;

@@ -2,7 +2,17 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 1fr 3fr;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin: $primary-margin;
+}
+
+.wrapper-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
   margin: $primary-margin;
 }
@@ -30,8 +40,30 @@
   color: $primary-text-color;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .wrapper {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: $secondary-margin;
+  }
+
+  .wrapper-mobile {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .wrapper {
+    margin: $mobile-margin;
+  }
+
+  .wrapper-mobile {
+    margin: $mobile-margin;
   }
 }

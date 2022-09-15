@@ -7,35 +7,44 @@ import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
 
 
+export const routerNames = {
+    home: "home",
+    companies: "companies",
+    products: "products",
+    empty: "empty",
+    contractOffer: "contractOffer",
+    privacyPolicy: "privacyPolicy",
+}
+
 const routes = [
     {
         path: '/',
-        name: "home",
+        name: routerNames.home,
         component: HomePage
     },
     {
         path: '/companies',
-        name: "companies",
+        name: routerNames.companies,
         component: CompaniesPage,
     },
     {
         path: '/products',
-        name: "products",
+        name: routerNames.products,
         component: ProductsPage,
     },
     {
         path: '/empty',
-        name: "empty",
+        name: routerNames.empty,
         component: EmptyPage,
     },
     {
         path: '/contract-offer',
-        name: "contractOffer",
+        name: routerNames.contractOffer,
         component: ContractOfferPage,
     },
     {
         path: '/privacy-policy',
-        name: "privacyPolicy",
+        name: routerNames.privacyPolicy,
         component: PrivacyPolicyPage,
     },
 ]

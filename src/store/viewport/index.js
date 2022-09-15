@@ -2,7 +2,7 @@ import state from "./state";
 import actions from "./actions";
 import mutations from "./mutations";
 
-export const mainSearchForm = {
+export const viewport = {
     state,
     actions,
     mutations,

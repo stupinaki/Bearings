@@ -8,6 +8,7 @@
     </span>
     <input
       v-model.trim.lazy="oderFormName"
+      inputmode="text"
       type="text"
       placeholder="Имя"
       :class="inputNameStyle"
@@ -16,6 +17,7 @@
     >
     <input
       v-model.trim="oderFormPhone"
+      inputmode="tel"
       type="text"
       placeholder="Телефон"
       :class="inputPhoneStyle"
@@ -24,6 +26,7 @@
     >
     <input
       v-model.trim="oderFormEmail"
+      inputmode="email"
       type="text"
       placeholder="E-mail"
       :class="inputEmailStyle"
@@ -153,19 +156,10 @@ export default {
       const {oderFormName, oderFormPhone, oderFormEmail, oderFormCheckbox} = this.$data;
       const {isErrorName, isErrorEmail, isErrorPhone, isErrorCheckbox} = this.$data;
 
-      const order = {
-        name: oderFormName,
-        phone: oderFormPhone,
-        email: oderFormEmail,
-        checkbox: oderFormCheckbox,
-      }
-
       const isAllFilled = oderFormName && oderFormPhone && oderFormEmail && oderFormCheckbox;
       const isCorrectFilled = !isErrorName && !isErrorEmail && !isErrorPhone && !isErrorCheckbox;
 
       if(isAllFilled && isCorrectFilled) {
-        console.log("click on button!", order)
-
         this.$data.oderFormName = "";
         this.$data.oderFormPhone = "";
         this.$data.oderFormEmail = "";

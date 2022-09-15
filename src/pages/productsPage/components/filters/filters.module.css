@@ -15,7 +15,7 @@
   line-height: 18px;
 }
 
-@media screen and (max-width: $breakpointExtraLarge) {
+@media screen and (max-width: $breakpoint-extra-large) {
   .filters {
     display: grid;
     grid-template-columns: 3fr 2fr 3fr;
@@ -23,7 +23,7 @@
   }
 }
 
-@media screen and (max-width: $breakpointLarge) {
+@media screen and (max-width: $breakpoint-large) {
   .filters {
     display: grid;
     grid-template-columns: 1fr;
