@@ -5,7 +5,7 @@
   gap: 8px;
   align-items: center;
   justify-content: flex-start;
-  margin: 80px 0;
+  margin: 40px 0;
 }
 
 .arrow-prev {
@@ -15,6 +15,7 @@
 .btn-wrapper {
   width: max-content;
   height: max-content;
+  padding: 8px;
 }
 
 .btn-hide {
