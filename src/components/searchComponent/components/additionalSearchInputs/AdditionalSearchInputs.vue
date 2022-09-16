@@ -6,6 +6,8 @@
         :key="i"
       >
         <InputUI
+          :type="input.type"
+          :tabindex="input.tabindex"
           :value="input.value"
           :label="input.label"
           :placeholder="input.placeholder"
@@ -83,6 +85,8 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "accuracyClass",
+          tabindex: "3",
+          type: "text",
         },
         {
           value: formValues.bearingType,
@@ -90,30 +94,40 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "bearingType",
+          tabindex: "4",
+          type: "text",
         },
         {
           value: formValues.bearingParameter,
           label: "Параметр подшипника",
           placeholder: "6302cg18",
           name: "bearingParameter",
+          tabindex: "5",
+          type: "text",
         },
         {
           value: formValues.outerDiameter,
           label: "Внешний диаметр",
           placeholder: "25 мм",
           name: "outerDiameter",
+          tabindex: "6",
+          type: "number",
         },
         {
           value: formValues.innerDiameter,
           label: "Внутренний диаметр",
           placeholder: "15 мм",
           name: "innerDiameter",
+          tabindex: "7",
+          type: "number",
         },
         {
           value: formValues.bearingWidth,
           label: "Ширина",
           placeholder: "30 мм",
           name: "bearingWidth",
+          tabindex: "8",
+          type: "number",
         }
       ]
     },
