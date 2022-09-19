@@ -41,6 +41,15 @@ export default {
       return throttle(this.getNewResize, 1000);
     }
   },
+  watch: {
+    "$route.params": {
+      handler: function changeParams() {
+        this.initSearchParams();
+      },
+      deep: true,
+      immediate: true
+    }
+  },
   beforeMount() {
     const initialWidth = window.innerWidth;
     const initialHeight = window.innerHeight;
@@ -53,6 +62,7 @@ export default {
   },
   methods: {
     ...mapActions("viewport", ["initViewportWidth", "initViewportHeight"]),
+    ...mapActions("searchComponent", ["initSearchParams"]),
     getNewResize(e) {
       const width = e.target.innerWidth;
       const height = e.target.innerHeight;

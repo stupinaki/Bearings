@@ -3,9 +3,13 @@
     <SearchComponent />
 
     <LoaderUI v-if="loading" />
+
     <ErrorUI v-show="error" />
 
-    <NothingFoundForm />
+    <NothingFoundForm
+      v-if="!products.length"
+      :request="userRequest"
+    />
 
     <div v-show="isVisible">
       <OfferCards />
@@ -26,6 +30,8 @@
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
+import {normaliseSearchParams} from "../../helpers/normaliseSearchParams";
+import {getStrFromSearchParams} from "../../helpers/getStrFromSearchParams";
 import ErrorUI from "../../components/UI/error/ErrorUI.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import OfferCards from "./components/offerCards/OfferCards.vue";
@@ -57,6 +63,7 @@ export default {
     ...mapGetters("products", ["orderedProducts"]),
     ...mapState("products", ["products", "loading", "error"]),
     ...mapState("viewport", ["viewportWidth"]),
+    ...mapState("searchComponent", ["searchParams"]),
     visiblePageCount() {
       if(this.viewportWidth <= breakpoints.small) {
         return 3;
@@ -67,15 +74,24 @@ export default {
       return 7;
     },
     isVisible() {
-      return !this.loading && !this.error;
+      return !this.loading && !this.error && this.products.length;
+    },
+    userRequest(){
+      //todo мб добавить что значение меняется не при изменении параметров,
+      //todo а только после того как начелся поиск
+      const normalise = normaliseSearchParams(this.searchParams);
+      return getStrFromSearchParams(normalise);
     },
   },
-  beforeMount() {
-    this.initProducts();
+  async beforeMount() {
+    const searchParams = await this.initSearchParams();
+    this.initProducts(searchParams);
   },
   methods: {
-    ...mapActions("products", ["initProducts"])
-  }
+    ...mapActions("products", ["initProducts"]),
+    ...mapActions("searchComponent", ["initSearchParams"]),
+  },
+
 }
 </script>
 

@@ -11,5 +11,10 @@ export default {
     },
     [actionNames.CLEAR_FORM](state) {
         state.searchParams = cloneDeep(defaultBearingsSearchParams);
+    },
+    [actionNames.SET_SEARCH_PARAMS](state, searchParams) {
+        for(let param in state.searchParams) {
+            state.searchParams[param] = searchParams[param];
+        }
     }
 }
