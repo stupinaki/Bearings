@@ -58,8 +58,6 @@ export default {
     this.initViewportHeight(initialHeight);
     window.addEventListener('resize',this.getNewResizeThrottle);
   },
-  //todo как напоминалка что нужно удалять слушатели
-  //todo не работает т.к. app будет размонтирован уже после того как пользователь покинет страницу
   unmounted() {
     window.removeEventListener('resize', this.getNewResizeThrottle);
   },
