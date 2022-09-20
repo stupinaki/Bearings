@@ -3,7 +3,7 @@ export const productCardsValue = [
     "id_bearing": 9901971,
     "id_organization": 990708,
     "id_city": 99,
-    "name": "16",
+    "name": "4",
     "price": 35.00,
     "count": 4504,
     "pr_class": "-",
@@ -163,7 +163,7 @@ export const productCardsValue = [
     "id_bearing": 99019781,
     "id_organization": 172349,
     "id_city": 9999,
-    "name": "16",
+    "name": "4",
     "price": 18.00,
     "count": 63,
     "pr_class": "-",
@@ -178,7 +178,7 @@ export const productCardsValue = [
   {
     "id_bearing": 9901982,
     "id_organization": 380727,
-    "id_city": 99999,
+    "id_city": 14,
     "name": "16",
     "price": 347.00,
     "count": 670,
@@ -194,8 +194,8 @@ export const productCardsValue = [
   {
     "id_bearing": 9901983,
     "id_organization": 990708,
-    "id_city": 99,
-    "name": "16",
+    "id_city": 13,
+    "name": "4",
     "price": 451.00,
     "count": 41,
     "pr_class": "-",
@@ -226,7 +226,7 @@ export const productCardsValue = [
   {
     "id_bearing": 9901985,
     "id_organization": 172349,
-    "id_city": 9999,
+    "id_city": 12,
     "name": "16",
     "price": 101.00,
     "count": 91,
@@ -290,7 +290,7 @@ export const productCardsValue = [
   {
     "id_bearing": 9901989,
     "id_organization": 172349,
-    "id_city": 9999,
+    "id_city": 12,
     "name": "16",
     "price": 109.00,
     "count": 65,
@@ -354,7 +354,7 @@ export const productCardsValue = [
   {
     "id_bearing": 9901993,
     "id_organization": 172349,
-    "id_city": 9999,
+    "id_city": 12,
     "name": "16",
     "price": 10.00,
     "count": 9,
@@ -418,7 +418,7 @@ export const productCardsValue = [
   {
     "id_bearing": 99019797,
     "id_organization": 172349,
-    "id_city": 9999,
+    "id_city": 12,
     "name": "16",
     "price": 10.00,
     "count": 6,
@@ -482,7 +482,7 @@ export const productCardsValue = [
   {
     "id_bearing": 99019101,
     "id_organization": 172349,
-    "id_city": 9999,
+    "id_city": 12,
     "name": "16",
     "price": 10.00,
     "count": 9,

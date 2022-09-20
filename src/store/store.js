@@ -5,7 +5,6 @@ import { getInTouch } from  "./getInTouch";
 import {cities} from "./cities";
 import {searchComponent} from "./searchComponent";
 import { products } from "./products";
-import { filtersRange } from "./filtersRange";
 import { viewport } from "./viewport"
 
 
@@ -17,7 +16,6 @@ const store = createStore({
         viewport,
         companies,
         getInTouch,
-        filtersRange,
         searchComponent,
     },
 })

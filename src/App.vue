@@ -39,12 +39,13 @@ export default {
   computed: {
     getNewResizeThrottle() {
       return throttle(this.getNewResize, 1000);
-    }
+    },
   },
   watch: {
     "$route.params": {
-      handler: function changeParams() {
-        this.initSearchParams();
+      handler: async function changeParams() {
+        const searchParams = await this.initSearchParams();
+        await this.initProducts(searchParams);
       },
       deep: true,
       immediate: true
@@ -57,12 +58,15 @@ export default {
     this.initViewportHeight(initialHeight);
     window.addEventListener('resize',this.getNewResizeThrottle);
   },
+  //todo как напоминалка что нужно удалять слушатели
+  //todo не работает т.к. app будет размонтирован уже после того как пользователь покинет страницу
   unmounted() {
     window.removeEventListener('resize', this.getNewResizeThrottle);
   },
   methods: {
     ...mapActions("viewport", ["initViewportWidth", "initViewportHeight"]),
     ...mapActions("searchComponent", ["initSearchParams"]),
+    ...mapActions("products", ["initProducts"]),
     getNewResize(e) {
       const width = e.target.innerWidth;
       const height = e.target.innerHeight;

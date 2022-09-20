@@ -15,7 +15,6 @@ export default {
             commit(actionNames.SET_PRODUCTS, result);
         } catch (error) {
             commit(actionNames.SET_ERROR, true);
-            commit(actionNames.SET_NOTHING_FOUND, false);
         }
         commit(actionNames.SET_LOADING, false);
     },

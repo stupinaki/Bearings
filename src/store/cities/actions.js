@@ -6,7 +6,6 @@ export default {
         if (state.cities.length) {
             return;
         }
-
         try {
             const result = await dispatch('fetchCities');
             commit(actionNames.SET_CITIES, result);
@@ -15,7 +14,7 @@ export default {
         }
     },
     receiveCities({state, dispatch}) {
-        dispatch('initCities')
+        dispatch('initCities');
         return state.cities;
     },
     fetchCities(_) {

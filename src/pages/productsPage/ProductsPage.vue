@@ -1,19 +1,17 @@
 <template>
   <div :class="styled.container">
     <SearchComponent />
-
     <LoaderUI v-if="loading" />
+    <div v-else>
+      <ErrorUI v-show="error" />
 
-    <ErrorUI v-show="error" />
+      <NothingFoundForm
+        v-if="!products.length"
+        :request="userRequest"
+      />
 
-    <NothingFoundForm
-      v-if="!products.length"
-      :request="userRequest"
-    />
-
-    <div v-show="isVisible">
       <OfferCards />
-      <FiltersComponent />
+      <FiltersComponent v-if="products.length > 1" />
       <PaginationComponent
         :data="orderedProducts"
         :page-size="2"
@@ -73,12 +71,7 @@ export default {
       }
       return 7;
     },
-    isVisible() {
-      return !this.loading && !this.error && this.products.length;
-    },
-    userRequest(){
-      //todo мб добавить что значение меняется не при изменении параметров,
-      //todo а только после того как начелся поиск
+     userRequest(){
       const normalise = normaliseSearchParams(this.searchParams);
       return getStrFromSearchParams(normalise);
     },
