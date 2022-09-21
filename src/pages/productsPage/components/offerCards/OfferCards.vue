@@ -4,7 +4,10 @@
       Найдено {{ allCount }} {{ correctWord }}
     </span>
 
-    <SliderUI :items="offers">
+    <SliderUI
+      :items="offers"
+      :visible-items-max-count="visibleItemsMaxCount"
+    >
       <template #default="props">
         <div :class="styled.cards">
           <ButtonUI
@@ -27,11 +30,12 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
+import {breakpoints} from "../../../../consts/breakpoints";
+import {getCorrectWord} from "../../../../helpers/getCorrectWord";
 import OfferCard from "../offerCard/OfferCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import SliderUI from "../../../../components/UI/slider/SliderUI.vue";
 import styled from "./offerCards.module.css";
-
 
 export default {
   name: "OfferCards",
@@ -43,25 +47,34 @@ export default {
   data() {
     return {
       styled,
-      isAllOffersVisible: false,
+      words: ["предложение", "предложения", "предложений"],
     }
   },
   computed: {
     ...mapState("offers", ["offers"]),
     ...mapState('products', ['products']),
+    ...mapState("viewport", ["viewportWidth"]),
     allCount() {
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
     correctWord() {
-      const count = this.allCount.toString();
-      const lastDigit = +count[count.length - 1];
-      if (lastDigit === 1) {
-        return "предложение";
+      const correctWord = getCorrectWord(this.$data.words);
+      return correctWord(this.allCount);
+    },
+    visibleItemsMaxCount() {
+      if (this.viewportWidth < breakpoints.extraLarge && this.viewportWidth > breakpoints.large) {
+        return 4;
       }
-      if (lastDigit === 2 || lastDigit === 3 || lastDigit === 4) {
-        return "предложения";
+      if (this.viewportWidth <= breakpoints.large && this.viewportWidth > breakpoints.small) {
+        return 3;
       }
-      return "предложений";
+      if (this.viewportWidth <= breakpoints.small && this.viewportWidth > breakpoints.extraSmall) {
+        return 2;
+      }
+      if (this.viewportWidth <= breakpoints.extraSmall) {
+        return 1;
+      }
+      return 5;
     },
   },
   beforeMount() {
