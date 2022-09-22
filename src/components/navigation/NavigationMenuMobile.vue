@@ -62,7 +62,7 @@
           >
             <ButtonUI
               size="m"
-              type-style="secondary"
+              type-style="pseudo"
             >
               Стать партнером
             </ButtonUI>

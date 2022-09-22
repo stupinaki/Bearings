@@ -31,7 +31,6 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 144px;
-  margin-bottom: 80px;
 }
 
 .text-input {

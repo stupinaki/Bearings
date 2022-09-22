@@ -11,7 +11,7 @@
 
     <div>
       <SearchInput
-        v-show="!loading"
+        v-if="!loading"
         placeholder="Например, Авангард-подшипник"
         @start-search="onStartSearch"
       />
@@ -20,7 +20,7 @@
       />
 
       <div
-        v-show="!loading"
+        v-if="!loading"
         :class="styled.btnContainer"
       >
         <ButtonUI

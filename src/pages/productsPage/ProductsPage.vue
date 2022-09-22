@@ -3,7 +3,7 @@
     <SearchComponent />
     <LoaderUI v-if="loading" />
     <div v-else>
-      <ErrorUI v-show="error" />
+      <ErrorUI v-if="error" />
 
       <NothingFoundForm
         v-if="!products.length"
@@ -76,9 +76,19 @@ export default {
       return getStrFromSearchParams(normalise);
     },
   },
+  watch: {
+    "$route.params": {
+      handler: async function changeParams() {
+        const searchParams = await this.initSearchParams();
+        await this.initProducts(searchParams);
+      },
+      deep: true,
+      immediate: true
+    }
+  },
   async beforeMount() {
     const searchParams = await this.initSearchParams();
-    this.initProducts(searchParams);
+    await this.initProducts(searchParams);
   },
   methods: {
     ...mapActions("products", ["initProducts"]),
