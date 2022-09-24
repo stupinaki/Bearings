@@ -31,6 +31,6 @@ export function fetchRequestProducts(searchParams) {
                (innerDiameter ? productCard.inner_d === +innerDiameter : true) &&
                (bearingWidth ? productCard.width === +bearingWidth : true) &&
                (citiesID.length ? citiesID.includes(productCard.id_city) : true);
-    })
+    });
     return timeoutPromise(data, 2000);
 }

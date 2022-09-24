@@ -1,9 +1,14 @@
 import actionNames from "./actionNames";
 import {fetchRequestProducts} from "../../api/fetchRequestProducts";
+import {normaliseSearchParams} from "../../helpers/normaliseSearchParams";
+import router, { routerNames } from "../../router/router";
 
 export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
+
+        const normalSearchParams = normaliseSearchParams(searchParams)
+        router.push({path: routerNames.products, query: normalSearchParams})
 
         try {
             const result = await dispatch('fetchProducts', searchParams);

@@ -5,3 +5,9 @@ export const breakpoints = {
     large: 900,
     extraLarge: 1200,
 }
+export const screenSize = {
+    Mobile: "mobile",
+    Tablet: "tablet",
+    Laptop: "laptop",
+    Desktop: "desktop"
+}

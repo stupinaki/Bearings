@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: 20%;
   justify-content: center;
-  margin: 56px 0 120px;
+  margin-top: 60px;
 }
 
 .btn-content-wrapper {

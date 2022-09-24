@@ -18,5 +18,5 @@ export default {
     },
     [actionNames.SET_ERROR](state, isError) {
         state.error = isError;
-    }
+    },
 }

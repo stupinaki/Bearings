@@ -6,7 +6,7 @@
           от
         </span>
         <input
-          v-model.number="fromMin"
+          v-model.number="range[0]"
           type="number"
           :class="styled.input"
           @change="onMinChange"
@@ -17,7 +17,7 @@
           до
         </span>
         <input
-          v-model.number="toMax"
+          v-model.number="range[1]"
           type="number"
           :class="styled.input"
           @change="onMaxChange"
@@ -27,14 +27,14 @@
 
     <div :class="styled.slider">
       <v-range-slider
-        v-model="sliderValue"
+        v-model="range"
         :track-color="trackColor"
         :track-fill-color="trackFillColor"
         :track-size="trackSize"
         :thumb-color="thumbColor"
         :thumb-size="thumbSize"
-        :max="maxValue"
-        :min="minValue"
+        :max="maxLimit"
+        :min="minLimit"
         @update:model-value="onSliderClick"
       />
     </div>
@@ -47,106 +47,108 @@ import styled from "./rangeSlider.module.css";
 export default {
   name: "RangeSlider",
   props: {
-    maxValue: {
+    inputValue: {
+      type: Array,
+      require: true,
+      validator(value) {
+        return Array.isArray(value) && value.every(v => !Number.isNaN(v)) && value.length === 2;
+      },
+      default: undefined,
+    },
+    minLimit: {
       require: true,
       default: null,
       type: Number,
     },
-    minValue: {
+    maxLimit: {
       require: true,
       default: null,
       type: Number,
     },
     trackColor: {
-      require: true,
+      require: false,
       default: "#d8ddf9",
       type: String,
     },
     trackFillColor: {
-      require: true,
+      require: false,
       default: "#4a53f5",
       type: String,
     },
     trackSize: {
-      require: true,
+      require: false,
       default: 2,
       type: Number,
     },
     thumbColor: {
-      require: true,
+      require: false,
       default: "#4a53f5",
       type: String,
     },
     thumbSize: {
-      require: true,
+      require: false,
       default: 16,
       type: Number,
     },
   },
   emits: ["sliderChange"],
-  data(){
+  data() {
     return {
+      range: [0,0],
       styled,
-      sliderValue: [this.minValue, this.maxValue],
-      fromMin: this.minValue,
-      toMax: this.maxValue,
     }
   },
+  watch: {
+    inputValue() {
+      this.range = [...this.inputValue];
+    }
+  },
+  beforeMount() {
+    this.range = [...this.inputValue];
+  },
   methods: {
-    onSliderClick() {
-      const selectedValueMin = Math.round(this.$data.sliderValue[0]);
-      const selectedValueMax = Math.round(this.$data.sliderValue[1]);
-      this.$data.fromMin = selectedValueMin;
-      this.$data.toMax = selectedValueMax;
-      this.$emit("sliderChange", [selectedValueMin, selectedValueMax]);
+    onSliderClick(newValue) {
+      this.$emit("sliderChange", [
+        Math.round(newValue[0]),
+        Math.round(newValue[1])
+      ]);
     },
-    onMinChange() {
-      const { fromMin, toMax, sliderValue } = this.$data;
-      const { minValue, maxValue } = this.$props;
-
-      if( fromMin > toMax ) {
-        this.$data.toMax = maxValue;
-        this.$data.sliderValue = [minValue, maxValue];
+    onMinChange(e) {
+      const inputValue = +e.target.value;
+      const {minLimit, maxLimit} = this;
+      const [maxValue] = this.$props.inputValue;
+      if(!inputValue || Number.isNaN(inputValue) || inputValue < minLimit) {
+        this.$emit("sliderChange", [minLimit, maxValue]);
+        return;
       }
-      if ( fromMin > maxValue ) {
-        this.$data.fromMin = maxValue;
-        this.$data.sliderValue = [maxValue, maxValue];
+      if(inputValue > maxLimit) {
+        this.$emit("sliderChange", [maxValue, maxLimit]);
+        return;
       }
-      if( fromMin < minValue ) {
-        this.$data.fromMin =  minValue;
-        this.$data.sliderValue[0] = minValue;
+      if(inputValue > maxValue) {
+        this.$emit("sliderChange", [maxValue, inputValue]);
+        return;
       }
-      if( !fromMin ) {
-        this.$data.fromMin = minValue;
-        this.$data.sliderValue = [minValue, toMax];
-      } else {
-        this.$data.sliderValue[0] = fromMin;
-      }
-      this.$emit("sliderChange", [this.$data.fromMin, sliderValue[1]]);
+      this.$emit("sliderChange", [inputValue, maxValue]);
     },
-    onMaxChange() {
-      const { toMax, fromMin, sliderValue } = this.$data;
-      const { minValue, maxValue } = this.$props;
 
-      if( toMax > maxValue ) {
-        this.$data.toMax = maxValue;
-        this.$data.sliderValue[1] = maxValue;
+    onMaxChange(e) {
+      const inputValue = +e.target.value;
+      const {minLimit, maxLimit} = this;
+      const [minValue] = this.$props.inputValue;
+      if(!inputValue || Number.isNaN(inputValue) || inputValue > maxLimit) {
+        this.$emit("sliderChange", [minValue, maxLimit]);
+        return;
       }
-      if( toMax < minValue ) {
-        this.$data.toMax = minValue;
-        this.$data.sliderValue = [minValue, minValue];
+      if(inputValue < minLimit) {
+        this.$emit("sliderChange", [minLimit, minValue]);
+        return;
       }
-      if( toMax < fromMin ) {
-        this.$data.fromMin = minValue;
-        this.$data.sliderValue = [minValue, toMax];
+      if(inputValue < minValue) {
+        this.$emit("sliderChange", [inputValue, minValue]);
+        return;
       }
-      if( !toMax ) {
-        this.$data.toMax = maxValue;
-        this.$data.sliderValue = [fromMin, maxValue];
-      } else {
-        this.$data.sliderValue[1] = toMax;
-      }
-      this.$emit("sliderChange", [sliderValue[0], this.$data.toMax]);
+      this.$emit("sliderChange", [minValue, inputValue]);
     }
   }
 }

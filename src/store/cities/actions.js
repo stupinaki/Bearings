@@ -1,8 +1,23 @@
 import actionNames from "./actionNames";
-import {cities} from "../../../data/cities";
+import {fetchRequestCities} from "../../api/fetchRequestCities";
 
 export default {
-    initCities({commit}) {
-        commit(actionNames.SET_CITIES, cities);
+    async initCities({ state, commit, dispatch }) {
+        if (state.cities.length) {
+            return;
+        }
+        try {
+            const result = await dispatch('fetchCities');
+            commit(actionNames.SET_CITIES, result);
+        } catch (error) {
+            commit(actionNames.SET_ERROR, true);
+        }
+    },
+    async receiveCities({ state, dispatch }) {
+        await dispatch('initCities');
+        return state.cities;
+    },
+    fetchCities() {
+        return fetchRequestCities();
     },
 }

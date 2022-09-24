@@ -1,6 +1,7 @@
 <template>
   <div :class="styled.mainFormMobile">
     <InputUI
+      tabindex="1"
       :value="marking"
       label="Маркировка подшипника"
       placeholder="Начните вводить"
@@ -32,6 +33,7 @@
       </div>
 
       <AutocompleteUI
+        tabindex="2"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"

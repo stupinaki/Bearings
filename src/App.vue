@@ -39,7 +39,7 @@ export default {
   computed: {
     getNewResizeThrottle() {
       return throttle(this.getNewResize, 1000);
-    }
+    },
   },
   beforeMount() {
     const initialWidth = window.innerWidth;

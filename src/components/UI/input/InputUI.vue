@@ -9,8 +9,9 @@
       </div>
     </div>
     <input
+      :type="type"
+      :tabindex="tabindex"
       :value="value"
-      type="text"
       :class="styled.input"
       :placeholder="placeholder"
       @input="onInput"
@@ -43,6 +44,16 @@ export default {
       type: String,
       require: false,
       default: undefined,
+    },
+    tabindex: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "text",
     }
   },
   emits: ["input"],

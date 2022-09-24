@@ -1,5 +1,8 @@
 <template>
-  <div :class="styled.hint">
+  <div
+    tabindex="-1"
+    :class="styled.hint"
+  >
     <div :class="styled.img">
       <MarkingHintImg />
     </div>
