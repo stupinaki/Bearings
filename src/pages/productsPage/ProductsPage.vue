@@ -7,10 +7,9 @@
 
       <NothingFoundForm
         v-if="!products.length"
-        :request="userRequest"
       />
 
-      <OfferCards />
+      <OfferCards v-if="products.length > 0" />
       <FiltersComponent v-if="products.length > 1" />
       <PaginationComponent
         :data="orderedProducts"
@@ -27,9 +26,7 @@
 
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
-import {breakpoints} from "../../consts/breakpoints";
-import {normaliseSearchParams} from "../../helpers/normaliseSearchParams";
-import {getStrFromSearchParams} from "../../helpers/getStrFromSearchParams";
+import {screenSize} from "../../consts/breakpoints";
 import ErrorUI from "../../components/UI/error/ErrorUI.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import OfferCards from "./components/offerCards/OfferCards.vue";
@@ -62,18 +59,19 @@ export default {
     ...mapState("products", ["products", "loading", "error"]),
     ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams"]),
+    ...mapGetters("viewport", ["breakPoint"]),
     visiblePageCount() {
-      if(this.viewportWidth <= breakpoints.small) {
+
+      if(this.breakPoint === screenSize.Mobile) {
         return 3;
       }
-      if(this.viewportWidth <= breakpoints.extraSmall) {
+      if(this.breakPoint === screenSize.Tablet) {
         return 5;
       }
+      if(this.breakPoint === screenSize.Laptop) {
+        return 6;
+      }
       return 7;
-    },
-     userRequest(){
-      const normalise = normaliseSearchParams(this.searchParams);
-      return getStrFromSearchParams(normalise);
     },
   },
   watch: {

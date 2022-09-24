@@ -19,6 +19,7 @@
             <ButtonUI
               size="m"
               type-style="pseudo"
+              @click="closeMenu"
             >
               Найти подшипники
             </ButtonUI>
@@ -30,6 +31,7 @@
             <ButtonUI
               size="m"
               type-style="pseudo"
+              @click="closeMenu"
             >
               Вопросы и ответы
             </ButtonUI>
@@ -41,6 +43,7 @@
             <ButtonUI
               size="m"
               type-style="pseudo"
+              @click="closeMenu"
             >
               Компании
             </ButtonUI>
@@ -52,6 +55,7 @@
             <ButtonUI
               size="m"
               type-style="pseudo"
+              @click="closeMenu"
             >
               Контакты
             </ButtonUI>
@@ -63,6 +67,7 @@
             <ButtonUI
               size="m"
               type-style="pseudo"
+              @click="closeMenu"
             >
               Стать партнером
             </ButtonUI>
@@ -118,6 +123,9 @@ export default {
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
     },
     onOpacityBlockFocus() {
+      this.$data.isMenuOpen = false;
+    },
+    closeMenu() {
       this.$data.isMenuOpen = false;
     }
   }
