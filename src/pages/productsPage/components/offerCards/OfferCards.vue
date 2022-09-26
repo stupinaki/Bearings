@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
-import {breakpoints} from "../../../../consts/breakpoints";
+import {mapActions, mapGetters, mapState} from "vuex";
+import {screenSize} from "../../../../consts/breakpoints";
 import {getCorrectWord} from "../../../../helpers/getCorrectWord";
 import OfferCard from "../offerCard/OfferCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
@@ -54,6 +54,7 @@ export default {
     ...mapState("offers", ["offers"]),
     ...mapState('products', ['products']),
     ...mapState("viewport", ["viewportWidth"]),
+    ...mapGetters("viewport", ["breakPoint"]),
     allCount() {
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
@@ -62,17 +63,17 @@ export default {
       return correctWord(this.allCount);
     },
     visibleItemsMaxCount() {
-      if (this.viewportWidth < breakpoints.extraLarge && this.viewportWidth > breakpoints.large) {
-        return 4;
+      if (this.breakPoint === screenSize.Mobile) {
+        return 1;
       }
-      if (this.viewportWidth <= breakpoints.large && this.viewportWidth > breakpoints.small) {
-        return 3;
-      }
-      if (this.viewportWidth <= breakpoints.small && this.viewportWidth > breakpoints.extraSmall) {
+      if (this.breakPoint === screenSize.Tablet) {
         return 2;
       }
-      if (this.viewportWidth <= breakpoints.extraSmall) {
-        return 1;
+      if (this.breakPoint === screenSize.Laptop) {
+        return 3;
+      }
+      if (this.breakPoint === screenSize.Desktop) {
+        return 4;
       }
       return 5;
     },

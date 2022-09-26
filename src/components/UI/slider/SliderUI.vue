@@ -55,17 +55,26 @@ export default {
     currentItems() {
       return this.visibleItems[this.$data.chunkNumber];
     },
+    hasNext() {
+      return this.$data.chunkNumber + 1 < this.visibleItems.length;
+    },
+    hasPrev() {
+      return this.$data.chunkNumber > 0;
+    },
     btnNextStyle() {
-      if (this.$data.chunkNumber + 1 < this.visibleItems.length) {
-        return [styled.btnWrapper, styled.btnVisible];
-      }
-      return [styled.btnWrapper, styled.btnHide];
+      return this.hasNext
+          ? [styled.btnWrapper, styled.btnVisible]
+          : [styled.btnWrapper, styled.btnHide];
     },
     btnPrevStyle() {
-      if (this.$data.chunkNumber > 0) {
-        return [styled.btnWrapper, styled.btnVisible];
-      }
-      return [styled.btnWrapper, styled.btnHide];
+      return this.hasPrev
+          ? [styled.btnWrapper, styled.btnVisible]
+          : [styled.btnWrapper, styled.btnHide];
+    }
+  },
+  watch: {
+    items() {
+      this.$data.chunkNumber = 0;
     }
   },
   methods: {

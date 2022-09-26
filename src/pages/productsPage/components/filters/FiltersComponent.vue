@@ -6,9 +6,10 @@
 
     <div :class="styled.filters">
       <RangeSlider
-        :min-value="minValue"
-        :max-value="maxValue"
-        @slider-change="filterProductsAvailability"
+        :input-value="rangeValue"
+        :min-limit="minMax[0]"
+        :max-limit="minMax[1]"
+        @slider-change="onRangeChange"
       />
       <div />
       <SelectUI
@@ -36,15 +37,28 @@ export default {
   data() {
     return {
       styled,
-      options: [{title: "Возрастанию цены", value: true }, {title: "Убыванию цены", value: false }],
+      rangeValue: [],
+      options: [
+        {title: "Возрастанию цены", value: true},
+        {title: "Убыванию цены", value: false}],
     }
   },
   computed: {
     ...mapState('products', ['products']),
-    ...mapState("filtersRange", ["minValue", "maxValue"])
+    minMax() {
+      const counts = this.products.map(product => product.count);
+      const maxValue = Math.max(...counts);
+      const minValue = Math.min(...counts);
+      return [minValue, maxValue];
+    }
+  },
+  watch: {
+    minMax() {
+      this.rangeValue = [...this.minMax];
+    }
   },
   beforeMount() {
-    this.initFilterRange();
+    this.rangeValue = [...this.minMax];
   },
   methods: {
     ...mapActions("products", [
@@ -52,10 +66,13 @@ export default {
       "setSortDirection",
       "filterProductsAvailability"
     ]),
-    ...mapActions("filtersRange", ["initFilterRange"]),
     sortSelect(direction) {
       this.setSortDirection(direction);
     },
+    onRangeChange(rangeValue) {
+      this.rangeValue = rangeValue;
+      this.filterProductsAvailability(rangeValue)
+    }
   }
 }
 </script>

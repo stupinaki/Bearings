@@ -1,6 +1,7 @@
 <template>
   <div :class="styled.autocomplete">
     <v-autocomplete
+      :tabindex="tabindex"
       :model-value="value"
       :transition="transition"
       :multiple="multiple"
@@ -38,7 +39,13 @@ export default {
       type: String,
       require: false,
       default: "",
-    }
+    },
+    tabindex: {
+      type: String,
+      required: false,
+      default: null,
+    },
+
   },
   emits: ["autocompleteChange"],
   data() {

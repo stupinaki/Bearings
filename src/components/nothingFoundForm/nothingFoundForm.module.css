@@ -115,3 +115,15 @@
     gap: 40px;
   }
 }
+
+@media screen and (max-width: $breakpoint-small) {
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .phone {
+    margin-bottom: 0;
+  }
+}

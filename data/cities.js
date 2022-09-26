@@ -9,7 +9,7 @@ export const cities = [
     },
     {
         id: 13,
-        name: "Новосибирск",
+        name: "Челябинск",
     },
     {
         id: 14,

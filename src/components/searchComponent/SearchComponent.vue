@@ -45,6 +45,7 @@
 <script>
 import {mapActions, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
+import {getCitiesOptions} from "../../helpers/getCitiesOptions";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
 import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import MainSearchInputsMobile from "./components/mainSearchInputs/MainSearchInputsMobile.vue";
@@ -67,7 +68,7 @@ export default {
     ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams", "isAdditionalFormVisible"]),
     citiesOptions() {
-      return this.cities.map(c => ({title: c.name, value: c.id}))
+      return getCitiesOptions(this.cities);
     },
     isVisibleAutocompletePlaceholder() {
       return !this.searchParams.citiesFilter.length;

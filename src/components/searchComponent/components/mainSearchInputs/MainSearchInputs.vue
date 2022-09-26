@@ -12,6 +12,7 @@
       :class="styled.wrapper"
     >
       <input
+        tabindex="1"
         :value="marking"
         type="text"
         placeholder="Начните вводить"
@@ -23,6 +24,7 @@
       </div>
 
       <AutocompleteUI
+        tabindex="2"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"

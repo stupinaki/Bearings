@@ -12,11 +12,7 @@ export default {
   props: {
     value: {
       type: String,
-      require: true,
       default: undefined,
-      color: {
-        type: String,
-      },
     },
   },
   data() {

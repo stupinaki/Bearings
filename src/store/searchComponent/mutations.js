@@ -11,5 +11,8 @@ export default {
     },
     [actionNames.CLEAR_FORM](state) {
         state.searchParams = cloneDeep(defaultBearingsSearchParams);
+    },
+    [actionNames.SET_SEARCH_PARAMS](state, searchParams) {
+        Object.keys(searchParams).forEach(key => state.searchParams[key] = searchParams[key]);
     }
 }

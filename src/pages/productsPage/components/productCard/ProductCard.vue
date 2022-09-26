@@ -34,7 +34,7 @@
               Класс точности
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ pr_class }}
+              {{ prClass }}
             </div>
           </div>
           <div :class="styled.row">
@@ -50,7 +50,7 @@
               Параметр
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ bearing_parameters }}
+              {{ bearingParameters }}
             </div>
           </div>
           <div :class="styled.row">
@@ -69,7 +69,7 @@
               Внутренний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ inner_d }}
+              {{ innerD }}
             </div>
           </div>
           <div :class="styled.row">
@@ -77,7 +77,7 @@
               Внешний диаметр (мм)
             </div>
             <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ outer_d }}
+              {{ outerD }}
             </div>
           </div>
           <div :class="styled.row">
@@ -126,7 +126,7 @@ export default {
         type: Number,
         default: null,
       },
-    pr_class: {
+    prClass: {
         type: String,
         default: "-",
       },
@@ -134,7 +134,7 @@ export default {
         type: String,
         default: "-",
       },
-    bearing_parameters: {
+    bearingParameters: {
         type: String,
         default: "-",
       },
@@ -142,11 +142,11 @@ export default {
         type: String,
         default: "-",
       },
-    inner_d: {
+    innerD: {
         type: Number,
         default: null,
       },
-    outer_d: {
+    outerD: {
         type: Number,
         default: null,
       },
@@ -158,7 +158,7 @@ export default {
         type: Number,
         default: null,
       },
-    id_organization: {
+    idOrganization: {
         type: Number,
         default: null,
     }
@@ -171,7 +171,7 @@ export default {
   computed: {
     ...mapState("getInTouch", ["getInTouch"]),
     getInTouchCard() {
-      return this.getInTouch.find(card => card.id_org === this.id_organization);
+      return this.getInTouch.find(card => card.id_org === this.idOrganization);
     }
   },
   beforeMount() {

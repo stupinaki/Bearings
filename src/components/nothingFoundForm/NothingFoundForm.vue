@@ -1,11 +1,11 @@
 <template>
   <div :class="styled.wrapper">
-    <div :class="styled.title">
-      По вашему запросу «{{ request }}» ничего не найдено
-    </div>
-    <div :class="styled.subTitle">
+    <h2 :class="styled.title">
+      По вашему запросу ничего не найдено
+    </h2>
+    <span :class="styled.subTitle">
       Исправьте запрос или свяжитесь с нами. Мы попробуем вам помочь.
-    </div>
+    </span>
   </div>
   <div :class="styled.contactsAndForm">
     <ContactUsForm />
@@ -46,13 +46,6 @@ export default {
   name: "NothingFoundForm",
   components: {
     ContactUsForm,
-  },
-  props: {
-    request: {
-      type: String,
-      require: true,
-      default: "какой-то запрос"
-    }
   },
   data() {
     return {
