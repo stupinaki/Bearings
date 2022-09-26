@@ -1,13 +1,19 @@
+import isNil from "lodash/isNil"
+
 export function normaliseSearchParams(searchParams) {
     const obj = {};
 
-    for(let param in searchParams) {
-        if(searchParams[param] && !Array.isArray(searchParams[param])) {
-            obj[param] = searchParams[param];
+    Object.keys(searchParams).filter(v => !isNil(searchParams[v])).forEach(key => {
+        const isArray = Array.isArray(searchParams[key]);
+        const isEmptyStr = searchParams[key] === "";
+
+        if(isArray) {
+            obj[key] = searchParams[key].map(v => v.value) || [];
+            return;
         }
-        if(searchParams[param] && Array.isArray(searchParams[param])) {
-            obj[param] = searchParams[param].map(v => v.value) || [];
+        if(!isEmptyStr) {
+            obj[key] = searchParams[key];
         }
-    }
+    });
     return obj;
 }

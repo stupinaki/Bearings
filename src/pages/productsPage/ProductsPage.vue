@@ -82,17 +82,20 @@ export default {
       },
       deep: true,
       immediate: true
-    }
+    },
+    ...mapState("products", ["products"]),
+    ...mapState("offers", ["offers"]),
   },
   async beforeMount() {
     const searchParams = await this.initSearchParams();
     await this.initProducts(searchParams);
+    this.initOffers();
   },
   methods: {
     ...mapActions("products", ["initProducts"]),
     ...mapActions("searchComponent", ["initSearchParams"]),
+    ...mapActions("offers", ["initOffers"]),
   },
-
 }
 </script>
 

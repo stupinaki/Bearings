@@ -4,7 +4,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  min-width: 100%;
   height: 100%;
   padding: 16px;
   border: 1px solid $primary-border;
@@ -14,8 +15,10 @@
 .title {
   margin-bottom: 8px;
   color: $primary-text-color;
+  text-align: start;
 }
 
 .sub-title {
   color: $secondary-text-color;
+  text-align: start;
 }

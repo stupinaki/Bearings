@@ -13,8 +13,6 @@ export default {
         state.searchParams = cloneDeep(defaultBearingsSearchParams);
     },
     [actionNames.SET_SEARCH_PARAMS](state, searchParams) {
-        for(let param in state.searchParams) {
-            state.searchParams[param] = searchParams[param];
-        }
+        Object.keys(searchParams).forEach(key => state.searchParams[key] = searchParams[key]);
     }
 }

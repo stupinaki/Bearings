@@ -1,0 +1,36 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 40px 0;
+}
+
+.arrow-prev {
+  transform: rotate(180deg);
+}
+
+.btn-wrapper {
+  width: max-content;
+  height: max-content;
+  padding: 8px;
+}
+
+.btn-hide {
+  display: none;
+}
+
+.btn-visible {
+  display: grid;
+}
+
+.slider {
+  display: flex;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+}

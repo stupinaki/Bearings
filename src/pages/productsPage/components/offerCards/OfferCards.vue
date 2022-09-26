@@ -1,62 +1,81 @@
 <template>
   <div :class="styled.wrapper">
-    <div :class="styled.title">
+    <span :class="styled.title">
       Найдено {{ allCount }} {{ correctWord }}
-    </div>
-    <div :class="styled.cards">
-      <div
-        v-for="card in offers"
-        :key="card.id"
-        :class="styled.btnWrapper"
-      >
-        <ButtonUI
-          type-style="pseudo"
-          :class="styled.btn"
-          @click="citySearch(card)"
-        >
-          <OfferCard
-            :city="card.city"
-            :count="card.count"
-          />
-        </ButtonUI>
-      </div>
-    </div>
+    </span>
+
+    <SliderUI
+      :items="offers"
+      :visible-items-max-count="visibleItemsMaxCount"
+    >
+      <template #default="props">
+        <div :class="styled.cards">
+          <ButtonUI
+            v-for="card in props.items"
+            :key="card.id"
+            :class="styled.btn"
+            type-style="pseudo"
+            @click="citySearch(card)"
+          >
+            <OfferCard
+              :city="card.city"
+              :count="card.count"
+            />
+          </ButtonUI>
+        </div>
+      </template>
+    </SliderUI>
   </div>
 </template>
 
 <script>
-import styled from "./offerCards.module.css";
+import {mapActions, mapGetters, mapState} from "vuex";
+import {screenSize} from "../../../../consts/breakpoints";
+import {getCorrectWord} from "../../../../helpers/getCorrectWord";
 import OfferCard from "../offerCard/OfferCard.vue";
-import {mapActions, mapState} from "vuex";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
+import SliderUI from "../../../../components/UI/slider/SliderUI.vue";
+import styled from "./offerCards.module.css";
 
 export default {
   name: "OfferCards",
   components: {
     OfferCard,
     ButtonUI,
+    SliderUI,
   },
-  data(){
+  data() {
     return {
       styled,
+      words: ["предложение", "предложения", "предложений"],
     }
   },
   computed: {
     ...mapState("offers", ["offers"]),
     ...mapState('products', ['products']),
-    allCount(){
+    ...mapState("viewport", ["viewportWidth"]),
+    ...mapGetters("viewport", ["breakPoint"]),
+    allCount() {
       return this.offers.reduce((acc, card) => +card.count + acc, 0)
     },
-    correctWord(){
-      const count = this.allCount.toString();
-      const lastDigit = +count[count.length - 1];
-      if(lastDigit === 1){
-        return "предложение";
+    correctWord() {
+      const correctWord = getCorrectWord(this.$data.words);
+      return correctWord(this.allCount);
+    },
+    visibleItemsMaxCount() {
+      if (this.breakPoint === screenSize.Mobile) {
+        return 1;
       }
-      if(lastDigit === 2 || lastDigit === 3 || lastDigit === 4){
-        return "предложения";
+      if (this.breakPoint === screenSize.Tablet) {
+        return 2;
       }
-      return "предложений";
+      if (this.breakPoint === screenSize.Laptop) {
+        return 3;
+      }
+      if (this.breakPoint === screenSize.Desktop) {
+        return 4;
+      }
+      return 5;
     },
   },
   beforeMount() {
@@ -65,14 +84,14 @@ export default {
   methods: {
     ...mapActions("offers", ["initOffers"]),
     ...mapActions("products", [
-      "initProducts",
-      "setSortDirection",
       "filterProductsAvailability",
+      "setSortDirection",
+      "initProducts",
       "cityFilter"
     ]),
     citySearch(card) {
       this.cityFilter(card.id);
-    }
+    },
   },
 }
 </script>

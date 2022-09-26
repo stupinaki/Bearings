@@ -5,10 +5,10 @@
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: 16% 16% 16% 16% 16%;
-  gap: 12px;
-  margin: 40px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .title {
@@ -19,12 +19,28 @@
   color: $primary-text-color;
 }
 
-.btn-wrapper {
+.btn {
   width: max-content;
+  padding: 0;
 }
 
-.btn {
-  padding: 0;
+.arrow-down {
+  transform: rotate(90deg);
+}
+
+.arrow-up {
+  transform: rotate(270deg);
+}
+
+.btn-more {
+  width: max-content;
+  color: $secondary-background;
+  text-decoration: none;
+
+  &:hover {
+    color: $secondary-background;
+    text-decoration: underline;
+  }
 }
 
 @media screen and (max-width: $breakpoint-large) {

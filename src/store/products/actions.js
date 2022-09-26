@@ -7,7 +7,7 @@ export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
 
-        const normalSearchParams = normaliseSearchParams(searchParams)
+        const normalSearchParams = normaliseSearchParams(searchParams);
         router.push({path: routerNames.products, query: normalSearchParams})
 
         try {
