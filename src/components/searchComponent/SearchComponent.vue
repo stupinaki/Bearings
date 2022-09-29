@@ -85,8 +85,8 @@ export default {
     ...mapActions("products", ["initProducts"]),
     ...mapActions("searchComponent", [
       "toggleAdditionalForm",
+      "clearSearchParams",
       "setInputValue",
-      "clearSearchParams"
     ]),
     initSearch() {
       this.initProducts(this.searchParams);
@@ -95,7 +95,7 @@ export default {
       this.setInputValue(obj);
     },
     clearForm() {
-      this.clearSearchParams()
+      this.clearSearchParams();
       this.initProducts(this.searchParams);
     }
   }

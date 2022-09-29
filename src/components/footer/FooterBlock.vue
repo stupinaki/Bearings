@@ -16,14 +16,14 @@
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: 'home'}"
             :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: 'home'}"
             :class="styled.columnItem"
           >
             Оптовый заказ
@@ -48,14 +48,14 @@
             :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
-            <b>Покупателям</b>
+            <b>Продавцам</b>
           </router-link>
 
           <router-link
             :to="{name: 'empty'}"
             :class="styled.columnItem"
           >
-            Продавцам
+            Стать партнером
           </router-link>
 
           <router-link
