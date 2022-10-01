@@ -19,9 +19,6 @@
         :class="[styled.input, styled.line]"
         @input="$emit('onMarkingChange', $event.target.value)"
       >
-      <div :class="styled.imgWrapper">
-        <PlaceImg />
-      </div>
 
       <AutocompleteUI
         tabindex="2"
@@ -70,13 +67,11 @@ import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
 import MarkingHint from "../../../markingHint/MarkingHint.vue";
-import PlaceImg from "../../../../assets/place.svg"
 import styled from "./mainSearchInputs.module.css";
 
 export default {
   name: "MainSearchInputs",
   components: {
-    PlaceImg,
     ButtonUI,
     MarkingHint,
     AutocompleteUI,

@@ -6,12 +6,6 @@
   color: $primary-text-color;
 }
 
-.img-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .input {
   display: flex;
   flex-direction: column;
@@ -55,7 +49,7 @@
 
 .autocomplete-wrapper {
   display: grid;
-  grid-template-columns: 1fr 11fr;
+  grid-template-columns: 1fr;
   background: $primary-background;
   border: 1px solid $primary-border;
   border-radius: 8px;

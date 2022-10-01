@@ -1,6 +1,7 @@
 <template>
   <div :class="styled.autocomplete">
     <v-autocomplete
+      :prepend-icon="icon"
       return-object
       :items="items"
       :tabindex="tabindex"
@@ -11,15 +12,15 @@
     >
       <template #selection="{ item, index }">
         <v-chip
-          v-if="index < 2"
-          :key="item.title + index"
+          v-if="index < visibleChips"
+          :key="item.value"
           :closable="closableChips"
           @click:close="deleteCity(item)"
         >
           <span>{{ item.title }}</span>
         </v-chip>
-        <span v-if="index === 2">
-          ещё+ {{ value.length - 2 }}
+        <span v-if="index === visibleChips">
+          ещё+ {{ value.length - visibleChips }}
         </span>
       </template>
     </v-autocomplete>
@@ -36,6 +37,16 @@ export default {
       type: Array,
       require: false,
       default: undefined,
+    },
+    icon: {
+      type: String,
+      require: false,
+      default: "$customPlaceSvg",
+    },
+    visibleChips: {
+      type: Number,
+      require: false,
+      default: 2,
     },
     multiple: Boolean,
     chips: Boolean,

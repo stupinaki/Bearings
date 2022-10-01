@@ -28,10 +28,6 @@
       География поиска
     </div>
     <div :class="styled.autocompleteWrapper">
-      <div :class="styled.imgWrapper">
-        <PlaceImg />
-      </div>
-
       <AutocompleteUI
         tabindex="2"
         :value="citiesFilter"
@@ -75,7 +71,6 @@ import InputUI from "../../../UI/input/InputUI.vue";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import MarkingHint from "../../../markingHint/MarkingHint.vue";
-import PlaceImg from "../../../../assets/place.svg"
 import ArrowImg from "../../../../assets/iconForward.svg"
 import styled from "./mainSearchInputsMobile.module.css";
 
@@ -83,7 +78,6 @@ export default {
   name: "MainSearchInputs",
   components: {
     InputUI,
-    PlaceImg,
     ArrowImg,
     ButtonUI,
     MarkingHint,
