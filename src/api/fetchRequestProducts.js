@@ -19,7 +19,7 @@ export function fetchRequestProducts(searchParams) {
         && isEmpty(outerDiameter) && isEmpty(innerDiameter) && isEmpty(bearingWidth);
 
     if (isEmptySearchParams) {
-        return timeoutPromise([...productCardsValue], 1000);
+        return timeoutPromise([...productCardsValue], 500);
     }
     const citiesID = citiesFilter.map(city => city.value);
     const data = productCardsValue.filter(productCard => {
@@ -32,5 +32,5 @@ export function fetchRequestProducts(searchParams) {
                (bearingWidth ? productCard.width === +bearingWidth : true) &&
                (citiesID.length ? citiesID.includes(productCard.id_city) : true);
     });
-    return timeoutPromise(data, 2000);
+    return timeoutPromise(data, 1000);
 }

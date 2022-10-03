@@ -3,6 +3,7 @@
 .company-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   padding: 24px;
   background: $third-background;

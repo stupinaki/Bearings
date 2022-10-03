@@ -1,11 +1,11 @@
 <template>
   <div :class="styled.header">
-    <div :class="styled.title">
-      Сервис по поиску подшипников
-    </div>
-    <div :class="styled.subTitle">
-      Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
-    </div>
+    <h2 :class="styled.title">
+      {{ title }}
+    </h2>
+    <span :class="styled.subTitle">
+      {{ subTitle }}
+    </span>
   </div>
   <form
     :class="styled.wrapper"
@@ -57,6 +57,18 @@ export default {
     MainSearchInputs,
     AdditionalSearchInputs,
     MainSearchInputsMobile,
+  },
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: "Сервис по поиску подшипников"
+    },
+    subTitle: {
+      type: String,
+      required: false,
+      default: "Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене."
+    }
   },
   data() {
     return {

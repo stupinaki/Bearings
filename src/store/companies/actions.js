@@ -21,7 +21,7 @@ export default {
 
     getCompanies() {
         // todo replace with real data
-        return timeoutPromise(companiesCardsValue, 2000)
+        return timeoutPromise(companiesCardsValue, 1000)
     },
 
 }

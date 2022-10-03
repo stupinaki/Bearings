@@ -7,7 +7,10 @@
       :key="card.id"
       :class="styled.card"
     >
-      <CompanyCard v-bind="card" />
+      <CompanyCard
+        v-bind="card"
+        :company-id="card.id_org"
+      />
     </div>
   </div>
 </template>

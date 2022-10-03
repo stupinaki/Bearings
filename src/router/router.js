@@ -5,6 +5,8 @@ import ProductsPage from "../pages/productsPage/ProductsPage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
+import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
+// import NotFoundPage from "../pages/NotFoundPage/NotFoundPage.vue";
 
 
 export const routerNames = {
@@ -14,6 +16,8 @@ export const routerNames = {
     empty: "empty",
     contractOffer: "contractOffer",
     privacyPolicy: "privacyPolicy",
+    oneCompany: "oneCompany",
+    notFound: "notFound",
 }
 
 const routes = [
@@ -47,7 +51,25 @@ const routes = [
         name: routerNames.privacyPolicy,
         component: PrivacyPolicyPage,
     },
+    {
+        path: '/company/:companyId',
+        name: routerNames.oneCompany,
+        component: OneCompanyPage,
+    },
+    {
+        path: '/*/*',
+        redirect: {name: routerNames.home}
+        // name: routerNames.notFound,
+        // component: NotFoundPage,
+    },
+    // {
+    //     path: '*/*',
+    //     name: routerNames.notFound,
+    //     component: NotFoundPage,
+    // },
 ]
+
+//todo страница при неправильном url, redirect
 
 const router = createRouter({
     routes,
