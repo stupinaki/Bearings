@@ -20,20 +20,15 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
-// import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import CompanyDescriptionCard from "./components/companyDescriptionCard/CompanyDescriptionCard.vue";
 import styled from "./oneCompanyPage.module.css";
-// import ProductsPage from "../productsPage/ProductsPage.vue";
-
 
 export default {
   name: "OneCompanyPage",
   components: {
     CompanyDescriptionCard,
-    // SearchComponent,
     LoaderUI,
-    // ProductsPage
   },
   data() {
     return {

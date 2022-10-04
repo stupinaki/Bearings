@@ -6,7 +6,6 @@ import router, { routerNames } from "../../router/router";
 export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
-
         const normalSearchParams = normaliseSearchParams(searchParams);
         router.push({path: routerNames.products, query: normalSearchParams})
 
@@ -25,9 +24,9 @@ export default {
         commit(actionNames.SET_SORT_DIRECTION, isDesc);
     },
     filterProductsAvailability({commit}, rangeArray) {
-        commit(actionNames.FILTER_PRODUCTS, rangeArray)
+        commit(actionNames.FILTER_PRODUCTS, rangeArray);
     },
     cityFilter({commit}, cityId) {
-        commit(actionNames.FILTER_CITY, cityId)
+        commit(actionNames.FILTER_CITY, cityId);
     }
 }

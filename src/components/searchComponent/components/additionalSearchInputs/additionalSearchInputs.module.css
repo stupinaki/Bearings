@@ -4,12 +4,23 @@
   margin-top: 56px;
 }
 
+.autocomplete-wrapper {
+  width: 60%;
+  background: $primary-background;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.label {
+  padding-bottom: 12px;
+}
+
 .additional-form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 60%;
-  margin-top: 56px;
+  margin-top: 24px;
 }
 
 .btn-wrapper {
@@ -32,7 +43,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     width: 60%;
-    margin-top: 56px;
+    margin-top: 24px;
   }
 }
 
@@ -42,10 +53,14 @@
     grid-template-columns: 100%;
     gap: 24px;
     width: 100%;
-    margin-top: 56px;
+    margin-top: 24px;
   }
 
   .help-reset {
     display: none;
+  }
+
+  .autocomplete-wrapper {
+    width: 100%;
   }
 }

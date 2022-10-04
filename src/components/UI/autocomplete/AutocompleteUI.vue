@@ -7,7 +7,7 @@
       :tabindex="tabindex"
       :multiple="multiple"
       :model-value="value"
-      :placeholder="placeholder"
+      :placeholder="autocompletePlaceholder"
       @update:model-value="changeSelected"
     >
       <template #selection="{ item, index }">
@@ -41,7 +41,7 @@ export default {
     icon: {
       type: String,
       require: false,
-      default: "$customPlaceSvg",
+      default: "",
     },
     visibleChips: {
       type: Number,
@@ -66,13 +66,19 @@ export default {
       required: false,
       default: null,
     },
-
   },
   emits: ["autocompleteChange"],
   data() {
     return {
       styled,
     }
+  },
+  computed: {
+    autocompletePlaceholder() {
+      return this.$props.value.length
+          ? ""
+          : this.$props.placeholder;
+    },
   },
   methods: {
     changeSelected(e) {

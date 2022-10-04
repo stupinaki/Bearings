@@ -1,5 +1,22 @@
 <template>
   <div :class="styled.additionalFormWrapper">
+    <div :class="styled.label">
+      Компании
+    </div>
+    <div :class="styled.autocompleteWrapper">
+      <AutocompleteUI
+        tabindex="3"
+        icon="mdi-cogs"
+        :value="companiesSelected"
+        :transition="true"
+        :multiple="true"
+        :chips="true"
+        :items="companiesNameAndId"
+        :closable-chips="true"
+        placeholder="ООО «АВАНГАРД-ПОДШИПНИК»"
+        @autocomplete-change="$emit('onCompaniesSelectedChange', $event)"
+      />
+    </div>
     <div :class="styled.additionalForm">
       <div
         v-for="(input, i) in inputsData"
@@ -51,6 +68,7 @@
 </template>
 
 <script>
+import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
 import HelpImg from "../../../../assets/help.svg";
@@ -59,6 +77,7 @@ import styled from "./additionalSearchInputs.module.css";
 export default {
   name: "AdditionalSearchInputs",
   components: {
+    AutocompleteUI,
     ButtonUI,
     InputUI,
     HelpImg,
@@ -67,9 +86,17 @@ export default {
     formValues: {
       type: Object,
       required: true
-    }
+    },
+    companiesNameAndId: {
+      type: Array,
+      required: true,
+    },
+    companiesSelected: {
+      type: Array,
+      default: () => [],
+    },
   },
-  emits: ["clearForm", "onInputChange"],
+  emits: ["clearForm", "onInputChange", "onCompaniesSelectedChange"],
   data(){
     return {
       styled,
@@ -85,7 +112,7 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "accuracyClass",
-          tabindex: "3",
+          tabindex: "4",
           type: "text",
         },
         {
@@ -94,7 +121,7 @@ export default {
           placeholder: "6302cg18",
           hint: "test",
           name: "bearingType",
-          tabindex: "4",
+          tabindex: "5",
           type: "text",
         },
         {
@@ -102,7 +129,7 @@ export default {
           label: "Параметр подшипника",
           placeholder: "6302cg18",
           name: "bearingParameter",
-          tabindex: "5",
+          tabindex: "6",
           type: "text",
         },
         {
@@ -110,7 +137,7 @@ export default {
           label: "Внешний диаметр",
           placeholder: "25 мм",
           name: "outerDiameter",
-          tabindex: "6",
+          tabindex: "7",
           type: "number",
         },
         {
@@ -118,7 +145,7 @@ export default {
           label: "Внутренний диаметр",
           placeholder: "15 мм",
           name: "innerDiameter",
-          tabindex: "7",
+          tabindex: "8",
           type: "number",
         },
         {
@@ -126,7 +153,7 @@ export default {
           label: "Ширина",
           placeholder: "30 мм",
           name: "bearingWidth",
-          tabindex: "8",
+          tabindex: "9",
           type: "number",
         }
       ]

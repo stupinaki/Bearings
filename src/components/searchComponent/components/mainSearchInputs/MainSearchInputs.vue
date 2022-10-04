@@ -19,16 +19,16 @@
         :class="[styled.input, styled.line]"
         @input="$emit('onMarkingChange', $event.target.value)"
       >
-
       <AutocompleteUI
         tabindex="2"
+        icon="$customPlaceSvg"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesOptions"
         :closable-chips="true"
-        :placeholder="autocompletePlaceholder"
+        placeholder="Искать по всей России"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
 
@@ -90,7 +90,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    isVisibleAutocompletePlaceholder: Boolean,
   },
   emits: [
     "onInputChange",
@@ -105,11 +104,6 @@ export default {
     }
   },
   computed: {
-    autocompletePlaceholder() {
-      return this.$props.isVisibleAutocompletePlaceholder
-          ? "Искать по всей России"
-          : "";
-    },
     hintStyle() {
       if (this.$data.isHintVisible) {
         return styled.hintVisible;

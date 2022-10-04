@@ -30,13 +30,14 @@
     <div :class="styled.autocompleteWrapper">
       <AutocompleteUI
         tabindex="2"
+        icon="$customPlaceSvg"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesOptions"
         :closable-chips="true"
-        :placeholder="autocompletePlaceholder"
+        placeholder="Искать по всей России"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
     </div>
@@ -96,7 +97,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    isVisibleAutocompletePlaceholder: Boolean,
     isToggleAdditionalForm: Boolean,
   },
   emits: [
@@ -113,11 +113,6 @@ export default {
     }
   },
   computed: {
-    autocompletePlaceholder() {
-      return this.$props.isVisibleAutocompletePlaceholder
-          ? "Искать по всей России"
-          : "";
-    },
     hintStyle() {
       if (this.$data.isHintVisible) {
         return styled.hintVisible;

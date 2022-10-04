@@ -7,9 +7,7 @@ export default {
         if (state.companies.length) {
             return;
         }
-
         commit(actionNames.SET_LOADING, true);
-
         try {
             const result = await dispatch('getCompanies');
             commit(actionNames.SET_COMPANIES, result);
@@ -18,7 +16,6 @@ export default {
         }
         commit(actionNames.SET_LOADING, false);
     },
-
     getCompanies() {
         // todo replace with real data
         return timeoutPromise(companiesCardsValue, 1000)

@@ -30,6 +30,10 @@
     padding: 0;
   }
 
+  & :global(.v-input--horizontal .v-input__prepend) {
+    margin: 0 16px;
+  }
+
   & :global(.v-autocomplete .v-field .v-field__input) {
     align-self: center;
   }

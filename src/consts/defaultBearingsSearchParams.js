@@ -8,5 +8,5 @@ export const defaultBearingsSearchParams = {
     outerDiameter: '',
     innerDiameter: '',
     bearingWidth: '',
-    companyId: ''
+    companiesFilter: [],
 };
