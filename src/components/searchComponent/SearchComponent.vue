@@ -11,6 +11,7 @@
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
+    searchParams: {{ searchParams }}
     <MainSearchInputsMobile
       v-if="isMobile"
       :marking="searchParams.marking"
@@ -98,7 +99,8 @@ export default {
       this.setInputValue(obj);
     },
     clearForm() {
-      this.initProducts({});
+      this.clearSearchParams();
+      this.initProducts(this.searchParams);
     }
   }
 }

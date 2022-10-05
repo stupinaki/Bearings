@@ -6,8 +6,8 @@ import router, { routerNames } from "../../router/router";
 export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
-        const normalSearchParams = normaliseSearchParams(searchParams);
-        router.push({path: routerNames.products, query: normalSearchParams})
+
+        this.changeRouterParams(searchParams);
 
         try {
             const result = await dispatch('fetchProducts', searchParams);
@@ -28,5 +28,9 @@ export default {
     },
     cityFilter({commit}, cityId) {
         commit(actionNames.FILTER_CITY, cityId);
+    },
+    changeRouterParams(searchParams) {
+        const normalSearchParams = normaliseSearchParams(searchParams);
+        router.push({path: routerNames.products, query: normalSearchParams});
     }
 }

@@ -2,7 +2,6 @@ import { getSearchParamsFromRoute, parseAndValidateArrValueFromRoute } from "../
 import actionNames from "./actionNames.js";
 import router from "../../router/router";
 
-//todo не работает по "назад" в браузере, не обновляет параметры
 export default {
     async initSearchParams({commit, getters}) {
         const queryParams = router.currentRoute.value.query;

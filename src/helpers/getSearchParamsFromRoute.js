@@ -10,9 +10,7 @@ export function getSearchParamsFromRoute(queryParams) {
 
     for(let param in defaultBearingsSearchParams) {
         const value = queryParams[param];
-        if(value) {
-            searchParams[param] = value;
-        }
+        searchParams[param] = value || defaultBearingsSearchParams[param];
     }
     return searchParams;
 }

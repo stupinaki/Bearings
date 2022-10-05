@@ -1,5 +1,5 @@
-import actionNames from "./actionNames.js";
 import {defaultBearingsSearchParams} from "../../consts/defaultBearingsSearchParams.js";
+import actionNames from "./actionNames.js";
 import cloneDeep from "lodash/cloneDeep";
 
 export default {
