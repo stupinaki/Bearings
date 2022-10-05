@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="dropZone"
     :class="dropZoneClass"
     @dragenter.prevent="insideDropZone"
     @dragleave.prevent="outsideDropZone"

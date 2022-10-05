@@ -11,7 +11,6 @@
     :class="styled.wrapper"
     @submit.prevent="initSearch"
   >
-    searchParams: {{ searchParams }}
     <MainSearchInputsMobile
       v-if="isMobile"
       :marking="searchParams.marking"
