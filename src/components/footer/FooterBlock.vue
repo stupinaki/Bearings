@@ -3,9 +3,12 @@
     <div :class="styled.wrapper">
       <div :class="styled.container">
         <div :class="styled.column">
-          <div :class="styled.columnLogo">
+          <router-link
+            :to="{name: 'home'}"
+            :class="styled.columnLogo"
+          >
             PIC
-          </div>
+          </router-link>
         </div>
         <div :class="styled.column">
           <router-link

@@ -15,7 +15,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'empty'}"
+      :to="{name: 'FAQ'}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -51,7 +51,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'empty'}"
+      :to="{name: 'becomePartner'}"
       :class="[styled.itemLink, styled.itemLinkSecondaryBtn]"
     >
       <ButtonUI

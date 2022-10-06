@@ -9,12 +9,12 @@
         :key="question.id"
       >
         <QuestionCard
-          :text="question.text"
+          :text="question.question"
         />
       </div>
     </div>
     <div :class="styled.questionBtn">
-      <router-link :to="{name: 'empty'}">
+      <router-link :to="{name: 'FAQ'}">
         <ButtonUI type-style="type-link">
           Все вопросы
           <Arrow />

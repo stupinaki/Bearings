@@ -6,7 +6,9 @@ import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
 import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
-// import NotFoundPage from "../pages/NotFoundPage/NotFoundPage.vue";
+import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
+import FAQPage from "../pages/FAQPage/FAQPage.vue";
+// import notFoundPage from "../pages/notFoundPage/notFoundPage.vue";
 
 
 export const routerNames = {
@@ -18,6 +20,8 @@ export const routerNames = {
     privacyPolicy: "privacyPolicy",
     oneCompany: "oneCompany",
     notFound: "notFound",
+    becomePartner: "becomePartner",
+    FAQ: "FAQ"
 }
 
 const routes = [
@@ -57,15 +61,25 @@ const routes = [
         component: OneCompanyPage,
     },
     {
+        path: '/become-partner',
+        name: routerNames.becomePartner,
+        component: BecomePartnerPage,
+    },
+    {
+        path: '/FAQ',
+        name: routerNames.FAQ,
+        component: FAQPage,
+    },
+    {
         path: '/*/*',
         redirect: {name: routerNames.home}
         // name: routerNames.notFound,
-        // component: NotFoundPage,
+        // component: notFoundPage,
     },
     // {
     //     path: '*/*',
     //     name: routerNames.notFound,
-    //     component: NotFoundPage,
+    //     component: notFoundPage,
     // },
 ]
 

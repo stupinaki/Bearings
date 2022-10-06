@@ -38,6 +38,7 @@
   font-weight: 800;
   line-height: 58px;
   color: $primary-text-color;
+  cursor: pointer;
 }
 
 @media screen and (max-width: $breakpoint-extra-large) {

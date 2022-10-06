@@ -1,22 +1,32 @@
 export const questionCardValue = [
     {
         id: 1,
-        text: "Где найти маркировку подшипников?"
+        index: 0,
+        question: "Где найти маркировку подшипников?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
         id: 2,
-        text: "Моего города нет в списке городов. Что я делаю?"
+        index: 1,
+        question: "Моего города нет в списке городов. Что я делаю?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
         id: 3,
-        text: "Как разместить свою компанию на сайте?"
+        index: 2,
+        question: "Как разместить свою компанию на сайте?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
         id: 4,
-        text: "Я не знаю, какой подшипник мне нужен. Что делать?"
+        index: 3,
+        question: "Я не знаю, какой подшипник мне нужен. Что делать?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
         id: 5,
-        text: "Как измерить размеры подшипника?"
-    },
+        index: 4,
+        question: "Как измерить размеры подшипника?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
 ]
