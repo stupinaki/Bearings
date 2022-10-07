@@ -15,7 +15,7 @@
       :phone="targetCompany.phone"
       :creation-date="targetCompany.creation_date"
     />
-    <router-link :to="{name: 'products'}">
+    <router-link :to="{name: routerNames.products, query: {companiesFilter: [targetCompany.id_org]}}">
       <ButtonUI
         type-style="secondary"
         :class="styled.btn"
@@ -28,13 +28,13 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
+import {routerNames} from "../../router/router.js";
 import CompanyDescriptionCard from "./components/companyDescriptionCard/CompanyDescriptionCard.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 import styled from "./oneCompanyPage.module.css";
 
 export default {
-  //todo не добавился id выбранного города в роутинг params: { companiesFilter: [targetCompany.id_org] }
   name: "OneCompanyPage",
   components: {
     CompanyDescriptionCard,
@@ -44,6 +44,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     }
   },
   computed: {

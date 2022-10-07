@@ -3,15 +3,16 @@
     <div>
       {{ text }}
     </div>
-    <router-link :to="{name: path }">
+    <router-link :to="{name: routerNames.FAQ }">
       <Arrow />
     </router-link>
   </div>
 </template>
 
 <script>
-import styled from "./questionCard.module.css";
+import {routerNames} from "../../../../router/router.js";
 import Arrow from "../../../../assets/arrow_downward.svg"
+import styled from "./questionCard.module.css";
 //todo сделать карточки вопросов кликабельными полностью, и вести на страницу с ответами
 //todo в идеале чтобы по нажатию тебя кидала на нужный ответ, мб сделать их коллапсами
 export default {
@@ -34,6 +35,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     }
   }
 }

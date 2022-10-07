@@ -3,7 +3,7 @@
     :class="styled.wrapper"
   >
     <router-link
-      :to="{name: 'home'}"
+      :to="{name: routerNames.home}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -15,7 +15,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'FAQ'}"
+      :to="{name: routerNames.FAQ}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -27,7 +27,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'companies'}"
+      :to="{name: routerNames.companies}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -39,7 +39,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'empty'}"
+      :to="{name: routerNames.empty}"
       :class="styled.itemLink"
     >
       <ButtonUI
@@ -51,7 +51,7 @@
     </router-link>
 
     <router-link
-      :to="{name: 'becomePartner'}"
+      :to="{name: routerNames.becomePartner}"
       :class="[styled.itemLink, styled.itemLinkSecondaryBtn]"
     >
       <ButtonUI
@@ -65,6 +65,7 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import styled from "./navigationMenu.module.css";
 
@@ -76,6 +77,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     };
   },
 };

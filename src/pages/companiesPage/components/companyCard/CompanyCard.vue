@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="{name: 'oneCompany', params: { companyId: companyId } }"
+    :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
     :class="styled.companyCard"
   >
     <h2 :class="styled.title">
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import {routerNames} from "../../../../router/router.js";
 import Arrow from "../../../../assets/arrow_downward.svg";
 import styled from "./companyCard.module.css";
 
@@ -58,6 +59,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     };
   },
 };

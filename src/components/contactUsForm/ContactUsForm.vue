@@ -47,7 +47,7 @@
       <label for="checkboxForm">
         Я согласен с
         <router-link
-          :to="{name: 'privacyPolicy'}"
+          :to="{name: routerNames.privacyPolicy}"
           :class="styled.link"
         >
           политикой конфиденциальности
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import { validateEmail } from "../../helpers/validateEmail.js";
 import { validatePhone } from "../../helpers/validatePhone.js";
 import ButtonUI from "../UI/button/ButtonUI.vue"
@@ -80,6 +81,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
       isErrorName: false,
       isErrorEmail: false,
       isErrorPhone: false,

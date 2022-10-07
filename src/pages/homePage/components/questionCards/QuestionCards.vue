@@ -14,7 +14,7 @@
       </div>
     </div>
     <div :class="styled.questionBtn">
-      <router-link :to="{name: 'FAQ'}">
+      <router-link :to="{name: routerNames.FAQ}">
         <ButtonUI type-style="type-link">
           Все вопросы
           <Arrow />
@@ -25,11 +25,12 @@
 </template>
 
 <script>
+import {routerNames} from "../../../../router/router.js";
+import {questionCardValue} from "../../../../../data/questionCardValue";
 import QuestionCard from "../questionCard/QuestionCard.vue";
-import styled from "./questionCards.module.css";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import Arrow from "../../../../assets/arrow_downward.svg"
-import {questionCardValue} from "../../../../../data/questionCardValue";
+import styled from "./questionCards.module.css";
 
 export default {
   name: "QuestionCards",
@@ -41,6 +42,7 @@ export default {
   data(){
     return {
       styled,
+      routerNames,
       questionCardValue,
     }
   },

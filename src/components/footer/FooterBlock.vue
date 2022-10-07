@@ -4,7 +4,7 @@
       <div :class="styled.container">
         <div :class="styled.column">
           <router-link
-            :to="{name: 'home'}"
+            :to="{name: routerNames.home}"
             :class="styled.columnLogo"
           >
             PIC
@@ -12,35 +12,35 @@
         </div>
         <div :class="styled.column">
           <router-link
-            :to="{ name: 'empty' }"
+            :to="{ name: routerNames.empty }"
             :class="styled.columnItem"
           >
             <b>Покупателям</b>
           </router-link>
 
           <router-link
-            :to="{name: 'home'}"
+            :to="{name: routerNames.home}"
             :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
 
           <router-link
-            :to="{name: 'home'}"
+            :to="{name: routerNames.home}"
             :class="styled.columnItem"
           >
             Оптовый заказ
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.empty}"
             :class="styled.columnItem"
           >
             Помощь
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.empty}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
@@ -48,21 +48,21 @@
         </div>
         <div :class="styled.column">
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.empty}"
             :class="styled.columnItem"
           >
             <b>Продавцам</b>
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.empty}"
             :class="styled.columnItem"
           >
             Стать партнером
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.FAQ}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
@@ -70,7 +70,7 @@
         </div>
         <div :class="styled.column">
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.empty}"
             :class="styled.columnItem"
           >
             <b>Контакты</b>
@@ -105,21 +105,21 @@
       </div>
       <div>
         <router-link
-          :to="{name: 'privacyPolicy'}"
+          :to="{name: routerNames.privacyPolicy}"
           :class="styled.bottomItem"
         >
           Политика конфиденциальности
         </router-link>
 
         <router-link
-          :to="{name: 'contractOffer'}"
+          :to="{name: routerNames.contractOffer }"
           :class="styled.bottomItem"
         >
           Договор оферты
         </router-link>
 
         <router-link
-          :to="{name: 'empty'}"
+          :to="{name: routerNames.empty}"
           :class="styled.bottomItem"
         >
           Обратная связь
@@ -130,6 +130,7 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import {footerImgValue} from "../../../data/footerImgValue";
 import { ourContacts } from "../../../data/ourContacts.js";
 import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
@@ -144,6 +145,7 @@ export default {
       imageMap,
       ourContacts,
       footerImgValue,
+      routerNames,
     };
   },
   computed: {

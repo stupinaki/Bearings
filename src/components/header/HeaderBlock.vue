@@ -5,7 +5,7 @@
   >
     <div :class="styled.logoMap">
       <router-link
-        :to="{name: 'home'}"
+        :to="{name: routerNames.home}"
         :class="styled.pic"
       >
         PIC
@@ -40,13 +40,14 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import { mapState } from "vuex";
 import { breakpoints } from "../../consts/breakpoints"
 import NavigationMenuMobile from "../navigation/NavigationMenuMobile.vue";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
 import Place from "../../assets/place.svg";
 import styled from "./headerBlock.module.css";
-
+//todo не кликабельная картинка, а должна переводить на главную страницу
 export default {
   name: "HeaderBlock",
   components: {
@@ -57,6 +58,7 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     };
   },
   computed: {
