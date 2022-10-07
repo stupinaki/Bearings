@@ -1,27 +1,27 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import HomePage from "../pages/homePage/HomePage.vue";
-import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
-import ProductsPage from "../pages/productsPage/ProductsPage.vue";
-import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
-import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
-import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
-import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
-import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
 import FAQPage from "../pages/FAQPage/FAQPage.vue";
-// import notFoundPage from "../pages/notFoundPage/notFoundPage.vue";
+import HomePage from "../pages/homePage/HomePage.vue";
+import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
+import NotFoundPage from "../pages/notFoundPage/NotFoundPage.vue";
+import ProductsPage from "../pages/productsPage/ProductsPage.vue";
+import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
+import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
+import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
+import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
+import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
 
 
 export const routerNames = {
+    FAQ: "FAQ",
     home: "home",
-    companies: "companies",
-    products: "products",
     empty: "empty",
-    contractOffer: "contractOffer",
-    privacyPolicy: "privacyPolicy",
-    oneCompany: "oneCompany",
+    products: "products",
     notFound: "notFound",
-    becomePartner: "becomePartner",
-    FAQ: "FAQ"
+    companies: "companies",
+    oneCompany: "oneCompany",
+    privacyPolicy: "privacyPolicy",
+    contractOffer: "contractOffer",
+    becomePartner: "becomePartner"
 }
 
 const routes = [
@@ -71,19 +71,12 @@ const routes = [
         component: FAQPage,
     },
     {
-        path: '/*/*',
-        redirect: {name: routerNames.home}
-        // name: routerNames.notFound,
-        // component: notFoundPage,
+        path: '/:catchAll(.*)',
+        // redirect: {name: routerNames.home},
+        name: routerNames.notFound,
+        component: NotFoundPage,
     },
-    // {
-    //     path: '*/*',
-    //     name: routerNames.notFound,
-    //     component: notFoundPage,
-    // },
 ]
-
-//todo страница при неправильном url, redirect
 
 const router = createRouter({
     routes,
