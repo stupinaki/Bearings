@@ -4,13 +4,9 @@
   margin: $primary-margin;
 }
 
-.header-wrapper {
-  display: flex;
-  margin: 56px 0;
-}
-
 .header {
   padding: 12px 0;
+  margin: 56px 0;
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;
@@ -32,14 +28,6 @@
 
 .btn-content-wrapper {
   display: flex;
-}
-
-.btn-quantities {
-  padding-bottom: 12px;
-}
-
-.btn-text {
-  padding: 4px;
 }
 
 @media screen and (max-width: $breakpoint-large) {

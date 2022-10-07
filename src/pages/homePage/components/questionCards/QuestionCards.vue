@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import {routerNames} from "../../../../router/router.js";
 import {questionCardValue} from "../../../../../data/questionCardValue";
+import {routerNames} from "../../../../router/router.js";
 import QuestionCard from "../questionCard/QuestionCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import Arrow from "../../../../assets/arrow_downward.svg"

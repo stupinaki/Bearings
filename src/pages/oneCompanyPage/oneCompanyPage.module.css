@@ -18,6 +18,10 @@
   margin: 80px auto 0;
 }
 
+.btn-text {
+  color: $primary-text-color;
+}
+
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;

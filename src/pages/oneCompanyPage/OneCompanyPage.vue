@@ -15,14 +15,17 @@
       :phone="targetCompany.phone"
       :creation-date="targetCompany.creation_date"
     />
-    <router-link :to="{name: routerNames.products, query: {companiesFilter: [targetCompany.id_org]}}">
-      <ButtonUI
-        type-style="secondary"
-        :class="styled.btn"
+    <ButtonUI
+      type-style="secondary"
+      :class="styled.btn"
+    >
+      <router-link
+        :to="{name: routerNames.products, query: {companiesFilter: [targetCompany.id_org]}}"
+        :class="styled.btnText"
       >
         Перейти к предложениям компании
-      </ButtonUI>
-    </router-link>
+      </router-link>
+    </ButtonUI>
   </div>
 </template>
 
