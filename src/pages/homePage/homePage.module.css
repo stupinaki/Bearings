@@ -1,11 +1,12 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  padding: $padding-top-bottom 0;
   margin: $primary-margin;
 }
 
 .header {
-  padding: 60px 0 40px;
+  padding-bottom: 40px;
 }
 
 .title {

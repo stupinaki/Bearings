@@ -2,13 +2,13 @@
 
 .wrapper {
   padding: 24px 24px 40px;
-  margin: $primary-padding-top-bottom;
+  margin: $primary-padding-top-bottom 0;
   background: $third-background;
   border-radius: 8px;
 }
 
 .header {
-  padding: 60px 0 40px;
+  padding-bottom: 40px;
 }
 
 .title {

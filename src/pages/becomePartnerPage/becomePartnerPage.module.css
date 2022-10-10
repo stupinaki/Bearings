@@ -3,8 +3,22 @@
 .container {
   display: grid;
   gap: 40px;
-  padding-top: 40px;
-  margin: $primary-margin;
+  padding: $padding-top-bottom  $primary-padding-left-right;
+  background-color: $third-background;
+}
+
+.main-title {
+  padding-top: 96px;
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 86px;
+}
+
+.main-sub-title {
+  max-width: 740px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 .block {
@@ -29,14 +43,61 @@
   color: $secondary-text-color;
 }
 
+.form {
+  max-width: 50%;
+  margin-top: 120px;
+}
+
+.price-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+  margin: 80px 0;
+}
+
 @media screen and (max-width: $breakpoint-large) {
   .container {
-    margin: $secondary-margin;
+    padding: $secondary-margin;
+  }
+
+  .form {
+    max-width: 60%;
+  }
+
+  .price-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin: 80px 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    padding: $padding-top-bottom $secondary-padding-left-right;
   }
 }
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
-    margin: $mobile-margin;
+    padding: $primary-padding-top-bottom $secondary-padding-left-right;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .price-cards {
+    margin: 60px 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .container {
+    padding: $primary-padding-top-bottom $mobile-padding-left-right;
+  }
+
+  .price-cards {
+    margin: 40px 0;
   }
 }

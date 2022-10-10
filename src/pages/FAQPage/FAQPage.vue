@@ -31,7 +31,8 @@ export default {
   },
   methods: {
     onClick(index) {
-      //todo нужно ли вынести это в store?
+      console.log("до",{ index, panel})
+
       const {panel} = this.$data;
       // let isAbsent = panel.find(item => item === index) === -1;
 

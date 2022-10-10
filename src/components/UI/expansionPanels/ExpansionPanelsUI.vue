@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <v-expansion-panels
-      :model-value="panel"
-      :multiple="multiple"
-      @on-question-card-click="$emit('onQuestionCardClick', index )"
+  panel: {{ panel }}
+  <v-expansion-panels
+    :model-value="panel"
+    :multiple="multiple"
+    @update:model-value="onChange"
+  >
+    <v-expansion-panel
+      v-for="questionCard in questionCardsValue"
+      :key="questionCard.id"
     >
-      <v-expansion-panel
-        v-for="questionCard in questionCardsValue"
-        :key="questionCard.id"
-        @click="$emit('onQuestionCardClick', questionCard.index )"
-      >
-        <v-expansion-panel-title>
-          {{ questionCard.question }}
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          {{ questionCard.answer }}
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </div>
+      <v-expansion-panel-title>
+        {{ questionCard.question }}
+      </v-expansion-panel-title>
+      <v-expansion-panel-text>
+        {{ questionCard.answer }}
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script>
@@ -41,20 +39,24 @@ export default {
       required: false,
       default: true,
     },
-    panel: {
-      type: Array,
-      required: true,
-    }
+    // panel: {
+    //   type: Array,
+    //   required: true,
+    // }
 
   },
   emits: ["onQuestionCardClick"],
   data() {
     return {
       styled,
+      panel: [2],
     }
   },
   methods: {
-
+    onChange(e) {
+      console.log("мы изменили v-expansion-panel:", e)
+      this.$emit("onQuestionCardClick", e)
+    }
   }
 }
 </script>

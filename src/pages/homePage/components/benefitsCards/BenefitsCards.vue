@@ -11,6 +11,7 @@
         <BenefitsCard
           :title="benefit.title"
           :sub-title="benefit.subTitle"
+          :is-special-background="benefit.isSpecialBackground"
         >
           <component :is="imageMap[benefit.imgName]" />
         </BenefitsCard>
@@ -22,8 +23,6 @@
 <script>
 import BenefitsCard from "../benefitsCard/BenefitsCard.vue";
 import imageMap from "./benifitImages";
-import {benefitsValue} from "../../../../../data/benefitsValue";
-
 import styled from "./benefitsCards.module.css";
 
 export default {
@@ -31,12 +30,17 @@ export default {
   components: {
     BenefitsCard,
   },
+  props: {
+    benefitsValue: {
+      type: Array,
+      required: true,
+    }
+  },
   data() {
     return {
       imageMap,
       styled,
-      benefitsValue,
     };
-  },
+  }
 };
 </script>

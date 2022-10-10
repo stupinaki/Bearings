@@ -1,6 +1,7 @@
 @import "/src/styles/variables.modules.css";
 
 .notice {
+  padding: $padding-top-bottom 0;
   margin: $primary-margin;
   font-size: 60px;
   line-height: 80px;

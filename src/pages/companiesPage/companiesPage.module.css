@@ -1,12 +1,13 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  padding: $padding-top-bottom 0;
   margin: $primary-margin;
 }
 
 .header {
   padding: 12px 0;
-  margin: 56px 0;
+  margin-bottom: 56px;
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;

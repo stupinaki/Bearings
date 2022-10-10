@@ -16,7 +16,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 40%;
-  padding: $primary-padding-top-bottom;
+  padding: $primary-padding-top-bottom 0;
   margin: 48px 0;
 }
 
@@ -29,7 +29,7 @@
   .wrapper {
     display: grid;
     grid-template-columns: 60%;
-    padding: $primary-padding-top-bottom;
+    padding: $primary-padding-top-bottom 0;
   }
 }
 

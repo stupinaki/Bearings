@@ -1,9 +1,17 @@
 @import "/src/styles/variables.modules.css";
 
-.wrapper {
+.wrapper-default {
   height: 100%;
   padding: 16px;
   background: $third-background;
+  border: none;
+  border-radius: 8px;
+}
+
+.wrapper-special {
+  height: 100%;
+  padding: 16px;
+  background: $primary-background;
   border: none;
   border-radius: 8px;
 }

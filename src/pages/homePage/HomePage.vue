@@ -1,13 +1,14 @@
 <template>
   <div :class="styled.container">
     <SearchComponent />
-    <BenefitsCards />
+    <BenefitsCards :benefits-value="benefitsValue" />
     <BulkOrderForm />
     <QuestionCards />
   </div>
 </template>
 
 <script>
+import {benefitsValue} from "../../../data/benefitsValue.js";
 import SearchComponent from "../../components/searchComponent/SearchComponent.vue";
 import BenefitsCards from "./components/benefitsCards/BenefitsCards.vue";
 import BulkOrderForm from "./components/bulkOrderForm/BulkOrderForm.vue";
@@ -25,6 +26,7 @@ export default {
   data(){
     return {
       styled,
+      benefitsValue,
     }
   }
 }

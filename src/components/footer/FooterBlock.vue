@@ -11,13 +11,9 @@
           </router-link>
         </div>
         <div :class="styled.column">
-          <router-link
-            :to="{ name: routerNames.empty }"
-            :class="styled.columnItem"
-          >
-            <b>Покупателям</b>
-          </router-link>
-
+          <div>
+            <b :class="styled.columnItem">Покупателям</b>
+          </div>
           <router-link
             :to="{name: routerNames.home}"
             :class="styled.columnItem"
@@ -31,14 +27,6 @@
           >
             Оптовый заказ
           </router-link>
-
-          <router-link
-            :to="{name: routerNames.empty}"
-            :class="styled.columnItem"
-          >
-            Помощь
-          </router-link>
-
           <router-link
             :to="{name: routerNames.empty}"
             :class="styled.columnItem"
@@ -47,13 +35,9 @@
           </router-link>
         </div>
         <div :class="styled.column">
-          <router-link
-            :to="{name: routerNames.empty}"
-            :class="styled.columnItem"
-          >
+          <div :class="styled.columnItem">
             <b>Продавцам</b>
-          </router-link>
-
+          </div>
           <router-link
             :to="{name: routerNames.empty}"
             :class="styled.columnItem"
@@ -117,13 +101,6 @@
         >
           Договор оферты
         </router-link>
-
-        <router-link
-          :to="{name: routerNames.empty}"
-          :class="styled.bottomItem"
-        >
-          Обратная связь
-        </router-link>
       </div>
     </div>
   </div>
@@ -137,6 +114,9 @@ import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
 import imageMap from "./footerImages";
 import styled from "./footerBlock.module.css";
 
+//todo  поправить стили
+//todo в компаниях добавть поиск по enter
+//todo в карточке связи с компанией настроить ссылки на компанию и на оптовый заказ
 export default {
   name: "FooterBlock",
   data() {

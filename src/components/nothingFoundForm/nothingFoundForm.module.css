@@ -3,7 +3,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 80%;
-  padding: $primary-padding-top-bottom;
+  padding: $primary-padding-top-bottom 0;
 }
 
 .form {

@@ -1,18 +1,33 @@
 <template>
   <div :class="styled.container">
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Для подшипниковых компаний и магазинов подшипников:
-      </h2>
-      <span :class="styled.text">
-        Наш сайт предоставляет информацию о Вас и предлагаемой Вами продукции потребителям подшипников.
-        Целевая аудитория сайта: средние, малые предприятия, экстренные закупки крупных предприятий, физические лица.
-        <br>
-        Сайт помогает покупателю самостоятельно быстро и удобно выбрать Вашу продукцию и связаться с Вами,
-        выступает в роли дополнительного канала сбыта для Вашей компании.
-      </span>
+    <h1 :class="styled.mainTitle">
+      Стать партнером
+    </h1>
+    <span :class="styled.mainSubTitle">
+      Сервис поможет покупателю самостоятельно быстро и удобно выбрать продукцию и связаться с вами.
+      Мы выступаем в роли дополнительного канала сбыта для вашей компании.
+    </span>
+
+    <div :class="styled.priceCards">
+      <PriceCard
+        v-for="priceCard in price"
+        :key="priceCard.id"
+        v-bind="priceCard"
+      />
     </div>
 
+    <BenefitsCards :benefits-value="benefitsForCompaniesValue" />
+
+    <div :class="styled.block">
+      <h2 :class="styled.title">
+        Как это работает?
+      </h2>
+      <span :class="styled.text">
+        Вы присылаете нам заявку на размещение ассортимента и регистрации компании.
+        Мы узнаем детали и регистрируем компанию и ассортимент подшипников.
+        Через некоторые время данные становятся доступными для поиска.
+      </span>
+    </div>
     <div :class="styled.block">
       <h2 :class="styled.title">
         Как начать продавать при помощи сайта?
@@ -23,10 +38,9 @@
         <a :href="email"> {{ ourContacts.email }} </a>   мы свяжемся с вами свяжемся.
       </span>
     </div>
-
     <div :class="styled.block">
       <h2 :class="styled.title">
-        Для размещения необходимы:
+        Какие данные необходимы для размещения?
       </h2>
       <ul :class="styled.text">
         <li>
@@ -44,41 +58,38 @@
       </ul>
     </div>
 
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Стоимость размещения
-      </h2>
-      <span :class="styled.text">
-        1000 руб. до 2000 позиций подшипников за месяц размещения с момента появления ваших объявлений.
-        100 руб. в месяц до 50 позиций, но не менее трех месяцев размещения.
-      </span>
-    </div>
-
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Как это работает?
-      </h2>
-      <span :class="styled.text">
-        Вы присылаете нам заявку на размещение ассортимента и регистрации компании.
-        Мы узнаем детали и регистрируем компанию и ассортимент подшипников.
-        Через некоторые время данные становятся доступными для поиска.
-      </span>
+    <div :class="styled.form">
+      <QuestionCompanyForm
+        title="Остались вопросы?"
+        sub-title="Свяжитесь с нами. Мы попробуем вам помочь."
+      />
     </div>
   </div>
 </template>
 
 <script>
-import styled from "./becomePartnerPage.module.css";
-import {ourContacts} from "../../../data/ourContacts.js";
 import {getMailto, getPhone} from "../../helpers/getOurContacts";
-//todo добавить сюда форму get in touch ?
+import {benefitsForCompaniesValue} from "../../../data/benefitsValue.js";
+import {ourContacts} from "../../../data/ourContacts.js";
+import {price} from "../../../data/price.js";
+import QuestionCompanyForm from "./components/questionCompanyForm/QuestionСompanyForm.vue";
+import BenefitsCards from "../homePage/components/benefitsCards/BenefitsCards.vue";
+import PriceCard from "./components/priceCard/PriceCard.vue";
+import styled from "./becomePartnerPage.module.css";
 
 export default {
   name: "BecomePartnerPage",
+  components: {
+    PriceCard,
+    BenefitsCards,
+    QuestionCompanyForm,
+  },
   data() {
     return {
       styled,
+      price,
       ourContacts,
+      benefitsForCompaniesValue,
     }
   },
   computed: {

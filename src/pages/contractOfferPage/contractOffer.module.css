@@ -1,6 +1,7 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  padding: $padding-top-bottom  0;
   margin: $primary-margin;
   margin-bottom: 24px;
   text-align: justify;
