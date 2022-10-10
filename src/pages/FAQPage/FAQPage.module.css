@@ -6,21 +6,60 @@
 }
 
 .title {
+  margin-bottom: 60px;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 78px;
+  color: $primary-text-color;
+}
+
+.sub-title {
   margin: 40px 0;
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 500;
   line-height: 44px;
   color: $primary-text-color;
+}
+
+.form {
+  width: 60%;
+  margin: 96px 0;
 }
 
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
   }
+
+  .form {
+    width: 80%;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .sub-title {
+    font-size: 32px;
+  }
 }
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
     margin: $mobile-margin;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .sub-title {
+    font-size: 24px;
   }
 }

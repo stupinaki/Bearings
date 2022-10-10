@@ -39,7 +39,7 @@
     </router-link>
 
     <router-link
-      :to="{name: routerNames.empty}"
+      :to="{name: routerNames.contacts}"
       :class="styled.itemLink"
     >
       <ButtonUI

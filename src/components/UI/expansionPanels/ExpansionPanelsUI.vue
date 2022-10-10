@@ -1,22 +1,23 @@
 <template>
-  panel: {{ panel }}
-  <v-expansion-panels
-    :model-value="panel"
-    :multiple="multiple"
-    @update:model-value="onChange"
-  >
-    <v-expansion-panel
-      v-for="questionCard in questionCardsValue"
-      :key="questionCard.id"
+  <div :class="styled.panels">
+    <v-expansion-panels
+      :model-value="panel"
+      :multiple="multiple"
+      @update:model-value="onChange"
     >
-      <v-expansion-panel-title>
-        {{ questionCard.question }}
-      </v-expansion-panel-title>
-      <v-expansion-panel-text>
-        {{ questionCard.answer }}
-      </v-expansion-panel-text>
-    </v-expansion-panel>
-  </v-expansion-panels>
+      <v-expansion-panel
+        v-for="questionCard in questionCardsValue"
+        :key="questionCard.id"
+      >
+        <v-expansion-panel-title>
+          {{ questionCard.question }}
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          {{ questionCard.answer }}
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </div>
 </template>
 
 <script>
@@ -49,7 +50,7 @@ export default {
   data() {
     return {
       styled,
-      panel: [2],
+      panel: [2,3],
     }
   },
   methods: {

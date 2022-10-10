@@ -1,20 +1,19 @@
 <template>
-  <div :class="styled.wrapper">
-    <div>
-      {{ text }}
-    </div>
-    <router-link :to="{name: routerNames.FAQ }">
+  <router-link :to="{name: routerNames.FAQ }">
+    <div :class="styled.wrapper">
+      <div>
+        {{ text }}
+      </div>
       <Arrow />
-    </router-link>
-  </div>
+    </div>
+  </router-link>
 </template>
 
 <script>
 import {routerNames} from "../../../../router/router.js";
 import Arrow from "../../../../assets/arrow_downward.svg"
 import styled from "./questionCard.module.css";
-//todo сделать карточки вопросов кликабельными полностью, и вести на страницу с ответами
-//todo в идеале чтобы по нажатию тебя кидала на нужный ответ, мб сделать их коллапсами
+
 export default {
   name: "QuestionCard",
   components: {

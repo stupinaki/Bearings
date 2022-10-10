@@ -59,13 +59,13 @@
 </template>
 
 <script>
-import {validateEmail} from "../../../../helpers/validateEmail.js";
-import {routerNames} from "../../../../router/router.js";
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
-import styled from "./questionCompanyForm.module.css";
+import {validateEmail} from "../../helpers/validateEmail.js";
+import {routerNames} from "../../router/router.js";
+import ButtonUI from "../UI/button/ButtonUI.vue";
+import styled from "./questionFormSmall.module.css";
 
 export default {
-  name: "QuestionCompanyForm",
+  name: "QuestionFormSmall",
   components: {
     ButtonUI,
   },

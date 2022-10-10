@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 import FAQPage from "../pages/FAQPage/FAQPage.vue";
 import HomePage from "../pages/homePage/HomePage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
+import ContactPage from "../pages/contactPage/ContactPage.vue";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage.vue";
 import ProductsPage from "../pages/productsPage/ProductsPage.vue";
 import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
@@ -15,6 +16,7 @@ export const routerNames = {
     FAQ: "FAQ",
     home: "home",
     empty: "empty",
+    contacts: "contacts",
     products: "products",
     notFound: "notFound",
     companies: "companies",
@@ -69,6 +71,11 @@ const routes = [
         path: '/FAQ',
         name: routerNames.FAQ,
         component: FAQPage,
+    },
+    {
+        path: '/contacts',
+        name: routerNames.contacts,
+        component: ContactPage,
     },
     {
         path: '/:catchAll(.*)',

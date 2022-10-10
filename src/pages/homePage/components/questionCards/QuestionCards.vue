@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {questionCardValue} from "../../../../../data/questionCardValue";
+import {questionCardValueClient, questionCardValueCompany} from "../../../../../data/questionCardValue";
 import {routerNames} from "../../../../router/router.js";
 import QuestionCard from "../questionCard/QuestionCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
@@ -43,8 +43,17 @@ export default {
     return {
       styled,
       routerNames,
-      questionCardValue,
+      questionCardValueClient,
+      questionCardValueCompany,
     }
   },
+  computed: {
+    questionCardValue() {
+      return {
+        ...this.$data.questionCardValueClient,
+        ...this.$data.questionCardValueCompany,
+      }
+    }
+  }
 }
 </script>

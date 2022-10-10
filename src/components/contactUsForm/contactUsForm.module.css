@@ -3,6 +3,7 @@
 .text-input {
   padding: 16px;
   margin: 8px 0;
+  background-color: $primary-background;
   border: 1px solid $primary-border;
   border-radius: 8px;
 }
@@ -46,6 +47,7 @@
 }
 
 .error {
+  background-color: $primary-background;
   border: 1px solid $third-text-color;
   border-radius: 8px;
 }

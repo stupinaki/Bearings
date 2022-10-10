@@ -13,7 +13,7 @@
       <aside :class="menuStyle">
         <nav>
           <router-link
-            :to="{name: 'home'}"
+            :to="{name: routerNames.home}"
             :class="styled.itemLink"
           >
             <ButtonUI
@@ -25,7 +25,7 @@
             </ButtonUI>
           </router-link>
           <router-link
-            :to="{name: 'FAQ'}"
+            :to="{name: routerNames.FAQ}"
             :class="styled.itemLink"
           >
             <ButtonUI
@@ -37,7 +37,7 @@
             </ButtonUI>
           </router-link>
           <router-link
-            :to="{name: 'companies'}"
+            :to="{name: routerNames.companies}"
             :class="styled.itemLink"
           >
             <ButtonUI
@@ -49,7 +49,7 @@
             </ButtonUI>
           </router-link>
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.contacts}"
             :class="styled.itemLink"
           >
             <ButtonUI
@@ -61,7 +61,7 @@
             </ButtonUI>
           </router-link>
           <router-link
-            :to="{name: 'becomePartner'}"
+            :to="{name: routerNames.becomePartner}"
             :class="styled.itemLink"
           >
             <ButtonUI
@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import MenuImg from "../../assets/menu.svg";
 import styled from "./navigationMenuMobile.module.css";
@@ -98,6 +99,7 @@ export default {
     return {
       styled,
       isMenuOpen: false,
+      routerNames,
     }
   },
   computed: {

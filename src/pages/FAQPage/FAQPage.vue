@@ -1,31 +1,57 @@
 <template>
   <div :class="styled.container">
-    <h2 :class="styled.title">
-      Частые вопросы
+    <h1 :class="styled.title">
+      Часто задаваемые вопросы
+    </h1>
+
+    <h2 :class="styled.subTitle">
+      Для покупателей
     </h2>
     <ExpansionPanelsUI
-      :question-cards-value="questionCardValue"
+      :question-cards-value="questionCardValueClient"
       :multiple="true"
       :panel="panel"
       @on-question-card-click="onClick"
     />
+
+    <h2 :class="styled.subTitle">
+      Для продавцов
+    </h2>
+    <ExpansionPanelsUI
+      :question-cards-value="questionCardValueCompany"
+      :multiple="true"
+      :panel="panel"
+      @on-question-card-click="onClick"
+    />
+
+    <div :class="styled.form">
+      <QuestionFormSmall
+        title="Не нашли ответ на Ваш вопрос?"
+        sub-title="Свяжитесь с нами. Мы попробуем вам помочь."
+      />
+    </div>
   </div>
 </template>
 
+
 <script>
-import {questionCardValue} from "../../../data/questionCardValue";
+import {questionCardValueClient, questionCardValueCompany} from "../../../data/questionCardValue";
 import ExpansionPanelsUI from "../../components/UI/expansionPanels/ExpansionPanelsUI.vue";
+import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
 import styled from "./FAQPage.module.css"
 
+//todo в идеале чтобы по нажатию тебя кидала на нужный ответ, мб сделать их коллапсами
 export default {
   name: "FAQPage",
   components: {
     ExpansionPanelsUI,
+    QuestionFormSmall,
   },
   data() {
     return {
       styled,
-      questionCardValue,
+      questionCardValueClient,
+      questionCardValueCompany,
       panel: [],
     }
   },

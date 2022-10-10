@@ -1,10 +1,10 @@
 <template>
   <div :class="styled.wrapper">
     <h2 :class="styled.title">
-      По вашему запросу ничего не найдено
+      {{ title }}
     </h2>
     <span :class="styled.subTitle">
-      Исправьте запрос или свяжитесь с нами. Мы попробуем вам помочь.
+      {{ subTitle }}
     </span>
   </div>
   <div :class="styled.contactsAndForm">
@@ -46,6 +46,19 @@ export default {
   name: "NothingFoundForm",
   components: {
     ContactUsForm,
+  },
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: "По вашему запросу ничего не найдено"
+    },
+    subTitle: {
+      type: String,
+      required: false,
+      default: "Исправьте запрос или свяжитесь с нами. Мы попробуем вам помочь."
+    }
+
   },
   data() {
     return {

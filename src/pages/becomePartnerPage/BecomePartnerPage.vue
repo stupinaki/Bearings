@@ -59,7 +59,7 @@
     </div>
 
     <div :class="styled.form">
-      <QuestionCompanyForm
+      <QuestionFormSmall
         title="Остались вопросы?"
         sub-title="Свяжитесь с нами. Мы попробуем вам помочь."
       />
@@ -72,7 +72,7 @@ import {getMailto, getPhone} from "../../helpers/getOurContacts";
 import {benefitsForCompaniesValue} from "../../../data/benefitsValue.js";
 import {ourContacts} from "../../../data/ourContacts.js";
 import {price} from "../../../data/price.js";
-import QuestionCompanyForm from "./components/questionCompanyForm/QuestionСompanyForm.vue";
+import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
 import BenefitsCards from "../homePage/components/benefitsCards/BenefitsCards.vue";
 import PriceCard from "./components/priceCard/PriceCard.vue";
 import styled from "./becomePartnerPage.module.css";
@@ -82,7 +82,7 @@ export default {
   components: {
     PriceCard,
     BenefitsCards,
-    QuestionCompanyForm,
+    QuestionFormSmall,
   },
   data() {
     return {

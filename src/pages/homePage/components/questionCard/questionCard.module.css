@@ -2,12 +2,13 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: calc((100% - 8px) * 0.88) calc((100% - 8px) * 0.12);
+  grid-template-columns: 10fr 2fr;
   gap: 8px;
   align-items: center;
   justify-content: space-between;
   height: 100%;
   padding: 32px;
+  color: $primary-text-color;
   background: $third-background;
   border-radius: 8px;
 }

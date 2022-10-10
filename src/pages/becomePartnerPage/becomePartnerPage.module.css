@@ -57,7 +57,7 @@
 
 @media screen and (max-width: $breakpoint-large) {
   .container {
-    padding: $secondary-margin;
+    padding: $padding-top-bottom $secondary-padding-left-right;
   }
 
   .form {
@@ -69,12 +69,6 @@
     flex-direction: column;
     gap: 36px;
     margin: 80px 0;
-  }
-}
-
-@media screen and (max-width: $breakpoint-large) {
-  .container {
-    padding: $padding-top-bottom $secondary-padding-left-right;
   }
 }
 

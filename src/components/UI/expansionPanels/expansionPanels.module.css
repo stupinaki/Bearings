@@ -1,1 +1,25 @@
 @import "/src/styles/variables.modules.css";
+
+.panels {
+  & :global(.v-expansion-panel-title) {
+    font-size: 24px;
+    text-align: start;
+    background-color: $third-background;
+  }
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .panels {
+    & :global(.v-expansion-panel-title) {
+      font-size: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .panels {
+    & :global(.v-expansion-panel-title) {
+      font-size: 16px;
+    }
+  }
+}
