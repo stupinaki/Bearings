@@ -11,16 +11,16 @@
           </router-link>
         </div>
         <div :class="styled.column">
-          <div>
-            <b :class="styled.columnItem">Покупателям</b>
+          <div :class="styled.columnItem">
+            <b>Покупателям</b>
           </div>
+
           <router-link
             :to="{name: routerNames.home}"
             :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
-
           <router-link
             :to="{name: routerNames.home}"
             :class="styled.columnItem"
@@ -113,8 +113,6 @@ import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
 import imageMap from "./footerImages";
 import styled from "./footerBlock.module.css";
 
-//todo  поправить стили
-//todo в компаниях добавть поиск по enter
 export default {
   name: "FooterBlock",
   data() {

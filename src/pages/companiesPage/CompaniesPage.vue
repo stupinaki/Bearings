@@ -7,26 +7,20 @@
       </sup>
     </h1>
 
-    <div>
-      <SearchInput
-        v-if="!loading"
-        placeholder="Например, Авангард-подшипник"
-        @start-search="onStartSearch"
-      />
-      <CompanyCards
-        :search-company-name="searchText"
-      />
+    <SearchInput
+      search-text=""
+      placeholder="Например, Авангард-подшипник"
+      @start-search="onStartSearch"
+    />
+    <CompanyCards :search-company-name="searchText" />
 
-      <div
-        v-if="!loading"
-        :class="styled.btnContainer"
-      >
-        <ButtonUI
-          type-style="secondary"
-        >
-          Показать ещё <sup> ({{ companiesCount }}) </sup>
-        </ButtonUI>
-      </div>
+    <div
+      v-if="!loading"
+      :class="styled.btnContainer"
+    >
+      <ButtonUI type-style="secondary">
+        Показать ещё <sup> ({{ companiesCount }}) </sup>
+      </ButtonUI>
     </div>
   </div>
 </template>
