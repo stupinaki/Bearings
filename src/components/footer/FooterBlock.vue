@@ -94,7 +94,6 @@
         >
           Политика конфиденциальности
         </router-link>
-
         <router-link
           :to="{name: routerNames.contractOffer }"
           :class="styled.bottomItem"

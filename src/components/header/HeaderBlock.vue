@@ -25,9 +25,12 @@
     :class="styled.wrapper"
   >
     <div :class="styled.logoMap">
-      <div :class="styled.pic">
+      <router-link
+        :to="{name: routerNames.home}"
+        :class="styled.pic"
+      >
         PIC
-      </div>
+      </router-link>
       <div :class="styled.map">
         <Place />
         <div :class="styled.city">
@@ -40,14 +43,14 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
 import {routerNames} from "../../router/router.js";
-import { mapState } from "vuex";
-import { breakpoints } from "../../consts/breakpoints"
+import {breakpoints} from "../../consts/breakpoints"
 import NavigationMenuMobile from "../navigation/NavigationMenuMobile.vue";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
 import Place from "../../assets/place.svg";
 import styled from "./headerBlock.module.css";
-//todo не кликабельная картинка, а должна переводить на главную страницу
+
 export default {
   name: "HeaderBlock",
   components: {
