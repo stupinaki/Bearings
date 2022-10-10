@@ -30,27 +30,36 @@
         </div>
       </div>
       <div :class="styled.btns">
-        <ButtonUI
+        <router-link
+          :to="{name: routerNames.home}"
           :class="styled.row"
-          size="s"
-          type-style="type-link"
         >
-          Оптовый заказ
-        </ButtonUI>
-        <ButtonUI
+          <ButtonUI
+            size="s"
+            type-style="type-link"
+          >
+            Оптовый заказ
+          </ButtonUI>
+        </router-link>
+        <router-link
+          :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
           :class="styled.btn"
-          size="s"
-          type-style="type-link"
         >
-          О компании
-        </ButtonUI>
+          <ButtonUI
+            size="s"
+            type-style="type-link"
+          >
+            О компании
+          </ButtonUI>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getMailto,getPhone } from "../../../../helpers/getOurContacts.js"
+import {routerNames} from "../../../../router/router.js";
+import {getMailto, getPhone} from "../../../../helpers/getOurContacts.js"
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import styled from "./getInTouchCard.module.css";
 
@@ -80,10 +89,16 @@ export default {
       require: true,
       default: "email отсутсвует",
     },
+    companyId: {
+      type: Number,
+      require: true,
+      default: null,
+    }
   },
   data() {
     return {
       styled,
+      routerNames,
     };
   },
   computed: {

@@ -116,7 +116,6 @@ import styled from "./footerBlock.module.css";
 
 //todo  поправить стили
 //todo в компаниях добавть поиск по enter
-//todo в карточке связи с компанией настроить ссылки на компанию и на оптовый заказ
 export default {
   name: "FooterBlock",
   data() {

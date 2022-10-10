@@ -99,7 +99,10 @@
         </div>
       </div>
     </div>
-    <GetInTouchCard v-bind="getInTouchCard" />
+    <GetInTouchCard
+      v-bind="getInTouchCard"
+      :company-id="getInTouchCard.id_org"
+    />
   </div>
 </template>
 
