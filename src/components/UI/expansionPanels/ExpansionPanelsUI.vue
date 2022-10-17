@@ -7,6 +7,7 @@
     >
       <v-expansion-panel
         v-for="questionCard in questionCardsValue"
+        :id="questionCard.id"
         :key="questionCard.id"
         :value="questionCard.id"
       >
@@ -46,7 +47,6 @@ export default {
       required: true,
       default: () => [],
     }
-
   },
   emits: ["onQuestionCardClick"],
   data() {
@@ -65,8 +65,7 @@ export default {
   },
   methods: {
     onChange(e) {
-      console.log("мы изменили v-expansion-panel:", e)
-      this.$emit("onQuestionCardClick", e)
+      this.$emit("onQuestionCardClick", e);
     }
   }
 }

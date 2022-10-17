@@ -56,26 +56,32 @@
         </ButtonUI>
       </div>
       <div :class="hintStyle">
-        <MarkingHint />
+        <HintUI text="Маркировка расположена на подшипнике или на его упаковке.">
+          <template #hintImg>
+            <MarkingHintImg />
+          </template>
+        </HintUI>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
-import MarkingHint from "../../../markingHint/MarkingHint.vue";
+import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
+import MarkingHintImg from "../../../../assets/markingHint.svg"
+import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./mainSearchInputs.module.css";
 
 export default {
   name: "MainSearchInputs",
   components: {
+    HintUI,
     ButtonUI,
-    MarkingHint,
+    MarkingHintImg,
     AutocompleteUI,
-    FilterVariantImg,
+    FilterVariantImg
   },
   props: {
     marking: {

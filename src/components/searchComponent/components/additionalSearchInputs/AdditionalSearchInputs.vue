@@ -35,12 +35,23 @@
             v-if="input.hint"
             #hint
           >
-            <ButtonUI
-              type-style="type-link"
-              @click.prevent
-            >
-              <HelpImg />
-            </ButtonUI>
+            <div :class="styled.hintContainer">
+              <ButtonUI
+                type-style="type-link"
+                @click.prevent="onHintClick"
+              >
+                <HelpImg />
+              </ButtonUI>
+
+              <HintUI
+                text="Параметр это суффикс. Он находится справа от типа."
+                :class="styled.hintHide"
+              >
+                <template #hintImg>
+                  <ParameterImg />
+                </template>
+              </HintUI>
+            </div>
           </template>
         </InputUI>
       </div>
@@ -69,18 +80,25 @@
 
 <script>
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
+import ParameterImg from "../../../../assets/bearingParameter.svg"
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
 import HelpImg from "../../../../assets/help.svg";
+import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./additionalSearchInputs.module.css";
+
+//todo нужно передавать разные картинки в разные подсказки, возможно в пропсу хинт передавать название картинки
+//todo в отдельный компонент вынески кнопку с подсказкой
 
 export default {
   name: "AdditionalSearchInputs",
   components: {
     AutocompleteUI,
+    ParameterImg,
     ButtonUI,
     InputUI,
     HelpImg,
+    HintUI,
   },
   props: {
     formValues: {
@@ -128,6 +146,7 @@ export default {
           value: formValues.bearingParameter,
           label: "Параметр подшипника",
           placeholder: "6302cg18",
+          hint: "test",
           name: "bearingParameter",
           tabindex: "6",
           type: "text",
@@ -158,6 +177,11 @@ export default {
         }
       ]
     },
+  },
+  methods: {
+    onHintClick() {
+      console.log("нажали по подсказке")
+    }
   }
 }
 </script>

@@ -11,7 +11,7 @@
       :question-cards-value="questionCardValueClient"
       :multiple="true"
       :panel="panelClient"
-      @on-question-card-click="onClick"
+      @on-question-card-click="onCardClientClick"
     />
 
     <h2 :class="styled.subTitle">
@@ -21,7 +21,7 @@
       :question-cards-value="questionCardValueCompany"
       :multiple="true"
       :panel="panelCompany"
-      @on-question-card-click="onClick"
+      @on-question-card-click="onCardCompanyClick"
     />
 
     <div :class="styled.form">
@@ -37,17 +37,7 @@
 import {questionCardValue, types} from "../../../data/questionCardValue.js";
 import ExpansionPanelsUI from "../../components/UI/expansionPanels/ExpansionPanelsUI.vue";
 import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
-import router from "../../router/router";
 import styled from "./FAQPage.module.css"
-
-
-//как ведет себя панель с вопросами при переходе с конкретной карточки вопроса?
-// 1. по нажатию на конкретную карточку мы передаем значения в роутер ✅
-// 2. на общей странице с вопросами мы получаем id открытой карточки ✅
-// 3. мы запрашиваем все карточки вопросов, потом по id из роутера находим ту, что должна быть открыта ✅
-// 4. передаем значения в нужную панель ✅
-//имея id мы в самой карточке посмотрим к какой панели она относится и передадим значения в нее
-
 
 export default {
   name: "FAQPage",
@@ -74,25 +64,38 @@ export default {
   beforeMount() {
     this.getHashParamsFromRout();
   },
+  mounted() {
+    const questionId = this.getQuestionId();
+    this.scrollToElement(questionId);
+  },
   methods: {
-    onClick(panel) {
-      console.log("мы получили новые данные panel:", panel)
+    onCardClientClick(panel) {
       this.$data.panelClient = panel;
     },
+    onCardCompanyClick(panel) {
+      this.$data.panelCompany = panel;
+    },
     getHashParamsFromRout() {
-      //todo получать как инстанс в компоненте..
-      const hash = router.currentRoute.value.hash;
-      const questionId = hash.replace("#", "");
-      if(questionId) {
+      const questionId = this.getQuestionId();
+
+      if (questionId) {
         const targetQuestion = questionCardValue.find(card => card.id === +questionId);
 
-        if(targetQuestion.type === types.company) {
+        if (targetQuestion.type === types.company) {
           this.$data.panelCompany = [+questionId];
         }
-        if(targetQuestion.type === types.customer) {
+        if (targetQuestion.type === types.customer) {
           this.$data.panelClient = [+questionId];
         }
       }
+    },
+    scrollToElement(questionId) {
+      const target =  document.getElementById(questionId);
+      target.scrollIntoView({block: "center", inline: "center", behavior: "smooth"});
+    },
+    getQuestionId() {
+      const hash = this.$router.currentRoute.value.hash;
+      return hash.replace("#", "");
     }
   }
 }

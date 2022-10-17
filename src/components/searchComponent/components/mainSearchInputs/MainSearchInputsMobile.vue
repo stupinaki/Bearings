@@ -71,7 +71,7 @@
 import InputUI from "../../../UI/input/InputUI.vue";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
-import MarkingHint from "../../../markingHint/MarkingHint.vue";
+import MarkingHint from "../../../UI/hint/HintUI.vue";
 import ArrowImg from "../../../../assets/iconForward.svg"
 import styled from "./mainSearchInputsMobile.module.css";
 
