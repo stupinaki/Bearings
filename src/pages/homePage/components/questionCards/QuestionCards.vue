@@ -10,6 +10,7 @@
       >
         <QuestionCard
           :text="question.question"
+          :question-id="question.id"
         />
       </div>
     </div>
@@ -25,7 +26,7 @@
 </template>
 
 <script>
-import {questionCardValueClient, questionCardValueCompany} from "../../../../../data/questionCardValue";
+import {questionCardValue} from "../../../../../data/questionCardValue";
 import {routerNames} from "../../../../router/router.js";
 import QuestionCard from "../questionCard/QuestionCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
@@ -43,17 +44,8 @@ export default {
     return {
       styled,
       routerNames,
-      questionCardValueClient,
-      questionCardValueCompany,
+      questionCardValue,
     }
   },
-  computed: {
-    questionCardValue() {
-      return {
-        ...this.$data.questionCardValueClient,
-        ...this.$data.questionCardValueCompany,
-      }
-    }
-  }
 }
 </script>

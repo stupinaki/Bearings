@@ -10,7 +10,7 @@
     <ExpansionPanelsUI
       :question-cards-value="questionCardValueClient"
       :multiple="true"
-      :panel="panel"
+      :panel="panelClient"
       @on-question-card-click="onClick"
     />
 
@@ -20,7 +20,7 @@
     <ExpansionPanelsUI
       :question-cards-value="questionCardValueCompany"
       :multiple="true"
-      :panel="panel"
+      :panel="panelCompany"
       @on-question-card-click="onClick"
     />
 
@@ -33,14 +33,22 @@
   </div>
 </template>
 
-
 <script>
-import {questionCardValueClient, questionCardValueCompany} from "../../../data/questionCardValue";
+import {questionCardValue, types} from "../../../data/questionCardValue.js";
 import ExpansionPanelsUI from "../../components/UI/expansionPanels/ExpansionPanelsUI.vue";
 import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
+import router from "../../router/router";
 import styled from "./FAQPage.module.css"
 
-//todo в идеале чтобы по нажатию тебя кидала на нужный ответ, мб сделать их коллапсами
+
+//как ведет себя панель с вопросами при переходе с конкретной карточки вопроса?
+// 1. по нажатию на конкретную карточку мы передаем значения в роутер ✅
+// 2. на общей странице с вопросами мы получаем id открытой карточки ✅
+// 3. мы запрашиваем все карточки вопросов, потом по id из роутера находим ту, что должна быть открыта ✅
+// 4. передаем значения в нужную панель ✅
+//имея id мы в самой карточке посмотрим к какой панели она относится и передадим значения в нее
+
+
 export default {
   name: "FAQPage",
   components: {
@@ -50,22 +58,41 @@ export default {
   data() {
     return {
       styled,
-      questionCardValueClient,
-      questionCardValueCompany,
-      panel: [],
+      questionCardValue,
+      panelClient: [],
+      panelCompany: [],
     }
   },
+  computed: {
+    questionCardValueClient() {
+      return questionCardValue.filter(card => card.type === types.customer);
+    },
+    questionCardValueCompany() {
+      return questionCardValue.filter(card => card.type === types.company);
+    }
+  },
+  beforeMount() {
+    this.getHashParamsFromRout();
+  },
   methods: {
-    onClick(index) {
-      console.log("до",{ index, panel})
+    onClick(panel) {
+      console.log("мы получили новые данные panel:", panel)
+      this.$data.panelClient = panel;
+    },
+    getHashParamsFromRout() {
+      //todo получать как инстанс в компоненте..
+      const hash = router.currentRoute.value.hash;
+      const questionId = hash.replace("#", "");
+      if(questionId) {
+        const targetQuestion = questionCardValue.find(card => card.id === +questionId);
 
-      const {panel} = this.$data;
-      // let isAbsent = panel.find(item => item === index) === -1;
-
-        this.$data.panel.push(index);
-        // this.$data.panel = this.$data.panel.filter(item => item !== index);
-      console.log({ index, panel})
-
+        if(targetQuestion.type === types.company) {
+          this.$data.panelCompany = [+questionId];
+        }
+        if(targetQuestion.type === types.customer) {
+          this.$data.panelClient = [+questionId];
+        }
+      }
     }
   }
 }

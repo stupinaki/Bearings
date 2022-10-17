@@ -1,13 +1,14 @@
 <template>
   <div :class="styled.panels">
     <v-expansion-panels
-      :model-value="panel"
+      v-model="localPanel"
       :multiple="multiple"
       @update:model-value="onChange"
     >
       <v-expansion-panel
         v-for="questionCard in questionCardsValue"
         :key="questionCard.id"
+        :value="questionCard.id"
       >
         <v-expansion-panel-title>
           {{ questionCard.question }}
@@ -40,17 +41,26 @@ export default {
       required: false,
       default: true,
     },
-    // panel: {
-    //   type: Array,
-    //   required: true,
-    // }
+    panel: {
+      type: Array,
+      required: true,
+      default: () => [],
+    }
 
   },
   emits: ["onQuestionCardClick"],
   data() {
     return {
       styled,
-      panel: [2,3],
+      localPanel: [],
+    }
+  },
+  watch: {
+    panel: {
+      immediate: true,
+      handler () {
+        this.$data.localPanel = this.$props.panel;
+      }
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: routerNames.FAQ }">
+  <router-link :to="{name: routerNames.FAQ, hash: `#${ questionId }` }">
     <div :class="styled.wrapper">
       <div>
         {{ text }}
@@ -25,17 +25,18 @@ export default {
       require: true,
       default: undefined,
     },
-    path: {
-      type: String,
+    questionId: {
+      type: Number,
       require: true,
-      default: "empty",
-    }
+      default: undefined,
+    },
   },
+  emits: ["onQuestionClick"],
   data() {
     return {
       styled,
       routerNames,
     }
-  }
+  },
 }
 </script>

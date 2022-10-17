@@ -1,5 +1,9 @@
 @import "/src/styles/variables.modules.css";
 
+.test {
+  margin: 40px;
+}
+
 .container {
   padding: $padding-top-bottom 0;
   margin: $primary-margin;
