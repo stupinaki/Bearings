@@ -46,30 +46,24 @@
     </div>
 
     <div :class="styled.btnHintWrapper">
-      <div :class="styled.btnWrapper">
-        <ButtonUI
-          type-style="type-link"
-          @focus="showHint"
-          @blur="hideHint"
-        >
+      <ButtonHintUI :hint-text="hintsValue.marking.description">
+        <template #buttonContent>
           Как узнать маркировку?
-        </ButtonUI>
-      </div>
-      <div :class="hintStyle">
-        <HintUI text="Маркировка расположена на подшипнике или на его упаковке.">
-          <template #hintImg>
-            <MarkingHintImg />
-          </template>
-        </HintUI>
-      </div>
+        </template>
+        <template #hintUIImg>
+          <component :is="hintsValue.marking.img" />
+        </template>
+      </ButtonHintUI>
     </div>
   </div>
 </template>
 
 <script>
+import { hintsValue } from "../../../../../data/hintsValue.js"
 import FilterVariantImg from "../../../../assets/filter_variant.svg";
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import MarkingHintImg from "../../../../assets/markingHint.svg"
+import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./mainSearchInputs.module.css";
@@ -79,6 +73,7 @@ export default {
   components: {
     HintUI,
     ButtonUI,
+    ButtonHintUI,
     MarkingHintImg,
     AutocompleteUI,
     FilterVariantImg
@@ -106,24 +101,8 @@ export default {
   data() {
     return {
       styled,
-      isHintVisible: false,
+      hintsValue,
     }
   },
-  computed: {
-    hintStyle() {
-      if (this.$data.isHintVisible) {
-        return styled.hintVisible;
-      }
-      return styled.hintHide;
-    }
-  },
-  methods: {
-    showHint() {
-      this.$data.isHintVisible = true;
-    },
-    hideHint() {
-      this.$data.isHintVisible = false;
-    }
-  }
 }
 </script>

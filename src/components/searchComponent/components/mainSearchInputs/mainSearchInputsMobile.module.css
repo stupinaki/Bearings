@@ -21,7 +21,8 @@
 }
 
 .btn-hint-wrapper {
-  position: relative;
+  display: flex;
+  justify-content: start;
   margin-bottom: 12px;
 }
 

@@ -5,7 +5,7 @@
       @focus="showHint"
       @blur="hideHint"
     >
-      <HelpImg />
+      <slot name="buttonContent" />
     </ButtonUI>
     <HintUI
       :text="hintText"
@@ -21,15 +21,13 @@
 
 <script>
 import ButtonUI from "../UI/button/ButtonUI.vue";
-import HelpImg from "../../assets/help.svg"
 import HintUI from "../UI/hint/HintUI.vue";
-import styled from "./buttonHintUI.module.css";
+import styled from "./buttonHint.module.css";
 
 export default {
   name: "ButtonHintUI",
   components: {
     ButtonUI,
-    HelpImg,
     HintUI,
   },
   props: {
@@ -51,6 +49,9 @@ export default {
         return styled.hintVisible;
       }
       return styled.hintHide;
+
+      // return styled.hintVisible;
+
     }
   },
   methods: {

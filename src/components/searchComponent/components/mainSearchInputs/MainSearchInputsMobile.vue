@@ -10,24 +10,15 @@
       @input="$emit('onInputChange', { name: 'marking', value: $event })"
     />
     <div :class="styled.btnHintWrapper">
-      <div :class="styled.btnWrapper">
-        <ButtonUI
-          type-style="type-link"
-          @focus="showHint"
-          @blur="hideHint"
-        >
+      <ButtonHintUI :hint-text="hintsValue.marking.description">
+        <template #buttonContent>
           Как узнать маркировку?
-        </ButtonUI>
-      </div>
-      <div :class="hintStyle">
-        <HintUI text="Маркировка расположена на подшипнике или на его упаковке.">
-          <template #hintImg>
-            <MarkingHintImg />
-          </template>
-        </HintUI>
-      </div>
+        </template>
+        <template #hintUIImg>
+          <component :is="hintsValue.marking.img" />
+        </template>
+      </ButtonHintUI>
     </div>
-
     <div :class="styled.names">
       География поиска
     </div>
@@ -72,8 +63,10 @@
 </template>
 
 <script>
+import { hintsValue } from "../../../../../data/hintsValue.js"
 import MarkingHintImg from "../../../../assets/markingHint.svg"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
+import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ArrowImg from "../../../../assets/iconForward.svg"
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
@@ -87,6 +80,7 @@ export default {
     InputUI,
     ArrowImg,
     ButtonUI,
+    ButtonHintUI,
     AutocompleteUI,
     MarkingHintImg,
   },
@@ -115,27 +109,13 @@ export default {
   data() {
     return {
       styled,
-      isHintVisible: false,
+      hintsValue,
     }
   },
   computed: {
-    hintStyle() {
-      if (this.$data.isHintVisible) {
-        return styled.hintVisible;
-      }
-      return styled.hintHide;
-    },
     arrowStyle() {
       return this.$props.isToggleAdditionalForm ? styled.arrowUp : styled.arrowDown;
     }
   },
-  methods: {
-    showHint() {
-      this.$data.isHintVisible = true;
-    },
-    hideHint() {
-      this.$data.isHintVisible = false;
-    }
-  }
 }
 </script>

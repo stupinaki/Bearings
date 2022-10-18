@@ -38,6 +38,9 @@
             <ButtonHintUI
               :hint-text="input.hint.description"
             >
+              <template #buttonContent>
+                <HelpImg />
+              </template>
               <template #hintUIImg>
                 <component :is="input.hint.img" />
               </template>
@@ -73,6 +76,7 @@ import { hintsValue } from "../../../../../data/hintsValue.js"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import HelpImg from "../../../../assets/help.svg"
 import InputUI from "../../../UI/input/InputUI.vue";
 import styled from "./additionalSearchInputs.module.css";
 
@@ -81,9 +85,10 @@ export default {
   name: "AdditionalSearchInputs",
   components: {
     AutocompleteUI,
+    ButtonHintUI,
     ButtonUI,
     InputUI,
-    ButtonHintUI,
+    HelpImg,
   },
   props: {
     formValues: {
@@ -130,7 +135,7 @@ export default {
         },
         {
           value: formValues.bearingParameter,
-          label: "Параметр подшипника",
+          label: "Параметр",
           placeholder: "6302cg18",
           hint: hintsValue.bearingParameter,
           name: "bearingParameter",
