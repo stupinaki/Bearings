@@ -35,23 +35,13 @@
             v-if="input.hint"
             #hint
           >
-            <div :class="styled.hintContainer">
-              <ButtonUI
-                type-style="type-link"
-                @click.prevent="onHintClick"
-              >
-                <HelpImg />
-              </ButtonUI>
-
-              <HintUI
-                text="Параметр это суффикс. Он находится справа от типа."
-                :class="styled.hintHide"
-              >
-                <template #hintImg>
-                  <ParameterImg />
-                </template>
-              </HintUI>
-            </div>
+            <ButtonHintUI
+              :hint-text="input.hint.description"
+            >
+              <template #hintUIImg>
+                <component :is="input.hint.img" />
+              </template>
+            </ButtonHintUI>
           </template>
         </InputUI>
       </div>
@@ -79,26 +69,21 @@
 </template>
 
 <script>
+import { hintsValue } from "../../../../../data/hintsValue.js"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
-import ParameterImg from "../../../../assets/bearingParameter.svg"
+import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import InputUI from "../../../UI/input/InputUI.vue";
-import HelpImg from "../../../../assets/help.svg";
-import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./additionalSearchInputs.module.css";
 
-//todo нужно передавать разные картинки в разные подсказки, возможно в пропсу хинт передавать название картинки
-//todo в отдельный компонент вынески кнопку с подсказкой
 
 export default {
   name: "AdditionalSearchInputs",
   components: {
     AutocompleteUI,
-    ParameterImg,
     ButtonUI,
     InputUI,
-    HelpImg,
-    HintUI,
+    ButtonHintUI,
   },
   props: {
     formValues: {
@@ -118,6 +103,7 @@ export default {
   data(){
     return {
       styled,
+      hintsValue,
     }
   },
   computed: {
@@ -128,7 +114,7 @@ export default {
           value: formValues.accuracyClass,
           label: "Класс точности",
           placeholder: "6302cg18",
-          hint: "test",
+          hint: hintsValue.accuracyClass,
           name: "accuracyClass",
           tabindex: "4",
           type: "text",
@@ -137,7 +123,7 @@ export default {
           value: formValues.bearingType,
           label: "Тип подшипника",
           placeholder: "6302cg18",
-          hint: "test",
+          hint: hintsValue.bearingType,
           name: "bearingType",
           tabindex: "5",
           type: "text",
@@ -146,7 +132,7 @@ export default {
           value: formValues.bearingParameter,
           label: "Параметр подшипника",
           placeholder: "6302cg18",
-          hint: "test",
+          hint: hintsValue.bearingParameter,
           name: "bearingParameter",
           tabindex: "6",
           type: "text",
@@ -178,10 +164,5 @@ export default {
       ]
     },
   },
-  methods: {
-    onHintClick() {
-      console.log("нажали по подсказке")
-    }
-  }
 }
 </script>

@@ -20,7 +20,11 @@
         </ButtonUI>
       </div>
       <div :class="hintStyle">
-        <MarkingHint />
+        <HintUI text="Маркировка расположена на подшипнике или на его упаковке.">
+          <template #hintImg>
+            <MarkingHintImg />
+          </template>
+        </HintUI>
       </div>
     </div>
 
@@ -68,21 +72,23 @@
 </template>
 
 <script>
-import InputUI from "../../../UI/input/InputUI.vue";
+import MarkingHintImg from "../../../../assets/markingHint.svg"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../../../UI/button/ButtonUI.vue";
-import MarkingHint from "../../../UI/hint/HintUI.vue";
 import ArrowImg from "../../../../assets/iconForward.svg"
+import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import InputUI from "../../../UI/input/InputUI.vue";
+import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./mainSearchInputsMobile.module.css";
 
 export default {
   name: "MainSearchInputs",
   components: {
+    HintUI,
     InputUI,
     ArrowImg,
     ButtonUI,
-    MarkingHint,
     AutocompleteUI,
+    MarkingHintImg,
   },
   props: {
     marking: {

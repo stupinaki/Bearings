@@ -37,18 +37,6 @@
   color: $third-text-color;
 }
 
-.hint-container {
-  position: relative;
-}
-
-.hint {
-  position: absolute;
-}
-
-.hint-hide {
-  display: none;
-}
-
 @media screen and (max-width: $breakpoint-extra-large) {
   .additional-form {
     display: grid;
