@@ -20,54 +20,28 @@
       </div>
     </div>
 
-    <div :class="styled.aboutCompany">
-      <div>
-        <div :class="[styled.name, styled.row]">
-          {{ name }}
-        </div>
-        <div :class="styled.address">
-          г. {{ city }}
-        </div>
-      </div>
-      <div :class="styled.btns">
-        <router-link
-          :to="{name: routerNames.home}"
-          :class="styled.row"
-        >
-          <ButtonUI
-            size="s"
-            type-style="type-link"
-          >
-            Оптовый заказ
-          </ButtonUI>
-        </router-link>
-        <router-link
-          :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
-          :class="styled.btn"
-        >
-          <ButtonUI
-            size="s"
-            type-style="type-link"
-          >
-            О компании
-          </ButtonUI>
-        </router-link>
+    <div>
+      <router-link
+        :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
+        :class="[styled.name, styled.row]"
+      >
+        {{ name }}
+      </router-link>
+
+      <div :class="styled.address">
+        г. {{ city }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {routerNames} from "../../../../router/router.js";
 import {getMailto, getPhone} from "../../../../helpers/getOurContacts.js"
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
+import {routerNames} from "../../../../router/router.js";
 import styled from "./getInTouchCard.module.css";
 
 export default {
   name: "GetInTouchCard",
-  components: {
-    ButtonUI,
-  },
   props: {
     name: {
       type: String,

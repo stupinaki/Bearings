@@ -17,6 +17,12 @@
   margin: $primary-margin;
 }
 
+.becomePartner-burger-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+}
+
 .logo-map {
   display: flex;
 }
