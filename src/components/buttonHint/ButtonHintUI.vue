@@ -49,9 +49,6 @@ export default {
         return styled.hintVisible;
       }
       return styled.hintHide;
-
-      // return styled.hintVisible;
-
     }
   },
   methods: {
