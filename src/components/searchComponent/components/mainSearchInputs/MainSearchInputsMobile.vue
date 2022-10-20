@@ -26,6 +26,7 @@
       <AutocompleteUI
         tabindex="2"
         icon="$customPlaceSvg"
+        :visible-chips="visibleChips"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"
@@ -63,7 +64,9 @@
 </template>
 
 <script>
+import { getCountVisibleChips } from "../../../../helpers/getCountVisibleChips.js";
 import { hintsValue } from "../../../../../data/hintsValue.js"
+import { mapState } from "vuex";
 import MarkingHintImg from "../../../../assets/markingHint.svg"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
 import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
@@ -113,8 +116,12 @@ export default {
     }
   },
   computed: {
+    ...mapState("viewport", ["viewportWidth"]),
     arrowStyle() {
       return this.$props.isToggleAdditionalForm ? styled.arrowUp : styled.arrowDown;
+    },
+    visibleChips() {
+      return getCountVisibleChips(this.viewportWidth);
     }
   },
 }

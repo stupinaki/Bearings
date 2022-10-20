@@ -7,6 +7,7 @@
       <AutocompleteUI
         tabindex="3"
         icon="mdi-cogs"
+        :visible-chips="1"
         :value="companiesSelected"
         :transition="true"
         :multiple="true"
@@ -79,7 +80,6 @@ import ButtonUI from "../../../UI/button/ButtonUI.vue";
 import HelpImg from "../../../../assets/help.svg"
 import InputUI from "../../../UI/input/InputUI.vue";
 import styled from "./additionalSearchInputs.module.css";
-
 
 export default {
   name: "AdditionalSearchInputs",
