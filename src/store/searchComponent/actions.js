@@ -1,9 +1,14 @@
 import { getSearchParamsFromRoute, parseAndValidateArrValueFromRoute } from "../../helpers/getSearchParamsFromRoute";
 import actionNames from "./actionNames.js";
 import router from "../../router/router";
+import { routerNames } from "../../router/router";
 
 export default {
     async initSearchParams({commit, getters}) {
+        const path = router.currentRoute.value.name;
+        if(routerNames.products !== path) {
+            return;
+        }
         const queryParams = router.currentRoute.value.query;
         const citiesOptions = getters.allCities;
         const companiesOptions = getters.allCompanies;

@@ -7,7 +7,7 @@ export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
 
-        changeRouterParams(searchParams);
+        await changeRouterParams(searchParams);
 
         try {
             const result = await dispatch('fetchProducts', searchParams);
@@ -31,7 +31,7 @@ export default {
     },
 }
 
-function changeRouterParams(searchParams) {
+async function changeRouterParams(searchParams) {
     const normalSearchParams = normaliseSearchParams(searchParams);
-    router.push({path: routerNames.products, query: normalSearchParams});
+    await router.push({path: routerNames.products, query: normalSearchParams});
 }
