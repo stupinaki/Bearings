@@ -90,8 +90,10 @@ export default {
       }
     },
     scrollToElement(questionId) {
-      const target =  document.getElementById(questionId);
-      target.scrollIntoView({block: "center", inline: "center", behavior: "smooth"});
+      if(questionId){
+        const target =  document.getElementById(questionId);
+        target.scrollIntoView({block: "center", inline: "center", behavior: "smooth"});
+      }
     },
     getQuestionId() {
       const hash = this.$router.currentRoute.value.hash;
