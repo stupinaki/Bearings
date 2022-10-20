@@ -18,20 +18,7 @@
       </div>
     </div>
 
-    <div :class="styled.becomePartnerBurgerWrapper">
-      <router-link
-        :to="{name: routerNames.becomePartner}"
-      >
-        <ButtonUI
-          size="m"
-          type-style="secondary"
-        >
-          Стать партнером
-        </ButtonUI>
-      </router-link>
-
-      <NavigationMenuMobile />
-    </div>
+    <NavigationMenuMobile />
   </div>
 
   <div
@@ -64,7 +51,6 @@ import NavigationMenuMobile from "../navigation/NavigationMenuMobile.vue";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
 import Place from "../../assets/place.svg";
 import styled from "./headerBlock.module.css";
-import ButtonUI from "../UI/button/ButtonUI.vue";
 
 export default {
   name: "HeaderBlock",
@@ -72,7 +58,6 @@ export default {
     NavigationMenuMobile,
     NavigationMenu,
     Place,
-    ButtonUI
   },
   data() {
     return {

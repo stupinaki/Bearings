@@ -1,72 +1,106 @@
 <template>
   <div :class="styled.btnWrapper">
+    <div
+      v-if="!isMenuOpen"
+      :class="styled.becomePartnerBurgerWrapper"
+    >
+      <router-link
+        :to="{name: routerNames.becomePartner}"
+        :class="[styled.itemLink, styled.becomePartnerBtn]"
+      >
+        <ButtonUI
+          size="m"
+          type-style="secondary"
+          @click="closeMenu"
+        >
+          Стать партнером
+        </ButtonUI>
+      </router-link>
+
+      <ButtonUI
+        type-style="pseudo"
+        :class="btnStyle"
+        @click="showMenu"
+      >
+        <MenuImg />
+      </ButtonUI>
+    </div>
+
     <ButtonUI
+      v-else
       type-style="pseudo"
       :class="btnStyle"
       @click="showMenu"
     >
-      <MenuImg />
+      <CloseImg />
     </ButtonUI>
   </div>
   <div :class="menuWrapperStyle">
     <div :class="styled.menuContainer">
       <aside :class="menuStyle">
-        <nav>
-          <router-link
-            :to="{name: routerNames.home}"
-            :class="styled.itemLink"
-          >
-            <ButtonUI
-              size="m"
-              type-style="pseudo"
-              @click="closeMenu"
+        <nav :class="styled.navigation">
+          <div>
+            <router-link
+              :to="{name: routerNames.home}"
+              :class="styled.itemLink"
             >
-              Найти подшипники
-            </ButtonUI>
-          </router-link>
-          <router-link
-            :to="{name: routerNames.FAQ}"
-            :class="styled.itemLink"
-          >
-            <ButtonUI
-              size="m"
-              type-style="pseudo"
-              @click="closeMenu"
+              <ButtonUI
+                size="m"
+                type-style="pseudo"
+                :class="styled.btn"
+                @click="closeMenu"
+              >
+                Найти подшипники
+              </ButtonUI>
+            </router-link>
+            <router-link
+              :to="{name: routerNames.FAQ}"
+              :class="styled.itemLink"
             >
-              Вопросы и ответы
-            </ButtonUI>
-          </router-link>
-          <router-link
-            :to="{name: routerNames.companies}"
-            :class="styled.itemLink"
-          >
-            <ButtonUI
-              size="m"
-              type-style="pseudo"
-              @click="closeMenu"
+              <ButtonUI
+                size="m"
+                type-style="pseudo"
+                :class="styled.btn"
+                @click="closeMenu"
+              >
+                Вопросы и ответы
+              </ButtonUI>
+            </router-link>
+            <router-link
+              :to="{name: routerNames.companies}"
+              :class="styled.itemLink"
             >
-              Компании
-            </ButtonUI>
-          </router-link>
-          <router-link
-            :to="{name: routerNames.contacts}"
-            :class="styled.itemLink"
-          >
-            <ButtonUI
-              size="m"
-              type-style="pseudo"
-              @click="closeMenu"
+              <ButtonUI
+                size="m"
+                type-style="pseudo"
+                :class="styled.btn"
+                @click="closeMenu"
+              >
+                Компании
+              </ButtonUI>
+            </router-link>
+            <router-link
+              :to="{name: routerNames.contacts}"
+              :class="styled.itemLink"
             >
-              Контакты
-            </ButtonUI>
-          </router-link>
+              <ButtonUI
+                size="m"
+                type-style="pseudo"
+                :class="styled.btn"
+                @click="closeMenu"
+              >
+                Контакты
+              </ButtonUI>
+            </router-link>
+          </div>
+
           <router-link
             :to="{name: routerNames.becomePartner}"
-            :class="styled.itemLink"
+            :class="[styled.itemLink, styled.becomePartnerBtn]"
           >
             <ButtonUI
               size="m"
-              type-style="pseudo"
+              type-style="secondary"
               @click="closeMenu"
             >
               Стать партнером
@@ -86,6 +120,7 @@
 <script>
 import {routerNames} from "../../router/router.js";
 import ButtonUI from "../UI/button/ButtonUI.vue";
+import CloseImg from "../../assets/close.svg"
 import MenuImg from "../../assets/menu.svg";
 import styled from "./navigationMenuMobile.module.css";
 
@@ -93,6 +128,7 @@ export default {
   name: "NavigationMenuMobile",
   components: {
     ButtonUI,
+    CloseImg,
     MenuImg,
   },
   data() {
@@ -113,8 +149,8 @@ export default {
     },
     btnStyle() {
       return this.$data.isMenuOpen
-          ? [styled.btn, styled.btnMenuOpen]
-          : [styled.btn, styled.btnMenuClose];
+          ? [styled.btnIcon, styled.btnMenuOpen]
+          : [styled.btnIcon, styled.btnMenuClose];
     },
     menuWrapperStyle() {
       return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuWrapperHide;
