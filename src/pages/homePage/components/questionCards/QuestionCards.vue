@@ -5,7 +5,7 @@
     </div>
     <div :class="styled.question">
       <div
-        v-for="question in questionCardValue"
+        v-for="question in visibleCards"
         :key="question.id"
       >
         <QuestionCard
@@ -40,6 +40,13 @@ export default {
     ButtonUI,
     Arrow,
   },
+  props: {
+    visibleCardsCount: {
+      type: Number,
+      required: false,
+      default: 5
+    }
+  },
   data(){
     return {
       styled,
@@ -47,5 +54,10 @@ export default {
       questionCardValue,
     }
   },
+  computed: {
+    visibleCards() {
+      return questionCardValue.slice(0, this.$props.visibleCardsCount);
+    }
+  }
 }
 </script>

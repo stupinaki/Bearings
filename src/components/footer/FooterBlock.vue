@@ -28,7 +28,7 @@
             Оптовый заказ
           </router-link>
           <router-link
-            :to="{name: routerNames.empty}"
+            :to="{name: routerNames.FAQ}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
@@ -39,7 +39,7 @@
             <b>Продавцам</b>
           </div>
           <router-link
-            :to="{name: routerNames.empty}"
+            :to="{name: routerNames.becomePartner}"
             :class="styled.columnItem"
           >
             Стать партнером
@@ -53,13 +53,9 @@
           </router-link>
         </div>
         <div :class="styled.column">
-          <router-link
-            :to="{name: routerNames.empty}"
-            :class="styled.columnItem"
-          >
+          <div :class="styled.columnItem">
             <b>Контакты</b>
-          </router-link>
-
+          </div>
           <a
             :href="tel"
             :class="styled.columnItem"
@@ -113,6 +109,8 @@ import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
 import imageMap from "./footerImages";
 import styled from "./footerBlock.module.css";
 
+
+//todo по кнопке "оптовый заказ" перейти на главую и проскролить до формы оптового заказа
 export default {
   name: "FooterBlock",
   data() {

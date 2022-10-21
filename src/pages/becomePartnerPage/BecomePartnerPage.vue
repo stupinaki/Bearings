@@ -15,49 +15,7 @@
         v-bind="priceCard"
       />
     </div>
-
     <BenefitsCards :benefits-value="benefitsForCompaniesValue" />
-
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Как это работает?
-      </h2>
-      <span :class="styled.text">
-        Вы присылаете нам заявку на размещение ассортимента и регистрации компании.
-        Мы узнаем детали и регистрируем компанию и ассортимент подшипников.
-        Через некоторые время данные становятся доступными для поиска.
-      </span>
-    </div>
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Как начать продавать при помощи сайта?
-      </h2>
-      <span :class="styled.text">
-        Вы можете позвонить по телефону
-        <a :href="phone">  {{ ourContacts.phone }} </a>   или обратитесь по адресу электронной почты
-        <a :href="email"> {{ ourContacts.email }} </a>   мы свяжемся с вами свяжемся.
-      </span>
-    </div>
-    <div :class="styled.block">
-      <h2 :class="styled.title">
-        Какие данные необходимы для размещения?
-      </h2>
-      <ul :class="styled.text">
-        <li>
-          1) Карточка предприятия с контактными данными для покупателей.
-        </li>
-        <li>
-          2) Краткое описание компании (до 250 символов).
-        </li>
-        <li>
-          3) Эмблема компании в формате jpeg.
-        </li>
-        <li>
-          4) Прайс в Excel формате (структуру файла можно уточнить связавшись с нами).
-        </li>
-      </ul>
-    </div>
-
     <div :class="styled.form">
       <QuestionFormSmall
         title="Остались вопросы?"
@@ -68,7 +26,6 @@
 </template>
 
 <script>
-import {getMailto, getPhone} from "../../helpers/getOurContacts";
 import {benefitsForCompaniesValue} from "../../../data/benefitsValue.js";
 import {ourContacts} from "../../../data/ourContacts.js";
 import {price} from "../../../data/price.js";
@@ -92,14 +49,6 @@ export default {
       benefitsForCompaniesValue,
     }
   },
-  computed: {
-    phone() {
-      return getPhone(ourContacts.phone);
-    },
-    email() {
-      return getMailto(ourContacts.email);
-    }
-  }
 }
 </script>
 

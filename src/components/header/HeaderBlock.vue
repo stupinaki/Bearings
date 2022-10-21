@@ -12,7 +12,10 @@
       </router-link>
       <div :class="styled.map">
         <Place />
-        <div :class="styled.city">
+        <div
+          v-if="isCityNameVisible"
+          :class="styled.city"
+        >
           Саратов
         </div>
       </div>
@@ -69,6 +72,9 @@ export default {
     ...mapState("viewport", ["viewportWidth"]),
     isMobile() {
       return this.viewportWidth <= breakpoints.extraLarge;
+    },
+    isCityNameVisible() {
+      return this.viewportWidth >= breakpoints.small;
     }
   }
 };
