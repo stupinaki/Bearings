@@ -1,7 +1,13 @@
 <template>
   <ErrorUI v-if="error" />
   <LoaderUI v-if="loading" />
-  <div :class="styled.cards">
+
+  <NothingFound v-if="isNothingFound" />
+
+  <div
+    v-else
+    :class="styled.cards"
+  >
     <div
       v-for="card in searchCards"
       :key="card.id"
@@ -17,6 +23,7 @@
 
 <script>
 import {mapActions, mapState} from "vuex";
+import NothingFound from "../../../../components/nothingFound/NothingFound.vue";
 import CompanyCard from "../companyCard/CompanyCard.vue";
 import LoaderUI from "../../../../components/UI/loader/LoaderUI.vue";
 import ErrorUI from "../../../../components/UI/error/ErrorUI.vue";
@@ -25,6 +32,7 @@ import styled from "./companyCards.module.css";
 export default {
   name: "CompanyCards",
   components: {
+    NothingFound,
     CompanyCard,
     LoaderUI,
     ErrorUI,
@@ -51,6 +59,9 @@ export default {
       return this.companies.filter(company =>
           company.name.toLowerCase().includes(searchCompanyName)
       );
+    },
+    isNothingFound(){
+      return this.searchCards.length <= 0 && !this.loading;
     }
   },
   beforeMount() {
