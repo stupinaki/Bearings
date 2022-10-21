@@ -7,7 +7,7 @@
 
 @media screen and (max-width: $breakpoint-large) {
   .container {
-    padding: $secondary-margin;
+    padding: $padding-top-bottom $secondary-padding-left-right;
   }
 }
 

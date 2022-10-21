@@ -74,7 +74,7 @@
 .btn-menu-open {
   position: fixed;
   top: 24px;
-  right: 40px;
+  right: 72px;
 }
 
 .opacity-block {
@@ -100,8 +100,11 @@
 }
 
 .become-partner-btn {
-  padding: 16px;
   color: $primary-btn-color;
+}
+
+.become-partner-wrapper {
+  padding: 16px;
 }
 
 .becomePartner-burger-wrapper {
@@ -109,6 +112,14 @@
   gap: 8px;
   align-items: center;
   justify-content: end;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .btn-menu-open {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+  }
 }
 
 @media screen and (max-width: $breakpoint-small) {

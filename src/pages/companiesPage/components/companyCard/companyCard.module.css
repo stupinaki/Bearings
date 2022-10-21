@@ -54,3 +54,12 @@
   line-height: 16px;
   color: #4a53f5;
 }
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: start;
+  }
+}

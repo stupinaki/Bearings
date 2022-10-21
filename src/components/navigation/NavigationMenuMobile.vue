@@ -94,18 +94,20 @@
             </router-link>
           </div>
 
-          <router-link
-            :to="{name: routerNames.becomePartner}"
-            :class="[styled.itemLink, styled.becomePartnerBtn]"
-          >
-            <ButtonUI
-              size="m"
-              type-style="secondary"
-              @click="closeMenu"
+          <div :class="styled.becomePartnerWrapper">
+            <router-link
+              :to="{name: routerNames.becomePartner}"
+              :class="[styled.itemLink, styled.becomePartnerBtn]"
             >
-              Стать партнером
-            </ButtonUI>
-          </router-link>
+              <ButtonUI
+                size="m"
+                type-style="secondary"
+                @click="closeMenu"
+              >
+                Стать партнером
+              </ButtonUI>
+            </router-link>
+          </div>
         </nav>
       </aside>
       <div

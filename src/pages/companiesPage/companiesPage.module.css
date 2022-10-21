@@ -22,7 +22,6 @@
 
 .btn-container {
   display: grid;
-  grid-template-columns: 20%;
   justify-content: center;
   margin-top: 60px;
 }
