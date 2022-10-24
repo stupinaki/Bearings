@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import {getMailto, getPhone} from "../../../../helpers/getOurContacts.js"
+import {getMailto, getPhone} from "../../../../helpers/getContacts.js"
 import {routerNames} from "../../../../router/router.js";
 import styled from "./getInTouchCard.module.css";
 

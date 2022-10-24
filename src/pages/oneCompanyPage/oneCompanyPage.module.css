@@ -5,14 +5,6 @@
   margin: $primary-margin;
 }
 
-.companyName {
-  margin-bottom: 40px;
-  font-size: 46px;
-  font-weight: 500;
-  line-height: 78px;
-  color: $primary-text-color;
-}
-
 .btn {
   width: max-content;
   height: max-content;
@@ -26,11 +18,6 @@
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
-  }
-
-  .companyName {
-    font-size: 40px;
-    line-height: 40px;
   }
 }
 

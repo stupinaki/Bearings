@@ -105,7 +105,7 @@
 import {routerNames} from "../../router/router.js";
 import {footerImgValue} from "../../../data/footerImgValue";
 import { ourContacts } from "../../../data/ourContacts.js";
-import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
+import { getMailto,getPhone } from "../../helpers/getContacts.js";
 import imageMap from "./footerImages";
 import styled from "./footerBlock.module.css";
 

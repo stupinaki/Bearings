@@ -21,15 +21,27 @@
     <h3 :class="styled.title">
       Email:
     </h3>
-    <span :class="styled.subTitle">
+    <a
+      :href="mailto"
+      :class="styled.subTitle"
+    >
       {{ email }}
-    </span>
+    </a>
     <h3 :class="styled.title">
       Телефон:
     </h3>
-    <span :class="styled.subTitle">
-      {{ phone }}
-    </span>
+    <div
+      v-for="phoneNumber in allNumbers"
+      :key="phoneNumber.tel"
+    >
+      <a
+        :href="phone.tel"
+        :class="styled.subTitle"
+      >
+        {{ phoneNumber.number }}
+      </a>
+    </div>
+
     <h3 :class="styled.title">
       Дата обновления ассортимента:
     </h3>
@@ -40,6 +52,7 @@
 </template>
 
 <script>
+import { allNumbers, getMailto } from "../../../../helpers/getContacts";
 import styled from "./companyDescriptionCard.module.css";
 
 export default {
@@ -80,6 +93,14 @@ export default {
     return {
       styled,
     }
-  }
+  },
+  computed: {
+    mailto() {
+      return getMailto(this.$props.email);
+    },
+    allNumbers () {
+      return allNumbers(this.$props.phone);
+    }
+  },
 }
 </script>

@@ -11,14 +11,6 @@
   margin: 16px 0;
 }
 
-.title {
-  margin: 32px 0;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 44px;
-  color: $primary-text-color;
-}
-
 .question-btn {
   display: inline-block;
 }

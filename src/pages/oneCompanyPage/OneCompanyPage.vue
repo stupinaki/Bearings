@@ -4,9 +4,10 @@
     v-else
     :class="styled.container"
   >
-    <h2 :class="styled.companyName">
-      {{ targetCompany.name }}
-    </h2>
+    <TypographyText
+      :value="targetCompany.name"
+      size="header1"
+    />
     <CompanyDescriptionCard
       :description="targetCompany.description"
       :city="targetCompany.city"
@@ -33,6 +34,7 @@
 import {mapActions, mapState} from "vuex";
 import {routerNames} from "../../router/router.js";
 import CompanyDescriptionCard from "./components/companyDescriptionCard/CompanyDescriptionCard.vue";
+import TypographyText from "../../components/typography/TypographyText.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import ButtonUI from "../../components/UI/button/ButtonUI.vue";
 import styled from "./oneCompanyPage.module.css";
@@ -41,6 +43,7 @@ export default {
   name: "OneCompanyPage",
   components: {
     CompanyDescriptionCard,
+    TypographyText,
     ButtonUI,
     LoaderUI,
   },

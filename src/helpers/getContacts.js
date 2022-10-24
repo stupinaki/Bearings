@@ -12,3 +12,14 @@ export function getPhone(phone) {
     }
     return "Номер отсутствует";
 }
+
+
+export function allNumbers (numbersStr) {
+    const numbersArr = numbersStr.split(",");
+    return numbersArr.map(number => {
+        return  {
+            tel: getPhone(number),
+            number: number
+        }
+    })
+}

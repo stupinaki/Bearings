@@ -1,9 +1,9 @@
 <template>
   <div :class="styled.wrapper">
-    <span :class="styled.title">
-      Найдено {{ allCount }} {{ correctWord }}
-    </span>
-
+    <TypographyText
+      :value="headerText"
+      size="header3"
+    />
     <SliderUI
       :items="offers"
       :visible-items-max-count="visibleItemsMaxCount"
@@ -32,6 +32,7 @@
 import {mapActions, mapGetters, mapState} from "vuex";
 import {screenSize} from "../../../../consts/breakpoints";
 import {getCorrectWord} from "../../../../helpers/getCorrectWord";
+import TypographyText from "../../../../components/typography/TypographyText.vue";
 import OfferCard from "../offerCard/OfferCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import SliderUI from "../../../../components/UI/slider/SliderUI.vue";
@@ -40,6 +41,7 @@ import styled from "./offerCards.module.css";
 export default {
   name: "OfferCards",
   components: {
+    TypographyText,
     OfferCard,
     ButtonUI,
     SliderUI,
@@ -77,6 +79,9 @@ export default {
       }
       return 5;
     },
+    headerText() {
+      return "Найдено " +  this.allCount + " " + this.correctWord;
+    }
   },
   beforeMount() {
     this.initOffers();

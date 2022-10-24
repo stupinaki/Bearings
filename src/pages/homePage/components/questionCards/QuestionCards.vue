@@ -1,8 +1,10 @@
 <template>
   <div :class="styled.wrapper">
-    <div :class="styled.title">
-      Частые вопросы
-    </div>
+    <TypographyText
+      size="header3"
+      value="Частые вопросы"
+    />
+
     <div :class="styled.question">
       <div
         v-for="question in visibleCards"
@@ -28,6 +30,7 @@
 <script>
 import {questionCardValue} from "../../../../../data/questionCardValue";
 import {routerNames} from "../../../../router/router.js";
+import TypographyText from "../../../../components/typography/TypographyText.vue";
 import QuestionCard from "../questionCard/QuestionCard.vue";
 import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
 import Arrow from "../../../../assets/arrow_downward.svg"
@@ -36,6 +39,7 @@ import styled from "./questionCards.module.css";
 export default {
   name: "QuestionCards",
   components: {
+    TypographyText,
     QuestionCard,
     ButtonUI,
     Arrow,

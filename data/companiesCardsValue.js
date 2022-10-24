@@ -18,7 +18,7 @@ export const companiesCardsValue = [
     "offersText": "10 предожений",
     "address": "410015, г. Саратов, улица Им. Орджоникидзе Г.К., дом 24",
     "email": "yakunovm@yandex.ru",
-    "phone": "+7 927 227-00-81",
+    "phone": "+7 927 227-00-81, +7 927 227-00-57, +7 927 227-00-44",
     "creation_date": "2020-03-10"
   },
   {

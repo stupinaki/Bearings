@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
+import { getMailto,getPhone } from "../../helpers/getContacts.js";
 import { ourContacts } from "../../../data/ourContacts.js";
 import TypographyText from "../typography/TypographyText.vue";
 import ContactUsForm from "../contactUsForm/ContactUsForm.vue";
