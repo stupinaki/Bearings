@@ -41,3 +41,6 @@ $breakpoint-extra-large: 1200px;
 $z-index-default: 10;
 $z-index-extra: 50;
 $z-index-total: 100;
+
+$big-components-gap: 120px;
+$medium-components-gap: 80px;

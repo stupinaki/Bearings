@@ -1,5 +1,5 @@
 <template>
-  <div :class="styled.wrapper">
+  <div>
     <TypographyText
       size="header3"
       value="Частые вопросы"

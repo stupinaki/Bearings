@@ -5,29 +5,34 @@
       color="darkgray"
       value="Часто задаваемые вопросы"
     />
-    <TypographyText
-      size="header2"
-      color="darkgray"
-      value="Для покупателей"
-    />
-    <ExpansionPanelsUI
-      :question-cards-value="questionCardValueClient"
-      :multiple="true"
-      :panel="panelClient"
-      @on-question-card-click="onCardClientClick"
-    />
 
-    <TypographyText
-      size="header2"
-      color="darkgray"
-      value="Для продавцов"
-    />
-    <ExpansionPanelsUI
-      :question-cards-value="questionCardValueCompany"
-      :multiple="true"
-      :panel="panelCompany"
-      @on-question-card-click="onCardCompanyClick"
-    />
+    <div>
+      <TypographyText
+        size="header2"
+        color="darkgray"
+        value="Для покупателей"
+      />
+      <ExpansionPanelsUI
+        :question-cards-value="questionCardValueClient"
+        :multiple="true"
+        :panel="panelClient"
+        @on-question-card-click="onCardClientClick"
+      />
+    </div>
+
+    <div>
+      <TypographyText
+        size="header2"
+        color="darkgray"
+        value="Для продавцов"
+      />
+      <ExpansionPanelsUI
+        :question-cards-value="questionCardValueCompany"
+        :multiple="true"
+        :panel="panelCompany"
+        @on-question-card-click="onCardCompanyClick"
+      />
+    </div>
 
     <div :class="styled.form">
       <QuestionFormSmall

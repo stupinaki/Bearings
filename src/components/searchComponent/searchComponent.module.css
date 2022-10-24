@@ -2,13 +2,8 @@
 
 .wrapper {
   padding: 24px 24px 40px;
-  margin: $primary-padding-top-bottom 0;
   background: $third-background;
   border-radius: 8px;
-}
-
-.header {
-  padding-bottom: 40px;
 }
 
 .sub-title {

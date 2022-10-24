@@ -1,13 +1,15 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: $big-components-gap;
   padding: $padding-top-bottom 0;
   margin: $primary-margin;
 }
 
 .form {
   width: 40%;
-  margin: 96px 0;
 }
 
 @media screen and (max-width: $breakpoint-extra-large) {
@@ -28,6 +30,7 @@
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
+    gap: $medium-components-gap;
     margin: $mobile-margin;
   }
 

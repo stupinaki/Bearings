@@ -1,9 +1,5 @@
 @import "/src/styles/variables.modules.css";
 
-.wrapper {
-  padding: $primary-padding-top-bottom 0;
-}
-
 .benefits-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

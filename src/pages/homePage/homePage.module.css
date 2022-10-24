@@ -1,6 +1,9 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: $big-components-gap;
   padding: $padding-top-bottom 0;
   margin: $primary-margin;
 }
@@ -13,6 +16,7 @@
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
+    gap: $medium-components-gap;
     margin: $mobile-margin;
   }
 }
