@@ -1,13 +1,19 @@
 <template>
   <div :class="styled.container">
-    <h1 :class="styled.mainTitle">
-      Стать партнером
-    </h1>
-    <span :class="styled.mainSubTitle">
-      Сервис поможет покупателю самостоятельно быстро и удобно выбрать продукцию и связаться с вами.
-      Мы выступаем в роли дополнительного канала сбыта для вашей компании.
-    </span>
-
+    <div>
+      <TypographyText
+        size="header1"
+        color="darkgray"
+        value="Стать партнером"
+      />
+      <TypographyText
+        :class="styled.mainSubTitle"
+        size="title2"
+        color="darkgray"
+        value="Сервис поможет покупателю самостоятельно быстро и удобно выбрать продукцию и связаться с вами.
+               Мы выступаем в роли дополнительного канала сбыта для вашей к"
+      />
+    </div>
     <div :class="styled.priceCards">
       <PriceCard
         v-for="priceCard in price"
@@ -30,6 +36,7 @@ import {benefitsForCompaniesValue} from "../../../data/benefitsValue.js";
 import {ourContacts} from "../../../data/ourContacts.js";
 import {price} from "../../../data/price.js";
 import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
+import TypographyText from "../../components/typography/TypographyText.vue";
 import BenefitsCards from "../homePage/components/benefitsCards/BenefitsCards.vue";
 import PriceCard from "./components/priceCard/PriceCard.vue";
 import styled from "./becomePartnerPage.module.css";
@@ -39,6 +46,7 @@ export default {
   components: {
     PriceCard,
     BenefitsCards,
+    TypographyText,
     QuestionFormSmall,
   },
   data() {

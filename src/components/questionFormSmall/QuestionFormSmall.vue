@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h2 :class="styled.title">
-      {{ title }}
-    </h2>
-    <div :class="styled.subTitle">
-      {{ subTitle }}
-    </div>
+    <TypographyText
+      size="header2"
+      :value="title"
+    />
+    <TypographyText
+      size="title2"
+      :value="subTitle"
+    />
   </div>
 
   <form
@@ -61,12 +63,14 @@
 <script>
 import {validateEmail} from "../../helpers/validateEmail.js";
 import {routerNames} from "../../router/router.js";
+import TypographyText from "../typography/TypographyText.vue";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import styled from "./questionFormSmall.module.css";
 
 export default {
   name: "QuestionFormSmall",
   components: {
+    TypographyText,
     ButtonUI,
   },
   props: {

@@ -7,18 +7,8 @@
   background-color: $third-background;
 }
 
-.main-title {
-  padding-top: 96px;
-  font-size: 72px;
-  font-weight: 500;
-  line-height: 86px;
-}
-
 .main-sub-title {
   max-width: 740px;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 26px;
 }
 
 .form {
@@ -43,9 +33,6 @@
   }
 
   .price-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 36px;
     margin: 80px 0;
   }
 }
@@ -60,6 +47,9 @@
   }
 
   .price-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
     margin: 60px 0;
   }
 }

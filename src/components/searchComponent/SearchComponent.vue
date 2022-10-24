@@ -1,11 +1,16 @@
 <template>
   <div :class="styled.header">
-    <h2 :class="styled.title">
-      Сервис по поиску подшипников
-    </h2>
-    <span :class="styled.subTitle">
-      Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
-    </span>
+    <TypographyText
+      size="header1"
+      color="darkgray"
+      value="Сервис по поиску подшипников"
+    />
+    <TypographyText
+      :class="styled.subTitle"
+      size="title2"
+      color="darkgray"
+      value="Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене."
+    />
   </div>
   <form
     :class="styled.wrapper"
@@ -49,13 +54,15 @@
 import {mapActions, mapGetters, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
-import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import MainSearchInputsMobile from "./components/mainSearchInputs/MainSearchInputsMobile.vue";
+import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
+import TypographyText from "../typography/TypographyText.vue";
 import styled from "./searchComponent.module.css";
 
 export default {
   name: "SearchComponent",
   components: {
+    TypographyText,
     MainSearchInputs,
     AdditionalSearchInputs,
     MainSearchInputsMobile,

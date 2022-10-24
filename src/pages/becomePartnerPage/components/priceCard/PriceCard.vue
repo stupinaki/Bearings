@@ -2,34 +2,47 @@
   <div :class="styled.wrapper">
     <div :class="topCardStyle">
       <div>
-        <h3 :class="styled.title">
-          {{ title }}
-        </h3>
+        <TypographyText
+          size="header2"
+          :value="title"
+          :class="styled.title"
+        />
         <p :class="styled.text">
           {{ text }}
         </p>
       </div>
-      <span :class="styled.price"> {{ price }}</span>
+      <TypographyText
+        size="header3"
+        :value="price"
+      />
     </div>
 
     <div :class="styled.border" />
 
-    <div :class="styled.bottomCard">
+    <TypographyText
+      value=""
+      size="title1"
+      :class="styled.bottomCard"
+    >
       <div
         v-for="detail in details"
         :key="detail.id"
       >
         {{ detail.text }}
       </div>
-    </div>
+    </TypographyText>
   </div>
 </template>
 
 <script>
+import TypographyText from "../../../../components/typography/TypographyText.vue";
 import styled from "./priceCard.module.css";
 
 export default {
   name: "PriceCard",
+  components: {
+    TypographyText,
+  },
   props: {
     title: {
       type: String,

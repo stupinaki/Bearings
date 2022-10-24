@@ -1,28 +1,8 @@
 @import "/src/styles/variables.modules.css";
 
-.test {
-  margin: 40px;
-}
-
 .container {
   padding: $padding-top-bottom 0;
   margin: $primary-margin;
-}
-
-.title {
-  margin-bottom: 60px;
-  font-size: 64px;
-  font-weight: 500;
-  line-height: 78px;
-  color: $primary-text-color;
-}
-
-.sub-title {
-  margin: 40px 0;
-  font-size: 40px;
-  font-weight: 500;
-  line-height: 44px;
-  color: $primary-text-color;
 }
 
 .form {
@@ -44,15 +24,6 @@
   .form {
     width: 80%;
   }
-
-  .title {
-    font-size: 40px;
-    line-height: 40px;
-  }
-
-  .sub-title {
-    font-size: 32px;
-  }
 }
 
 @media screen and (max-width: $breakpoint-small) {
@@ -62,14 +33,5 @@
 
   .form {
     width: 100%;
-  }
-
-  .title {
-    font-size: 32px;
-    line-height: 40px;
-  }
-
-  .sub-title {
-    font-size: 24px;
   }
 }

@@ -1,12 +1,15 @@
 <template>
   <div :class="styled.container">
-    <h1 :class="styled.title">
-      Часто задаваемые вопросы
-    </h1>
-
-    <h2 :class="styled.subTitle">
-      Для покупателей
-    </h2>
+    <TypographyText
+      size="header1"
+      color="darkgray"
+      value="Часто задаваемые вопросы"
+    />
+    <TypographyText
+      size="header2"
+      color="darkgray"
+      value="Для покупателей"
+    />
     <ExpansionPanelsUI
       :question-cards-value="questionCardValueClient"
       :multiple="true"
@@ -14,9 +17,11 @@
       @on-question-card-click="onCardClientClick"
     />
 
-    <h2 :class="styled.subTitle">
-      Для продавцов
-    </h2>
+    <TypographyText
+      size="header2"
+      color="darkgray"
+      value="Для продавцов"
+    />
     <ExpansionPanelsUI
       :question-cards-value="questionCardValueCompany"
       :multiple="true"
@@ -37,11 +42,13 @@
 import {questionCardValue, types} from "../../../data/questionCardValue.js";
 import ExpansionPanelsUI from "../../components/UI/expansionPanels/ExpansionPanelsUI.vue";
 import QuestionFormSmall from "../../components/questionFormSmall/QuestionFormSmall.vue";
+import TypographyText from "../../components/typography/TypographyText.vue";
 import styled from "./FAQPage.module.css"
 
 export default {
   name: "FAQPage",
   components: {
+    TypographyText,
     ExpansionPanelsUI,
     QuestionFormSmall,
   },

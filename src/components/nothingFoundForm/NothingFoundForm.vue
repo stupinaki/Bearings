@@ -1,15 +1,19 @@
 <template>
   <div :class="styled.wrapper">
-    <h2 :class="styled.title">
-      {{ title }}
-    </h2>
-    <span :class="styled.subTitle">
-      {{ subTitle }}
-    </span>
+    <TypographyText
+      size="header1"
+      color="darkgray"
+      :value="title"
+    />
+    <TypographyText
+      size="title2"
+      color="darkgray"
+      :value="subTitle"
+    />
   </div>
   <div :class="styled.contactsAndForm">
     <ContactUsForm />
-    <div :class="styled.contacts">
+    <div>
       <div :class="styled.phone">
         <a
           :href="tel"
@@ -39,12 +43,14 @@
 <script>
 import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
 import { ourContacts } from "../../../data/ourContacts.js";
+import TypographyText from "../typography/TypographyText.vue";
 import ContactUsForm from "../contactUsForm/ContactUsForm.vue";
 import styled from "./nothingFoundForm.module.css";
 
 export default {
   name: "NothingFoundForm",
   components: {
+    TypographyText,
     ContactUsForm,
   },
   props: {

@@ -1,8 +1,10 @@
 <template>
   <div :class="styled.wrapper">
-    <div :class="styled.title">
-      Почему стоит воспользоваться нашим сервисом?
-    </div>
+    <TypographyText
+      size="header3"
+      color="darkgray"
+      value="Почему стоит воспользоваться нашим сервисом?"
+    />
     <div :class="styled.benefitsWrapper">
       <div
         v-for="benefit in benefitsValue"
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import TypographyText from "../../../../components/typography/TypographyText.vue";
 import BenefitsCard from "../benefitsCard/BenefitsCard.vue";
 import imageMap from "./benifitImages";
 import styled from "./benefitsCards.module.css";
@@ -28,6 +31,7 @@ import styled from "./benefitsCards.module.css";
 export default {
   name: "BenefitsCards",
   components: {
+    TypographyText,
     BenefitsCard,
   },
   props: {
