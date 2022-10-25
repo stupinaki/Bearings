@@ -1,11 +1,11 @@
 <template>
-    <div>
-      Вы можете позвонить по телефону
-      <a :href="tel"> {{ourContacts.phone}} </a>
-      или обратитесь по адресу электронной почты
-      <a :href="mailto"> {{ourContacts.email}} </a>
-      и мы с вами свяжемся.
-    </div>
+  <div>
+    Вы можете позвонить по телефону
+    <a :href="tel"> {{ ourContacts.phone }} </a>
+    или обратитесь по адресу электронной почты
+    <a :href="mailto"> {{ ourContacts.email }} </a>
+    и мы с вами свяжемся.
+  </div>
 </template>
 
 <script>

@@ -15,7 +15,6 @@
           {{ questionCard.question }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-
           <div v-if="questionCard.special === specialTypes.contacts">
             <HowSaleQuestion />
           </div>
@@ -27,7 +26,6 @@
           <div v-else>
             {{ questionCard.answer }}
           </div>
-
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>

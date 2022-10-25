@@ -13,6 +13,12 @@
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
-    padding: $primary-padding-top-bottom $secondary-padding-left-right;
+    padding: $padding-top-bottom $secondary-padding-left-right;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .container {
+    padding: $padding-top-bottom $mobile-padding-left-right;
   }
 }
