@@ -15,7 +15,19 @@
           {{ questionCard.question }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
-          {{ questionCard.answer }}
+
+          <div v-if="questionCard.special === specialTypes.contacts">
+            <HowSaleQuestion />
+          </div>
+
+          <div v-else-if="questionCard.special === specialTypes.list">
+            <RequiredDataQuestion />
+          </div>
+
+          <div v-else>
+            {{ questionCard.answer }}
+          </div>
+
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -23,10 +35,17 @@
 </template>
 
 <script>
+import { specialTypes } from "../../../../data/questionCardValue";
+import RequiredDataQuestion from "../../../pages/FAQPage/components/requiredDataQuestion/RequiredDataQuestion.vue";
+import HowSaleQuestion from "../../../pages/FAQPage/components/howSaleQuestion/HowSaleQuestion.vue";
 import styled from "./expansionPanels.module.css";
 
 export default {
   name: "ExpansionPanelsUI",
+  components: {
+    HowSaleQuestion,
+    RequiredDataQuestion,
+  },
   props: {
     questionCardsValue: {
       type: Array,
@@ -53,6 +72,7 @@ export default {
     return {
       styled,
       localPanel: [],
+      specialTypes,
     }
   },
   watch: {

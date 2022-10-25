@@ -5,6 +5,11 @@ export const types = {
     company: "company",
 }
 
+export const specialTypes = {
+    contacts: "contacts",
+    list: "list",
+}
+
 export const questionCardValue = [
     {
         id: 1,
@@ -46,6 +51,7 @@ export const questionCardValue = [
     },
     {
         id: 8,
+        special: specialTypes.contacts,
         type: "company",
         question: "Как начать продавать при помощи сайта?",
         answer: `Вы можете позвонить по телефону ${ourContacts.phone} или обратитесь по адресу ` +
@@ -53,6 +59,7 @@ export const questionCardValue = [
     },
     {
         id: 9,
+        special: specialTypes.list,
         type: "company",
         question: "Какие данные необходимы для размещения?",
         answer: "1) Карточка предприятия с контактными данными для покупателей.\n" +
