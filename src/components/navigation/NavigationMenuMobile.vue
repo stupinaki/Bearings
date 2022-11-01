@@ -1,121 +1,128 @@
 <template>
   <div :class="styled.btnWrapper">
     <div
-      v-if="!isMenuOpen"
-      :class="styled.becomePartnerBurgerWrapper"
+        v-if="!isMenuOpen"
+        :class="styled.becomePartnerBurgerWrapper"
     >
       <router-link
-        :to="{name: routerNames.becomePartner}"
-        :class="[styled.itemLink, styled.becomePartnerBtn]"
+          :to="{name: routerNames.becomePartner}"
+          :class="[styled.itemLink, styled.becomePartnerBtn]"
       >
         <ButtonUI
-          size="m"
-          type-style="secondary"
-          @click="closeMenu"
+            size="m"
+            type-style="secondary"
+            @click="closeMenu"
         >
           Стать партнером
         </ButtonUI>
       </router-link>
 
       <ButtonUI
-        type-style="pseudo"
-        :class="btnStyle"
-        @click="showMenu"
+          type-style="pseudo"
+          :class="btnStyle"
+          @click="showMenu"
       >
-        <MenuImg />
+        <MenuImg/>
       </ButtonUI>
     </div>
 
     <ButtonUI
-      v-else
-      type-style="pseudo"
-      :class="btnStyle"
-      @click="showMenu"
+        v-else
+        type-style="pseudo"
+        :class="btnStyle"
+        @click="showMenu"
     >
-      <CloseImg />
+      <CloseImg/>
     </ButtonUI>
   </div>
-  <div :class="menuWrapperStyle">
-    <div :class="styled.menuContainer">
-      <aside :class="menuStyle">
-        <nav :class="styled.navigation">
-          <div>
-            <router-link
-              :to="{name: routerNames.home}"
-              :class="styled.itemLink"
-            >
-              <ButtonUI
-                size="m"
-                type-style="pseudo"
-                :class="styled.btn"
-                @click="closeMenu"
-              >
-                Найти подшипники
-              </ButtonUI>
-            </router-link>
-            <router-link
-              :to="{name: routerNames.FAQ}"
-              :class="styled.itemLink"
-            >
-              <ButtonUI
-                size="m"
-                type-style="pseudo"
-                :class="styled.btn"
-                @click="closeMenu"
-              >
-                Вопросы и ответы
-              </ButtonUI>
-            </router-link>
-            <router-link
-              :to="{name: routerNames.companies}"
-              :class="styled.itemLink"
-            >
-              <ButtonUI
-                size="m"
-                type-style="pseudo"
-                :class="styled.btn"
-                @click="closeMenu"
-              >
-                Компании
-              </ButtonUI>
-            </router-link>
-            <router-link
-              :to="{name: routerNames.contacts}"
-              :class="styled.itemLink"
-            >
-              <ButtonUI
-                size="m"
-                type-style="pseudo"
-                :class="styled.btn"
-                @click="closeMenu"
-              >
-                Контакты
-              </ButtonUI>
-            </router-link>
-          </div>
 
-          <div :class="styled.becomePartnerWrapper">
-            <router-link
-              :to="{name: routerNames.becomePartner}"
-              :class="[styled.itemLink, styled.becomePartnerBtn]"
-            >
-              <ButtonUI
-                size="m"
-                type-style="secondary"
-                @click="closeMenu"
-              >
-                Стать партнером
-              </ButtonUI>
-            </router-link>
-          </div>
-        </nav>
-      </aside>
-      <div
-        :class="opacityBlockStyle"
-        tabindex="0"
-        @focus="onOpacityBlockFocus"
-      />
-    </div>
+  <div :class="menuWrapperStyle">
+
+      <Transition name="slide">
+        <div v-if="isMenuOpen" :class="styled.menuContainer">
+
+          <aside :class="styled.menuMobile">
+            <nav :class="styled.navigation">
+              <div>
+                <router-link
+                    :to="{name: routerNames.home}"
+                    :class="styled.itemLink"
+                >
+                  <ButtonUI
+                      size="m"
+                      type-style="pseudo"
+                      :class="styled.btn"
+                      @click="closeMenu"
+                  >
+                    Найти подшипники
+                  </ButtonUI>
+                </router-link>
+                <router-link
+                    :to="{name: routerNames.FAQ}"
+                    :class="styled.itemLink"
+                >
+                  <ButtonUI
+                      size="m"
+                      type-style="pseudo"
+                      :class="styled.btn"
+                      @click="closeMenu"
+                  >
+                    Вопросы и ответы
+                  </ButtonUI>
+                </router-link>
+                <router-link
+                    :to="{name: routerNames.companies}"
+                    :class="styled.itemLink"
+                >
+                  <ButtonUI
+                      size="m"
+                      type-style="pseudo"
+                      :class="styled.btn"
+                      @click="closeMenu"
+                  >
+                    Компании
+                  </ButtonUI>
+                </router-link>
+                <router-link
+                    :to="{name: routerNames.contacts}"
+                    :class="styled.itemLink"
+                >
+                  <ButtonUI
+                      size="m"
+                      type-style="pseudo"
+                      :class="styled.btn"
+                      @click="closeMenu"
+                  >
+                    Контакты
+                  </ButtonUI>
+                </router-link>
+              </div>
+
+              <div :class="styled.becomePartnerWrapper">
+                <router-link
+                    :to="{name: routerNames.becomePartner}"
+                    :class="[styled.itemLink, styled.becomePartnerBtn]"
+                >
+                  <ButtonUI
+                      size="m"
+                      type-style="secondary"
+                      @click="closeMenu"
+                  >
+                    Стать партнером
+                  </ButtonUI>
+                </router-link>
+              </div>
+            </nav>
+          </aside>
+
+          <div
+              :class="styled.opacityBlock"
+              tabindex="0"
+              @focus="onOpacityBlockFocus"
+          />
+        </div>
+      </Transition>
+
   </div>
 </template>
 
@@ -141,21 +148,13 @@ export default {
     }
   },
   computed: {
-    menuStyle() {
-      return this.$data.isMenuOpen
-          ? [styled.menuMobile, styled.menuMobileOpen]
-          : [styled.menuMobile, styled.menuMobileClose];
-    },
-    opacityBlockStyle() {
-      return this.$data.isMenuOpen ? styled.opacityBlock : styled.opacityBlockHide;
+    menuWrapperStyle() {
+      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuWrapperHide;
     },
     btnStyle() {
       return this.$data.isMenuOpen
           ? [styled.btnIcon, styled.btnMenuOpen]
           : [styled.btnIcon, styled.btnMenuClose];
-    },
-    menuWrapperStyle() {
-      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuWrapperHide;
     }
   },
   methods: {
