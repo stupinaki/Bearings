@@ -1,0 +1,31 @@
+@import "/src/styles/variables.modules.css";
+
+.opacity-block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-index-default;
+  width: 100vw;
+  height: 100vh;
+  cursor: pointer;
+  background-color: $primary-color;
+  opacity: 0.4;
+}
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: $z-index-extra;
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: $primary-background;
+  box-shadow: $shadow-primary;
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .sidebar-panel {
+    width: 100%;
+  }
+}

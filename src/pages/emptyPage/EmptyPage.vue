@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import styled from "./emptyPage.module.css"
+import styled from "./emptyPage.module.css";
 
 export default {
   name: "EmptyPage",
