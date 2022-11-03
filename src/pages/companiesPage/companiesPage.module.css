@@ -1,16 +1,12 @@
 @import "/src/styles/variables.modules.css";
 
 .container {
+  padding: $padding-top-bottom 0;
   margin: $primary-margin;
 }
 
-.header-wrapper {
-  display: flex;
-  margin: 56px 0;
-}
-
 .header {
-  padding: 12px 0;
+  margin-bottom: 22px;
   font-size: 64px;
   font-weight: 500;
   line-height: 78px;
@@ -25,7 +21,6 @@
 
 .btn-container {
   display: grid;
-  grid-template-columns: 20%;
   justify-content: center;
   margin-top: 60px;
 }
@@ -34,22 +29,42 @@
   display: flex;
 }
 
-.btn-quantities {
-  padding-bottom: 12px;
-}
-
-.btn-text {
-  padding: 4px;
-}
-
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
+  }
+
+  .header {
+    margin-bottom: 16px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  .quantities {
+    font-size: 28px;
+    line-height: 28px;
+    color: $primary-btn-color;
   }
 }
 
 @media screen and (max-width: $breakpoint-small) {
   .container {
     margin: $mobile-margin;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .header {
+    margin-bottom: 12px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  .quantities {
+    font-size: 24px;
+    line-height: 24px;
+    color: $primary-btn-color;
   }
 }

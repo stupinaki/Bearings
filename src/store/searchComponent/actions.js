@@ -1,15 +1,23 @@
+import { getSearchParamsFromRoute, parseAndValidateArrValueFromRoute } from "../../helpers/getSearchParamsFromRoute";
 import actionNames from "./actionNames.js";
-import {getValidateSearchParamsFromRoute} from "../../helpers/getSearchParamsFromRoute";
-import {defaultBearingsSearchParams} from "../../consts/defaultBearingsSearchParams";
 import router from "../../router/router";
+import { routerNames } from "../../router/router";
 
 export default {
-    async initSearchParams({commit, dispatch}) {
+    async initSearchParams({commit, getters}) {
+        const path = router.currentRoute.value.name;
+        if(routerNames.products !== path) {
+            return;
+        }
         const queryParams = router.currentRoute.value.query;
-        const cities = await dispatch("cities/receiveCities", null, { root: true });
-        const searchParamsFromRoute = getValidateSearchParamsFromRoute(queryParams, cities);
-        const searchParams = {...defaultBearingsSearchParams, ...searchParamsFromRoute };
+        const citiesOptions = getters.allCities;
+        const companiesOptions = getters.allCompanies;
 
+        const searchParams = {
+            ...getSearchParamsFromRoute(queryParams),
+            citiesFilter: parseAndValidateArrValueFromRoute(queryParams.citiesFilter, citiesOptions),
+            companiesFilter: parseAndValidateArrValueFromRoute(queryParams.companiesFilter, companiesOptions),
+        };
         commit(actionNames.SET_SEARCH_PARAMS, searchParams);
         return searchParams;
     },

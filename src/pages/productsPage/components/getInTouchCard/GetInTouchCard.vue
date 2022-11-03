@@ -20,45 +20,28 @@
       </div>
     </div>
 
-    <div :class="styled.aboutCompany">
-      <div>
-        <div :class="[styled.name, styled.row]">
-          {{ name }}
-        </div>
-        <div :class="styled.address">
-          г. {{ city }}
-        </div>
-      </div>
-      <div :class="styled.btns">
-        <ButtonUI
-          :class="styled.row"
-          size="s"
-          type-style="type-link"
-        >
-          Оптовый заказ
-        </ButtonUI>
-        <ButtonUI
-          :class="styled.btn"
-          size="s"
-          type-style="type-link"
-        >
-          О компании
-        </ButtonUI>
+    <div>
+      <router-link
+        :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
+        :class="[styled.name, styled.row]"
+      >
+        {{ name }}
+      </router-link>
+
+      <div :class="styled.address">
+        г. {{ city }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getMailto,getPhone } from "../../../../helpers/getOurContacts.js"
-import ButtonUI from "../../../../components/UI/button/ButtonUI.vue";
+import {getMailto, getPhone} from "../../../../helpers/getContacts.js"
+import {routerNames} from "../../../../router/router.js";
 import styled from "./getInTouchCard.module.css";
 
 export default {
   name: "GetInTouchCard",
-  components: {
-    ButtonUI,
-  },
   props: {
     name: {
       type: String,
@@ -80,10 +63,16 @@ export default {
       require: true,
       default: "email отсутсвует",
     },
+    companyId: {
+      type: Number,
+      require: true,
+      default: null,
+    }
   },
   data() {
     return {
       styled,
+      routerNames,
     };
   },
   computed: {

@@ -10,37 +10,30 @@
       @input="$emit('onInputChange', { name: 'marking', value: $event })"
     />
     <div :class="styled.btnHintWrapper">
-      <div :class="styled.btnWrapper">
-        <ButtonUI
-          type-style="type-link"
-          @focus="showHint"
-          @blur="hideHint"
-        >
+      <ButtonHintUI :hint-text="hintsValue.marking.description">
+        <template #buttonContent>
           Как узнать маркировку?
-        </ButtonUI>
-      </div>
-      <div :class="hintStyle">
-        <MarkingHint />
-      </div>
+        </template>
+        <template #hintUIImg>
+          <component :is="hintsValue.marking.img" />
+        </template>
+      </ButtonHintUI>
     </div>
-
     <div :class="styled.names">
       География поиска
     </div>
     <div :class="styled.autocompleteWrapper">
-      <div :class="styled.imgWrapper">
-        <PlaceImg />
-      </div>
-
       <AutocompleteUI
         tabindex="2"
+        icon="$customPlaceSvg"
+        :visible-chips="visibleChips"
         :value="citiesFilter"
         :transition="true"
         :multiple="true"
         :chips="true"
         :items="citiesOptions"
         :closable-chips="true"
-        :placeholder="autocompletePlaceholder"
+        placeholder="Искать по всей России"
         @autocomplete-change="$emit('onCitiesFilterChange', $event)"
       />
     </div>
@@ -71,23 +64,28 @@
 </template>
 
 <script>
-import InputUI from "../../../UI/input/InputUI.vue";
+import { getCountVisibleChips } from "../../../../helpers/getCountVisibleChips.js";
+import { hintsValue } from "../../../../../data/hintsValue.js"
+import { mapState } from "vuex";
+import MarkingHintImg from "../../../../assets/markingHint.svg"
 import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
-import ButtonUI from "../../../UI/button/ButtonUI.vue";
-import MarkingHint from "../../../markingHint/MarkingHint.vue";
-import PlaceImg from "../../../../assets/place.svg"
+import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ArrowImg from "../../../../assets/iconForward.svg"
+import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import InputUI from "../../../UI/input/InputUI.vue";
+import HintUI from "../../../UI/hint/HintUI.vue";
 import styled from "./mainSearchInputsMobile.module.css";
 
 export default {
   name: "MainSearchInputs",
   components: {
+    HintUI,
     InputUI,
-    PlaceImg,
     ArrowImg,
     ButtonUI,
-    MarkingHint,
+    ButtonHintUI,
     AutocompleteUI,
+    MarkingHintImg,
   },
   props: {
     marking: {
@@ -102,7 +100,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    isVisibleAutocompletePlaceholder: Boolean,
     isToggleAdditionalForm: Boolean,
   },
   emits: [
@@ -115,32 +112,17 @@ export default {
   data() {
     return {
       styled,
-      isHintVisible: false,
+      hintsValue,
     }
   },
   computed: {
-    autocompletePlaceholder() {
-      return this.$props.isVisibleAutocompletePlaceholder
-          ? "Искать по всей России"
-          : "";
-    },
-    hintStyle() {
-      if (this.$data.isHintVisible) {
-        return styled.hintVisible;
-      }
-      return styled.hintHide;
-    },
+    ...mapState("viewport", ["viewportWidth"]),
     arrowStyle() {
       return this.$props.isToggleAdditionalForm ? styled.arrowUp : styled.arrowDown;
+    },
+    visibleChips() {
+      return getCountVisibleChips(this.viewportWidth);
     }
   },
-  methods: {
-    showHint() {
-      this.$data.isHintVisible = true;
-    },
-    hideHint() {
-      this.$data.isHintVisible = false;
-    }
-  }
 }
 </script>

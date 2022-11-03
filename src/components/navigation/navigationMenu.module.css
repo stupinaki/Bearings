@@ -1,8 +1,8 @@
 @import "/src/styles/variables.modules.css";
 
 .wrapper {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
 }
 
 .item-link {
@@ -11,15 +11,12 @@
   color: $primary-text-color;
 }
 
-.item-link-secondary-btn {
-  color: $primary-btn-hover-color;
+.btn {
+  text-align: start;
 }
 
-.mobile-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.item-link-secondary-btn {
+  color: $primary-btn-hover-color;
 }
 
 .menu-btn {
@@ -35,11 +32,4 @@
   background: $primary-background;
   border-radius: 8px;
   box-shadow: $shadow-primary;
-}
-
-@media screen and (max-width: $breakpoint-large) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 }

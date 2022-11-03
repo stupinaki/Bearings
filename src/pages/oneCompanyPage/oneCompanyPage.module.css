@@ -1,0 +1,28 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  padding: $padding-top-bottom 0;
+  margin: $primary-margin;
+}
+
+.btn {
+  width: max-content;
+  height: max-content;
+  margin: 80px auto 0;
+}
+
+.btn-text {
+  color: $primary-text-color;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    margin: $secondary-margin;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    margin: $mobile-margin;
+  }
+}

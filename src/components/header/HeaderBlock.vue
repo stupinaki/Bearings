@@ -4,16 +4,23 @@
     :class="styled.wrapperMobile"
   >
     <div :class="styled.logoMap">
-      <div :class="styled.pic">
+      <router-link
+        :to="{name: routerNames.home}"
+        :class="styled.pic"
+      >
         PIC
-      </div>
+      </router-link>
       <div :class="styled.map">
         <Place />
-        <div :class="styled.city">
+        <div
+          v-if="isCityNameVisible"
+          :class="styled.city"
+        >
           Саратов
         </div>
       </div>
     </div>
+
     <NavigationMenuMobile />
   </div>
 
@@ -22,9 +29,12 @@
     :class="styled.wrapper"
   >
     <div :class="styled.logoMap">
-      <div :class="styled.pic">
+      <router-link
+        :to="{name: routerNames.home}"
+        :class="styled.pic"
+      >
         PIC
-      </div>
+      </router-link>
       <div :class="styled.map">
         <Place />
         <div :class="styled.city">
@@ -37,8 +47,9 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { breakpoints } from "../../consts/breakpoints"
+import {mapState} from "vuex";
+import {routerNames} from "../../router/router.js";
+import {breakpoints} from "../../consts/breakpoints"
 import NavigationMenuMobile from "../navigation/NavigationMenuMobile.vue";
 import NavigationMenu from "../navigation/NavigationMenu.vue";
 import Place from "../../assets/place.svg";
@@ -54,12 +65,16 @@ export default {
   data() {
     return {
       styled,
+      routerNames,
     };
   },
   computed: {
     ...mapState("viewport", ["viewportWidth"]),
     isMobile() {
-      return this.viewportWidth <= breakpoints.large;
+      return this.viewportWidth <= breakpoints.extraLarge;
+    },
+    isCityNameVisible() {
+      return this.viewportWidth >= breakpoints.small;
     }
   }
 };

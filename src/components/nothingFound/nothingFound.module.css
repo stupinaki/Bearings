@@ -1,0 +1,6 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  margin: 60px 0;
+  line-height: 32px;
+}

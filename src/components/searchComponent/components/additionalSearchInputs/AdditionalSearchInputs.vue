@@ -1,5 +1,23 @@
 <template>
   <div :class="styled.additionalFormWrapper">
+    <div :class="styled.label">
+      Компании
+    </div>
+    <div :class="styled.autocompleteWrapper">
+      <AutocompleteUI
+        tabindex="3"
+        icon="mdi-cogs"
+        :visible-chips="1"
+        :value="companiesSelected"
+        :transition="true"
+        :multiple="true"
+        :chips="true"
+        :items="companiesNameAndId"
+        :closable-chips="true"
+        placeholder="ООО «АВАНГАРД-ПОДШИПНИК»"
+        @autocomplete-change="$emit('onCompaniesSelectedChange', $event)"
+      />
+    </div>
     <div :class="styled.additionalForm">
       <div
         v-for="(input, i) in inputsData"
@@ -18,12 +36,16 @@
             v-if="input.hint"
             #hint
           >
-            <ButtonUI
-              type-style="type-link"
-              @click.prevent
+            <ButtonHintUI
+              :hint-text="input.hint.description"
             >
-              <HelpImg />
-            </ButtonUI>
+              <template #buttonContent>
+                <HelpImg />
+              </template>
+              <template #hintUIImg>
+                <component :is="input.hint.img" />
+              </template>
+            </ButtonHintUI>
           </template>
         </InputUI>
       </div>
@@ -51,14 +73,19 @@
 </template>
 
 <script>
+import { hintsValue } from "../../../../../data/hintsValue.js"
+import AutocompleteUI from "../../../UI/autocomplete/AutocompleteUI.vue";
+import ButtonHintUI from "../../../buttonHint/ButtonHintUI.vue";
 import ButtonUI from "../../../UI/button/ButtonUI.vue";
+import HelpImg from "../../../../assets/help.svg"
 import InputUI from "../../../UI/input/InputUI.vue";
-import HelpImg from "../../../../assets/help.svg";
 import styled from "./additionalSearchInputs.module.css";
 
 export default {
   name: "AdditionalSearchInputs",
   components: {
+    AutocompleteUI,
+    ButtonHintUI,
     ButtonUI,
     InputUI,
     HelpImg,
@@ -67,12 +94,21 @@ export default {
     formValues: {
       type: Object,
       required: true
-    }
+    },
+    companiesNameAndId: {
+      type: Array,
+      required: true,
+    },
+    companiesSelected: {
+      type: Array,
+      default: () => [],
+    },
   },
-  emits: ["clearForm", "onInputChange"],
+  emits: ["clearForm", "onInputChange", "onCompaniesSelectedChange"],
   data(){
     return {
       styled,
+      hintsValue,
     }
   },
   computed: {
@@ -83,26 +119,27 @@ export default {
           value: formValues.accuracyClass,
           label: "Класс точности",
           placeholder: "6302cg18",
-          hint: "test",
+          hint: hintsValue.accuracyClass,
           name: "accuracyClass",
-          tabindex: "3",
+          tabindex: "4",
           type: "text",
         },
         {
           value: formValues.bearingType,
           label: "Тип подшипника",
           placeholder: "6302cg18",
-          hint: "test",
+          hint: hintsValue.bearingType,
           name: "bearingType",
-          tabindex: "4",
+          tabindex: "5",
           type: "text",
         },
         {
           value: formValues.bearingParameter,
-          label: "Параметр подшипника",
+          label: "Параметр",
           placeholder: "6302cg18",
+          hint: hintsValue.bearingParameter,
           name: "bearingParameter",
-          tabindex: "5",
+          tabindex: "6",
           type: "text",
         },
         {
@@ -110,7 +147,7 @@ export default {
           label: "Внешний диаметр",
           placeholder: "25 мм",
           name: "outerDiameter",
-          tabindex: "6",
+          tabindex: "7",
           type: "number",
         },
         {
@@ -118,7 +155,7 @@ export default {
           label: "Внутренний диаметр",
           placeholder: "15 мм",
           name: "innerDiameter",
-          tabindex: "7",
+          tabindex: "8",
           type: "number",
         },
         {
@@ -126,11 +163,11 @@ export default {
           label: "Ширина",
           placeholder: "30 мм",
           name: "bearingWidth",
-          tabindex: "8",
+          tabindex: "9",
           type: "number",
         }
       ]
     },
-  }
+  },
 }
 </script>

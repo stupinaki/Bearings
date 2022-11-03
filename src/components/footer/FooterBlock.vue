@@ -3,76 +3,59 @@
     <div :class="styled.wrapper">
       <div :class="styled.container">
         <div :class="styled.column">
-          <div :class="styled.columnLogo">
+          <router-link
+            :to="{name: routerNames.home}"
+            :class="styled.columnLogo"
+          >
             PIC
-          </div>
+          </router-link>
         </div>
         <div :class="styled.column">
-          <router-link
-            :to="{ name: 'empty' }"
-            :class="styled.columnItem"
-          >
+          <div :class="styled.columnItem">
             <b>Покупателям</b>
-          </router-link>
+          </div>
 
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.home}"
             :class="styled.columnItem"
           >
             Найти подшибники
           </router-link>
-
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.home}"
             :class="styled.columnItem"
           >
             Оптовый заказ
           </router-link>
-
           <router-link
-            :to="{name: 'empty'}"
-            :class="styled.columnItem"
-          >
-            Помощь
-          </router-link>
-
-          <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.FAQ}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
           </router-link>
         </div>
         <div :class="styled.column">
+          <div :class="styled.columnItem">
+            <b>Продавцам</b>
+          </div>
           <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.becomePartner}"
             :class="styled.columnItem"
           >
-            <b>Покупателям</b>
+            Стать партнером
           </router-link>
 
           <router-link
-            :to="{name: 'empty'}"
-            :class="styled.columnItem"
-          >
-            Продавцам
-          </router-link>
-
-          <router-link
-            :to="{name: 'empty'}"
+            :to="{name: routerNames.FAQ}"
             :class="styled.columnItem"
           >
             Вопросы и ответы
           </router-link>
         </div>
         <div :class="styled.column">
-          <router-link
-            :to="{name: 'empty'}"
-            :class="styled.columnItem"
-          >
+          <div :class="styled.columnItem">
             <b>Контакты</b>
-          </router-link>
-
+          </div>
           <a
             :href="tel"
             :class="styled.columnItem"
@@ -102,24 +85,16 @@
       </div>
       <div>
         <router-link
-          :to="{name: 'privacyPolicy'}"
+          :to="{name: routerNames.privacyPolicy}"
           :class="styled.bottomItem"
         >
           Политика конфиденциальности
         </router-link>
-
         <router-link
-          :to="{name: 'contractOffer'}"
+          :to="{name: routerNames.contractOffer }"
           :class="styled.bottomItem"
         >
           Договор оферты
-        </router-link>
-
-        <router-link
-          :to="{name: 'empty'}"
-          :class="styled.bottomItem"
-        >
-          Обратная связь
         </router-link>
       </div>
     </div>
@@ -127,12 +102,15 @@
 </template>
 
 <script>
+import {routerNames} from "../../router/router.js";
 import {footerImgValue} from "../../../data/footerImgValue";
 import { ourContacts } from "../../../data/ourContacts.js";
-import { getMailto,getPhone } from "../../helpers/getOurContacts.js";
+import { getMailto,getPhone } from "../../helpers/getContacts.js";
 import imageMap from "./footerImages";
 import styled from "./footerBlock.module.css";
 
+
+//todo по кнопке "оптовый заказ" перейти на главую и проскролить до формы оптового заказа
 export default {
   name: "FooterBlock",
   data() {
@@ -141,6 +119,7 @@ export default {
       imageMap,
       ourContacts,
       footerImgValue,
+      routerNames,
     };
   },
   computed: {

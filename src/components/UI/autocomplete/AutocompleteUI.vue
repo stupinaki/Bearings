@@ -1,17 +1,29 @@
 <template>
   <div :class="styled.autocomplete">
     <v-autocomplete
-      :tabindex="tabindex"
-      :model-value="value"
-      :transition="transition"
-      :multiple="multiple"
-      :chips="chips"
-      :items="items"
-      :closable-chips="closableChips"
-      :placeholder="placeholder"
+      :prepend-icon="icon"
       return-object
+      :items="items"
+      :tabindex="tabindex"
+      :multiple="multiple"
+      :model-value="value"
+      :placeholder="autocompletePlaceholder"
       @update:model-value="changeSelected"
-    />
+    >
+      <template #selection="{ item, index }">
+        <v-chip
+          v-if="index < visibleChips"
+          :key="item.value"
+          :closable="closableChips"
+          @click:close="deleteCity(item)"
+        >
+          <span>{{ item.title }}</span>
+        </v-chip>
+        <span v-if="index === visibleChips">
+          ещё+ {{ value.length - visibleChips }}
+        </span>
+      </template>
+    </v-autocomplete>
   </div>
 </template>
 
@@ -26,14 +38,23 @@ export default {
       require: false,
       default: undefined,
     },
-    transition: Boolean,
+    icon: {
+      type: String,
+      require: false,
+      default: "",
+    },
+    visibleChips: {
+      type: Number,
+      require: false,
+      default: 2,
+    },
     multiple: Boolean,
     chips: Boolean,
     closableChips: Boolean,
     items: {
       type: Array,
       require: true,
-      default: () =>  [],
+      default: () => [],
     },
     placeholder: {
       type: String,
@@ -45,7 +66,6 @@ export default {
       required: false,
       default: null,
     },
-
   },
   emits: ["autocompleteChange"],
   data() {
@@ -53,10 +73,21 @@ export default {
       styled,
     }
   },
+  computed: {
+    autocompletePlaceholder() {
+      return this.$props.value.length
+          ? ""
+          : this.$props.placeholder;
+    },
+  },
   methods: {
     changeSelected(e) {
       this.$emit("autocompleteChange", e);
-    }
+    },
+    deleteCity(itemToDelete) {
+      const newValue = this.value.filter(v => v.value !== itemToDelete.value);
+      this.$emit("autocompleteChange", newValue);
+    },
   },
 }
 </script>

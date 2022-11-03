@@ -1,5 +1,5 @@
 <template>
-  <div :class="styled.wrapper">
+  <div :class="wrapperStyle">
     <div :class="styled.img">
       <slot />
     </div>
@@ -38,11 +38,17 @@ export default {
       require: true,
       default: "-"
     },
+    isSpecialBackground: Boolean,
   },
   data() {
     return {
       styled,
     };
   },
+  computed: {
+    wrapperStyle() {
+      return this.$props.isSpecialBackground ? styled.wrapperSpecial : styled.wrapperDefault
+    }
+  }
 };
 </script>

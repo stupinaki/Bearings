@@ -1,43 +1,44 @@
 <template>
-  <div :class="styled.companyCard">
+  <router-link
+    :to="{name: routerNames.oneCompany, params: { companyId: companyId } }"
+    :class="styled.companyCard"
+  >
     <h2 :class="styled.title">
       {{ name }}
     </h2>
-    <div :class="styled.subTitle">
-      {{ description }}
-    </div>
+    <span :class="styled.subTitle">{{ description }}</span>
     <div :class="styled.wrapper">
-      <div :class="styled.address">
-        г. {{ city }}
-      </div>
+      <span :class="styled.address"> г. {{ city }}</span>
       <div :class="styled.offers">
-        <div :class="styled.text">
+        <span :class="styled.text">
           {{ offersText }}
-        </div>
-        <div>
-          <router-link :to="{name: 'empty'}">
-            <Arrow />
-          </router-link>
-        </div>
+        </span>
+        <Arrow />
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
-import styled from "./companyCard.module.css";
+import {routerNames} from "../../../../router/router.js";
 import Arrow from "../../../../assets/arrow_downward.svg";
+import styled from "./companyCard.module.css";
 
 export default {
   name: "CompanyCard",
   components: {
-    Arrow
+    Arrow,
   },
   props: {
+    companyId: {
+      type: Number,
+      require:true,
+      default: null,
+    },
     name: {
       type: String,
       require: true,
-      default: "название комапании отсутвует",
+      default: "название компании отсутвует",
     },
     description: {
       type: String,
@@ -52,13 +53,13 @@ export default {
     offersText: {
       type: String,
       require: true,
-      default: "количество предложений отсутвует",
+      default: "кол-во предложений отсутвует",
     },
   },
   data() {
     return {
       styled,
-      Arrow,
+      routerNames,
     };
   },
 };

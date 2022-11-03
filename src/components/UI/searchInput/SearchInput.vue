@@ -1,8 +1,5 @@
 <template>
-  <form
-    action=""
-    @submit.prevent
-  >
+  <form @submit.prevent="onStartSearch">
     <div :class="className">
       <div :class="styled.searchBtnWrapper">
         <ButtonUI
@@ -66,6 +63,6 @@ export default {
     onBlur(){
       this.$data.isError = false;
     }
-  }
+  },
 }
 </script>

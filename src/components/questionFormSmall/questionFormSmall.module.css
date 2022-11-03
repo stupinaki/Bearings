@@ -1,0 +1,59 @@
+@import "/src/styles/variables.modules.css";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-btn {
+  display: grid;
+  grid-template-columns: 50%;
+  justify-content: start;
+  color: $primary-background;
+}
+
+.input {
+  padding: 16px;
+  margin: 8px 0;
+  background-color: $primary-background;
+  border: 1px solid $primary-border;
+  border-radius: 8px;
+}
+
+.input-question {
+  height: 100px;
+}
+
+.error {
+  background-color: $primary-background;
+  border: 1px solid $third-text-color;
+  border-radius: 8px;
+}
+
+.checkbox-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  align-items: center;
+  padding: 8px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: $secondary-text-color;
+}
+
+.checkbox {
+  max-width: 24px;
+}
+
+.link {
+  color: $secondary-text-color;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .form-btn {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}

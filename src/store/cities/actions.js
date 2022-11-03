@@ -13,10 +13,6 @@ export default {
             commit(actionNames.SET_ERROR, true);
         }
     },
-    async receiveCities({ state, dispatch }) {
-        await dispatch('initCities');
-        return state.cities;
-    },
     fetchCities() {
         return fetchRequestCities();
     },

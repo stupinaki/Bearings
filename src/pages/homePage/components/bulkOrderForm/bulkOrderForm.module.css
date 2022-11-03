@@ -1,23 +1,12 @@
 @import "/src/styles/variables.modules.css";
 
-.title {
-  margin: 32px 0;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 44px;
-  color: $primary-text-color;
-}
-
 .sub-title {
-  font-size: 18px;
-  line-height: 22px;
+  max-width: 472px;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 40%;
-  padding: $primary-padding-top-bottom;
-  margin: 48px 0;
 }
 
 .link {
@@ -29,7 +18,6 @@
   .wrapper {
     display: grid;
     grid-template-columns: 60%;
-    padding: $primary-padding-top-bottom;
   }
 }
 
@@ -37,7 +25,6 @@
   .wrapper {
     display: grid;
     grid-template-columns: 80%;
-    padding: 0;
   }
 }
 

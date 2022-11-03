@@ -1,19 +1,29 @@
 import {createRouter, createWebHistory} from 'vue-router';
+import FAQPage from "../pages/FAQPage/FAQPage.vue";
 import HomePage from "../pages/homePage/HomePage.vue";
-import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
-import ProductsPage from "../pages/productsPage/ProductsPage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
-import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
+import ContactPage from "../pages/contactPage/ContactPage.vue";
+import NotFoundPage from "../pages/notFoundPage/NotFoundPage.vue";
+import ProductsPage from "../pages/productsPage/ProductsPage.vue";
+import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
+import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
+import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
+import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
 
 
 export const routerNames = {
+    FAQ: "FAQ",
     home: "home",
-    companies: "companies",
-    products: "products",
     empty: "empty",
-    contractOffer: "contractOffer",
+    contacts: "contacts",
+    products: "products",
+    notFound: "notFound",
+    companies: "companies",
+    oneCompany: "oneCompany",
     privacyPolicy: "privacyPolicy",
+    contractOffer: "contractOffer",
+    becomePartner: "becomePartner"
 }
 
 const routes = [
@@ -47,10 +57,45 @@ const routes = [
         name: routerNames.privacyPolicy,
         component: PrivacyPolicyPage,
     },
+    {
+        path: '/company/:companyId',
+        name: routerNames.oneCompany,
+        component: OneCompanyPage,
+    },
+    {
+        path: '/become-partner',
+        name: routerNames.becomePartner,
+        component: BecomePartnerPage,
+    },
+    {
+        path: '/FAQ',
+        name: routerNames.FAQ,
+        component: FAQPage,
+    },
+    {
+        path: '/contacts',
+        name: routerNames.contacts,
+        component: ContactPage,
+    },
+    {
+        path: '/:catchAll(.*)',
+        // redirect: {name: routerNames.home},
+        name: routerNames.notFound,
+        component: NotFoundPage,
+    },
 ]
 
 const router = createRouter({
     routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+        if(to.hash) {
+            return;
+        }
+        return {top: 0};
+    },
     history: createWebHistory(),
 })
 

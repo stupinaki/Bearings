@@ -16,8 +16,8 @@
 }
 
 .title2 {
+  margin-bottom: 40px;
   font-size: 20px;
-  font-weight: 500;
   line-height: 24px;
 }
 
@@ -27,21 +27,90 @@
 }
 
 .header3 {
+  margin-bottom: 40px;
   font-size: 36px;
   font-weight: 500;
   line-height: 40px;
 }
 
 .header2 {
+  margin-bottom: 40px;
   font-size: 40px;
   font-weight: 500;
   line-height: 44px;
 }
 
 .header1 {
+  margin-bottom: 22px;
   font-size: 64px;
   font-weight: 500;
-  line-height: 80px;
+  line-height: 78px;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .header1 {
+    margin-bottom: 16px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  .header2 {
+    margin-bottom: 28px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  .header3 {
+    margin-bottom: 28px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .title2 {
+    margin-bottom: 32px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .title1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .header1 {
+    margin-bottom: 12px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  .header2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .header3 {
+    margin-bottom: 28px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .title2 {
+    margin-bottom: 20px;
+  }
+
+  .title1 {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 /* FONT FAMILY */

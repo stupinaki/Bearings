@@ -9,7 +9,9 @@
         @click="changePage(currentPageNumber - 1)"
       >
         <ArrowForwardImg :class="styled.arrow" />
-        Назад
+        <span :class="directionTextStyle">
+          Назад
+        </span>
       </ButtonUI>
       <ButtonUI
         v-if="isFirstVisible"
@@ -20,7 +22,7 @@
       </ButtonUI>
       <div
         v-if="isFirstVisible"
-        class="styled.dots"
+        :class="styled.dots"
       >
         ...
       </div>
@@ -78,7 +80,9 @@
         type-style="pseudo"
         @click="changePage(currentPageNumber + 1)"
       >
-        Вперед
+        <span :class="directionTextStyle">
+          Вперед
+        </span>
         <ArrowForwardImg />
       </ButtonUI>
     </div>
@@ -113,7 +117,8 @@ export default {
     currentPageNumber: {
       type: Number,
       required: true,
-    }
+    },
+    isDirectionTextVisible: Boolean,
   },
   emits: ["changePageNumber"],
   data() {
@@ -122,6 +127,9 @@ export default {
     }
   },
   computed: {
+    directionTextStyle() {
+      return this.$props.isDirectionTextVisible ? styled.visibleText : styled.hideText;
+    },
     hasNext() {
       return this.$props.currentPageNumber < this.totalPages;
     },
@@ -174,7 +182,7 @@ export default {
   },
   methods: {
     changePage(page) {
-      this.$emit("changePageNumber", page)
+      this.$emit("changePageNumber", page);
     },
   }
 }

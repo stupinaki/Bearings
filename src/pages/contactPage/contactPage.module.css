@@ -1,0 +1,24 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  padding: $padding-top-bottom  $primary-padding-left-right;
+  background-color: $third-background;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    padding: $padding-top-bottom $secondary-padding-left-right;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    padding: $padding-top-bottom $secondary-padding-left-right;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .container {
+    padding: $padding-top-bottom $mobile-padding-left-right;
+  }
+}

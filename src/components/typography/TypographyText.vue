@@ -1,5 +1,8 @@
 <template>
-  <span :class="styled.typography" />
+  <div :class="className">
+    {{ value }}
+    <slot />
+  </div>
 </template>
 
 <script>
@@ -8,6 +11,11 @@ import styled from "./typography.module.css";
 export default {
   name: "TypographyText",
   props: {
+    value: {
+      type: String,
+      required: true,
+      default: ""
+    },
     size: {
       type: String,
       default: "subTitle1",
@@ -49,7 +57,7 @@ export default {
     className() {
       const { size, font, color } = this.$props;
       const classes = [styled.typography];
-      classes.push(size);
+      classes.push(styled[size]);
       classes.push(styled[`font-${font}`]);
       classes.push(styled[`color-${color}`]);
 

@@ -1,0 +1,40 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $big-components-gap;
+  padding: $padding-top-bottom 0;
+  margin: $primary-margin;
+}
+
+.form {
+  width: 40%;
+}
+
+@media screen and (max-width: $breakpoint-extra-large) {
+  .form {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    margin: $secondary-margin;
+  }
+
+  .form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    gap: $medium-components-gap;
+    margin: $mobile-margin;
+  }
+
+  .form {
+    width: 100%;
+  }
+}

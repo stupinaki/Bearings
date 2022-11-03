@@ -34,6 +34,7 @@ export default {
     productsChunk: {
       type: Array,
       required: true,
+      default: () => [],
     }
   },
   data() {

@@ -1,0 +1,56 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $big-components-gap;
+  padding: $padding-top-bottom  $primary-padding-left-right;
+  background-color: $third-background;
+}
+
+.main-sub-title {
+  max-width: 740px;
+}
+
+.form {
+  max-width: 50%;
+}
+
+.price-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .container {
+    padding: $padding-top-bottom $secondary-padding-left-right;
+  }
+
+  .form {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .container {
+    padding: $padding-top-bottom $secondary-padding-left-right;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .price-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-extra-small) {
+  .container {
+    gap: $medium-components-gap;
+    padding: $padding-top-bottom $mobile-padding-left-right;
+  }
+}

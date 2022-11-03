@@ -11,14 +11,6 @@
   justify-content: flex-start;
 }
 
-.title {
-  margin-bottom: 32px;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 44px;
-  color: $primary-text-color;
-}
-
 .btn {
   width: max-content;
   padding: 0;

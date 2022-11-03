@@ -10,8 +10,16 @@
   align-items: center;
 }
 
+.hide-text {
+  display: none;
+}
+
+.visible-text {
+  display: inline;
+}
+
 .dots {
-  padding: 0 8px;
+  margin: 0 4px;
 }
 
 .arrow {

@@ -14,7 +14,6 @@
       <PaginationComponent
         :data="orderedProducts"
         :page-size="2"
-        :visible-page-count="visiblePageCount"
       >
         <template #default="props">
           <ProductCards :products-chunk="props.currentPageData" />
@@ -26,7 +25,6 @@
 
 <script>
 import {mapActions, mapGetters, mapState} from "vuex";
-import {screenSize} from "../../consts/breakpoints";
 import ErrorUI from "../../components/UI/error/ErrorUI.vue";
 import LoaderUI from "../../components/UI/loader/LoaderUI.vue";
 import OfferCards from "./components/offerCards/OfferCards.vue";
@@ -59,20 +57,6 @@ export default {
     ...mapState("products", ["products", "loading", "error"]),
     ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams"]),
-    ...mapGetters("viewport", ["breakPoint"]),
-    visiblePageCount() {
-
-      if(this.breakPoint === screenSize.Mobile) {
-        return 3;
-      }
-      if(this.breakPoint === screenSize.Tablet) {
-        return 5;
-      }
-      if(this.breakPoint === screenSize.Laptop) {
-        return 6;
-      }
-      return 7;
-    },
   },
   watch: {
     "$route.params": {

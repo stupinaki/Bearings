@@ -1,41 +1,26 @@
 <template>
   <div :class="styled.container">
-    <div :class="styled.headerWrapper">
-      <div :class="styled.header">
-        Компании
-      </div>
-      <div :class="styled.quantities">
+    <h1 :class="styled.header">
+      Компании
+      <sup :class="styled.quantities">
         ({{ companiesQuantities }})
-      </div>
-    </div>
+      </sup>
+    </h1>
 
-    <div>
-      <SearchInput
-        v-if="!loading"
-        placeholder="Например, Авангард-подшипник"
-        @start-search="onStartSearch"
-      />
-      <CompanyCards
-        :search-company-name="searchText"
-      />
+    <SearchInput
+      search-text=""
+      placeholder="Например, Авангард-подшипник"
+      @start-search="onStartSearch"
+    />
+    <CompanyCards :search-company-name="searchText" />
 
-      <div
-        v-if="!loading"
-        :class="styled.btnContainer"
-      >
-        <ButtonUI
-          type-style="secondary"
-        >
-          <div :class="styled.btnContentWrapper">
-            <div :class="styled.btnText">
-              Показать еще
-            </div>
-            <div :class="styled.btnQuantities">
-              ({{ companiesCount }})
-            </div>
-          </div>
-        </ButtonUI>
-      </div>
+    <div
+      v-if="!loading"
+      :class="styled.btnContainer"
+    >
+      <ButtonUI type-style="secondary">
+        Показать ещё <sup> ({{ companiesCount }}) </sup>
+      </ButtonUI>
     </div>
   </div>
 </template>

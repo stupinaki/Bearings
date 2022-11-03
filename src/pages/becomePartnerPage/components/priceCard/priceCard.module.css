@@ -1,0 +1,52 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr 0fr 1fr;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 36px;
+  background-color: $primary-background;
+  border: none;
+  border-radius: 8px;
+}
+
+.top-card {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  justify-content: space-between;
+}
+
+.border {
+  height: 0;
+  border-bottom: 1px solid $secondary-text-color;
+  opacity: 0.3;
+}
+
+.bottom-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.default-color {
+  color: $primary-text-color;
+}
+
+.special-color {
+  color: $primary-btn-color;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.text {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $secondary-text-color;
+}

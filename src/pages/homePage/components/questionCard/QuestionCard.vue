@@ -1,17 +1,18 @@
 <template>
-  <div :class="styled.wrapper">
-    <div>
-      {{ text }}
-    </div>
-    <router-link :to="{name: path }">
+  <router-link :to="{name: routerNames.FAQ, hash: `#${ questionId }` }">
+    <div :class="styled.wrapper">
+      <div>
+        {{ text }}
+      </div>
       <Arrow />
-    </router-link>
-  </div>
+    </div>
+  </router-link>
 </template>
 
 <script>
-import styled from "./questionCard.module.css";
+import {routerNames} from "../../../../router/router.js";
 import Arrow from "../../../../assets/arrow_downward.svg"
+import styled from "./questionCard.module.css";
 
 export default {
   name: "QuestionCard",
@@ -24,16 +25,18 @@ export default {
       require: true,
       default: undefined,
     },
-    path: {
-      type: String,
+    questionId: {
+      type: Number,
       require: true,
-      default: "empty",
-    }
+      default: undefined,
+    },
   },
+  emits: ["onQuestionClick"],
   data() {
     return {
       styled,
+      routerNames,
     }
-  }
+  },
 }
 </script>

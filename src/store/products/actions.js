@@ -7,8 +7,7 @@ export default {
     async initProducts({ state, commit, dispatch }, searchParams) {
         commit(actionNames.SET_LOADING, true);
 
-        const normalSearchParams = normaliseSearchParams(searchParams);
-        router.push({path: routerNames.products, query: normalSearchParams})
+        await changeRouterParams(searchParams);
 
         try {
             const result = await dispatch('fetchProducts', searchParams);
@@ -25,9 +24,14 @@ export default {
         commit(actionNames.SET_SORT_DIRECTION, isDesc);
     },
     filterProductsAvailability({commit}, rangeArray) {
-        commit(actionNames.FILTER_PRODUCTS, rangeArray)
+        commit(actionNames.FILTER_PRODUCTS, rangeArray);
     },
     cityFilter({commit}, cityId) {
-        commit(actionNames.FILTER_CITY, cityId)
-    }
+        commit(actionNames.FILTER_CITY, cityId);
+    },
+}
+
+async function changeRouterParams(searchParams) {
+    const normalSearchParams = normaliseSearchParams(searchParams);
+    await router.push({path: routerNames.products, query: normalSearchParams});
 }

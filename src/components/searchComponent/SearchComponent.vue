@@ -1,59 +1,70 @@
 <template>
-  <div :class="styled.header">
-    <div :class="styled.title">
-      Сервис по поиску подшипников
+  <div>
+    <div>
+      <TypographyText
+        size="header1"
+        color="darkgray"
+        value="Сервис по поиску подшипников"
+      />
+      <TypographyText
+        :class="styled.subTitle"
+        size="title2"
+        color="darkgray"
+        value="Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене."
+      />
     </div>
-    <div :class="styled.subTitle">
-      Мы не продаем подшипники, а помогаем найти лучшие предложения по низкой цене.
-    </div>
+    <form
+      :class="styled.wrapper"
+      @submit.prevent="initSearch"
+    >
+      <MainSearchInputsMobile
+        v-if="isMobile"
+        :marking="searchParams.marking"
+        :cities-options="citiesNameAndId"
+        :cities-filter="searchParams.citiesFilter"
+        :is-toggle-additional-form="isAdditionalFormVisible"
+        :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
+        @clear-form="clearForm"
+        @toggle-additional-form-visible="toggleAdditionalForm"
+        @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
+        @on-input-change="setInputValue($event)"
+      />
+      <MainSearchInputs
+        v-else
+        :marking="searchParams.marking"
+        :cities-options="citiesNameAndId"
+        :cities-filter="searchParams.citiesFilter"
+        :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
+        @toggle-additional-form-visible="toggleAdditionalForm"
+        @on-marking-change="setInputValue({name: 'marking', value: $event})"
+        @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
+      />
+      <AdditionalSearchInputs
+        v-if="isAdditionalFormVisible"
+        :form-values="searchParams"
+        :companies-name-and-id="companiesNameAndId"
+        :companies-selected="searchParams.companiesFilter"
+        @on-input-change="additionalInputsChange"
+        @on-companies-selected-change="setInputValue({name: 'companiesFilter', value: $event})"
+        @clear-form="clearForm"
+      />
+    </form>
   </div>
-  <form
-    :class="styled.wrapper"
-    @submit.prevent="initSearch"
-  >
-    <MainSearchInputsMobile
-      v-if="isMobile"
-      :marking="searchParams.marking"
-      :cities-options="citiesOptions"
-      :cities-filter="searchParams.citiesFilter"
-      :is-toggle-additional-form="isAdditionalFormVisible"
-      :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
-      @clear-form="clearForm"
-      @toggle-additional-form-visible="toggleAdditionalForm"
-      @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
-      @on-input-change="setInputValue($event)"
-    />
-    <MainSearchInputs
-      v-else
-      :marking="searchParams.marking"
-      :cities-options="citiesOptions"
-      :cities-filter="searchParams.citiesFilter"
-      :is-visible-autocomplete-placeholder="isVisibleAutocompletePlaceholder"
-      @toggle-additional-form-visible="toggleAdditionalForm"
-      @on-marking-change="setInputValue({name: 'marking', value: $event})"
-      @on-cities-filter-change="setInputValue({name: 'citiesFilter', value: $event})"
-    />
-    <AdditionalSearchInputs
-      v-if="isAdditionalFormVisible"
-      :form-values="searchParams"
-      @on-input-change="additionalInputsChange"
-      @clear-form="clearForm"
-    />
-  </form>
 </template>
 
 <script>
-import {mapActions, mapState} from "vuex";
+import {mapActions, mapGetters, mapState} from "vuex";
 import {breakpoints} from "../../consts/breakpoints";
-import {getCitiesOptions} from "../../helpers/getCitiesOptions";
 import AdditionalSearchInputs from "./components/additionalSearchInputs/AdditionalSearchInputs.vue";
-import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
 import MainSearchInputsMobile from "./components/mainSearchInputs/MainSearchInputsMobile.vue";
+import MainSearchInputs from "./components/mainSearchInputs/MainSearchInputs.vue";
+import TypographyText from "../typography/TypographyText.vue";
 import styled from "./searchComponent.module.css";
 
 export default {
   name: "SearchComponent",
   components: {
+    TypographyText,
     MainSearchInputs,
     AdditionalSearchInputs,
     MainSearchInputsMobile,
@@ -67,9 +78,8 @@ export default {
     ...mapState("cities", ["cities"]),
     ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams", "isAdditionalFormVisible"]),
-    citiesOptions() {
-      return getCitiesOptions(this.cities);
-    },
+    ...mapGetters("companies", ["companiesNameAndId"]),
+    ...mapGetters("cities", ["citiesNameAndId"]),
     isVisibleAutocompletePlaceholder() {
       return !this.searchParams.citiesFilter.length;
     },
@@ -79,14 +89,16 @@ export default {
   },
   beforeMount() {
     this.initCities();
+    this.initCompanies();
   },
   methods: {
     ...mapActions("cities", ["initCities"]),
+    ...mapActions("companies", ["initCompanies"]),
     ...mapActions("products", ["initProducts"]),
     ...mapActions("searchComponent", [
       "toggleAdditionalForm",
+      "clearSearchParams",
       "setInputValue",
-      "clearSearchParams"
     ]),
     initSearch() {
       this.initProducts(this.searchParams);
@@ -95,7 +107,7 @@ export default {
       this.setInputValue(obj);
     },
     clearForm() {
-      this.clearSearchParams()
+      this.clearSearchParams();
       this.initProducts(this.searchParams);
     }
   }

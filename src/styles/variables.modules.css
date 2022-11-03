@@ -25,7 +25,13 @@ $shadow-primary: 1px 8px 12px #3a3c4c14, 1px 1px 2px #3a3c4c0a;
 $primary-margin: 0 72px;
 $secondary-margin: 0 40px;
 $mobile-margin: 0 20px;
-$primary-padding-top-bottom: 40px 0;
+
+$primary-padding-top-bottom: 40px;
+$padding-top-bottom: 80px;
+
+$primary-padding-left-right: 72px;
+$secondary-padding-left-right: 40px;
+$mobile-padding-left-right: 20px;
 
 $breakpoint-extra-small: 450px;
 $breakpoint-small: 600px;
@@ -35,3 +41,6 @@ $breakpoint-extra-large: 1200px;
 $z-index-default: 10;
 $z-index-extra: 50;
 $z-index-total: 100;
+
+$big-components-gap: 120px;
+$medium-components-gap: 80px;
