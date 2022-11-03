@@ -1,133 +1,122 @@
 <template>
   <div :class="styled.btnWrapper">
     <div
-        v-if="!isMenuOpen"
-        :class="styled.becomePartnerBurgerWrapper"
+      v-if="!isMenuOpen"
+      :class="styled.becomePartnerBurgerWrapper"
     >
       <router-link
-          :to="{name: routerNames.becomePartner}"
-          :class="[styled.itemLink, styled.becomePartnerBtn]"
+        :to="{name: routerNames.becomePartner}"
+        :class="styled.becomePartnerBtn"
       >
         <ButtonUI
-            size="m"
-            type-style="secondary"
-            @click="closeMenu"
+          size="m"
+          type-style="secondary"
+          @click="toggleMenu"
         >
           Стать партнером
         </ButtonUI>
       </router-link>
 
       <ButtonUI
-          type-style="pseudo"
-          :class="btnStyle"
-          @click="showMenu"
+        type-style="pseudo"
+        :class="styled.btnIcon"
+        @click="toggleMenu"
       >
-        <MenuImg/>
+        <MenuImg />
       </ButtonUI>
     </div>
 
     <ButtonUI
-        v-else
-        type-style="pseudo"
-        :class="btnStyle"
-        @click="showMenu"
+      v-else
+      type-style="pseudo"
+      :class="styled.btnIcon"
+      @click="toggleMenu"
     >
-      <CloseImg/>
+      <CloseImg />
     </ButtonUI>
   </div>
 
-  <div :class="menuWrapperStyle">
+  <SideBarUI
+    :is-menu-open="isMenuOpen"
+    @close-menu="toggleMenu"
+  >
+    <nav :class="styled.navigation">
+      <div>
+        <router-link
+          :to="{name: routerNames.home}"
+          :class="styled.itemLink"
+        >
+          <ButtonUI
+            size="m"
+            type-style="pseudo"
+            :class="styled.btn"
+            @click="toggleMenu"
+          >
+            Найти подшипники
+          </ButtonUI>
+        </router-link>
+        <router-link
+          :to="{name: routerNames.FAQ}"
+          :class="styled.itemLink"
+        >
+          <ButtonUI
+            size="m"
+            type-style="pseudo"
+            :class="styled.btn"
+            @click="toggleMenu"
+          >
+            Вопросы и ответы
+          </ButtonUI>
+        </router-link>
+        <router-link
+          :to="{name: routerNames.companies}"
+          :class="styled.itemLink"
+        >
+          <ButtonUI
+            size="m"
+            type-style="pseudo"
+            :class="styled.btn"
+            @click="toggleMenu"
+          >
+            Компании
+          </ButtonUI>
+        </router-link>
+        <router-link
+          :to="{name: routerNames.contacts}"
+          :class="styled.itemLink"
+        >
+          <ButtonUI
+            size="m"
+            type-style="pseudo"
+            :class="styled.btn"
+            @click="toggleMenu"
+          >
+            Контакты
+          </ButtonUI>
+        </router-link>
+      </div>
 
-      <Transition name="slide">
-        <div v-if="isMenuOpen" :class="styled.menuContainer">
-
-          <aside :class="styled.menuMobile">
-            <nav :class="styled.navigation">
-              <div>
-                <router-link
-                    :to="{name: routerNames.home}"
-                    :class="styled.itemLink"
-                >
-                  <ButtonUI
-                      size="m"
-                      type-style="pseudo"
-                      :class="styled.btn"
-                      @click="closeMenu"
-                  >
-                    Найти подшипники
-                  </ButtonUI>
-                </router-link>
-                <router-link
-                    :to="{name: routerNames.FAQ}"
-                    :class="styled.itemLink"
-                >
-                  <ButtonUI
-                      size="m"
-                      type-style="pseudo"
-                      :class="styled.btn"
-                      @click="closeMenu"
-                  >
-                    Вопросы и ответы
-                  </ButtonUI>
-                </router-link>
-                <router-link
-                    :to="{name: routerNames.companies}"
-                    :class="styled.itemLink"
-                >
-                  <ButtonUI
-                      size="m"
-                      type-style="pseudo"
-                      :class="styled.btn"
-                      @click="closeMenu"
-                  >
-                    Компании
-                  </ButtonUI>
-                </router-link>
-                <router-link
-                    :to="{name: routerNames.contacts}"
-                    :class="styled.itemLink"
-                >
-                  <ButtonUI
-                      size="m"
-                      type-style="pseudo"
-                      :class="styled.btn"
-                      @click="closeMenu"
-                  >
-                    Контакты
-                  </ButtonUI>
-                </router-link>
-              </div>
-
-              <div :class="styled.becomePartnerWrapper">
-                <router-link
-                    :to="{name: routerNames.becomePartner}"
-                    :class="[styled.itemLink, styled.becomePartnerBtn]"
-                >
-                  <ButtonUI
-                      size="m"
-                      type-style="secondary"
-                      @click="closeMenu"
-                  >
-                    Стать партнером
-                  </ButtonUI>
-                </router-link>
-              </div>
-            </nav>
-          </aside>
-
-          <div
-              :class="styled.opacityBlock"
-              tabindex="0"
-              @focus="onOpacityBlockFocus"
-          />
-        </div>
-      </Transition>
-
-  </div>
+      <div :class="styled.becomePartnerWrapper">
+        <router-link
+          :to="{name: routerNames.becomePartner}"
+          :class="styled.becomePartnerBtn"
+        >
+          <ButtonUI
+            size="m"
+            type-style="secondary"
+            @click="toggleMenu"
+          >
+            Стать партнером
+          </ButtonUI>
+        </router-link>
+      </div>
+    </nav>
+  </SideBarUI>
 </template>
 
 <script>
 import {routerNames} from "../../router/router.js";
+import SideBarUI from "../UI/sidebar/SideBarUI.vue";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import CloseImg from "../../assets/close.svg"
 import MenuImg from "../../assets/menu.svg";
@@ -136,6 +125,7 @@ import styled from "./navigationMenuMobile.module.css";
 export default {
   name: "NavigationMenuMobile",
   components: {
+    SideBarUI,
     ButtonUI,
     CloseImg,
     MenuImg,
@@ -147,26 +137,10 @@ export default {
       routerNames,
     }
   },
-  computed: {
-    menuWrapperStyle() {
-      return this.$data.isMenuOpen ? styled.menuWrapperOpen : styled.menuWrapperHide;
-    },
-    btnStyle() {
-      return this.$data.isMenuOpen
-          ? [styled.btnIcon, styled.btnMenuOpen]
-          : [styled.btnIcon, styled.btnMenuClose];
-    }
-  },
   methods: {
-    showMenu() {
+    toggleMenu() {
       this.$data.isMenuOpen = !this.$data.isMenuOpen;
     },
-    onOpacityBlockFocus() {
-      this.$data.isMenuOpen = false;
-    },
-    closeMenu() {
-      this.$data.isMenuOpen = false;
-    }
   }
 }
 </script>

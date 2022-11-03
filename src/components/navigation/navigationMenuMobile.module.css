@@ -1,60 +1,5 @@
 @import "/src/styles/variables.modules.css";
 
-.menu-wrapper-open {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $z-index-default;
-}
-
-.menu-wrapper-hide {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.menu-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-
-  & :global(.slide-enter-active) {
-    opacity: 1;
-    transition: all 2s ease-out;
-  }
-
-  & :global(.slide-leave-active) {
-    opacity: 0;
-    transition: all 2s ease-out;
-  }
-
-  & :global(.slide-enter-from, .slide-leave-to) {
-    color: yellow;
-  }
-}
-
-.menu-mobile {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: $z-index-extra;
-  width: 220px;
-  height: 100vh;
-  padding-top: 100px;
-  background-color: $primary-background;
-  box-shadow: $shadow-primary;
-  opacity: 1;
-}
-
-.item-link {
-  width: 100%;
-  height: max-content;
-  color: $primary-text-color;
-}
-
 .btn-wrapper {
   position: relative;
   z-index: $z-index-total;
@@ -62,35 +7,31 @@
   justify-content: flex-end;
 }
 
-.btn-icon {
-  width: max-content;
-  height: max-content;
-}
-
 .btn {
   justify-content: flex-start;
   height: max-content;
 }
 
-.btn-menu-close {
-  position: static;
+.btn-icon {
+  width: max-content;
+  height: max-content;
 }
 
-.btn-menu-open {
-  position: fixed;
-  top: 24px;
-  right: 72px;
+.become-partner-burger-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: end;
 }
 
-.opacity-block {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $z-index-default;
-  background-color: $primary-color;
-  opacity: 0.4;
+.become-partner-wrapper {
+  padding: 16px;
+}
+
+.become-partner-btn {
+  width: 100%;
+  height: max-content;
+  color: $primary-btn-color;
 }
 
 .navigation {
@@ -98,41 +39,11 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding-top: 100px;
 }
 
-.become-partner-btn {
-  color: $primary-btn-color;
-}
-
-.become-partner-wrapper {
-  padding: 16px;
-}
-
-.becomePartner-burger-wrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: end;
-}
-
-@media screen and (max-width: $breakpoint-large) {
-  .btn-menu-open {
-    position: fixed;
-    top: 30px;
-    right: 40px;
-  }
-}
-
-@media screen and (max-width: $breakpoint-small) {
-  .btn-menu-open {
-    position: fixed;
-    top: 24px;
-    right: 20px;
-  }
-}
-
-@media screen and (max-width: $breakpoint-extra-small) {
-  .menu-mobile {
-    width: 100%;
-  }
+.item-link {
+  width: 100%;
+  height: max-content;
+  color: $primary-text-color;
 }
