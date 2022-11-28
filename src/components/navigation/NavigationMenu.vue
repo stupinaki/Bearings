@@ -27,7 +27,18 @@
         Вопросы и ответы
       </ButtonUI>
     </router-link>
-
+    <router-link
+        :to="{name: routerNames.articles}"
+        :class="styled.itemLink"
+    >
+      <ButtonUI
+          size="m"
+          type-style="pseudo"
+          :class="styled.btn"
+      >
+        Статьи
+      </ButtonUI>
+    </router-link>
     <router-link
       :to="{name: routerNames.companies}"
       :class="styled.itemLink"

@@ -11,7 +11,6 @@
         <ButtonUI
           size="m"
           type-style="secondary"
-          @click="toggleMenu"
         >
           Стать партнером
         </ButtonUI>
@@ -66,6 +65,19 @@
             @click="toggleMenu"
           >
             Вопросы и ответы
+          </ButtonUI>
+        </router-link>
+        <router-link
+            :to="{name: routerNames.articles}"
+            :class="styled.itemLink"
+        >
+          <ButtonUI
+              size="m"
+              type-style="pseudo"
+              :class="styled.btn"
+              @click="toggleMenu"
+          >
+            Статьи
           </ButtonUI>
         </router-link>
         <router-link

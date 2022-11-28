@@ -3,6 +3,7 @@ import FAQPage from "../pages/FAQPage/FAQPage.vue";
 import HomePage from "../pages/homePage/HomePage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 import ContactPage from "../pages/contactPage/ContactPage.vue";
+import ArticlesPage from "../pages/ArticlesPage/ArticlesPage.vue";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage.vue";
 import ProductsPage from "../pages/productsPage/ProductsPage.vue";
 import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
@@ -16,6 +17,7 @@ export const routerNames = {
     FAQ: "FAQ",
     home: "home",
     empty: "empty",
+    articles: "articles",
     contacts: "contacts",
     products: "products",
     notFound: "notFound",
@@ -41,6 +43,11 @@ const routes = [
         path: '/products',
         name: routerNames.products,
         component: ProductsPage,
+    },
+    {
+        path: '/articles',
+        name: routerNames.articles,
+        component: ArticlesPage,
     },
     {
         path: '/empty',

@@ -8,18 +8,16 @@
   margin: $primary-margin;
 }
 
-.header {
+.sub-title {
+  display: grid;
+  grid-template-columns: 36%;
   margin-bottom: 0;
 }
 
-.form {
-  width: 40%;
-}
-
-@media screen and (max-width: $breakpoint-extra-large) {
-  .form {
-    width: 60%;
-  }
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
 @media screen and (max-width: $breakpoint-large) {
@@ -27,8 +25,8 @@
     margin: $secondary-margin;
   }
 
-  .form {
-    width: 80%;
+  .sub-title {
+    grid-template-columns: 100%;
   }
 }
 
@@ -38,7 +36,8 @@
     margin: $mobile-margin;
   }
 
-  .form {
-    width: 100%;
+  .articles {
+    grid-template-columns: 100%;
+    gap: 24px;
   }
 }
