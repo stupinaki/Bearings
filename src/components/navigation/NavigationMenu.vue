@@ -29,13 +29,13 @@
 
     <div :class="styled.article">
       <ButtonUI
-          size="m"
-          type-style="pseudo"
-          :class="styled.btn"
+        size="m"
+        type-style="pseudo"
+        :class="styled.btn"
       >
         Статьи
       </ButtonUI>
-      <ArticlesMenu :class="styled.options"/>
+      <ArticlesMenu :class="styled.options" />
     </div>
 
     <router-link

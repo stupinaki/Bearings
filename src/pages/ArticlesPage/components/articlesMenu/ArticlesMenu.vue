@@ -1,14 +1,14 @@
 <template>
   <div :class="styled.wrapper">
     <router-link
-        :to="{name: routerNames.articles}"
-        :class="styled.option"
+      :to="{name: routerNames.articles}"
+      :class="styled.option"
     >
       О подшибниках
     </router-link>
     <router-link
-        :to="{name: routerNames.articles}"
-        :class="styled.option"
+      :to="{name: routerNames.articles}"
+      :class="styled.option"
     >
       О заводах-изготовителях
     </router-link>

@@ -40,17 +40,6 @@ import styled from "./productsPage.module.css";
 
 export default {
   name: "ProductsPage",
-  data() {
-    return {
-      styled,
-    }
-  },
-  computed: {
-    ...mapGetters("products", ["orderedProducts"]),
-    ...mapState("products", ["products", "loading", "error"]),
-    ...mapState("viewport", ["viewportWidth"]),
-    ...mapState("searchComponent", ["searchParams"]),
-  },
   components: {
     ErrorUI,
     LoaderUI,
@@ -61,6 +50,17 @@ export default {
     NothingFoundForm,
     PaginationComponent,
     AdvertisementComponent,
+  },
+  data() {
+    return {
+      styled,
+    }
+  },
+  computed: {
+    ...mapGetters("products", ["orderedProducts"]),
+    ...mapState("products", ["products", "loading", "error"]),
+    ...mapState("viewport", ["viewportWidth"]),
+    ...mapState("searchComponent", ["searchParams"]),
   },
   watch: {
     "$route.params": {
