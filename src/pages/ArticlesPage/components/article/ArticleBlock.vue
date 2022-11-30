@@ -13,10 +13,9 @@
         <div>
           Прочитать статью
         </div>
-        <Arrow/>
+        <Arrow />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -29,11 +28,6 @@ export default {
   components: {
     Arrow,
   },
-  data() {
-    return {
-      styled,
-    }
-  },
   props: {
     title: {
       type: String,
@@ -44,6 +38,11 @@ export default {
       type: String,
       required: true,
       default: 'Дата публикации отсутствует'
+    }
+  },
+  data() {
+    return {
+      styled,
     }
   }
 }

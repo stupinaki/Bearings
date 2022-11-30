@@ -5,6 +5,21 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr;
 }
 
+.article {
+  position: relative;
+  display: inline-block;
+}
+
+.options {
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+
+.article:hover .options {
+  display: block;
+}
+
 .item-link {
   width: 100%;
   height: 100%;

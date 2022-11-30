@@ -1,0 +1,78 @@
+@import "/src/styles/variables.modules.css";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.advertisement {
+  width: 100%;
+  margin-top: 40px;
+  font-size: 18px;
+  color: white;
+  background-color: #0c0c44;
+  border-radius: 12px;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.description {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.contacts {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.link {
+  color: $secondary-text-color;
+}
+
+.order {
+  padding: 16px 40px;
+  font-size: 16px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 12px;
+}
+
+.order:hover {
+  transform: scale(1.04);
+}
+
+.marks-wrapper {
+  background: #0303a1;
+  border-radius: 0 0 12px 12px;
+}
+
+.marks {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: $breakpoint-large) {
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

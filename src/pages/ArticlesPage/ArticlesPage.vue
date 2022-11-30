@@ -2,28 +2,26 @@
   <div :class="styled.container">
     <div>
       <TypographyText
-          size="header1"
-          color="darkgray"
-          value="Статьи о подшибниках и заводах-изготовителях"
+        size="header1"
+        color="darkgray"
+        value="Статьи о подшибниках и заводах-изготовителях"
       />
       <TypographyText
-          :class="styled.subTitle"
-          size="title2"
-          color="darkgray"
-          value="В этом разделе вы можете найти полезную информацию о подшипниках и  о заводах-изготовителях подшипников"
+        :class="styled.subTitle"
+        size="title2"
+        color="darkgray"
+        value="В этом разделе вы можете найти полезную информацию о подшипниках и  о заводах-изготовителях подшипников"
       />
     </div>
 
-    <div :class="styled.articles"
-    >
+    <div :class="styled.articles">
       <ArticleBlock
-          v-for="article in articlesData"
-          :key="article.id"
-          :title="article.title"
-          :publicationDate="article.publicationDate"
+        v-for="article in articlesData"
+        :key="article.id"
+        :title="article.title"
+        :publication-date="article.publicationDate"
       />
     </div>
-
   </div>
 </template>
 

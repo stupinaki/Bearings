@@ -14,7 +14,6 @@
         Найти подшипники
       </ButtonUI>
     </router-link>
-
     <router-link
       :to="{name: routerNames.FAQ}"
       :class="styled.itemLink"
@@ -27,10 +26,8 @@
         Вопросы и ответы
       </ButtonUI>
     </router-link>
-    <router-link
-        :to="{name: routerNames.articles}"
-        :class="styled.itemLink"
-    >
+
+    <div :class="styled.article">
       <ButtonUI
           size="m"
           type-style="pseudo"
@@ -38,7 +35,9 @@
       >
         Статьи
       </ButtonUI>
-    </router-link>
+      <ArticlesMenu :class="styled.options"/>
+    </div>
+
     <router-link
       :to="{name: routerNames.companies}"
       :class="styled.itemLink"
@@ -51,7 +50,6 @@
         Компании
       </ButtonUI>
     </router-link>
-
     <router-link
       :to="{name: routerNames.contacts}"
       :class="styled.itemLink"
@@ -64,7 +62,6 @@
         Контакты
       </ButtonUI>
     </router-link>
-
     <router-link
       :to="{name: routerNames.becomePartner}"
       :class="[styled.itemLink, styled.itemLinkSecondaryBtn]"
@@ -81,13 +78,15 @@
 
 <script>
 import {routerNames} from "../../router/router.js";
+import ArticlesMenu from "../../pages/ArticlesPage/components/articlesMenu/ArticlesMenu.vue";
 import ButtonUI from "../UI/button/ButtonUI.vue";
 import styled from "./navigationMenu.module.css";
 
 export default {
   name: "NavigationMenu",
   components: {
-    ButtonUI,
+    ArticlesMenu,
+    ButtonUI
   },
   data() {
     return {
@@ -95,5 +94,6 @@ export default {
       routerNames,
     };
   },
+
 };
 </script>

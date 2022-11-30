@@ -19,6 +19,8 @@
           <ProductCards :products-chunk="props.currentPageData" />
         </template>
       </PaginationComponent>
+
+      <AdvertisementComponent />
     </div>
   </div>
 </template>
@@ -33,20 +35,11 @@ import SearchComponent from "../../components/searchComponent/SearchComponent.vu
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
 import NothingFoundForm from "../../components/nothingFoundForm/NothingFoundForm.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
+import AdvertisementComponent from "../../components/advertisement/AdvertisementComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
   name: "ProductsPage",
-  components: {
-    ErrorUI,
-    LoaderUI,
-    OfferCards,
-    ProductCards,
-    SearchComponent,
-    FiltersComponent,
-    NothingFoundForm,
-    PaginationComponent,
-  },
   data() {
     return {
       styled,
@@ -57,6 +50,17 @@ export default {
     ...mapState("products", ["products", "loading", "error"]),
     ...mapState("viewport", ["viewportWidth"]),
     ...mapState("searchComponent", ["searchParams"]),
+  },
+  components: {
+    ErrorUI,
+    LoaderUI,
+    OfferCards,
+    ProductCards,
+    SearchComponent,
+    FiltersComponent,
+    NothingFoundForm,
+    PaginationComponent,
+    AdvertisementComponent,
   },
   watch: {
     "$route.params": {

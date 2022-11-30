@@ -68,14 +68,14 @@
           </ButtonUI>
         </router-link>
         <router-link
-            :to="{name: routerNames.articles}"
-            :class="styled.itemLink"
+          :to="{name: routerNames.articles}"
+          :class="styled.itemLink"
         >
           <ButtonUI
-              size="m"
-              type-style="pseudo"
-              :class="styled.btn"
-              @click="toggleMenu"
+            size="m"
+            type-style="pseudo"
+            :class="styled.btn"
+            @click="toggleMenu"
           >
             Статьи
           </ButtonUI>
