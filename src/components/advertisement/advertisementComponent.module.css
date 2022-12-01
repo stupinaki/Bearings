@@ -1,23 +1,17 @@
 @import "/src/styles/variables.modules.css";
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-}
-
 .advertisement {
   width: max-content;
   margin: 40px auto 0;
   font-size: 18px;
   color: white;
+  text-align: center;
   background-color: #0c0c44;
   border-radius: 12px;
 }
 
 .name {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -38,6 +32,10 @@
 
 .link {
   color: $secondary-text-color;
+}
+
+.link:hover {
+  transform: scale(1.04);
 }
 
 .order {
@@ -74,5 +72,13 @@
     gap: 16px;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .order {
+    min-width: 100%;
+  }
+
+  .contacts {
+    gap: 20px;
   }
 }

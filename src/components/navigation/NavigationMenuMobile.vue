@@ -68,19 +68,6 @@
           </ButtonUI>
         </router-link>
         <router-link
-          :to="{name: routerNames.articles}"
-          :class="styled.itemLink"
-        >
-          <ButtonUI
-            size="m"
-            type-style="pseudo"
-            :class="styled.btn"
-            @click="toggleMenu"
-          >
-            Статьи
-          </ButtonUI>
-        </router-link>
-        <router-link
           :to="{name: routerNames.companies}"
           :class="styled.itemLink"
         >
@@ -106,8 +93,38 @@
             Контакты
           </ButtonUI>
         </router-link>
+        <div :class="styled.articles">
+          <div :class="styled.articlesText">
+            Статьи
+          </div>
+          <router-link
+            :to="{name: routerNames.bearingsArticles}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+              :class="[styled.btn, styled.articlesOptions]"
+              @click="toggleMenu"
+            >
+              О подшибниках
+            </ButtonUI>
+          </router-link>
+          <router-link
+            :to="{name: routerNames.companiesArticles}"
+            :class="styled.itemLink"
+          >
+            <ButtonUI
+              size="m"
+              type-style="pseudo"
+              :class="[styled.btn, styled.articlesOptions]"
+              @click="toggleMenu"
+            >
+              О заводах-изготовителях
+            </ButtonUI>
+          </router-link>
+        </div>
       </div>
-
       <div :class="styled.becomePartnerWrapper">
         <router-link
           :to="{name: routerNames.becomePartner}"

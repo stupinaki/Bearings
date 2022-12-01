@@ -47,29 +47,10 @@
       </div>
     </div>
   </div>
-
-<!--  <div :class="styled.container">-->
-<!--    <a-->
-<!--        v-if="isSmall"-->
-<!--        href="http://podshipnikopt.ru/"-->
-<!--        target="_blank"-->
-<!--    >-->
-<!--      <img src="../../assets/advertisementSmall.svg" alt="advertisementSmall">-->
-<!--    </a>-->
-
-<!--    <a-->
-<!--        v-else-->
-<!--        href="http://podshipnikopt.ru/"-->
-<!--        target="_blank"-->
-<!--    >-->
-<!--      <img src="../../assets/advertisementBig.svg" alt="advertisementBig">-->
-<!--    </a>-->
-<!--  </div>-->
 </template>
 
 <script>
 import styled from "./advertisementComponent.module.css";
-import {mapState} from "vuex";
 
 export default {
   name: "AdvertisementComponent", 
@@ -78,11 +59,5 @@ export default {
       styled,
     }
   },
-  computed: {
-    ...mapState("viewport", ["viewportWidth"]),
-    isSmall() {
-      return this.viewportWidth <= 900;
-    }
-  }
 }
 </script>
