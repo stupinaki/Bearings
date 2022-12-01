@@ -8,25 +8,9 @@
   margin: $primary-margin;
 }
 
-.sub-title {
-  display: grid;
-  grid-template-columns: 36%;
-  margin-bottom: 0;
-}
-
-.articles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
-  }
-
-  .sub-title {
-    grid-template-columns: 100%;
   }
 }
 
@@ -34,10 +18,5 @@
   .container {
     gap: $medium-components-gap;
     margin: $mobile-margin;
-  }
-
-  .articles {
-    grid-template-columns: 100%;
-    gap: 24px;
   }
 }

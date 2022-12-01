@@ -8,8 +8,8 @@
 }
 
 .advertisement {
-  width: 100%;
-  margin-top: 40px;
+  width: max-content;
+  margin: 40px auto 0;
   font-size: 18px;
   color: white;
   background-color: #0c0c44;
@@ -23,7 +23,7 @@
 
 .description {
   display: flex;
-  gap: 8px;
+  gap: 40px;
   align-items: start;
   justify-content: space-between;
   padding: 20px;

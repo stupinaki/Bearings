@@ -3,7 +3,6 @@ import FAQPage from "../pages/FAQPage/FAQPage.vue";
 import HomePage from "../pages/homePage/HomePage.vue";
 import EmptyPage from "../pages/emptyPage/EmptyPage.vue";
 import ContactPage from "../pages/contactPage/ContactPage.vue";
-import ArticlesPage from "../pages/ArticlesPage/ArticlesPage.vue";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage.vue";
 import ProductsPage from "../pages/productsPage/ProductsPage.vue";
 import OneCompanyPage from "../pages/oneCompanyPage/OneCompanyPage.vue";
@@ -11,13 +10,14 @@ import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
 import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
 import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
+import BearingsArticlesPage from "../pages/ArticlesPage/BearingsArticlesPage.vue";
+import CompaniesArticlesPage from "../pages/ArticlesPage/CompaniesArticlesPage.vue";
 
 
 export const routerNames = {
     FAQ: "FAQ",
     home: "home",
     empty: "empty",
-    articles: "articles",
     contacts: "contacts",
     products: "products",
     notFound: "notFound",
@@ -25,7 +25,9 @@ export const routerNames = {
     oneCompany: "oneCompany",
     privacyPolicy: "privacyPolicy",
     contractOffer: "contractOffer",
-    becomePartner: "becomePartner"
+    becomePartner: "becomePartner",
+    bearingsArticles: "bearingsArticles",
+    companiesArticles: "companiesArticles"
 }
 
 const routes = [
@@ -45,9 +47,14 @@ const routes = [
         component: ProductsPage,
     },
     {
-        path: '/articles',
-        name: routerNames.articles,
-        component: ArticlesPage,
+        path: '/bearings-articles',
+        name: routerNames.bearingsArticles,
+        component: BearingsArticlesPage,
+    },
+    {
+        path: '/companies-articles',
+        name: routerNames.companiesArticles,
+        component: CompaniesArticlesPage,
     },
     {
         path: '/empty',

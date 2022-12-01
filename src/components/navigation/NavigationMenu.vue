@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="styled.wrapper"
-  >
+  <div :class="styled.wrapper">
     <router-link
       :to="{name: routerNames.home}"
       :class="styled.itemLink"
@@ -26,7 +24,6 @@
         Вопросы и ответы
       </ButtonUI>
     </router-link>
-
     <div :class="styled.article">
       <ButtonUI
         size="m"
@@ -37,7 +34,6 @@
       </ButtonUI>
       <ArticlesMenu :class="styled.options" />
     </div>
-
     <router-link
       :to="{name: routerNames.companies}"
       :class="styled.itemLink"
