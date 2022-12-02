@@ -11,6 +11,7 @@
 }
 
 .name {
+  padding-top: 2px;
   font-size: 30px;
   font-weight: bold;
 }

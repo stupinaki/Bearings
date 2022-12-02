@@ -21,7 +21,7 @@
         type-style="pseudo"
         :class="styled.btn"
       >
-        Вопросы и ответы
+        FAQ
       </ButtonUI>
     </router-link>
     <div :class="styled.article">
