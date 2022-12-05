@@ -7,6 +7,18 @@
   justify-content: flex-end;
 }
 
+.articles {
+  margin-left: 20px;
+}
+
+.articles-text {
+  padding: 16px 0 14px;
+}
+
+.articles-options {
+  padding: 12px 20px;
+}
+
 .btn {
   justify-content: flex-start;
   height: max-content;

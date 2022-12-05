@@ -28,73 +28,68 @@
         </div>
       </div>
       <div :class="styled.details">
-        <div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Класс точности
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ prClass }}
-            </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Класс точности
           </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Тип
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ type }}
-            </div>
-          </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Параметр
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ bearingParameters }}
-            </div>
-          </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Производитель
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ manufacturer }}
-            </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ prClass }}
           </div>
         </div>
-
-        <div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Внутренний диаметр (мм)
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ innerD }}
-            </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Тип
           </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Внешний диаметр (мм)
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ outerD }}
-            </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ type }}
           </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Ширина (мм)
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ width }}
-            </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Параметр
           </div>
-          <div :class="styled.row">
-            <div :class="[styled.detailsTitle, styled.text]">
-              Масса (кг)
-            </div>
-            <div :class="[styled.detailsSubTitle, styled.text]">
-              {{ weight }}
-            </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ bearingParameters }}
+          </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Производитель
+          </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ manufacturer }}
+          </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Внутренний диаметр (мм)
+          </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ innerD }}
+          </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Внешний диаметр (мм)
+          </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ outerD }}
+          </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Ширина (мм)
+          </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ width }}
+          </div>
+        </div>
+        <div :class="styled.row">
+          <div :class="[styled.detailsTitle, styled.text]">
+            Масса (кг)
+          </div>
+          <div :class="[styled.detailsSubTitle, styled.text]">
+            {{ weight }}
           </div>
         </div>
       </div>

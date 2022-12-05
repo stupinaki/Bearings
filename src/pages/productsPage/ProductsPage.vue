@@ -19,6 +19,8 @@
           <ProductCards :products-chunk="props.currentPageData" />
         </template>
       </PaginationComponent>
+
+      <AdvertisementComponent />
     </div>
   </div>
 </template>
@@ -33,6 +35,7 @@ import SearchComponent from "../../components/searchComponent/SearchComponent.vu
 import FiltersComponent from "./components/filters/FiltersComponent.vue";
 import NothingFoundForm from "../../components/nothingFoundForm/NothingFoundForm.vue";
 import PaginationComponent from "../../components/paginationComponent/PaginationComponent.vue";
+import AdvertisementComponent from "../../components/advertisement/AdvertisementComponent.vue";
 import styled from "./productsPage.module.css";
 
 export default {
@@ -46,6 +49,7 @@ export default {
     FiltersComponent,
     NothingFoundForm,
     PaginationComponent,
+    AdvertisementComponent,
   },
   data() {
     return {

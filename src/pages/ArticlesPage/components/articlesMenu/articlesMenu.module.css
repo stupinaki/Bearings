@@ -1,0 +1,20 @@
+@import "/src/styles/variables.modules.css";
+
+.wrapper {
+  width: max-content;
+  overflow: hidden;
+  background-color: $primary-background;
+  border-radius: 8px;
+  box-shadow: $shadow-primary;
+}
+
+.option {
+  display: block;
+  padding: 16px;
+  color: $primary-color;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: $secondary-btn-color;
+}

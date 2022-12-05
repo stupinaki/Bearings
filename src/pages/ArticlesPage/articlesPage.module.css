@@ -8,27 +8,9 @@
   margin: $primary-margin;
 }
 
-.header {
-  margin-bottom: 0;
-}
-
-.form {
-  width: 40%;
-}
-
-@media screen and (max-width: $breakpoint-extra-large) {
-  .form {
-    width: 60%;
-  }
-}
-
 @media screen and (max-width: $breakpoint-large) {
   .container {
     margin: $secondary-margin;
-  }
-
-  .form {
-    width: 80%;
   }
 }
 
@@ -36,9 +18,5 @@
   .container {
     gap: $medium-components-gap;
     margin: $mobile-margin;
-  }
-
-  .form {
-    width: 100%;
   }
 }

@@ -4,6 +4,7 @@
       size="header1"
       color="darkgray"
       value="Часто задаваемые вопросы"
+      :class="styled.header"
     />
 
     <div>

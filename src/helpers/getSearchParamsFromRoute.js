@@ -8,9 +8,10 @@ export function parseAndValidateArrValueFromRoute(initValues, allOptions) {
 export function getSearchParamsFromRoute(queryParams) {
     const searchParams = {};
 
-    for(let param in defaultBearingsSearchParams) {
+    for (let param in defaultBearingsSearchParams) {
         const value = queryParams[param];
         searchParams[param] = value || defaultBearingsSearchParams[param];
     }
     return searchParams;
 }
+

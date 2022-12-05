@@ -10,6 +10,8 @@ import CompaniesPage from "../pages/companiesPage/CompaniesPage.vue";
 import PrivacyPolicyPage from "../pages/privacyPolicyPage/PrivacyPolicyPage.vue";
 import ContractOfferPage from "../pages/contractOfferPage/СontractOfferPage.vue";
 import BecomePartnerPage from "../pages/becomePartnerPage/BecomePartnerPage.vue";
+import BearingsArticlesPage from "../pages/ArticlesPage/BearingsArticlesPage.vue";
+import CompaniesArticlesPage from "../pages/ArticlesPage/CompaniesArticlesPage.vue";
 
 
 export const routerNames = {
@@ -23,7 +25,9 @@ export const routerNames = {
     oneCompany: "oneCompany",
     privacyPolicy: "privacyPolicy",
     contractOffer: "contractOffer",
-    becomePartner: "becomePartner"
+    becomePartner: "becomePartner",
+    bearingsArticles: "bearingsArticles",
+    companiesArticles: "companiesArticles"
 }
 
 const routes = [
@@ -41,6 +45,16 @@ const routes = [
         path: '/products',
         name: routerNames.products,
         component: ProductsPage,
+    },
+    {
+        path: '/bearings-articles',
+        name: routerNames.bearingsArticles,
+        component: BearingsArticlesPage,
+    },
+    {
+        path: '/companies-articles',
+        name: routerNames.companiesArticles,
+        component: CompaniesArticlesPage,
     },
     {
         path: '/empty',
